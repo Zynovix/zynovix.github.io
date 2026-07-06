@@ -1,1 +1,0 @@
-# zynovix.github.io

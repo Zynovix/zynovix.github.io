@@ -1,5 +1,3 @@
-# Zynovix AI 1.0 Professional
+# Zynovix AI 1.0 Professional Flat Release
 
-Professional static website for Zynovix AI, ready for GitHub Pages.
-
-Upload all files and folders to the root of `Zynovix/zynovix.github.io`.
+Upload all files directly to the root of `Zynovix/zynovix.github.io`. No folders required.

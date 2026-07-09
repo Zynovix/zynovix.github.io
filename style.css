@@ -815,3 +815,34 @@ body:has(.page-hero) .page-hero{
   transform:translateY(-4px) scale(1.05) !important;
   box-shadow:0 22px 55px rgba(56,189,248,.45) !important;
 }
+/* ===== Hero Tags ===== */
+
+.hero-tags{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:32px;
+}
+
+.hero-tags a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:600;
+    color:#d9ecff;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.35s;
+    backdrop-filter:blur(12px);
+}
+
+.hero-tags a:hover{
+    color:#fff;
+    border-color:#38bdf8;
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    box-shadow:0 10px 35px rgba(56,189,248,.35);
+    transform:translateY(-3px);
+}

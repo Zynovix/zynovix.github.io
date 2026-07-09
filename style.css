@@ -215,3 +215,13 @@ main a{
 main a:hover{
     text-decoration:underline;
 }
+.cards.three{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:28px;
+  align-items:stretch;
+}
+
+.cards.three .card{
+  min-height:230px;
+}

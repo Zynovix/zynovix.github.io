@@ -707,3 +707,32 @@ body:has(.page-hero) .page-hero{
     padding:68px 0;
   }
 }
+/* Blog page final fix */
+.page-hero{
+  padding-top:140px !important;
+  padding-bottom:70px !important;
+  margin-bottom:0 !important;
+}
+
+.page-hero h1{
+  font-size:clamp(44px,6vw,76px) !important;
+  line-height:1.05 !important;
+  margin-top:18px !important;
+}
+
+.section.shell.reveal{
+  padding-top:50px !important;
+}
+
+.cards.three{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:32px !important;
+}
+
+.card{
+  background:rgba(255,255,255,.06) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  border-radius:28px !important;
+  padding:30px !important;
+}

@@ -846,3 +846,66 @@ body:has(.page-hero) .page-hero{
     box-shadow:0 10px 35px rgba(56,189,248,.35);
     transform:translateY(-3px);
 }
+/*==================================================
+ HERO MINI BUTTONS - ZYNOVIX AI
+==================================================*/
+
+.hero-tags{
+    display:flex;
+    gap:18px;
+    margin-top:32px;
+    flex-wrap:wrap;
+}
+
+.hero-tag{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    color:#dff5ff;
+    font-weight:700;
+    font-size:15px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(16px);
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.18);
+}
+
+.hero-tag span{
+    font-size:18px;
+}
+
+.hero-tag:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2ea8ff,
+            #3f6cff,
+            #775bff
+        );
+
+    color:white;
+
+    border-color:#4fc3ff;
+
+    box-shadow:
+        0 18px 40px rgba(0,170,255,.35);
+}

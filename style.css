@@ -765,3 +765,53 @@ body:has(.page-hero) .page-hero{
 .card .btn-ghost:active{
     transform:scale(.98);
 }
+/* ===== Premium Blog Cards Final Polish ===== */
+
+.cards.three{
+  align-items:stretch !important;
+}
+
+.cards.three .card{
+  min-height:380px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  position:relative !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035)) !important;
+  box-shadow:0 20px 60px rgba(0,0,0,.22) !important;
+}
+
+.cards.three .card:hover{
+  transform:translateY(-10px) scale(1.015) !important;
+  border-color:rgba(34,211,238,.75) !important;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.38),
+    0 0 45px rgba(34,211,238,.18) !important;
+}
+
+.cards.three .card h3{
+  min-height:68px;
+}
+
+.cards.three .card p{
+  flex:1;
+}
+
+.cards.three .card .btn,
+.cards.three .card .btn-ghost{
+  margin-top:auto !important;
+  align-self:flex-start !important;
+  padding:13px 26px !important;
+  border-radius:16px !important;
+  background:linear-gradient(135deg,#38bdf8,#2563eb,#7c3aed) !important;
+  color:#fff !important;
+  box-shadow:0 14px 38px rgba(56,189,248,.28) !important;
+}
+
+.cards.three .card .btn:hover,
+.cards.three .card .btn-ghost:hover{
+  transform:translateY(-4px) scale(1.05) !important;
+  box-shadow:0 22px 55px rgba(56,189,248,.45) !important;
+}

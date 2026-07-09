@@ -316,7 +316,291 @@ DeepSeek has quickly become one of the most popular AI models among developers b
 <p>
 DeepSeek is especially recommended for software developers, computer science students, and engineers looking for a capable AI coding assistant.
 </p>
+<hr>
 
+<section>
+
+<h2>6. Microsoft Copilot</h2>
+
+<h3>Best For</h3>
+
+<p>
+Productivity, Microsoft Office, coding, and business users.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Microsoft Copilot is Microsoft's AI assistant integrated into Windows, Microsoft 365, Word, Excel, PowerPoint, Outlook, and Teams. It helps users write documents, summarize emails, analyze spreadsheets, and improve daily productivity.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Word assistance</li>
+
+<li>Excel analysis</li>
+
+<li>PowerPoint creation</li>
+
+<li>Email writing</li>
+
+<li>Meeting summaries</li>
+
+<li>Windows integration</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Perfect for Microsoft Office users</li>
+
+<li>Easy to use</li>
+
+<li>Excellent productivity features</li>
+
+<li>Fast responses</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Many features require Microsoft 365.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>7. Cursor AI</h2>
+
+<h3>Best For</h3>
+
+<p>
+Professional software development.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Cursor AI is one of the most popular AI-powered code editors available today. Built on Visual Studio Code, it enables developers to generate code, explain complex projects, fix bugs, and refactor applications using natural language.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>AI coding assistant</li>
+
+<li>Bug fixing</li>
+
+<li>Code generation</li>
+
+<li>Code explanation</li>
+
+<li>Project navigation</li>
+
+<li>VS Code compatibility</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Excellent developer experience</li>
+
+<li>Powerful autocomplete</li>
+
+<li>Great for large projects</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Advanced usage requires a paid plan.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>8. GitHub Copilot</h2>
+
+<h3>Best For</h3>
+
+<p>
+Developers and programming students.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+GitHub Copilot helps developers write code faster by suggesting complete functions, improving existing code, and reducing repetitive programming tasks. It supports dozens of programming languages and integrates with popular code editors.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Code completion</li>
+
+<li>Function generation</li>
+
+<li>Documentation writing</li>
+
+<li>Bug detection</li>
+
+<li>Programming support</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Huge time saver</li>
+
+<li>Supports many languages</li>
+
+<li>Excellent VS Code integration</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Subscription required after the free trial for many users.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>9. Leonardo AI</h2>
+
+<h3>Best For</h3>
+
+<p>
+AI image generation, concept art, marketing, and game assets.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Leonardo AI allows users to create professional-quality AI-generated images using simple text prompts. Designers, marketers, game developers, and content creators use it to generate logos, illustrations, characters, and product concepts.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Text-to-image</li>
+
+<li>AI image editing</li>
+
+<li>Background removal</li>
+
+<li>High-resolution export</li>
+
+<li>Style presets</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>High-quality image generation</li>
+
+<li>Free daily credits</li>
+
+<li>Easy interface</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Limited free image generation.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>10. NotebookLM</h2>
+
+<h3>Best For</h3>
+
+<p>
+Students, researchers, and document summarization.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+NotebookLM helps users organize notes, summarize documents, ask questions about uploaded files, and quickly understand complex information. It is especially useful for studying, research projects, and preparing reports.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Document summaries</li>
+
+<li>Question answering</li>
+
+<li>Research assistant</li>
+
+<li>PDF support</li>
+
+<li>Note organization</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Excellent for studying</li>
+
+<li>Fast document analysis</li>
+
+<li>Simple interface</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Some features depend on Google's ecosystem.</li>
+
+</ul>
+
+</section>
 </section>
     </article>
   </main>

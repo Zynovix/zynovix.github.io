@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>What Is Artificial Intelligence? Beginner Guide | Zynovix AI</title>
+  <meta name="description" content="Learn what artificial intelligence is, how AI works, types of AI, real examples, benefits, risks, and the future of AI in this beginner guide." />
+
+  <link rel="canonical" href="https://zynovix.github.io/what-is-artificial-intelligence.html" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" />
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="header">
+    <nav class="nav shell">
+      <a class="brand" href="index.html">
+        <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
+        <span>Zynovix AI</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="shell page-hero">
+    <p class="kicker">AI Guide</p>
+    <h1>What Is Artificial Intelligence?</h1>
+    <p>A complete beginner guide to AI, how it works, where it is used, and why it matters.</p>
+
+    <article <hr>
+
+<section>
+
+<h2>2. Claude AI</h2>
+
+<h3>Best For</h3>
+
+<p>
+Long-form writing, document analysis, coding, research, and advanced reasoning.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Claude AI is one of the strongest competitors to ChatGPT and has become increasingly popular among writers, developers, researchers, and business professionals. Built to understand complex instructions and process lengthy documents, Claude excels at tasks that require careful reasoning and detailed responses.
+</p>
+
+<p>
+Unlike many AI assistants, Claude can analyze large documents without losing context, making it particularly useful for reviewing contracts, research papers, technical documentation, and business reports.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Long document analysis</li>
+
+<li>Natural writing style</li>
+
+<li>Programming assistance</li>
+
+<li>Research support</li>
+
+<li>Text summarization</li>
+
+<li>Brainstorming</li>
+
+<li>Email writing</li>
+
+<li>Content creation</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Outstanding reasoning capabilities</li>
+
+<li>Very natural writing style</li>
+
+<li>Excellent for long documents</li>
+
+<li>High-quality coding assistance</li>
+
+<li>Easy-to-understand responses</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Some advanced features require a paid plan.</li>
+
+<li>Availability may vary by country.</li>
+
+</ul>
+
+<p>
+Claude is an excellent choice for users who frequently work with reports, books, technical documents, or professional writing projects.
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>3. Google Gemini</h2>
+
+<h3>Best For</h3>
+
+<p>
+Research, Google Workspace, studying, and productivity.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Google Gemini is Google's flagship AI assistant designed to integrate seamlessly with Gmail, Google Docs, Google Drive, Google Sheets, and other Google services. It combines AI capabilities with Google's search ecosystem, making it particularly useful for research and everyday productivity.
+</p>
+
+<p>
+Students can use Gemini to summarize study materials, professionals can draft documents and emails, and businesses can automate repetitive office tasks.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Google Docs integration</li>
+
+<li>Gmail assistance</li>
+
+<li>Spreadsheet analysis</li>
+
+<li>Research support</li>
+
+<li>Image understanding</li>
+
+<li>Writing assistance</li>
+
+<li>Presentation generation</li>
+
+<li>Cloud integration</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Excellent Google integration</li>
+
+<li>Fast performance</li>
+
+<li>Simple user interface</li>
+
+<li>Free version available</li>
+
+<li>Good research capabilities</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Premium features require Google AI Pro.</li>
+
+</ul>
+
+<p>
+If your daily workflow already depends on Google services, Gemini can significantly improve productivity by reducing repetitive work and assisting with writing, research, and organization.
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>4. Perplexity AI</h2>
+
+<h3>Best For</h3>
+
+<p>
+Research, fact-checking, and finding trustworthy information.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+Perplexity AI is one of the fastest-growing AI search assistants. Instead of simply generating answers, it provides references and sources, making it particularly valuable for students, researchers, journalists, and professionals who need reliable information.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Real-time web search</li>
+
+<li>Source citations</li>
+
+<li>Fast answers</li>
+
+<li>Research assistant</li>
+
+<li>Follow-up questions</li>
+
+<li>Document understanding</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Excellent for research</li>
+
+<li>Includes citations</li>
+
+<li>Very fast</li>
+
+<li>Easy to use</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Some AI models require Perplexity Pro.</li>
+
+</ul>
+
+<p>
+For anyone looking for reliable information with transparent sources, Perplexity AI is one of the best free AI tools currently available.
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>5. DeepSeek</h2>
+
+<h3>Best For</h3>
+
+<p>
+Programming, mathematics, reasoning, and technical problem solving.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+DeepSeek has quickly become one of the most popular AI models among developers because of its strong performance in programming and mathematical reasoning. It performs exceptionally well when generating code, debugging software, solving algorithms, and explaining technical concepts.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+
+<li>Code generation</li>
+
+<li>Debugging</li>
+
+<li>Mathematics</li>
+
+<li>Reasoning</li>
+
+<li>Algorithm explanations</li>
+
+<li>Programming support</li>
+
+</ul>
+
+<h3>Pros</h3>
+
+<ul>
+
+<li>Excellent coding performance</li>
+
+<li>Fast responses</li>
+
+<li>Strong reasoning</li>
+
+<li>Free to use</li>
+
+</ul>
+
+<h3>Cons</h3>
+
+<ul>
+
+<li>Smaller ecosystem than ChatGPT.</li>
+
+</ul>
+
+<p>
+DeepSeek is especially recommended for software developers, computer science students, and engineers looking for a capable AI coding assistant.
+</p>
+
+</section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <a class="brand" href="index.html">
+        <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
+        <span>Zynovix AI</span>
+      </a>
+      <p>AI learning, automation, and digital intelligence.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

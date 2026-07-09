@@ -107,3 +107,49 @@ overflow:hidden;{background:var(--panel);border:1px solid var(--line);border-rad
 .actions .btn:hover{
   transform:translateY(-4px) scale(1.03);
 }
+/* ===========================
+   Article Page
+=========================== */
+
+main.shell{
+    max-width:900px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+main h1{
+    font-size:48px;
+    margin-bottom:24px;
+    line-height:1.2;
+}
+
+main h2{
+    margin-top:50px;
+    margin-bottom:16px;
+    color:#58b7ff;
+}
+
+main p{
+    font-size:18px;
+    line-height:1.9;
+    color:#d6dbe8;
+}
+
+main ul{
+    margin:20px 0 30px 25px;
+}
+
+main li{
+    margin-bottom:12px;
+    color:#d6dbe8;
+}
+
+main a{
+    color:#4fc3ff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+main a:hover{
+    text-decoration:underline;
+}

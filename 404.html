@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Page Not Found | Zynovix AI</title>
-  <meta name="description" content="The requested page could not be found on Zynovix AI." />
+  <meta name="description" content="The requested page could not be found." />
+  <meta name="theme-color" content="#050816" />
   <link rel="canonical" href="https://zynovix.github.io/404.html" />
+
+  <meta property="og:title" content="Page Not Found | Zynovix AI" />
+  <meta property="og:description" content="The requested page could not be found." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zynovix.github.io/404.html" />
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <div class="noise"></div>
 <div class="orb orb-a"></div>
 <div class="orb orb-b"></div>
+
 <header class="header">
   <nav class="nav shell">
     <a class="brand" href="index.html" aria-label="Zynovix AI Home">
       <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
+
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
     <div class="nav-menu" id="navMenu">
       <a href="tools.html">AI Tools</a>
       <a href="learn.html">Learn</a>
@@ -33,11 +45,11 @@
   </nav>
 </header>
 <main>
-  <section class="page-hero shell" style="min-height:70vh;display:grid;place-content:center;">
+  <section class="page-hero shell not-found">
     <span class="kicker">404 Error</span>
     <h1>Page not found</h1>
     <p>The page may have moved, been renamed, or no longer exists.</p>
-    <div class="actions" style="justify-content:center;">
+    <div class="actions center-actions">
       <a class="btn btn-primary" href="index.html">Return Home</a>
       <a class="btn btn-ghost" href="blog.html">Visit Blog</a>
     </div>
@@ -49,15 +61,18 @@
       <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
+
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="contact.html">Contact</a>
       <a href="blog.html">Blog</a>
     </nav>
+
     <span>© 2026 Zynovix AI</span>
   </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>

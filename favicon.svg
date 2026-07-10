@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Zynovix AI logo"><defs><linearGradient id="g" x1="12" y1="18" x2="106" y2="104" gradientUnits="userSpaceOnUse"><stop stop-color="#2563eb"/><stop offset=".48" stop-color="#22d3ee"/><stop offset="1" stop-color="#7c3aed"/></linearGradient><filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#22d3ee" flood-opacity=".35"/></filter></defs><rect width="120" height="120" rx="34" fill="#071026"/><path filter="url(#s)" d="M30 28h64c4.5 0 6.9 5.3 3.9 8.7L58.5 82H91v10H27c-4.5 0-6.9-5.3-3.9-8.7L62.5 38H30V28Z" fill="url(#g)"/><circle cx="91" cy="28" r="7" fill="#67e8f9"/><circle cx="29" cy="92" r="6" fill="#7c3aed"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset=".55" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="#071020"/>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#g)" opacity=".18"/>
+  <path d="M35 31h61L58 82h36v15H31l38-51H35z" fill="url(#g)"/>
+</svg>

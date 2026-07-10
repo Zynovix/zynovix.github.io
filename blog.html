@@ -1,5 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <style>
+/* انیمیشن‌ها و چیدمان منظم */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* پیدا کردن و استایل‌دهی به کارت‌ها */
+article, .card, .post-card, [class*="card"] {
+    animation: fadeInUp 0.6s ease-out both;
+    transition: all 0.3s ease;
+}
+
+article:nth-child(1), .card:nth-child(1), .post-card:nth-child(1) { animation-delay: 0.1s; }
+article:nth-child(2), .card:nth-child(2), .post-card:nth-child(2) { animation-delay: 0.2s; }
+article:nth-child(3), .card:nth-child(3), .post-card:nth-child(3) { animation-delay: 0.3s; }
+article:nth-child(4), .card:nth-child(4), .post-card:nth-child(4) { animation-delay: 0.4s; }
+
+article:hover, .card:hover, .post-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* چیدمان گرید */
+.grid, .grid-2, .grid-3, .grid-4, section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+html { scroll-behavior: smooth; }
+</style>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

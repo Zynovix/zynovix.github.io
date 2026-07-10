@@ -85,32 +85,33 @@
             box-shadow: 0 10px 25px rgba(139,92,246,0.4);
         }
         
-        /* Hero Section */
+        /* Hero Section - بزرگتر */
         .hero {
-            padding: 100px 0;
+            padding: 120px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            min-height: 80vh;
         }
         
         .hero-content .pill {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: rgba(59,130,246,0.15);
             border: 1px solid rgba(59,130,246,0.3);
             border-radius: 20px;
-            font-size: 0.85em;
+            font-size: 0.9em;
             color: #60a5fa;
             margin-bottom: 30px;
             font-weight: 600;
         }
         
         .hero-content h1 {
-            font-size: 3.5em;
+            font-size: 3.8em;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #f1f5f9;
         }
         
@@ -121,7 +122,7 @@
         }
         
         .hero-content p {
-            font-size: 1.2em;
+            font-size: 1.25em;
             color: #94a3b8;
             margin-bottom: 40px;
             line-height: 1.7;
@@ -130,17 +131,17 @@
         .hero-actions {
             display: flex;
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .btn {
-            padding: 14px 32px;
-            border-radius: 8px;
+            padding: 16px 36px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
-            font-size: 1em;
+            font-size: 1.05em;
         }
         
         .btn-primary {
@@ -150,7 +151,7 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(139,92,246,0.5);
         }
         
@@ -165,19 +166,33 @@
             background: rgba(139,92,246,0.1);
         }
         
+        /* دکمه‌های فعال */
         .hero-chips {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         
         .chip {
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: #94a3b8;
+            padding: 12px 24px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 25px;
+            font-size: 0.95em;
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .chip:hover {
+            background: rgba(59,130,246,0.2);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            color: #fff;
         }
         
         /* Hero Visual */
@@ -526,10 +541,11 @@
                         <a href="tools.html" class="btn btn-primary">Explore Tools</a>
                         <a href="learn.html" class="btn btn-ghost">Start Learning</a>
                     </div>
+                    <!-- دکمه‌های فعال -->
                     <div class="hero-chips">
-                        <span class="chip">🤖 AI Tools</span>
-                        <span class="chip">📚 Learning Paths</span>
-                        <span class="chip">⚡ Automation</span>
+                        <a href="tools.html" class="chip">🤖 AI Tools</a>
+                        <a href="learn.html" class="chip">📚 Learning Paths</a>
+                        <a href="tools.html" class="chip">⚡ Automation</a>
                     </div>
                 </div>
             </div>
@@ -572,7 +588,7 @@
                 </div>
                 <div class="grid-3">
                     <article class="card">
-                        <div class="card-icon"></div>
+                        <div class="card-icon">🤖</div>
                         <h3>AI Tools Directory</h3>
                         <p>Curated, tested, and ranked AI tools for writing, design, coding, marketing, and automation.</p>
                         <a href="tools.html" class="card-link">Explore tools →</a>

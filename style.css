@@ -131,3 +131,29 @@ a{color:inherit;text-decoration:none}
   .footer-links{margin:18px 0}
   .section{padding:68px 0}
 }
+/* Jasper comparison table */
+.comparison-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  margin:28px 0 36px;
+  border:1px solid var(--line);
+  border-radius:20px;
+}
+.comparison-table{
+  width:100%;
+  min-width:720px;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.035);
+}
+.comparison-table th,
+.comparison-table td{
+  padding:16px 18px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid var(--line);
+}
+.comparison-table th{
+  color:#67e8f9;
+  background:rgba(34,211,238,.08);
+}
+.comparison-table tr:last-child td{border-bottom:0}

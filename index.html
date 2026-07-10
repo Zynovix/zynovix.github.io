@@ -497,6 +497,51 @@
             nav ul { gap: 12px; }
             .hero-content h1 { font-size: 2.2em; }
         }
+                /* ========== انیمیشن‌های حرفه‌ای ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-content { animation: fadeInUp 0.8s ease-out; }
+        .hero-visual { animation: fadeInUp 0.8s ease-out 0.2s both; }
+        .card { animation: fadeInUp 0.6s ease-out; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-10px) scale(1.02); }
+        
+        .btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn:hover { transform: translateY(-3px) scale(1.05); }
+        
+        .chip { transition: all 0.3s ease; }
+        .chip:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        
+        nav a { position: relative; transition: color 0.3s ease; }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after { width: 100%; }
+        
+        .gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #3b82f6);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>

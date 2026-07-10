@@ -909,3 +909,10 @@ body:has(.page-hero) .page-hero{
     box-shadow:
         0 18px 40px rgba(0,170,255,.35);
 }
+/* Essential pages and footer */
+.footer-links{display:flex;flex-wrap:wrap;gap:18px;color:#cbd5e1}
+.footer-links a{transition:.25s ease}
+.footer-links a:hover{color:#67e8f9}
+.form label{display:grid;gap:8px;color:#dbe5f3;font-weight:700}
+.form button{border:0;cursor:pointer;justify-self:start}
+@media(max-width:720px){.footer-links{margin:18px 0}}

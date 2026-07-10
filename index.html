@@ -3,93 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zynovix AI - Build Smarter Systems</title>
-    <meta name="description" content="Discover the best AI tools, learn AI, and automate your workflow with Zynovix AI.">
-    <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            line-height: 1.6;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo svg {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .logo-text {
-            margin-left: 10px;
-            font-size: 1.5em;
-            font-weight: bold;
-            background: linear-gradient(135deg, #1e3a8a, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        nav a:hover { color: #7c3aed; }
-        
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .hero h1 {
-            font-size: 3em;
-            background: linear-gradient(135deg, #1e3a8a, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-        .hero p { font-size: 1.3em; color: #ccc; max-width: 600px; margin: 0 auto; }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 60px 20px;
-        }
-        .feature-card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #333;
-        }
-        .feature-card h3 { color: #7c3aed; margin-bottom: 15px; }
-        
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #333;
-            color: #888;
-        }
-    </style>
+    <title>Zynovix AI | Build Smarter with AI</title>
+    <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.">
+    <meta name="theme-color" content="#050816">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-                    <svg width="40" height="
+    <div class="noise"></div>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+
+    <header class="header">
+        <nav class="nav shell">
+            <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+                <img src="logo.png" alt="Zynovix AI logo" style="height: 40px; width: auto;">
+                <span class="brand-name">Zynovix AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="tools.html">AI Tools</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="cta">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container shell">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <span class="pill">AI LEARNING • AUTOMATION • DIGITAL INTELLIGENCE</span>
+                        <h1>Build smarter systems with <span class="gradient">Zynovix AI</span></h1>
+                        <p>Zynovix AI helps creators, learners, and businesses use artificial intelligence to automate work, create faster, and build future-ready digital products.</p>
+                        <div class="hero-actions">
+                            <a href="tools.html" class="btn primary">Explore Tools</a>
+                            <a href="learn.html" class="btn ghost">Start Learning</a>
+                        </div>
+                        <div class="hero-chips">
+                            <span class="chip">🤖 AI Tools</span>
+                            <span class="chip">📚 Learning Paths</span>
+                            <span class="chip"> Automation</span>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="visual-card">
+                            <div class="visual-header">
+                                <div class="visual-logo">Z</div>
+                                <div>
+                                    <div class="visual-title">Zynovix Core</div>
+                                    <div class="visual-sub">Intelligence Engine</div>
+                                </div>
+                            </div>
+                            <div class="visual-body">
+                                <div class="orb-ring">
+                                    <div class="orb-center">Z</div>
+                                </div>
+                            </div>
+                            <div class="visual-stats">
+                                <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">AI Access</div></div>
+                                <div class="stat"><div class="stat-value">Fast</div><div class="stat-label">Workflows</div></div>
+                                <div class="stat"><div class="stat-value">Smart</div><div class="stat-label">Learning</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container shell">
+                <div class="section-head">
+                    <span class="pill">What you get</span>
+                    <h2>Three pillars of intelligent work</h2>
+                    <p>Everything you need to learn, build, and scale with AI — in one place.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-icon">🤖</div>
+                        <h3>AI Tools Directory</h3>
+                        <p>Curated, tested, and ranked AI tools for writing, design, coding, marketing, and automation.</p>
+                        <a href="tools.html" class="card-link">Explore tools →</a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">📚</div>
+                        <h3>Learning Paths</h3>
+                        <p>Step-by-step guides from beginner to advanced. Master prompt engineering, AI workflows, and more.</p>
+                        <a href="learn.html" class="card-link">Start learning →</a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Automation Blueprints</h3>
+                        <p>Ready-to-use automation recipes that save you hours every week. Copy, customize, deploy.</p>
+                        <a href="tools.html" class="card-link">See blueprints →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="container shell">
+                <div class="section-head">
+                    <span class="pill">Latest insights</span>
+                    <h2>Fresh from the blog</h2>
+                    <p>Practical guides, honest reviews, and real-world AI strategies.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="post-card">
+                        <div class="post-tag">Guide</div>
+                        <h3>How I Built My AI Website in 24 Hours</h3>
+                        <p>My real experience building Zynovix AI using only free tools and ChatGPT.</p>
+                        <a href="how-i-built-zynovix-ai-free-tools.html" class="card-link">Read more →</a>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-tag">Comparison</div>
+                        <h3>Perplexity AI vs ChatGPT (2026)</h3>
+                        <p>Which AI assistant is better for research, writing, and everyday tasks?</p>
+                        <a href="perplexity-ai-vs-chatgpt-2026.html" class="card-link">Read more →</a>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-tag">Coding</div>
+                        <h3>Claude vs ChatGPT for Coding (2026)</h3>
+                        <p>Which AI assistant writes better code? A developer's honest comparison.</p>
+                        <a href="claude-vs-chatgpt-for-coding-2026.html" class="card-link">Read more →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section">
+            <div class="container shell">
+                <div class="cta-box">
+                    <h2>Ready to build smarter?</h2>
+                    <p>Join thousands of creators and businesses using Zynovix AI to work faster and smarter.</p>
+                    <div class="cta-actions">
+                        <a href="tools.html" class="btn primary">Explore AI Tools</a>
+                        <a href="learn.html" class="btn ghost">Start Learning Free</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container shell">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-row">
+                        <img src="logo.png" alt="Zynovix AI" style="height: 32px; width: auto;">
+                        <span class="brand-name">Zynovix AI</span>
+                    </div>
+                    <p>Build smarter systems with artificial intelligence. Tools, learning, and automation for the modern creator.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="tools.html">AI Tools</a></li>
+                        <li><a href="learn.html">Learning Paths</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Zynovix AI. All rights reserved.</p>
+                <p>Built with AI, for humans.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

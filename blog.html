@@ -1,31 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  /* انیمیشن‌ها */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* اعمال به کارت‌های مقاله */
-.post-card {
-    animation: fadeInUp 0.6s ease-out;
-    transition: all 0.3s ease;
-}
-
-.post-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-}
-
-/* دکمه‌ها */
-button, .btn {
-    transition: all 0.3s ease;
-}
-
-button:hover, .btn:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-}
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -99,28 +73,4 @@ button:hover, .btn:hover {
   <script src="script.js"></script>
 </body>
 </html>
-/* ========== انیمیشن کارت‌های مقاله ========== */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.post-card {
-    animation: fadeInUp 0.6s ease-out both;
-    transition: all 0.3s ease;
-}
-
-.post-card:nth-child(1) { animation-delay: 0.1s; }
-.post-card:nth-child(2) { animation-delay: 0.2s; }
-.post-card:nth-child(3) { animation-delay: 0.3s; }
-.post-card:nth-child(4) { animation-delay: 0.4s; }
-.post-card:nth-child(5) { animation-delay: 0.5s; }
-.post-card:nth-child(6) { animation-delay: 0.6s; }
-.post-card:nth-child(7) { animation-delay: 0.7s; }
-.post-card:nth-child(8) { animation-delay: 0.8s; }
-
-.post-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-    border-color: rgba(139, 92, 246, 0.5);
 }

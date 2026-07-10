@@ -2,8 +2,22 @@
 <html lang="en">
 <header style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0; margin-bottom: 30px;">
   <div class="logo">
-    <a href="index.html">
-      <img src="logo.png" alt="Zynovix AI" style="height: 60px; width: auto;">
+    <a href="index.html" style="text-decoration: none;">
+      <svg width="60" height="60" viewBox="0 0 200 200" style="display: block;">
+        <defs>
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M 40 50 L 160 50 L 60 150 L 160 150" 
+              stroke="url(#logoGradient)" 
+              stroke-width="12" 
+              fill="none" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+        <circle cx="100" cy="100" r="8" fill="#7c3aed"/>
+      </svg>
     </a>
   </div>
   <nav>
@@ -11,11 +25,6 @@
     <a href="how-i-built-my-ai-website.html" style="margin-right: 20px; text-decoration: none; color: #fff; font-weight: 500;">My Journey</a>
   </nav>
 </header>
-      <a href="index.html" style="margin-right: 20px; text-decoration: none; color: #333; font-weight: 500;">Home</a>
-      <a href="how-i-built-my-ai-website.html" style="margin-right: 20px; text-decoration: none; color: #333; font-weight: 500;">My Journey</a>
-      <a href="blog.html" style="text-decoration: none; color: #333; font-weight: 500;">Blog</a>
-    </nav>
-  </header>
 <body>
 <div class="noise"></div>
 <div class="orb orb-a"></div>

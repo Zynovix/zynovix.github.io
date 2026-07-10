@@ -5,41 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zynovix AI | Build Smarter with AI</title>
     <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.">
-    <meta name="theme-color" content="#050816">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Outfit', sans-serif;
-            background: #050816;
-            color: #fff;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Background Effects */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
-            z-index: -1;
+            min-height: 100vh;
         }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* Header */
         header {
-            background: rgba(5, 8, 22, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -67,7 +53,7 @@
         .logo-text {
             font-size: 1.4em;
             font-weight: 700;
-            color: #fff;
+            color: #f1f5f9;
         }
         
         nav ul {
@@ -84,7 +70,7 @@
             transition: color 0.3s;
         }
         
-        nav a:hover { color: #fff; }
+        nav a:hover { color: #f1f5f9; }
         
         .nav-cta {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -111,7 +97,7 @@
         .hero-content .pill {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(59,130,246,0.1);
+            background: rgba(59,130,246,0.15);
             border: 1px solid rgba(59,130,246,0.3);
             border-radius: 20px;
             font-size: 0.85em;
@@ -125,6 +111,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
+            color: #f1f5f9;
         }
         
         .gradient {
@@ -153,21 +140,24 @@
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
+            font-size: 1em;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.3);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(139,92,246,0.4);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.5);
         }
         
         .btn-ghost {
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.2);
-            color: #fff;
+            color: #f1f5f9;
         }
         
         .btn-ghost:hover {
@@ -199,7 +189,7 @@
         .visual-card {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(148, 163, 184, 0.1);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
@@ -223,11 +213,13 @@
             justify-content: center;
             font-size: 2em;
             font-weight: 800;
+            color: #fff;
         }
         
         .visual-title {
             font-size: 1.3em;
             font-weight: 700;
+            color: #f1f5f9;
         }
         
         .visual-sub {
@@ -257,6 +249,7 @@
             justify-content: center;
             font-size: 3em;
             font-weight: 800;
+            color: #fff;
         }
         
         @keyframes pulse {
@@ -304,7 +297,7 @@
         .section-head .pill {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(59,130,246,0.1);
+            background: rgba(59,130,246,0.15);
             border: 1px solid rgba(59,130,246,0.3);
             border-radius: 20px;
             font-size: 0.85em;
@@ -316,6 +309,7 @@
         .section-head h2 {
             font-size: 2.5em;
             margin-bottom: 15px;
+            color: #f1f5f9;
         }
         
         .section-head p {
@@ -332,7 +326,7 @@
         .card {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(148, 163, 184, 0.1);
             border-radius: 16px;
             padding: 40px;
             transition: all 0.3s;
@@ -341,6 +335,7 @@
         .card:hover {
             transform: translateY(-10px);
             border-color: rgba(139,92,246,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .card-icon {
@@ -375,7 +370,7 @@
         .post-card {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(148, 163, 184, 0.1);
             border-radius: 16px;
             padding: 40px;
             transition: all 0.3s;
@@ -400,6 +395,7 @@
         .post-card h3 {
             font-size: 1.3em;
             margin-bottom: 15px;
+            color: #f1f5f9;
         }
         
         .post-card p {
@@ -422,6 +418,7 @@
         .cta-box h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
+            color: #f1f5f9;
         }
         
         .cta-box p {
@@ -438,8 +435,8 @@
         
         /* Footer */
         footer {
-            background: rgba(5, 8, 22, 0.95);
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
             padding: 60px 0 30px;
         }
         
@@ -457,7 +454,7 @@
         
         .footer-col h4 {
             margin-bottom: 20px;
-            color: #fff;
+            color: #f1f5f9;
         }
         
         .footer-col ul {
@@ -477,7 +474,7 @@
         .footer-col a:hover { color: #8b5cf6; }
         
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
             padding-top: 30px;
             text-align: center;
             color: #64748b;
@@ -493,12 +490,11 @@
             .grid-3 { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             nav ul { gap: 15px; }
+            .hero-content h1 { font-size: 2.5em; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    
     <header>
         <div class="container">
             <div class="header-content">
@@ -532,7 +528,7 @@
                     </div>
                     <div class="hero-chips">
                         <span class="chip">🤖 AI Tools</span>
-                        <span class="chip"> Learning Paths</span>
+                        <span class="chip">📚 Learning Paths</span>
                         <span class="chip">⚡ Automation</span>
                     </div>
                 </div>
@@ -576,7 +572,7 @@
                 </div>
                 <div class="grid-3">
                     <article class="card">
-                        <div class="card-icon">🤖</div>
+                        <div class="card-icon"></div>
                         <h3>AI Tools Directory</h3>
                         <p>Curated, tested, and ranked AI tools for writing, design, coding, marketing, and automation.</p>
                         <a href="tools.html" class="card-link">Explore tools →</a>

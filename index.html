@@ -4,143 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zynovix AI | Build Smarter with AI</title>
-    <meta name="description" content="Zynovix AI - Modern AI platform for learning, automation, and productivity tools.">
+    <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.">
+    <meta name="theme-color" content="#050816">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            background: #050816;
+            color: #fff;
             line-height: 1.6;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
         
-        /* Header - Desktop Optimized */
+        /* Background Effects */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
         header {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(5, 8, 22, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 25px 0;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
+        .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         
-        .logo-wrapper {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            text-decoration: none;
         }
         
-        .logo-wrapper img {
-            height: 50px;
+        .logo img {
+            height: 45px;
             width: auto;
-            border-radius: 8px;
         }
         
         .logo-text {
-            font-size: 1.5em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #fff;
         }
         
-        /* Navigation - Desktop */
-        .desktop-nav {
+        nav ul {
             display: flex;
+            list-style: none;
+            gap: 30px;
             align-items: center;
-            gap: 35px;
         }
         
-        .desktop-nav a {
+        nav a {
             color: #94a3b8;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s;
         }
         
-        .desktop-nav a:hover {
-            color: #ffffff;
-        }
+        nav a:hover { color: #fff; }
         
-        .desktop-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 0.3s ease;
-        }
-        
-        .desktop-nav a:hover::after {
-            width: 100%;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: #fff !important;
             padding: 10px 25px;
             border-radius: 8px;
             font-weight: 600;
         }
         
-        .cta-button:hover {
+        .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(139,92,246,0.4);
         }
         
-        .cta-button::after {
-            display: none !important;
-        }
-        
-        /* Hero Section - Desktop */
+        /* Hero Section */
         .hero {
-            padding: 120px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 100px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
         
-        .hero-content h1 {
-            font-size: 3.5em;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-tag {
+        .hero-content .pill {
             display: inline-block;
-            padding: 8px 20px;
-            background: rgba(59,130,246,0.15);
+            padding: 8px 16px;
+            background: rgba(59,130,246,0.1);
             border: 1px solid rgba(59,130,246,0.3);
             border-radius: 20px;
             font-size: 0.85em;
@@ -149,55 +120,80 @@
             font-weight: 600;
         }
         
-        .hero-description {
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-content p {
             font-size: 1.2em;
             color: #94a3b8;
+            margin-bottom: 40px;
             line-height: 1.7;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 20px;
             margin-bottom: 40px;
         }
         
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
-        
         .btn {
-            padding: 15px 35px;
-            border-radius: 10px;
+            padding: 14px 32px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1em;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             display: inline-block;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: #fff;
-            box-shadow: 0 4px 15px rgba(139,92,246,0.3);
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139,92,246,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139,92,246,0.4);
         }
         
-        .btn-secondary {
-            background: transparent;
+        .btn-ghost {
+            border: 1px solid rgba(255,255,255,0.2);
             color: #fff;
-            border: 2px solid rgba(255,255,255,0.2);
         }
         
-        .btn-secondary:hover {
+        .btn-ghost:hover {
             border-color: #8b5cf6;
             background: rgba(139,92,246,0.1);
         }
         
-        /* Hero Visual - Right Side */
+        .hero-chips {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .chip {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #94a3b8;
+        }
+        
+        /* Hero Visual */
         .hero-visual {
             display: flex;
             justify-content: center;
-            align-items: center;
         }
         
         .visual-card {
@@ -234,7 +230,7 @@
             font-weight: 700;
         }
         
-        .visual-subtitle {
+        .visual-sub {
             color: #94a3b8;
             font-size: 0.9em;
         }
@@ -248,7 +244,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             animation: pulse 3s ease-in-out infinite;
         }
         
@@ -265,18 +260,18 @@
         }
         
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
-        .stats-grid {
+        .visual-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 30px;
         }
         
-        .stat-item {
+        .stat {
             text-align: center;
             padding: 15px;
             background: rgba(255,255,255,0.05);
@@ -297,74 +292,193 @@
         
         /* Features Section */
         .features {
-            padding: 100px 40px;
+            padding: 100px 0;
             background: rgba(15, 23, 42, 0.5);
         }
         
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
+        .section-head {
             text-align: center;
             margin-bottom: 60px;
         }
         
-        .section-header h2 {
-            font-size: 2.8em;
-            font-weight: 800;
+        .section-head .pill {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .section-head h2 {
+            font-size: 2.5em;
             margin-bottom: 15px;
         }
         
-        .section-header p {
-            font-size: 1.2em;
+        .section-head p {
             color: #94a3b8;
+            font-size: 1.1em;
         }
         
-        .features-grid {
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         
-        .feature-card {
+        .card {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 40px;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
         
-        .feature-card:hover {
+        .card:hover {
             transform: translateY(-10px);
             border-color: rgba(139,92,246,0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
-        .feature-icon {
+        .card-icon {
             font-size: 3em;
             margin-bottom: 20px;
         }
         
-        .feature-card h3 {
+        .card h3 {
             font-size: 1.4em;
-            font-weight: 700;
             margin-bottom: 15px;
             color: #8b5cf6;
         }
         
-        .feature-card p {
+        .card p {
             color: #94a3b8;
-            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .card-link:hover { color: #8b5cf6; }
+        
+        /* Blog Section */
+        .blog {
+            padding: 100px 0;
+        }
+        
+        .post-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139,92,246,0.5);
+        }
+        
+        .post-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(59,130,246,0.2);
+            color: #60a5fa;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .post-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .post-card p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .cta-box {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-box h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-box p {
+            color: #94a3b8;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        
+        .cta-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
         }
         
         /* Footer */
         footer {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(5, 8, 22, 0.95);
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 40px;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand p {
+            color: #94a3b8;
+            margin-top: 15px;
+        }
+        
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover { color: #8b5cf6; }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
             text-align: center;
             color: #64748b;
         }
@@ -373,46 +487,54 @@
         @media (max-width: 968px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 80px 20px;
+                padding: 60px 0;
             }
-            .hero-visual {
-                display: none;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .desktop-nav {
-                display: none;
-            }
+            .hero-visual { display: none; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 15px; }
         }
     </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
+    
     <header>
-        <div class="header-container">
-            <div class="logo-wrapper">
-                <img src="logo.png" alt="Zynovix AI">
-                <span class="logo-text">Zynovix AI</span>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Zynovix AI">
+                    <span class="logo-text">Zynovix AI</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="tools.html">AI Tools</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="desktop-nav">
-                <a href="tools.html">AI Tools</a>
-                <a href="learn.html">Learn</a>
-                <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="cta-button">Contact</a>
-            </nav>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <span class="hero-tag">AI LEARNING • AUTOMATION • DIGITAL INTELLIGENCE</span>
-                <h1>Build smarter systems with <span class="gradient-text">Zynovix AI</span></h1>
-                <p class="hero-description">Zynovix AI helps creators, learners, and businesses use artificial intelligence to automate work, create faster, and build future-ready digital products.</p>
-                <div class="hero-buttons">
-                    <a href="tools.html" class="btn btn-primary">Explore Tools</a>
-                    <a href="learn.html" class="btn btn-secondary">Start Learning</a>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="pill">AI LEARNING • AUTOMATION • DIGITAL INTELLIGENCE</span>
+                    <h1>Build smarter systems with <span class="gradient">Zynovix AI</span></h1>
+                    <p>Zynovix AI helps creators, learners, and businesses use artificial intelligence to automate work, create faster, and build future-ready digital products.</p>
+                    <div class="hero-actions">
+                        <a href="tools.html" class="btn btn-primary">Explore Tools</a>
+                        <a href="learn.html" class="btn btn-ghost">Start Learning</a>
+                    </div>
+                    <div class="hero-chips">
+                        <span class="chip">🤖 AI Tools</span>
+                        <span class="chip"> Learning Paths</span>
+                        <span class="chip">⚡ Automation</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-visual">
@@ -421,22 +543,22 @@
                         <div class="visual-logo">Z</div>
                         <div>
                             <div class="visual-title">Zynovix Core</div>
-                            <div class="visual-subtitle">Intelligence Engine</div>
+                            <div class="visual-sub">Intelligence Engine</div>
                         </div>
                     </div>
                     <div class="orb-ring">
                         <div class="orb-center">Z</div>
                     </div>
-                    <div class="stats-grid">
-                        <div class="stat-item">
+                    <div class="visual-stats">
+                        <div class="stat">
                             <div class="stat-value">24/7</div>
                             <div class="stat-label">AI Access</div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat">
                             <div class="stat-value">Fast</div>
                             <div class="stat-label">Workflows</div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat">
                             <div class="stat-value">Smart</div>
                             <div class="stat-label">Learning</div>
                         </div>
@@ -446,26 +568,73 @@
         </section>
 
         <section class="features">
-            <div class="features-container">
-                <div class="section-header">
-                    <h2>What You Get</h2>
-                    <p>Everything you need to learn, build, and scale with AI</p>
+            <div class="container">
+                <div class="section-head">
+                    <span class="pill">What you get</span>
+                    <h2>Three pillars of intelligent work</h2>
+                    <p>Everything you need to learn, build, and scale with AI — in one place.</p>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-icon">🤖</div>
                         <h3>AI Tools Directory</h3>
                         <p>Curated, tested, and ranked AI tools for writing, design, coding, marketing, and automation.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
+                        <a href="tools.html" class="card-link">Explore tools →</a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">📚</div>
                         <h3>Learning Paths</h3>
-                        <p>Step-by-step guides from beginner to advanced. Master prompt engineering and AI workflows.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Automation</h3>
+                        <p>Step-by-step guides from beginner to advanced. Master prompt engineering, AI workflows, and more.</p>
+                        <a href="learn.html" class="card-link">Start learning →</a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Automation Blueprints</h3>
                         <p>Ready-to-use automation recipes that save you hours every week. Copy, customize, deploy.</p>
+                        <a href="tools.html" class="card-link">See blueprints →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog">
+            <div class="container">
+                <div class="section-head">
+                    <span class="pill">Latest insights</span>
+                    <h2>Fresh from the blog</h2>
+                    <p>Practical guides, honest reviews, and real-world AI strategies.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="post-card">
+                        <div class="post-tag">Guide</div>
+                        <h3>How I Built My AI Website in 24 Hours</h3>
+                        <p>My real experience building Zynovix AI using only free tools and ChatGPT.</p>
+                        <a href="how-i-built-zynovix-ai-free-tools.html" class="card-link">Read more →</a>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-tag">Comparison</div>
+                        <h3>Perplexity AI vs ChatGPT (2026)</h3>
+                        <p>Which AI assistant is better for research, writing, and everyday tasks?</p>
+                        <a href="perplexity-ai-vs-chatgpt-2026.html" class="card-link">Read more →</a>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-tag">Coding</div>
+                        <h3>Claude vs ChatGPT for Coding (2026)</h3>
+                        <p>Which AI assistant writes better code? A developer's honest comparison.</p>
+                        <a href="claude-vs-chatgpt-for-coding-2026.html" class="card-link">Read more →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready to build smarter?</h2>
+                    <p>Join thousands of creators and businesses using Zynovix AI to work faster and smarter.</p>
+                    <div class="cta-actions">
+                        <a href="tools.html" class="btn btn-primary">Explore AI Tools</a>
+                        <a href="learn.html" class="btn btn-ghost">Start Learning Free</a>
                     </div>
                 </div>
             </div>
@@ -473,7 +642,46 @@
     </main>
 
     <footer>
-        <p>© 2026 Zynovix AI. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="logo.png" alt="Zynovix AI" style="height: 35px;">
+                        <span class="logo-text">Zynovix AI</span>
+                    </div>
+                    <p>Build smarter systems with artificial intelligence. Tools, learning, and automation for the modern creator.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="tools.html">AI Tools</a></li>
+                        <li><a href="learn.html">Learning Paths</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Zynovix AI. All rights reserved.</p>
+                <p>Built with AI, for humans.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

@@ -14,11 +14,55 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zynovix.github.io/404.html" />
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <style>
+    .brand img,
+    .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 auto !important;
+    }
+
+    @media (max-width: 600px) {
+      .brand img,
+      .logo img {
+        width: 46px !important;
+        height: 46px !important;
+      }
+    }
+  </style>
+
+
+  <style id="zynovix-logo-final-fix">
+    .brand img, .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+    @media (max-width: 600px) {
+      .brand img, .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -29,7 +73,7 @@
 <header class="header">
   <nav class="nav shell">
     <a class="brand" href="index.html" aria-label="Zynovix AI Home">
-      <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
 
@@ -58,7 +102,7 @@
 <footer class="footer">
   <div class="shell footer-inner">
     <a class="brand" href="index.html">
-      <img src="zynovix-logo.svg" alt="Zynovix AI logo" />
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
 

@@ -1,1044 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
-    <title>Zynovix AI | Build Smarter with AI</title>
-    <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.">
-    <link rel="canonical" href="https://zynovix.github.io/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Zynovix AI | Build Smarter with AI">
-    <meta property="og:description" content="Explore AI tools, learning resources, automation guides, and practical tutorials to build smarter with artificial intelligence.">
-    <meta property="og:url" content="https://zynovix.github.io/">
-    <meta property="og:image" content="https://zynovix.github.io/zynovix-og-image-white-logo.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zynovix AI | Build Smarter with AI">
-    <meta name="twitter:description" content="Explore AI tools, tutorials, and automation guides.">
-    <meta name="twitter:image" content="https://zynovix.github.io/zynovix-og-image-white-logo.png">
-    <meta name="msvalidate.01" content="6E1AA5E7ABD66E5021252C2837DC765C" />
-    <link rel="icon" type="image/png" href="zynovix-logo-white-correct.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://zynovix.github.io/#organization",
-      "name": "Zynovix AI",
-      "url": "https://zynovix.github.io/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://zynovix.github.io/zynovix-logo-white-correct.png"
-      },
-      "description": "Zynovix AI provides AI tools, learning resources, automation guides, and practical tutorials."
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://zynovix.github.io/#website",
-      "url": "https://zynovix.github.io/",
-      "name": "Zynovix AI",
-      "description": "Explore AI tools, learning resources, automation guides, and practical tutorials.",
-      "publisher": {
-        "@id": "https://zynovix.github.io/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://zynovix.github.io/#webpage",
-      "url": "https://zynovix.github.io/",
-      "name": "Zynovix AI | Build Smarter with AI",
-      "isPartOf": {
-        "@id": "https://zynovix.github.io/#website"
-      },
-      "about": {
-        "@id": "https://zynovix.github.io/#organization"
-      },
-      "description": "Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.",
-      "inLanguage": "en"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Zynovix AI | Build Smarter with AI</title>
+  <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence." />
+  <meta name="theme-color" content="#050816" />
+  <link rel="canonical" href="https://zynovix.github.io/" />
+
+  <meta property="og:title" content="Zynovix AI | Build Smarter with AI" />
+  <meta property="og:description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zynovix.github.io/" />
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <style>
+    .brand img,
+    .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 auto !important;
     }
-  ]
-}
-</script>
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "xkxn7wyps2");
-    </script>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f1f5f9;
-            line-height: 1.6;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
-        header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 2px;
-            flex: 0 0 auto;
-        }
-        
-        .logo-text {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #f1f5f9;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            align-items: center;
-        }
-        
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95em;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover { color: #f1f5f9; }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #fff !important;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        
-        /* Hero Section - فشرده‌تر */
-        .hero {
-            padding: 60px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .hero-content .pill {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(59,130,246,0.15);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 20px;
-            font-size: 0.8em;
-            color: #60a5fa;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .hero-content h1 {
-            font-size: 3em;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 15px;
-            color: #f1f5f9;
-        }
-        
-        .gradient {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-content p {
-            font-size: 1.1em;
-            color: #94a3b8;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            font-size: 0.95em;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #fff;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(139,92,246,0.4);
-        }
-        
-        .btn-ghost {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #f1f5f9;
-        }
-        
-        .btn-ghost:hover {
-            border-color: #8b5cf6;
-            background: rgba(139,92,246,0.1);
-        }
-        
-        /* دکمه‌های فعال - فشرده‌تر */
-        .hero-chips {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        
-        .chip {
-            padding: 8px 16px;
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 20px;
-            font-size: 0.85em;
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .chip:hover {
-            background: rgba(59,130,246,0.2);
-            border-color: #3b82f6;
-            transform: translateY(-2px);
-            color: #fff;
-        }
-        
-        /* Hero Visual - کوچک‌تر */
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-        }
-        
-        .visual-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        .visual-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .visual-logo {
-            width: 86px;
-            height: 86px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(139, 92, 246, 0.55);
-            overflow: hidden;
-        }
-        
-        .visual-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #f1f5f9;
-        }
-        
-        .visual-sub {
-            color: #94a3b8;
-            font-size: 0.85em;
-        }
-        
-        .orb-ring {
-            width: 160px;
-            height: 160px;
-            margin: 25px auto;
-            border: 2px solid rgba(139,92,246,0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .orb-center {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            font-weight: 800;
-            color: #fff;
-        }
-        
-        .visual-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .stat {
-            text-align: center;
-            padding: 12px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-        }
-        
-        .stat-value {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #8b5cf6;
-        }
-        
-        .stat-label {
-            font-size: 0.75em;
-            color: #94a3b8;
-            margin-top: 3px;
-        }
-        
-        /* Features Section - فشرده‌تر */
-        .features {
-            padding: 70px 0;
-            background: rgba(15, 23, 42, 0.5);
-        }
-        
-        .section-head {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-head .pill {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(59,130,246,0.15);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 20px;
-            font-size: 0.8em;
-            color: #60a5fa;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .section-head h2 {
-            font-size: 2.2em;
-            margin-bottom: 12px;
-            color: #f1f5f9;
-        }
-        
-        .section-head p {
-            color: #94a3b8;
-            font-size: 1.05em;
-        }
-        
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-        
-        .card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139,92,246,0.5);
-        }
-        
-        .card-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        .card h3 {
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            color: #8b5cf6;
-        }
-        
-        .card p {
-            color: #94a3b8;
-            margin-bottom: 15px;
-            font-size: 0.95em;
-        }
-        
-        .card-link {
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-        
-        .card-link:hover { color: #8b5cf6; }
-        
-        /* Blog Section */
-        .blog {
-            padding: 70px 0;
-        }
-        
-        .post-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s;
-        }
-        
-        .post-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139,92,246,0.5);
-        }
-        
-        .post-tag {
-            display: inline-block;
-            padding: 5px 10px;
-            background: rgba(59,130,246,0.2);
-            color: #60a5fa;
-            border-radius: 6px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .post-card h3 {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            color: #f1f5f9;
-        }
-        
-        .post-card p {
-            color: #94a3b8;
-            margin-bottom: 15px;
-            font-size: 0.95em;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 70px 0;
-            background: rgba(15, 23, 42, 0.5);
-        }
-        
-        .cta-box {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .cta-box h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            color: #f1f5f9;
-        }
-        
-        .cta-box p {
-            color: #94a3b8;
-            font-size: 1.05em;
-            margin-bottom: 30px;
-        }
-        
-        .cta-actions {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(15, 23, 42, 0.95);
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            padding: 50px 0 25px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-brand p {
-            color: #94a3b8;
-            margin-top: 10px;
-            font-size: 0.95em;
-        }
-        
-        .footer-col h4 {
-            margin-bottom: 15px;
-            color: #f1f5f9;
-            font-size: 1em;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-col a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: color 0.3s;
-        }
-        
-        .footer-col a:hover { color: #8b5cf6; }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            padding-top: 25px;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.95em;
-        }
-        
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 40px 0;
-            }
-            .hero-visual { display: none; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            nav ul { gap: 12px; }
-            .hero-content h1 { font-size: 2.2em; }
-        }
-                /* ========== انیمیشن‌های حرفه‌ای ========== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .hero-content { animation: fadeInUp 0.8s ease-out; }
-        .hero-visual { animation: fadeInUp 0.8s ease-out 0.2s both; }
-        .card { animation: fadeInUp 0.6s ease-out; transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-10px) scale(1.02); }
-        
-        .btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn:hover { transform: translateY(-3px) scale(1.05); }
-        
-        .chip { transition: all 0.3s ease; }
-        .chip:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-        
-        nav a { position: relative; transition: color 0.3s ease; }
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 0.3s ease;
-        }
-        nav a:hover::after { width: 100%; }
-        
-        .gradient {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #3b82f6);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 3s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        html { scroll-behavior: smooth; }
-                /* ========== انیمیشن‌های حرفه‌ای ========== */
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .hero-content { animation: slideInLeft 0.8s ease-out; }
-        .hero-visual { animation: slideInRight 0.8s ease-out 0.2s both; }
-        
-        .card { 
-            animation: fadeInUp 0.6s ease-out both;
-            transition: all 0.3s ease;
-        }
-        
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-        }
-        
-        .btn { transition: all 0.3s ease; }
-        .btn:hover { transform: translateY(-3px); }
-        
-        .chip { transition: all 0.3s ease; }
-        .chip:hover { transform: translateY(-3px); }
-        
-        html { scroll-behavior: smooth; }
-    
-        /* ===== Reliable mobile layout ===== */
-        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-        img { max-width: 100%; height: auto; }
-        .hero > .container { width: 100%; }
+    @media (max-width: 600px) {
+      .brand img,
+      .logo img {
+        width: 46px !important;
+        height: 46px !important;
+      }
+    }
+  </style>
 
-        @media (max-width: 768px) {
-            .container {
-                width: 100%;
-                max-width: 100%;
-                padding-left: 16px;
-                padding-right: 16px;
-            }
 
-            header {
-                position: relative;
-                padding: 12px 0;
-            }
+  <style id="zynovix-logo-final-fix">
+    .brand img, .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+    @media (max-width: 600px) {
+      .brand img, .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
+    }
+  </style>
 
-            .header-content {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .logo {
-                justify-content: center;
-                max-width: 100%;
-            }
-
-            .logo img {
-                width: 58px;
-                height: 58px;
-                object-fit: contain;
-                flex: 0 0 auto;
-            }
-
-            .logo-text {
-                font-size: 1.12rem;
-                line-height: 1.2;
-                white-space: nowrap;
-            }
-
-            nav {
-                width: 100%;
-            }
-
-            nav ul {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px 14px;
-            }
-
-            nav li {
-                flex: 0 0 auto;
-            }
-
-            nav a {
-                display: inline-block;
-                padding: 6px 3px;
-                font-size: 0.9rem;
-                white-space: nowrap;
-            }
-
-            .nav-cta {
-                padding: 7px 14px;
-            }
-
-            .hero {
-                display: block;
-                width: 100%;
-                padding: 38px 0 52px;
-            }
-
-            .hero-content {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .hero-content .pill {
-                display: block;
-                width: fit-content;
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 7px 12px;
-                font-size: 0.7rem;
-                line-height: 1.45;
-                text-align: center;
-                white-space: normal;
-            }
-
-            .hero-content h1 {
-                font-size: clamp(2rem, 10vw, 2.7rem);
-                line-height: 1.12;
-                overflow-wrap: anywhere;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-                line-height: 1.7;
-            }
-
-            .hero-actions {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .hero-actions .btn,
-            .cta-actions .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero-chips {
-                justify-content: center;
-                gap: 10px;
-            }
-
-            .chip {
-                padding: 8px 12px;
-                font-size: 0.82rem;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .features,
-            .blog,
-            .cta-section {
-                padding: 54px 0;
-            }
-
-            .section-head h2,
-            .cta-box h2 {
-                font-size: clamp(1.8rem, 8vw, 2.3rem);
-                line-height: 1.2;
-                overflow-wrap: anywhere;
-            }
-
-            .grid-3,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card,
-            .post-card {
-                padding: 22px;
-            }
-
-            .cta-actions {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .logo img {
-                width: 46px;
-                height: 46px;
-            }
-            .container {
-                padding-left: 14px;
-                padding-right: 14px;
-            }
-
-            nav ul {
-                gap: 6px 10px;
-            }
-
-            nav a {
-                font-size: 0.82rem;
-            }
-
-            .logo img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .logo-text {
-                font-size: 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-
-    
-        
-
-    
-        .visual-logo img {
-            width: 66px;
-            height: 66px;
-            object-fit: contain;
-            background: #ffffff;
-            border-radius: 8px;
-        }
-        </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="zynovix-logo-white-correct.png" alt="Zynovix AI">
-                    <span class="logo-text">Zynovix AI</span>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="tools.html">AI Tools</a></li>
-                        <li><a href="learn.html">Learn</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html" class="nav-cta">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+<div class="noise"></div>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+
+<header class="header">
+  <nav class="nav shell">
+    <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="tools.html">AI Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="hero shell">
+    <div class="hero-copy reveal">
+      <div class="pill">AI Learning • Automation • Digital Intelligence</div>
+      <h1>Build smarter systems with <span>Zynovix AI</span></h1>
+      <p>Zynovix AI helps creators, learners, and businesses use artificial intelligence to automate work, create faster, and build future-ready digital products.</p>
+
+      <div class="actions">
+        <a href="tools.html" class="btn btn-primary">Explore Tools</a>
+        <a href="learn.html" class="btn btn-ghost">Start Learning</a>
+      </div>
+
+      <div class="trust-row hero-tags">
+        <a href="tools.html" class="hero-tag"><span>🤖</span>AI Tools</a>
+        <a href="learn.html" class="hero-tag"><span>📚</span>Learning Paths</a>
+        <a href="tools.html" class="hero-tag"><span>⚡</span>Automation</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="core-card">
+        <div class="core-top">
+          <img src="/logo.png?v=20260712" alt="" />
+          <div><strong>Zynovix Core</strong><small>Intelligence Engine</small></div>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <span class="pill">AI LEARNING • AUTOMATION • DIGITAL INTELLIGENCE</span>
-                    <h1>Build smarter systems with <span class="gradient">Zynovix AI</span></h1>
-                    <p>Zynovix AI helps creators, learners, and businesses use artificial intelligence to automate work, create faster, and build future-ready digital products.</p>
-                    <div class="hero-actions">
-                        <a href="tools.html" class="btn btn-primary">Explore Tools</a>
-                        <a href="learn.html" class="btn btn-ghost">Start Learning</a>
-                    </div>
-                    <div class="hero-chips">
-                        <a href="tools.html" class="chip">🤖 AI Tools</a>
-                        <a href="learn.html" class="chip">📚 Learn</a>
-                        <a href="blog.html" class="chip">📰 Blog</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-card">
-                    <div class="visual-header">
-                        <div class="visual-logo"><img src="zynovix-logo-white-correct.png" alt="Zynovix AI logo"></div>
-                        <div>
-                            <div class="visual-title">Zynovix Core</div>
-                            <div class="visual-sub">Intelligence Engine</div>
-                        </div>
-                    </div>
-                    <div class="orb-ring">
-                        <div class="orb-center">Z</div>
-                    </div>
-                    <div class="visual-stats">
-                        <div class="stat">
-                            <div class="stat-value">24/7</div>
-                            <div class="stat-label">AI Access</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value">Fast</div>
-                            <div class="stat-label">Workflows</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value">Smart</div>
-                            <div class="stat-label">Learning</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="section-head">
-                    <span class="pill">What you get</span>
-                    <h2>Three pillars of intelligent work</h2>
-                    <p>Everything you need to learn, build, and scale with AI — in one place.</p>
-                </div>
-                <div class="grid-3">
-                    <article class="card">
-                        <div class="card-icon">🤖</div>
-                        <h3>AI Tools Directory</h3>
-                        <p>Curated, tested, and ranked AI tools for writing, design, coding, marketing, and automation.</p>
-                        <a href="tools.html" class="card-link">Explore tools →</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">📚</div>
-                        <h3>Learning Paths</h3>
-                        <p>Step-by-step guides from beginner to advanced. Master prompt engineering, AI workflows, and more.</p>
-                        <a href="learn.html" class="card-link">Start learning →</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Automation Blueprints</h3>
-                        <p>Ready-to-use automation recipes that save you hours every week. Copy, customize, deploy.</p>
-                        <a href="tools.html" class="card-link">See blueprints →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog">
-            <div class="container">
-                <div class="section-head">
-                    <span class="pill">Latest insights</span>
-                    <h2>Fresh from the blog</h2>
-                    <p>Practical guides, honest reviews, and real-world AI strategies.</p>
-                </div>
-                <div class="grid-3">
-                    <article class="post-card">
-                        <div class="post-tag">Guide</div>
-                        <h3>How I Built Zynovix AI Using Only Free Tools</h3>
-                        <p>A practical step-by-step guide to building an AI website with GitHub Pages and free AI tools.</p>
-                        <a href="how-i-built-zynovix-ai-free-tools.html" class="card-link">Read more →</a>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-tag">Comparison</div>
-                        <h3>Perplexity AI vs ChatGPT (2026)</h3>
-                        <p>Which AI assistant is better for research, writing, and everyday tasks?</p>
-                        <a href="perplexity-ai-vs-chatgpt-2026.html" class="card-link">Read more →</a>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-tag">Coding</div>
-                        <h3>Claude vs ChatGPT for Coding (2026)</h3>
-                        <p>Which AI assistant writes better code? A developer's honest comparison.</p>
-                        <a href="claude-vs-chatgpt-for-coding-2026.html" class="card-link">Read more →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-box">
-                    <h2>Ready to Explore the Future of AI?</h2>
-                    <p>Helping creators, learners, and businesses build smarter with AI.</p>
-                    <div class="cta-actions">
-                        <a href="tools.html" class="btn btn-primary">Explore AI Tools</a>
-                        <a href="learn.html" class="btn btn-ghost">Start Learning Free</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="zynovix-logo-white-correct.png" alt="Zynovix AI" style="height: 32px;">
-                        <span class="logo-text">Zynovix AI</span>
-                    </div>
-                    <p>Build smarter systems with artificial intelligence. Tools, learning, and automation for the modern creator.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Platform</h4>
-                    <ul>
-                        <li><a href="tools.html">AI Tools</a></li>
-                        <li><a href="learn.html">Learning Paths</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">© 2026 Zynovix AI. All rights reserved.</div>
+        <div class="core-ring"><span>Z</span></div>
+        <div class="metric-grid">
+          <div><strong>24/7</strong><small>AI Access</small></div>
+          <div><strong>Fast</strong><small>Workflows</small></div>
+          <div><strong>Smart</strong><small>Learning</small></div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell reveal">
+    <div class="section-head">
+      <span class="kicker">AI Tools</span>
+      <h2>Practical tools for smarter work</h2>
+      <p>Everything starts with useful AI tools that make daily work faster and more creative.</p>
+    </div>
+
+    <div class="cards four">
+      <article class="card tool-card">
+        <div class="tool-icon">🤖</div>
+        <h3>AI Chat</h3>
+        <p>Use AI assistants for writing, coding, research, ideas, and productivity.</p>
+        <a href="tools.html" class="btn btn-primary">Open Tools</a>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-icon">🎨</div>
+        <h3>AI Image</h3>
+        <p>Create visual concepts, artwork, designs, and image prompts.</p>
+        <a href="tools.html" class="btn btn-primary">Explore</a>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-icon">⚡</div>
+        <h3>Automation</h3>
+        <p>Automate repetitive work and build smarter digital workflows.</p>
+        <a href="tools.html" class="btn btn-primary">Automate</a>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-icon">📚</div>
+        <h3>AI Learning</h3>
+        <p>Follow beginner-friendly AI learning paths and practical guides.</p>
+        <a href="learn.html" class="btn btn-primary">Start Learning</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="split shell reveal">
+    <div>
+      <span class="kicker">Why Zynovix</span>
+      <h2>Designed for people who want to move faster with AI.</h2>
+      <p>From prompt engineering to business automation, Zynovix AI brings tools, knowledge, and workflows into one clean experience.</p>
+    </div>
+
+    <div class="feature-list">
+      <div><strong>01</strong><span>Clear AI learning paths for beginners and professionals.</span></div>
+      <div><strong>02</strong><span>Automation-focused tools for productivity and business.</span></div>
+      <div><strong>03</strong><span>Modern content and guides for AI education.</span></div>
+    </div>
+  </section>
+
+  <section class="section shell reveal">
+    <div class="section-head">
+      <span class="kicker">Latest Insights</span>
+      <h2>Learn what matters in AI</h2>
+    </div>
+
+    <div class="cards three">
+      <article class="card">
+        <small>AI Guide</small>
+        <h3>What Is Artificial Intelligence?</h3>
+        <p>A complete beginner guide to AI, how it works, its benefits, risks, and future.</p>
+        <a href="what-is-artificial-intelligence.html" class="btn btn-ghost">Read Article</a>
+      </article>
+
+      <article class="card">
+        <small>Machine Learning</small>
+        <h3>What Is Machine Learning?</h3>
+        <p>Learn how machines learn from data and power modern AI applications.</p>
+        <a href="what-is-machine-learning.html" class="btn btn-ghost">Read Article</a>
+      </article>
+
+      <article class="card">
+        <small>AI Tools</small>
+        <h3>25 Best Free AI Tools in 2026</h3>
+        <p>Explore useful free AI tools for writing, images, research, automation, and productivity.</p>
+        <a href="25-best-free-ai-tools-2026.html" class="btn btn-ghost">Read Article</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta shell reveal">
+    <span class="kicker">Start Today</span>
+    <h2>Ready to build smarter with Zynovix AI?</h2>
+    <p>Explore tools, learn AI, and build workflows that help you move faster.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </section>
+</main>
+<footer class="footer">
+  <div class="shell footer-inner">
+    <a class="brand" href="index.html">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <span>© 2026 Zynovix AI</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

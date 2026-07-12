@@ -1,0 +1,13 @@
+Zynovix logo update package
+
+1. Upload logo.png to the root of the GitHub repository, beside index.html.
+2. Replace the HTML files in the repository with the matching files from this folder.
+3. Keep the filename exactly logo.png (lowercase).
+4. Commit changes, wait for GitHub Pages deployment, then refresh with Ctrl+F5.
+
+All included HTML pages now use the same white-background Zynovix logo for:
+- Header
+- Footer
+- Favicon
+- Open Graph
+- Structured data where applicable

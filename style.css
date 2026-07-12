@@ -307,3 +307,154 @@ a{color:inherit;text-decoration:none}
   display: none;
 }
 
+/* ===== Zynovix subtle site-wide micro-interactions ===== */
+
+/* Header and footer links */
+.nav-menu a,
+.footer-links a {
+  position: relative;
+  transition: color .25s ease, transform .25s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
+  transition: width .28s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: #67e8f9;
+  transform: translateY(-1px);
+}
+
+.footer-links a:hover::after,
+.footer-links a:focus-visible::after {
+  width: 100%;
+}
+
+/* Cards */
+.card,
+.tool-card,
+.related-posts a,
+.feature-list div {
+  transition:
+    transform .28s cubic-bezier(.2,.8,.2,1),
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease;
+}
+
+.card:hover,
+.tool-card:hover,
+.related-posts a:hover,
+.feature-list div:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34,211,238,.45);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.28),
+    0 0 28px rgba(34,211,238,.10);
+}
+
+/* Buttons */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform .24s ease,
+    box-shadow .24s ease,
+    filter .24s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,.22) 45%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform .45s ease;
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: translateX(120%);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37,99,235,.28);
+  filter: brightness(1.05);
+}
+
+/* Brand logo */
+.brand img {
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+  transform: scale(1.05) rotate(-1.5deg);
+  box-shadow: 0 8px 24px rgba(34,211,238,.18);
+}
+
+/* Small interactive pills and tags */
+.hero-tag,
+.kicker,
+.pill {
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero-tag:hover,
+.hero-tag:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(34,211,238,.5);
+  box-shadow: 0 10px 24px rgba(34,211,238,.12);
+}
+
+/* Keyboard accessibility */
+.nav-menu a:focus-visible,
+.footer-links a:focus-visible,
+.btn:focus-visible,
+.brand:focus-visible,
+.hero-tag:focus-visible {
+  outline: 2px solid rgba(34,211,238,.75);
+  outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .nav-menu a,
+  .footer-links a,
+  .card,
+  .tool-card,
+  .related-posts a,
+  .feature-list div,
+  .btn,
+  .btn::before,
+  .brand img,
+  .hero-tag,
+  .kicker,
+  .pill {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+

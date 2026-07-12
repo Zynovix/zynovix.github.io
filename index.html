@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
     <title>Zynovix AI | Build Smarter with AI</title>
     <meta name="description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence.">
     <link rel="canonical" href="https://zynovix.github.io/">
@@ -10,13 +11,13 @@
     <meta property="og:title" content="Zynovix AI | Build Smarter with AI">
     <meta property="og:description" content="Explore AI tools, learning resources, automation guides, and practical tutorials to build smarter with artificial intelligence.">
     <meta property="og:url" content="https://zynovix.github.io/">
-    <meta property="og:image" content="https://zynovix.github.io/zynovix-logo.svg">
+    <meta property="og:image" content="https://zynovix.github.io/zynovix-og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zynovix AI | Build Smarter with AI">
     <meta name="twitter:description" content="Explore AI tools, tutorials, and automation guides.">
-    <meta name="twitter:image" content="https://zynovix.github.io/zynovix-logo.svg">
+    <meta name="twitter:image" content="https://zynovix.github.io/zynovix-og-image.png">
     <meta name="msvalidate.01" content="6E1AA5E7ABD66E5021252C2837DC765C" />
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="zynovix-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -30,7 +31,7 @@
       "url": "https://zynovix.github.io/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://zynovix.github.io/logo.png"
+        "url": "https://zynovix.github.io/zynovix-logo.png"
       },
       "description": "Zynovix AI provides AI tools, learning resources, automation guides, and practical tutorials."
     },
@@ -62,6 +63,15 @@
   ]
 }
 </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xkxn7wyps2");
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -646,6 +656,195 @@
         .chip:hover { transform: translateY(-3px); }
         
         html { scroll-behavior: smooth; }
+    
+        /* ===== Reliable mobile layout ===== */
+        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        .hero > .container { width: 100%; }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            header {
+                position: relative;
+                padding: 12px 0;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .logo {
+                justify-content: center;
+                max-width: 100%;
+            }
+
+            .logo img {
+                width: 58px;
+                height: 58px;
+                object-fit: contain;
+                flex: 0 0 auto;
+            }
+
+            .logo-text {
+                font-size: 1.12rem;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 14px;
+            }
+
+            nav li {
+                flex: 0 0 auto;
+            }
+
+            nav a {
+                display: inline-block;
+                padding: 6px 3px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+
+            .nav-cta {
+                padding: 7px 14px;
+            }
+
+            .hero {
+                display: block;
+                width: 100%;
+                padding: 38px 0 52px;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-content .pill {
+                display: block;
+                width: fit-content;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 7px 12px;
+                font-size: 0.7rem;
+                line-height: 1.45;
+                text-align: center;
+                white-space: normal;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2rem, 10vw, 2.7rem);
+                line-height: 1.12;
+                overflow-wrap: anywhere;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .hero-actions .btn,
+            .cta-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-chips {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .chip {
+                padding: 8px 12px;
+                font-size: 0.82rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .features,
+            .blog,
+            .cta-section {
+                padding: 54px 0;
+            }
+
+            .section-head h2,
+            .cta-box h2 {
+                font-size: clamp(1.8rem, 8vw, 2.3rem);
+                line-height: 1.2;
+                overflow-wrap: anywhere;
+            }
+
+            .grid-3,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card,
+            .post-card {
+                padding: 22px;
+            }
+
+            .cta-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            nav ul {
+                gap: 6px 10px;
+            }
+
+            nav a {
+                font-size: 0.82rem;
+            }
+
+            .logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -653,7 +852,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <img src="logo.png" alt="Zynovix AI">
+                    <img src="zynovix-logo.png" alt="Zynovix AI">
                     <span class="logo-text">Zynovix AI</span>
                 </a>
                 <nav>
@@ -796,7 +995,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="logo.png" alt="Zynovix AI" style="height: 32px;">
+                        <img src="zynovix-logo.png" alt="Zynovix AI" style="height: 32px;">
                         <span class="logo-text">Zynovix AI</span>
                     </div>
                     <p>Build smarter systems with artificial intelligence. Tools, learning, and automation for the modern creator.</p>
@@ -818,6 +1017,9 @@
                         <li><a href="terms.html">Terms</a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer-bottom">© 2026 Zynovix AI. All rights reserved.</div>
+        </div>
     </footer>
 </body>
 </html>

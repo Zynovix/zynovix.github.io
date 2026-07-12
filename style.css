@@ -246,3 +246,36 @@ a{color:inherit;text-decoration:none}
   }
 }
 
+/* Restore a wider desktop homepage layout only */
+@media (min-width: 981px) {
+  main > .hero.shell,
+  main > .hero.shell ~ .section.shell,
+  main > .hero.shell ~ .split.shell,
+  main > .hero.shell ~ .cta.shell {
+    width: min(1500px, 96%);
+  }
+
+  main > .hero.shell {
+    grid-template-columns: 1.08fr 0.92fr;
+  }
+}
+
+/* Wider layout for all pages on desktop — mobile and tablet stay unchanged */
+@media (min-width: 981px) {
+  .shell {
+    width: min(1500px, 96%);
+  }
+
+  .page-hero {
+    max-width: 1180px;
+  }
+
+  .article-wrap {
+    max-width: 1120px;
+  }
+
+  .form {
+    max-width: 960px;
+  }
+}
+

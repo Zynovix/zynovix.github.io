@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Cost Calculator | Zynovix AI</title>
+  <meta name="description" content="Calculate the cost of using different AI models like GPT-4, Claude, and Gemini. Compare API pricing and optimize your AI budget." />
+  <meta name="theme-color" content="#050816" />
+  <link rel="canonical" href="https://zynovix.github.io/calculator.html" />
+
+  <meta property="og:title" content="AI Cost Calculator | Zynovix AI" />
+  <meta property="og:description" content="Calculate and compare AI API costs. Free tool to estimate GPT-4, Claude, and Gemini expenses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zynovix.github.io/calculator.html" />
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .brand img {
+      width: 52px !important;
+      height: 52px !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+    }
+
+    /* Calculator Specific Styles */
+    .calculator-section {
+      padding: 80px 0;
+    }
+    
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    @media (max-width: 968px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .calculator-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .input-group {
+      margin-bottom: 24px;
+    }
+    
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+    }
+    
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: #8b5cf6;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .input-group select option {
+      background: #050816;
+      color: #fff;
+    }
+    
+    .input-hint {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 6px;
+    }
+    
+    .result-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 32px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+    
+    .result-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .cost-display {
+      text-align: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .cost-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .cost-label {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    .comparison-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .comparison-item:last-child {
+      border-bottom: none;
+    }
+    
+    .comparison-model {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .comparison-cost {
+      font-weight: 700;
+      color: #4ade80;
+    }
+    
+    .btn-calculate {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .btn-calculate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+    }
+    
+    .pricing-info {
+      margin-top: 40px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+    }
+    
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    
+    .pricing-table th,
+    .pricing-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .pricing-table th {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .pricing-table td {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="noise"></div>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+
+<header class="header">
+  <nav class="nav shell">
+    <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="tools.html">AI Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero shell reveal">
+    <div class="hero-copy">
+      <div class="pill">Free Tool</div>
+      <h1>AI Cost <span>Calculator</span></h1>
+      <p>Estimate and compare the cost of using different AI models like GPT-4, Claude, and Gemini. Optimize your AI budget with accurate pricing calculations.</p>
+      <div class="actions">
+        <a href="#calculator" class="btn btn-primary">Start Calculating</a>
+        <a href="tools.html" class="btn btn-ghost">Browse AI Tools</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="calculator-section shell reveal" id="calculator">
+    <div class="section-head">
+      <span class="kicker">Calculator</span>
+      <h2>Calculate Your AI Costs</h2>
+      <p>Enter your usage details to see how much different AI models will cost.</p>
+    </div>
+    
+    <div class="calculator-grid">
+      <!-- Input Form -->
+      <div class="calculator-card">
+        <div class="input-group">
+          <label for="model">AI Model</label>
+          <select id="model">
+            <option value="gpt-4">GPT-4 Turbo</option>
+            <option value="gpt-4o">GPT-4o</option>
+            <option value="gpt-3.5">GPT-3.5 Turbo</option>
+            <option value="claude-3-opus">Claude 3 Opus</option>
+            <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+            <option value="claude-3-haiku">Claude 3 Haiku</option>
+            <option value="gemini-pro">Gemini Pro</option>
+            <option value="gemini-ultra">Gemini Ultra</option>
+          </select>
+          <div class="input-hint">Select the AI model you want to use</div>
+        </div>
+        
+        <div class="input-group">
+          <label for="inputTokens">Input Tokens (Prompt)</label>
+          <input type="number" id="inputTokens" placeholder="1000" min="0" value="1000">
+          <div class="input-hint">Number of tokens in your prompt/messages</div>
+        </div>
+        
+        <div class="input-group">
+          <label for="outputTokens">Output Tokens (Completion)</label>
+          <input type="number" id="outputTokens" placeholder="500" min="0" value="500">
+          <div class="input-hint">Expected number of tokens in the response</div>
+        </div>
+        
+        <div class="input-group">
+          <label for="requests">Number of Requests (per month)</label>
+          <input type="number" id="requests" placeholder="1000" min="1" value="1000">
+          <div class="input-hint">How many API calls you'll make monthly</div>
+        </div>
+        
+        <button class="btn-calculate" onclick="calculateCost()">Calculate Cost</button>
+        
+        <!-- Pricing Reference -->
+        <div class="pricing-info">
+          <h3 style="margin-bottom: 12px; color: rgba(255,255,255,0.9); font-size: 1.1rem;">Current Pricing (per 1K tokens)</h3>
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Input</th>
+                <th>Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GPT-4 Turbo</td>
+                <td>$0.01</td>
+                <td>$0.03</td>
+              </tr>
+              <tr>
+                <td>GPT-4o</td>
+                <td>$0.005</td>
+                <td>$0.015</td>
+              </tr>
+              <tr>
+                <td>GPT-3.5 Turbo</td>
+                <td>$0.0005</td>
+                <td>$0.0015</td>
+              </tr>
+              <tr>
+                <td>Claude 3 Opus</td>
+                <td>$0.015</td>
+                <td>$0.075</td>
+              </tr>
+              <tr>
+                <td>Claude 3 Sonnet</td>
+                <td>$0.003</td>
+                <td>$0.015</td>
+              </tr>
+              <tr>
+                <td>Claude 3 Haiku</td>
+                <td>$0.00025</td>
+                <td>$0.00125</td>
+              </tr>
+              <tr>
+                <td>Gemini Pro</td>
+                <td>$0.00025</td>
+                <td>$0.0005</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">*Prices updated July 2026. Check official docs for latest pricing.</p>
+        </div>
+      </div>
+      
+      <!-- Results -->
+      <div class="result-card">
+        <div class="result-title">💰 Cost Estimate</div>
+        
+        <div class="cost-display">
+          <div class="cost-amount" id="totalCost">$0.00</div>
+          <div class="cost-label">Total per month</div>
+        </div>
+        
+        <div style="margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <span style="color: rgba(255,255,255,0.7);">Input Cost</span>
+            <span style="color: #fff; font-weight: 600;" id="inputCost">$0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <span style="color: rgba(255,255,255,0.7);">Output Cost</span>
+            <span style="color: #fff; font-weight: 600;" id="outputCost">$0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <span style="color: rgba(255,255,255,0.7);">Per Request</span>
+            <span style="color: #fff; font-weight: 600;" id="perRequest">$0.00</span>
+          </div>
+        </div>
+        
+        <h4 style="margin-bottom: 16px; color: rgba(255,255,255,0.9); font-size: 0.95rem;">Compare with Other Models:</h4>
+        <div id="comparisonList">
+          <!-- Dynamic comparison will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta shell reveal">
+    <span class="kicker">Need Help?</span>
+    <h2>Want to optimize your AI costs?</h2>
+    <p>Learn strategies to reduce API costs and choose the most cost-effective AI models for your use case.</p>
+    <div class="actions" style="justify-content: center; margin-top: 24px;">
+      <a href="tools.html" class="btn btn-primary">Explore Free Tools</a>
+      <a href="blog.html" class="btn btn-ghost">Read Cost Guides</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <a class="brand" href="index.html">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <span>© 2026 Zynovix AI</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Pricing data (per 1K tokens)
+  const pricing = {
+    'gpt-4': { input: 0.01, output: 0.03, name: 'GPT-4 Turbo' },
+    'gpt-4o': { input: 0.005, output: 0.015, name: 'GPT-4o' },
+    'gpt-3.5': { input: 0.0005, output: 0.0015, name: 'GPT-3.5 Turbo' },
+    'claude-3-opus': { input: 0.015, output: 0.075, name: 'Claude 3 Opus' },
+    'claude-3-sonnet': { input: 0.003, output: 0.015, name: 'Claude 3 Sonnet' },
+    'claude-3-haiku': { input: 0.00025, output: 0.00125, name: 'Claude 3 Haiku' },
+    'gemini-pro': { input: 0.00025, output: 0.0005, name: 'Gemini Pro' },
+    'gemini-ultra': { input: 0.0025, output: 0.0075, name: 'Gemini Ultra' }
+  };
+
+  function calculateCost() {
+    const model = document.getElementById('model').value;
+    const inputTokens = parseFloat(document.getElementById('inputTokens').value) || 0;
+    const outputTokens = parseFloat(document.getElementById('outputTokens').value) || 0;
+    const requests = parseFloat(document.getElementById('requests').value) || 1;
+    
+    const modelPricing = pricing[model];
+    
+    // Calculate costs
+    const inputCost = (inputTokens / 1000) * modelPricing.input * requests;
+    const outputCost = (outputTokens / 1000) * modelPricing.output * requests;
+    const totalCost = inputCost + outputCost;
+    const perRequest = totalCost / requests;
+    
+    // Update display
+    document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+    document.getElementById('inputCost').textContent = '$' + inputCost.toFixed(2);
+    document.getElementById('outputCost').textContent = '$' + outputCost.toFixed(2);
+    document.getElementById('perRequest').textContent = '$' + perRequest.toFixed(4);
+    
+    // Generate comparison
+    generateComparison(inputTokens, outputTokens, requests, model);
+  }
+
+  function generateComparison(inputTokens, outputTokens, requests, currentModel) {
+    const comparisonList = document.getElementById('comparisonList');
+    let html = '';
+    
+    Object.keys(pricing).forEach(modelKey => {
+      if (modelKey !== currentModel) {
+        const modelPricing = pricing[modelKey];
+        const inputCost = (inputTokens / 1000) * modelPricing.input * requests;
+        const outputCost = (outputTokens / 1000) * modelPricing.output * requests;
+        const totalCost = inputCost + outputCost;
+        
+        html += `
+          <div class="comparison-item">
+            <span class="comparison-model">${modelPricing.name}</span>
+            <span class="comparison-cost">$${totalCost.toFixed(2)}</span>
+          </div>
+        `;
+      }
+    });
+    
+    comparisonList.innerHTML = html;
+  }
+
+  // Auto-calculate on input change
+  document.getElementById('model').addEventListener('change', calculateCost);
+  document.getElementById('inputTokens').addEventListener('input', calculateCost);
+  document.getElementById('outputTokens').addEventListener('input', calculateCost);
+  document.getElementById('requests').addEventListener('input', calculateCost);
+
+  // Initial calculation
+  calculateCost();
+</script>
+</body>
+</html>

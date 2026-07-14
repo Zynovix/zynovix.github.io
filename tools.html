@@ -1,523 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools | Zynovix AI</title>
-    <meta name="description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory of AI tools.">
-    <link rel="icon" type="image/png" href="logo.png?v=20260712">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ===== تنظیمات پایه (دقیقاً مثل index.html) ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f1f5f9;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* ===== Header ===== */
-        header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-content { display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { height: 45px; width: auto; }
-        .logo-text { font-size: 1.4em; font-weight: 700; color: #f1f5f9; }
-        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
-        nav a { color: #94a3b8; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: #f1f5f9; }
-        .nav-cta { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff !important; padding: 10px 25px; border-radius: 8px; font-weight: 600; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: #f1f5f9; font-size: 1.5em; cursor: pointer; }
-        
-        /* ===== Hero ===== */
-        .hero { padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 3em; font-weight: 800; margin-bottom: 20px; color: #f1f5f9; }
-        .gradient { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero p { font-size: 1.2em; color: #94a3b8; max-width: 700px; margin: 0 auto 40px; }
-        
-        /* ===== Category Cards (طراحی اصلی تو) ===== */
-        .categories { padding: 60px 0; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 16px;
-            padding: 40px;
-            transition: all 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); }
-        .card-icon { font-size: 3em; margin-bottom: 20px; }
-        .card h3 { font-size: 1.4em; margin-bottom: 15px; color: #8b5cf6; }
-        .card p { color: #94a3b8; margin-bottom: 20px; }
-        .card-link {
-            color: #60a5fa; text-decoration: none; font-weight: 600; display: inline-block;
-            padding: 10px 20px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 8px; transition: all 0.3s;
-        }
-        .card-link:hover { background: rgba(59, 130, 246, 0.2); border-color: #3b82f6; transform: translateY(-2px); }
-        
-        /* ===== Quiz Section ===== */
-        .quiz-section { padding: 80px 0; background: rgba(15, 23, 42, 0.5); }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5em; margin-bottom: 15px; color: #f1f5f9; }
-        .section-header p { color: #94a3b8; font-size: 1.1em; }
-        .quiz-container {
-            max-width: 700px; margin: 0 auto; background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 20px; padding: 50px;
-        }
-        .quiz-step { display: none; }
-        .quiz-step.active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .quiz-step h3 { font-size: 1.5em; margin-bottom: 30px; text-align: center; color: #f1f5f9; }
-        .quiz-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .quiz-option {
-            padding: 20px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 12px; cursor: pointer; transition: all 0.3s; text-align: center; font-weight: 500; color: #f1f5f9;
-        }
-        .quiz-option:hover { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.1); transform: translateY(-3px); }
-        .quiz-option.selected { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.2); }
-        .quiz-progress { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .progress-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background 0.3s; }
-        .progress-dot.active { background: #8b5cf6; }
-        .quiz-nav { display: flex; justify-content: space-between; margin-top: 30px; }
-        .btn { padding: 12px 30px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1em; font-family: 'Outfit', sans-serif; }
-        .btn-primary { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4); }
-        .btn-secondary { background: rgba(255,255,255,0.1); color: #f1f5f9; }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .quiz-result { text-align: center; padding: 30px; }
-        .result-card { background: rgba(139, 92, 246, 0.1); border: 2px solid #8b5cf6; border-radius: 16px; padding: 30px; margin-top: 20px; }
-        .result-card h4 { font-size: 1.8em; color: #8b5cf6; margin-bottom: 15px; }
-        .result-card p { color: #94a3b8; margin-bottom: 20px; }
-        
-        /* ===== Directory Section ===== */
-        .directory-section { padding: 80px 0; }
-        .filters { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
-        .filter-select, .search-box {
-            padding: 12px 20px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 8px; color: #f1f5f9; font-size: 1em; font-family: 'Outfit', sans-serif;
-        }
-        .filter-select { cursor: pointer; min-width: 180px; }
-        .search-box { flex: 1; min-width: 250px; }
-        .filter-select:focus, .search-box:focus { outline: none; border-color: #8b5cf6; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .tool-card {
-            background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 16px; padding: 30px; transition: all 0.3s; display: flex; flex-direction: column;
-        }
-        .tool-card:hover { transform: translateY(-8px); border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); }
-        .tool-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
-        .tool-name { font-size: 1.4em; font-weight: 700; color: #f1f5f9; }
-        .tool-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; }
-        .badge-free { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-        .badge-freemium { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-        .badge-paid { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .tool-category { color: #60a5fa; font-size: 0.9em; font-weight: 600; margin-bottom: 10px; }
-        .tool-description { color: #94a3b8; margin-bottom: 20px; flex-grow: 1; }
-        .tool-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        .tool-rating { color: #fbbf24; font-weight: 600; }
-        .tool-link { padding: 8px 20px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; }
-        .tool-link:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4); }
-        .no-results { text-align: center; padding: 60px 20px; color: #94a3b8; }
-        .no-results h3 { font-size: 1.5em; margin-bottom: 10px; color: #f1f5f9; }
-        
-        /* ===== CTA & Footer ===== */
-        .cta-section { padding: 80px 0; background: rgba(15, 23, 42, 0.5); text-align: center; }
-        .cta-box { max-width: 600px; margin: 0 auto; }
-        .cta-box h2 { font-size: 2.5em; margin-bottom: 20px; color: #f1f5f9; }
-        .cta-box p { color: #94a3b8; font-size: 1.1em; margin-bottom: 30px; }
-        footer { background: rgba(15, 23, 42, 0.95); border-top: 1px solid rgba(148, 163, 184, 0.1); padding: 60px 0 30px; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .footer-links { display: flex; gap: 30px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: #f1f5f9; }
-        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(148, 163, 184, 0.1); color: #64748b; }
-        
-        /* ===== Responsive ===== */
-        @media (max-width: 968px) {
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            nav ul { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero h1 { font-size: 2.5em; }
-        }
-        @media (max-width: 768px) {
-            .grid-3 { grid-template-columns: 1fr; }
-            .quiz-options { grid-template-columns: 1fr; }
-            .quiz-container { padding: 30px 20px; }
-            .tools-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2em; }
-            .footer-content { flex-direction: column; text-align: center; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Tools | Zynovix AI</title>
+  <meta name="description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory of AI tools." />
+  <meta name="theme-color" content="#050816" />
+  <link rel="canonical" href="https://zynovix.github.io/tools.html" />
+
+  <meta property="og:title" content="AI Tools | Zynovix AI" />
+  <meta property="og:description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zynovix.github.io/tools.html" />
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <style>
+    .brand img, .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+    @media (max-width: 600px) {
+      .brand img, .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
+    }
+
+    /* Quiz & Directory Specific Styles matching the dark theme */
+    .quiz-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeIn 0.5s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
+    
+    .quiz-option {
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .quiz-option:hover {
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(139, 92, 246, 0.1);
+    }
+    .quiz-option.selected {
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.2);
+      color: #fff;
+    }
+    
+    .quiz-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: background 0.3s;
+    }
+    .progress-dot.active { background: #8b5cf6; }
+    
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+    
+    .result-card {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 24px;
+      text-align: center;
+    }
+    
+    .tools-filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .tools-filters input, .tools-filters select {
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .tools-filters input:focus, .tools-filters select:focus {
+      border-color: #8b5cf6;
+    }
+    .tools-filters input { flex: 1; min-width: 200px; }
+    .tools-filters select { min-width: 150px; cursor: pointer; }
+    .tools-filters select option { background: #050816; color: #fff; }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .tool-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-free { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+    .badge-freemium { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+    .badge-paid { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+    
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255, 255, 255, 0.6);
+      grid-column: 1 / -1;
+    }
+  </style>
+
+  <script type="text/javascript">
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xkxn7wyps2");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECFTMP6ZQD"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ECFTMP6ZQD');
+  </script>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="logo.png?v=20260712" alt="Zynovix AI">
-                    <span class="logo-text">Zynovix AI</span>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="tools.html">AI Tools</a></li>
-                        <li><a href="learn.html">Learn</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html" class="nav-cta">Contact</a></li>
-                    </ul>
-                </nav>
-                <button class="mobile-menu-btn">☰</button>
-            </div>
+<div class="noise"></div>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+
+<header class="header">
+  <nav class="nav shell">
+    <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="tools.html" class="active">AI Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero shell reveal">
+    <div class="hero-copy">
+      <div class="pill">AI Tools Directory</div>
+      <h1>Find the perfect <span>AI Tool</span> for your workflow</h1>
+      <p>Take our interactive quiz to get a personalized recommendation, or browse our curated directory of honest AI tool reviews.</p>
+      <div class="actions">
+        <a href="#quiz" class="btn btn-primary">Take the Quiz</a>
+        <a href="#directory" class="btn btn-ghost">Browse Directory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Cards -->
+  <section class="section shell reveal">
+    <div class="section-head">
+      <span class="kicker">Categories</span>
+      <h2>Explore by use case</h2>
+      <p>Find the right AI solution for your specific needs.</p>
+    </div>
+    <div class="cards four">
+      <article class="card tool-card">
+        <div class="tool-icon">🤖</div>
+        <h3>Assistant</h3>
+        <p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
+        <a href="contact.html" class="btn btn-ghost">Request Access</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">✍️</div>
+        <h3>Writing</h3>
+        <p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
+        <a href="blog.html" class="btn btn-ghost">Read Guides</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">🎨</div>
+        <h3>Creative</h3>
+        <p>AI Image Prompts to create stronger prompts for image generators and visual concepts.</p>
+        <a href="contact.html" class="btn btn-ghost">Get Help</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">⚡</div>
+        <h3>Automation</h3>
+        <p>Workflow Automation to automate repetitive tasks and create smarter business systems.</p>
+        <a href="automate-email-replies-chatgpt-zapier.html" class="btn btn-ghost">View Example</a>
+      </article>
+    </div>
+    <div class="cards three" style="margin-top: 20px;">
+      <article class="card tool-card">
+        <div class="tool-icon">📚</div>
+        <h3>Learning</h3>
+        <p>AI Learning Hub to learn AI, machine learning, deep learning, and prompting step by step.</p>
+        <a href="learn.html" class="btn btn-ghost">Start Learning</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">📊</div>
+        <h3>Business</h3>
+        <p>AI Business Ideas to discover practical use cases for marketing, support, and operations.</p>
+        <a href="blog.html" class="btn btn-ghost">Explore Ideas</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="section shell reveal" id="quiz">
+    <div class="section-head">
+      <span class="kicker">Interactive Quiz</span>
+      <h2>Find Your Perfect AI Tool</h2>
+      <p>Answer 4 quick questions and get a personalized recommendation.</p>
+    </div>
+    
+    <div class="quiz-container">
+      <div class="quiz-progress">
+        <div class="progress-dot active"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+      </div>
+      
+      <div class="quiz-step active" data-step="1">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What do you want to do?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="writing">✍️ Writing & Content</div>
+          <div class="quiz-option" data-value="coding">💻 Coding</div>
+          <div class="quiz-option" data-value="design">🎨 Design & Images</div>
+          <div class="quiz-option" data-value="automation">⚡ Automation</div>
         </div>
-    </header>
-
-    <main>
-        <!-- Hero -->
-        <section class="hero">
-            <div class="container">
-                <h1>AI Tools</h1>
-                <p class="gradient">Practical AI tools for smarter work</p>
-                <p>Explore tools and workflows for writing, images, automation, learning, and productivity.</p>
-            </div>
-        </section>
-
-        <!-- Category Cards (طراحی اصلی تو) -->
-        <section class="categories">
-            <div class="container">
-                <div class="grid-3">
-                    <article class="card">
-                        <div class="card-icon">🤖</div>
-                        <h3>Assistant</h3>
-                        <p>AI Chat Assistant</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Brainstorm, summarize, research, and improve daily productivity.</p>
-                        <a href="contact.html" class="card-link">Request Access</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">️</div>
-                        <h3>Writing</h3>
-                        <p>AI Content Writer</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Create outlines, emails, posts, descriptions, and marketing content.</p>
-                        <a href="blog.html" class="card-link">Read Guides</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">🎨</div>
-                        <h3>Creative</h3>
-                        <p>AI Image Prompts</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Create stronger prompts for image generators and visual concepts.</p>
-                        <a href="contact.html" class="card-link">Get Help</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Automation</h3>
-                        <p>Workflow Automation</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Automate repetitive tasks and create smarter business systems.</p>
-                        <a href="automate-email-replies-chatgpt-zapier.html" class="card-link">View Example</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon"></div>
-                        <h3>Learning</h3>
-                        <p>AI Learning Hub</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Learn AI, machine learning, deep learning, and prompting step by step.</p>
-                        <a href="learn.html" class="card-link">Start Learning</a>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon">📊</div>
-                        <h3>Business</h3>
-                        <p>AI Business Ideas</p>
-                        <p style="color: #94a3b8; font-size: 0.95em;">Discover practical use cases for marketing, support, and operations.</p>
-                        <a href="blog.html" class="card-link">Explore Ideas</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quiz Section (جدید) -->
-        <section class="quiz-section" id="quiz">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Find Your Perfect <span class="gradient">AI Tool</span></h2>
-                    <p>Answer 5 quick questions and get a personalized recommendation</p>
-                </div>
-                <div class="quiz-container">
-                    <div class="quiz-progress">
-                        <div class="progress-dot active"></div>
-                        <div class="progress-dot"></div>
-                        <div class="progress-dot"></div>
-                        <div class="progress-dot"></div>
-                        <div class="progress-dot"></div>
-                    </div>
-                    
-                    <div class="quiz-step active" data-step="1">
-                        <h3>What do you want to do?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" data-value="writing">✍️ Writing & Content</div>
-                            <div class="quiz-option" data-value="coding">💻 Coding</div>
-                            <div class="quiz-option" data-value="design">🎨 Design & Images</div>
-                            <div class="quiz-option" data-value="automation">⚡ Automation</div>
-                        </div>
-                    </div>
-                    <div class="quiz-step" data-step="2">
-                        <h3>What's your budget?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" data-value="free">💚 Completely Free</div>
-                            <div class="quiz-option" data-value="freemium">💙 Free + Paid Plans</div>
-                            <div class="quiz-option" data-value="budget">💛 Under $20/month</div>
-                            <div class="quiz-option" data-value="premium">💜 $20+/month</div>
-                        </div>
-                    </div>
-                    <div class="quiz-step" data-step="3">
-                        <h3>Your skill level?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
-                            <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
-                            <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
-                        </div>
-                    </div>
-                    <div class="quiz-step" data-step="4">
-                        <h3>What's most important to you?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" data-value="speed"> Speed</div>
-                            <div class="quiz-option" data-value="quality">✨ Quality</div>
-                            <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
-                            <div class="quiz-option" data-value="ease"> Ease of Use</div>
-                        </div>
-                    </div>
-                    <div class="quiz-step" data-step="5">
-                        <h3>How will you use it?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" data-value="personal"> Personal Projects</div>
-                            <div class="quiz-option" data-value="business">💼 Business</div>
-                            <div class="quiz-option" data-value="learning">📚 Learning</div>
-                            <div class="quiz-option" data-value="team">👥 Team/Agency</div>
-                        </div>
-                    </div>
-                    <div class="quiz-step" data-step="result">
-                        <div class="quiz-result">
-                            <h3>🎉 Your Perfect AI Tool</h3>
-                            <div id="resultContent"></div>
-                            <button class="btn btn-secondary" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
-                        </div>
-                    </div>
-                    <div class="quiz-nav" id="quizNav">
-                        <button class="btn btn-secondary" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
-                        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Directory Section (جدید) -->
-        <section class="directory-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>AI Tools Directory</h2>
-                    <p>Browse our curated collection of honest reviews</p>
-                </div>
-                <div class="filters">
-                    <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search tools...">
-                    <select class="filter-select" id="categoryFilter">
-                        <option value="">All Categories</option>
-                        <option value="writing">Writing</option>
-                        <option value="coding">Coding</option>
-                        <option value="design">Design</option>
-                        <option value="automation">Automation</option>
-                        <option value="chatbot">Chatbots</option>
-                    </select>
-                    <select class="filter-select" id="pricingFilter">
-                        <option value="">All Prices</option>
-                        <option value="free">Free</option>
-                        <option value="freemium">Freemium</option>
-                        <option value="paid">Paid</option>
-                    </select>
-                </div>
-                <div class="tools-grid" id="toolsGrid"></div>
-                <div class="no-results" id="noResults" style="display: none;">
-                    <h3>No tools found</h3>
-                    <p>Try adjusting your filters</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section (طراحی اصلی تو) -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-box">
-                    <h2>Build with AI</h2>
-                    <p>Want a custom AI workflow?<br>Tell us what you want to automate or improve.</p>
-                    <a href="contact.html" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Contact Zynovix AI</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="index.html" class="logo">
-                    <img src="logo.png?v=20260712" alt="Zynovix AI" style="height: 35px;">
-                    <span class="logo-text">Zynovix AI</span>
-                </a>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="blog.html">Blog</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Zynovix AI</p>
-            </div>
+      </div>
+      
+      <div class="quiz-step" data-step="2">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What's your budget?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="free">💚 Completely Free</div>
+          <div class="quiz-option" data-value="freemium">💙 Free + Paid Plans</div>
+          <div class="quiz-option" data-value="budget">💛 Under $20/month</div>
+          <div class="quiz-option" data-value="premium">💜 $20+/month</div>
         </div>
-    </footer>
+      </div>
+      
+      <div class="quiz-step" data-step="3">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">Your skill level?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
+          <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
+          <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="4">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What's most important to you?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="speed">⚡ Speed</div>
+          <div class="quiz-option" data-value="quality">✨ Quality</div>
+          <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
+          <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="result">
+        <div class="result-card">
+          <h3 style="margin-bottom: 16px; color: #fff;">🎉 Your Perfect AI Tool</h3>
+          <div id="resultContent"></div>
+          <button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
+        </div>
+      </div>
+      
+      <div class="quiz-nav" id="quizNav">
+        <button class="btn btn-ghost" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // ===== TOOLS DATABASE =====
-        const tools = [
-            { name: "ChatGPT", category: "chatbot", pricing: "freemium", rating: 5, description: "The most popular AI chatbot. Great for writing, brainstorming, and general tasks.", url: "https://chat.openai.com", bestFor: ["writing", "learning", "personal"], priority: ["quality", "ease"] },
-            { name: "Claude", category: "chatbot", pricing: "freemium", rating: 5, description: "Anthropic's AI assistant. Excellent for long documents and nuanced writing.", url: "https://claude.ai", bestFor: ["writing", "business", "learning"], priority: ["quality", "privacy"] },
-            { name: "Cursor", category: "coding", pricing: "freemium", rating: 5, description: "AI-first code editor. The best tool for developers in 2026.", url: "https://cursor.com", bestFor: ["coding", "business", "personal"], priority: ["speed", "quality"] },
-            { name: "GitHub Copilot", category: "coding", pricing: "paid", rating: 4, description: "AI pair programmer integrated with VS Code. Industry standard.", url: "https://github.com/features/copilot", bestFor: ["coding", "business", "team"], priority: ["speed", "quality"] },
-            { name: "Midjourney", category: "design", pricing: "paid", rating: 5, description: "Best AI image generator for artistic and creative visuals.", url: "https://midjourney.com", bestFor: ["design", "personal", "business"], priority: ["quality"] },
-            { name: "Canva AI", category: "design", pricing: "freemium", rating: 4, description: "Easy-to-use design tool with AI features. Perfect for non-designers.", url: "https://canva.com", bestFor: ["design", "beginner", "business"], priority: ["ease", "speed"] },
-            { name: "Zapier", category: "automation", pricing: "freemium", rating: 4, description: "Connect apps and automate workflows without code.", url: "https://zapier.com", bestFor: ["automation", "business", "team"], priority: ["ease"] },
-            { name: "Make (Integromat)", category: "automation", pricing: "freemium", rating: 4, description: "Visual automation platform. More flexible than Zapier for complex workflows.", url: "https://make.com", bestFor: ["automation", "business", "advanced"], priority: ["quality"] },
-            { name: "Perplexity AI", category: "chatbot", pricing: "freemium", rating: 5, description: "AI-powered search engine. Best for research with citations.", url: "https://perplexity.ai", bestFor: ["learning", "personal", "business"], priority: ["quality", "speed"] },
-            { name: "Gemini", category: "chatbot", pricing: "free", rating: 4, description: "Google's AI assistant. Free and integrated with Google services.", url: "https://gemini.google.com", bestFor: ["learning", "personal", "beginner"], priority: ["ease", "speed"] },
-            { name: "Jasper", category: "writing", pricing: "paid", rating: 4, description: "AI writing tool for marketers and businesses. Great for brand voice.", url: "https://jasper.ai", bestFor: ["writing", "business", "team"], priority: ["quality"] },
-            { name: "Copy.ai", category: "writing", pricing: "freemium", rating: 4, description: "AI copywriting tool. Great for marketing content and emails.", url: "https://copy.ai", bestFor: ["writing", "business", "beginner"], priority: ["speed", "ease"] },
-            { name: "Notion AI", category: "writing", pricing: "freemium", rating: 4, description: "AI writing assistant inside Notion. Perfect for notes and docs.", url: "https://notion.so", bestFor: ["writing", "business", "personal"], priority: ["ease"] },
-            { name: "DALL-E 3", category: "design", pricing: "paid", rating: 4, description: "OpenAI's image generator. Great for realistic and detailed images.", url: "https://openai.com/dall-e-3", bestFor: ["design", "personal", "business"], priority: ["quality"] },
-            { name: "Windsurf", category: "coding", pricing: "freemium", rating: 5, description: "Next-gen AI IDE with agentic coding capabilities.", url: "https://codeium.com", bestFor: ["coding", "advanced", "business"], priority: ["speed", "quality"] },
-            { name: "n8n", category: "automation", pricing: "free", rating: 5, description: "Open-source workflow automation. Self-hostable and free.", url: "https://n8n.io", bestFor: ["automation", "advanced", "personal"], priority: ["privacy", "quality"] }
-        ];
+  <!-- Directory Section -->
+  <section class="section shell reveal" id="directory">
+    <div class="section-head">
+      <span class="kicker">Directory</span>
+      <h2>AI Tools Directory</h2>
+      <p>Browse our curated collection of honest reviews.</p>
+    </div>
+    
+    <div class="tools-filters">
+      <input type="text" id="searchBox" placeholder="🔍 Search tools...">
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="writing">Writing</option>
+        <option value="coding">Coding</option>
+        <option value="design">Design</option>
+        <option value="automation">Automation</option>
+        <option value="chatbot">Chatbots</option>
+      </select>
+      <select id="pricingFilter">
+        <option value="">All Prices</option>
+        <option value="free">Free</option>
+        <option value="freemium">Freemium</option>
+        <option value="paid">Paid</option>
+      </select>
+    </div>
+    
+    <div class="tools-grid" id="toolsGrid"></div>
+    <div class="no-results" id="noResults" style="display: none;">
+      <h3>No tools found</h3>
+      <p>Try adjusting your filters</p>
+    </div>
+  </section>
 
-        // ===== QUIZ LOGIC =====
-        let currentStep = 1;
-        const totalSteps = 5;
-        const answers = {};
+  <!-- CTA Section -->
+  <section class="cta shell reveal">
+    <span class="kicker">Start Today</span>
+    <h2>Ready to build smarter with Zynovix AI?</h2>
+    <p>Want a custom AI workflow? Tell us what you want to automate or improve.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </section>
+</main>
 
-        function updateProgress() {
-            const dots = document.querySelectorAll('.progress-dot');
-            dots.forEach((dot, index) => dot.classList.toggle('active', index < currentStep));
-        }
-        function showStep(step) {
-            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-            const targetStep = document.querySelector(`[data-step="${step}"]`);
-            if (targetStep) targetStep.classList.add('active');
-            document.getElementById('prevBtn').disabled = step === 1;
-            document.getElementById('nextBtn').disabled = !answers[step];
-            document.getElementById('nextBtn').textContent = step === totalSteps ? 'See Results' : 'Next';
-            document.getElementById('quizNav').style.display = step === 'result' ? 'none' : 'flex';
-        }
-        function selectOption(step, value) {
-            answers[step] = value;
-            const options = document.querySelectorAll(`[data-step="${step}"] .quiz-option`);
-            options.forEach(opt => opt.classList.toggle('selected', opt.dataset.value === value));
-            document.getElementById('nextBtn').disabled = false;
-        }
-        function nextStep() {
-            if (currentStep < totalSteps) { currentStep++; showStep(currentStep); updateProgress(); } 
-            else { showResults(); }
-        }
-        function prevStep() {
-            if (currentStep > 1) { currentStep--; showStep(currentStep); updateProgress(); }
-        }
-        function showResults() {
-            currentStep = 'result'; showStep('result');
-            let bestTool = tools[0], bestScore = 0;
-            tools.forEach(tool => {
-                let score = 0;
-                if (tool.category === answers[1]) score += 3;
-                if (tool.pricing === answers[2] || (answers[2] === 'budget' && tool.pricing === 'freemium')) score += 2;
-                if (tool.bestFor.includes(answers[5])) score += 2;
-                if (tool.priority.includes(answers[4])) score += 1;
-                if (score > bestScore) { bestScore = score; bestTool = tool; }
-            });
-            const stars = '★'.repeat(bestTool.rating) + '☆'.repeat(5 - bestTool.rating);
-            const badgeClass = bestTool.pricing === 'free' ? 'badge-free' : bestTool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
-            document.getElementById('resultContent').innerHTML = `
-                <div class="result-card">
-                    <h4>${bestTool.name}</h4>
-                    <p>${bestTool.description}</p>
-                    <div style="margin: 15px 0;">
-                        <span style="color: #fbbf24; font-size: 1.2em;">${stars}</span>
-                        <span class="tool-badge ${badgeClass}" style="margin-left: 10px;">${bestTool.pricing}</span>
-                    </div>
-                    <a href="${bestTool.url}" target="_blank" class="btn btn-primary">Try ${bestTool.name} →</a>
-                </div>
-                <p style="margin-top: 20px; color: #94a3b8; font-size: 0.9em;">💡 Want more options? Browse our full directory below.</p>
-            `;
-        }
-        function restartQuiz() {
-            currentStep = 1; Object.keys(answers).forEach(key => delete answers[key]);
-            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
-            showStep(1); updateProgress();
-        }
-        document.querySelectorAll('.quiz-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const step = this.closest('.quiz-step').dataset.step;
-                selectOption(step, this.dataset.value);
-            });
-        });
+<footer class="footer">
+  <div class="shell footer-inner">
+    <a class="brand" href="index.html">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
 
-        // ===== DIRECTORY LOGIC =====
-        function renderTools(filteredTools) {
-            const grid = document.getElementById('toolsGrid');
-            const noResults = document.getElementById('noResults');
-            if (filteredTools.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
-            noResults.style.display = 'none';
-            grid.innerHTML = filteredTools.map(tool => {
-                const stars = '★'.repeat(tool.rating) + '☆'.repeat(5 - tool.rating);
-                const badgeClass = tool.pricing === 'free' ? 'badge-free' : tool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
-                return `
-                    <div class="tool-card">
-                        <div class="tool-header">
-                            <div class="tool-name">${tool.name}</div>
-                            <span class="tool-badge ${badgeClass}">${tool.pricing}</span>
-                        </div>
-                        <div class="tool-category">${tool.category.charAt(0).toUpperCase() + tool.category.slice(1)}</div>
-                        <div class="tool-description">${tool.description}</div>
-                        <div class="tool-footer">
-                            <div class="tool-rating">${stars}</div>
-                            <a href="${tool.url}" target="_blank" class="tool-link">Visit →</a>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-        function filterTools() {
-            const search = document.getElementById('searchBox').value.toLowerCase();
-            const category = document.getElementById('categoryFilter').value;
-            const pricing = document.getElementById('pricingFilter').value;
-            const filtered = tools.filter(tool => {
-                const matchSearch = tool.name.toLowerCase().includes(search) || tool.description.toLowerCase().includes(search);
-                const matchCategory = !category || tool.category === category;
-                const matchPricing = !pricing || tool.pricing === pricing;
-                return matchSearch && matchCategory && matchPricing;
-            });
-            renderTools(filtered);
-        }
-        document.getElementById('searchBox').addEventListener('input', filterTools);
-        document.getElementById('categoryFilter').addEventListener('change', filterTools);
-        document.getElementById('pricingFilter').addEventListener('change', filterTools);
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
 
-        // Initialize
-        showStep(1);
-        renderTools(tools);
-    </script>
+    <span>© 2026 Zynovix AI</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // ===== TOOLS DATABASE =====
+  const tools = [
+    { name: "ChatGPT", category: "chatbot", pricing: "freemium", rating: 5, description: "The most popular AI chatbot. Great for writing, brainstorming, and general tasks.", url: "https://chat.openai.com", bestFor: ["writing", "learning", "personal"], priority: ["quality", "ease"] },
+    { name: "Claude", category: "chatbot", pricing: "freemium", rating: 5, description: "Anthropic's AI assistant. Excellent for long documents and nuanced writing.", url: "https://claude.ai", bestFor: ["writing", "business", "learning"], priority: ["quality", "privacy"] },
+    { name: "Cursor", category: "coding", pricing: "freemium", rating: 5, description: "AI-first code editor. The best tool for developers in 2026.", url: "https://cursor.com", bestFor: ["coding", "business", "personal"], priority: ["speed", "quality"] },
+    { name: "GitHub Copilot", category: "coding", pricing: "paid", rating: 4, description: "AI pair programmer integrated with VS Code. Industry standard.", url: "https://github.com/features/copilot", bestFor: ["coding", "business", "team"], priority: ["speed", "quality"] },
+    { name: "Midjourney", category: "design", pricing: "paid", rating: 5, description: "Best AI image generator for artistic and creative visuals.", url: "https://midjourney.com", bestFor: ["design", "personal", "business"], priority: ["quality"] },
+    { name: "Canva AI", category: "design", pricing: "freemium", rating: 4, description: "Easy-to-use design tool with AI features. Perfect for non-designers.", url: "https://canva.com", bestFor: ["design", "beginner", "business"], priority: ["ease", "speed"] },
+    { name: "Zapier", category: "automation", pricing: "freemium", rating: 4, description: "Connect apps and automate workflows without code.", url: "https://zapier.com", bestFor: ["automation", "business", "team"], priority: ["ease"] },
+    { name: "Make (Integromat)", category: "automation", pricing: "freemium", rating: 4, description: "Visual automation platform. More flexible than Zapier for complex workflows.", url: "https://make.com", bestFor: ["automation", "business", "advanced"], priority: ["quality"] },
+    { name: "Perplexity AI", category: "chatbot", pricing: "freemium", rating: 5, description: "AI-powered search engine. Best for research with citations.", url: "https://perplexity.ai", bestFor: ["learning", "personal", "business"], priority: ["quality", "speed"] },
+    { name: "Gemini", category: "chatbot", pricing: "free", rating: 4, description: "Google's AI assistant. Free and integrated with Google services.", url: "https://gemini.google.com", bestFor: ["learning", "personal", "beginner"], priority: ["ease", "speed"] },
+    { name: "Jasper", category: "writing", pricing: "paid", rating: 4, description: "AI writing tool for marketers and businesses. Great for brand voice.", url: "https://jasper.ai", bestFor: ["writing", "business", "team"], priority: ["quality"] },
+    { name: "Copy.ai", category: "writing", pricing: "freemium", rating: 4, description: "AI copywriting tool. Great for marketing content and emails.", url: "https://copy.ai", bestFor: ["writing", "business", "beginner"], priority: ["speed", "ease"] },
+    { name: "Notion AI", category: "writing", pricing: "freemium", rating: 4, description: "AI writing assistant inside Notion. Perfect for notes and docs.", url: "https://notion.so", bestFor: ["writing", "business", "personal"], priority: ["ease"] },
+    { name: "DALL-E 3", category: "design", pricing: "paid", rating: 4, description: "OpenAI's image generator. Great for realistic and detailed images.", url: "https://openai.com/dall-e-3", bestFor: ["design", "personal", "business"], priority: ["quality"] },
+    { name: "Windsurf", category: "coding", pricing: "freemium", rating: 5, description: "Next-gen AI IDE with agentic coding capabilities.", url: "https://codeium.com", bestFor: ["coding", "advanced", "business"], priority: ["speed", "quality"] },
+    { name: "n8n", category: "automation", pricing: "free", rating: 5, description: "Open-source workflow automation. Self-hostable and free.", url: "https://n8n.io", bestFor: ["automation", "advanced", "personal"], priority: ["privacy", "quality"] }
+  ];
+
+  // ===== QUIZ LOGIC =====
+  let currentStep = 1;
+  const totalSteps = 4;
+  const answers = {};
+
+  function updateProgress() {
+    const dots = document.querySelectorAll('.progress-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index < currentStep);
+    });
+  }
+
+  function showStep(step) {
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    const targetStep = document.querySelector(`[data-step="${step}"]`);
+    if (targetStep) targetStep.classList.add('active');
+    
+    document.getElementById('prevBtn').disabled = step === 1;
+    document.getElementById('nextBtn').disabled = !answers[step];
+    document.getElementById('nextBtn').textContent = step === totalSteps ? 'See Results' : 'Next';
+    document.getElementById('quizNav').style.display = step === 'result' ? 'none' : 'flex';
+  }
+
+  function selectOption(step, value) {
+    answers[step] = value;
+    const options = document.querySelectorAll(`[data-step="${step}"] .quiz-option`);
+    options.forEach(opt => {
+      opt.classList.toggle('selected', opt.dataset.value === value);
+    });
+    document.getElementById('nextBtn').disabled = false;
+  }
+
+  function nextStep() {
+    if (currentStep < totalSteps) {
+      currentStep++;
+      showStep(currentStep);
+      updateProgress();
+    } else {
+      showResults();
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+      updateProgress();
+    }
+  }
+
+  function showResults() {
+    currentStep = 'result';
+    showStep('result');
+    
+    let bestTool = tools[0];
+    let bestScore = 0;
+    
+    tools.forEach(tool => {
+      let score = 0;
+      if (tool.category === answers[1]) score += 3;
+      if (tool.pricing === answers[2] || (answers[2] === 'budget' && tool.pricing === 'freemium')) score += 2;
+      if (tool.bestFor.includes(answers[3] === 'beginner' ? 'learning' : 'business')) score += 2;
+      if (tool.priority.includes(answers[4])) score += 1;
+      
+      if (score > bestScore) {
+        bestScore = score;
+        bestTool = tool;
+      }
+    });
+    
+    const stars = '★'.repeat(bestTool.rating) + '☆'.repeat(5 - bestTool.rating);
+    const badgeClass = bestTool.pricing === 'free' ? 'badge-free' : bestTool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
+    
+    document.getElementById('resultContent').innerHTML = `
+      <h4 style="font-size: 1.5rem; margin-bottom: 8px; color: #fff;">${bestTool.name}</h4>
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 16px;">${bestTool.description}</p>
+      <div style="margin-bottom: 20px;">
+        <span style="color: #fbbf24; font-size: 1.2rem;">${stars}</span>
+        <span class="tool-badge ${badgeClass}" style="margin-left: 12px;">${bestTool.pricing}</span>
+      </div>
+      <a href="${bestTool.url}" target="_blank" class="btn btn-primary">Try ${bestTool.name} →</a>
+    `;
+  }
+
+  function restartQuiz() {
+    currentStep = 1;
+    Object.keys(answers).forEach(key => delete answers[key]);
+    document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+    showStep(1);
+    updateProgress();
+  }
+
+  document.querySelectorAll('.quiz-option').forEach(option => {
+    option.addEventListener('click', function() {
+      const step = this.closest('.quiz-step').dataset.step;
+      selectOption(step, this.dataset.value);
+    });
+  });
+
+  // ===== DIRECTORY LOGIC =====
+  function renderTools(filteredTools) {
+    const grid = document.getElementById('toolsGrid');
+    const noResults = document.getElementById('noResults');
+    
+    if (filteredTools.length === 0) {
+      grid.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+    
+    noResults.style.display = 'none';
+    grid.innerHTML = filteredTools.map(tool => {
+      const stars = '★'.repeat(tool.rating) + '☆'.repeat(5 - tool.rating);
+      const badgeClass = tool.pricing === 'free' ? 'badge-free' : tool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
+      return `
+        <article class="card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <h3 style="font-size: 1.2rem; margin: 0; color: #fff;">${tool.name}</h3>
+            <span class="tool-badge ${badgeClass}">${tool.pricing}</span>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 16px; flex-grow: 1;">${tool.description}</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+            <span style="color: #fbbf24; font-size: 0.9rem;">${stars}</span>
+            <a href="${tool.url}" target="_blank" class="btn btn-ghost" style="padding: 8px 16px; font-size: 0.9rem;">Visit →</a>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  function filterTools() {
+    const search = document.getElementById('searchBox').value.toLowerCase();
+    const category = document.getElementById('categoryFilter').value;
+    const pricing = document.getElementById('pricingFilter').value;
+    
+    const filtered = tools.filter(tool => {
+      const matchSearch = tool.name.toLowerCase().includes(search) || tool.description.toLowerCase().includes(search);
+      const matchCategory = !category || tool.category === category;
+      const matchPricing = !pricing || tool.pricing === pricing;
+      return matchSearch && matchCategory && matchPricing;
+    });
+    
+    renderTools(filtered);
+  }
+
+  document.getElementById('searchBox').addEventListener('input', filterTools);
+  document.getElementById('categoryFilter').addEventListener('change', filterTools);
+  document.getElementById('pricingFilter').addEventListener('change', filterTools);
+
+  // Initialize
+  showStep(1);
+  renderTools(tools);
+</script>
 </body>
 </html>

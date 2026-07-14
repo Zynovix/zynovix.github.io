@@ -11,51 +11,58 @@ if (menuBtn && navMenu) {
 document.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Preserve the site's original reveal system on every page.
-  const originalRevealItems = Array.from(document.querySelectorAll(".reveal"));
+  /*
+    Keep all original site content visible immediately.
+    This prevents any section on the homepage or other pages from disappearing.
+  */
+  document.querySelectorAll(".reveal").forEach(item => {
+    item.classList.add("visible");
+  });
 
-  // Animate blog cards even when they do not have the reveal class.
   const blogCards = Array.from(
-    document.querySelectorAll("body .cards.three > article.card")
+    document.querySelectorAll(".cards.three > article.card")
   );
 
-  if (blogCards.length) {
-    const style = document.createElement("style");
-    style.id = "zynovix-blog-card-reveal";
-    style.textContent = `
-      .cards.three > article.card.zx-card-ready {
-        opacity: 0;
-        transform: translateY(26px);
-        transition:
-          opacity .62s cubic-bezier(.22, 1, .36, 1),
-          transform .62s cubic-bezier(.22, 1, .36, 1);
+  if (!blogCards.length || reduceMotion) return;
+
+  const style = document.createElement("style");
+  style.id = "zynovix-instant-card-animation";
+  style.textContent = `
+    .cards.three > article.card.zx-animate-card {
+      opacity: 1 !important;
+      transform: translateY(16px);
+      transition:
+        transform .42s cubic-bezier(.22, 1, .36, 1),
+        box-shadow .42s ease,
+        border-color .42s ease;
+      will-change: transform;
+    }
+
+    .cards.three > article.card.zx-animate-card.zx-card-visible {
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cards.three > article.card.zx-animate-card {
+        transform: none !important;
+        transition: none !important;
       }
+    }
+  `;
+  document.head.appendChild(style);
 
-      .cards.three > article.card.zx-card-ready.zx-card-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  blogCards.forEach(card => {
+    card.classList.add("zx-animate-card");
+    card.classList.remove("zx-card-visible");
+  });
 
-      @media (prefers-reduced-motion: reduce) {
-        .cards.three > article.card.zx-card-ready {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    blogCards.forEach(card => card.classList.add("zx-card-ready"));
-  }
-
-  const showEverything = () => {
-    originalRevealItems.forEach(item => item.classList.add("visible"));
-    blogCards.forEach(card => card.classList.add("zx-card-visible"));
+  const revealCard = card => {
+    card.classList.add("zx-card-visible");
   };
 
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    showEverything();
+  if (!("IntersectionObserver" in window)) {
+    blogCards.forEach(revealCard);
     return;
   }
 
@@ -63,31 +70,22 @@ document.addEventListener("DOMContentLoaded", () => {
     entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-
-        const item = entry.target;
-
-        if (item.classList.contains("reveal")) {
-          item.classList.add("visible");
-        }
-
-        if (item.classList.contains("zx-card-ready")) {
-          const rowIndex = blogCards.indexOf(item) % 3;
-          item.style.transitionDelay = `${rowIndex * 90}ms`;
-          item.classList.add("zx-card-visible");
-        }
-
-        observer.unobserve(item);
+        revealCard(entry.target);
+        observer.unobserve(entry.target);
       });
     },
     {
-      threshold: 0.01,
-      rootMargin: "0px 0px 120px 0px"
+      threshold: 0,
+      rootMargin: "220px 0px 220px 0px"
     }
   );
 
-  originalRevealItems.forEach(item => observer.observe(item));
-  blogCards.forEach(card => observer.observe(card));
+  requestAnimationFrame(() => {
+    blogCards.forEach(card => observer.observe(card));
+  });
 
-  // Safety fallback: no site content can remain hidden.
-  window.setTimeout(showEverything, 1600);
+  // Very fast safety fallback so no card ever waits.
+  window.setTimeout(() => {
+    blogCards.forEach(revealCard);
+  }, 350);
 });

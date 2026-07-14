@@ -8,65 +8,54 @@ if (menuBtn && navMenu) {
   });
 }
 
-/*
-  Reliable blog-card reveal animation.
-  This version does not depend on the existing .reveal CSS, so every card
-  including the final row animates consistently.
-*/
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = Array.from(document.querySelectorAll(".cards.three > .card"));
-  if (!cards.length) return;
-
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (reduceMotion) {
-    cards.forEach(card => {
-      card.style.opacity = "1";
-      card.style.transform = "none";
-    });
-    return;
+  // Preserve the site's original reveal system on every page.
+  const originalRevealItems = Array.from(document.querySelectorAll(".reveal"));
+
+  // Animate blog cards even when they do not have the reveal class.
+  const blogCards = Array.from(
+    document.querySelectorAll("body .cards.three > article.card")
+  );
+
+  if (blogCards.length) {
+    const style = document.createElement("style");
+    style.id = "zynovix-blog-card-reveal";
+    style.textContent = `
+      .cards.three > article.card.zx-card-ready {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity .62s cubic-bezier(.22, 1, .36, 1),
+          transform .62s cubic-bezier(.22, 1, .36, 1);
+      }
+
+      .cards.three > article.card.zx-card-ready.zx-card-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cards.three > article.card.zx-card-ready {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    blogCards.forEach(card => card.classList.add("zx-card-ready"));
   }
 
-  // Inject isolated animation CSS so existing site styles remain untouched.
-  const style = document.createElement("style");
-  style.id = "zynovix-card-reveal-fix";
-  style.textContent = `
-    .cards.three > .card {
-      opacity: 0;
-      transform: translate3d(0, 34px, 0) scale(.985);
-      transition:
-        opacity .62s cubic-bezier(.22, 1, .36, 1),
-        transform .62s cubic-bezier(.22, 1, .36, 1);
-      will-change: opacity, transform;
-    }
-
-    .cards.three > .card.zx-card-visible {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-  `;
-  document.head.appendChild(style);
-
-  // Force the hidden starting state to be painted before revealing any card.
-  cards.forEach(card => {
-    card.classList.remove("visible", "zx-card-visible");
-    card.style.transitionDelay = "0ms";
-  });
-
-  const revealCard = (card) => {
-    const index = cards.indexOf(card);
-    const delay = (index % 3) * 110;
-
-    window.setTimeout(() => {
-      card.style.transitionDelay = `${delay}ms`;
-      card.classList.add("zx-card-visible");
-    }, 80);
+  const showEverything = () => {
+    originalRevealItems.forEach(item => item.classList.add("visible"));
+    blogCards.forEach(card => card.classList.add("zx-card-visible"));
   };
 
-  if (!("IntersectionObserver" in window)) {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => cards.forEach(revealCard));
-    });
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    showEverything();
     return;
   }
 
@@ -74,30 +63,31 @@ document.addEventListener("DOMContentLoaded", () => {
     entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        revealCard(entry.target);
-        observer.unobserve(entry.target);
+
+        const item = entry.target;
+
+        if (item.classList.contains("reveal")) {
+          item.classList.add("visible");
+        }
+
+        if (item.classList.contains("zx-card-ready")) {
+          const rowIndex = blogCards.indexOf(item) % 3;
+          item.style.transitionDelay = `${rowIndex * 90}ms`;
+          item.classList.add("zx-card-visible");
+        }
+
+        observer.unobserve(item);
       });
     },
     {
       threshold: 0.01,
-      rootMargin: "0px 0px 90px 0px"
+      rootMargin: "0px 0px 120px 0px"
     }
   );
 
-  // Two frames ensure even cards visible after browser scroll restoration animate.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      cards.forEach(card => observer.observe(card));
-    });
-  });
+  originalRevealItems.forEach(item => observer.observe(item));
+  blogCards.forEach(card => observer.observe(card));
 
-  // Safety fallback: no card stays invisible if the observer is interrupted.
-  window.setTimeout(() => {
-    cards.forEach(card => {
-      if (!card.classList.contains("zx-card-visible")) {
-        card.style.transitionDelay = "0ms";
-        card.classList.add("zx-card-visible");
-      }
-    });
-  }, 2200);
+  // Safety fallback: no site content can remain hidden.
+  window.setTimeout(showEverything, 1600);
 });

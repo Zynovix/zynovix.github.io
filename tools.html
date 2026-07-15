@@ -279,7 +279,7 @@
         <a href="contact.html" class="btn btn-ghost">Request Access</a>
       </article>
       <article class="card tool-card">
-        <div class="tool-icon">️</div>
+        <div class="tool-icon">✍️</div>
         <h3>Writing</h3>
         <p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
         <a href="blog.html" class="btn btn-ghost">Read Guides</a>
@@ -352,7 +352,7 @@
       <div class="quiz-step" data-step="3">
         <h3 style="text-align: center;">Your skill level?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="beginner"> Beginner</div>
+          <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
           <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
           <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
         </div>
@@ -361,9 +361,9 @@
       <div class="quiz-step" data-step="4">
         <h3 style="text-align: center;">What's most important to you?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="speed"> Speed</div>
+          <div class="quiz-option" data-value="speed">⚡ Speed</div>
           <div class="quiz-option" data-value="quality">✨ Quality</div>
-          <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
+          <div class="quiz-option" data-value="privacy"> Privacy</div>
           <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
         </div>
       </div>
@@ -430,7 +430,7 @@
       <p>Try adjusting your filters</p>
     </div>
 
-    <!-- FAQ Section - اینجا قرار دارد -->
+    <!-- FAQ Section -->
     <div class="faq-section">
       <div class="section-head" style="margin-top: 80px;">
         <span class="kicker">Support</span>
@@ -676,12 +676,10 @@
     const faqItem = element.parentElement;
     const isActive = faqItem.classList.contains('active');
     
-    // Close all
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('active');
     });
     
-    // Open clicked if it wasn't active
     if (!isActive) {
       faqItem.classList.add('active');
     }

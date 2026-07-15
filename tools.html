@@ -194,12 +194,9 @@
       color: #e2e8f0;
     }
 
-    /* FAQ Section - کاملاً جدید */
+    /* FAQ Section */
     .faq-section {
-      margin-top: 80px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 60px;
     }
     .faq-item {
       background: var(--panel);
@@ -244,7 +241,7 @@
       <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
-    <button class="menu-btn" id="menuBtn"></button>
+    <button class="menu-btn" id="menuBtn">☰</button>
     <div class="nav-menu" id="navMenu">
       <a href="tools.html" class="active">AI Tools</a>
       <a href="learn.html">Learn</a>
@@ -282,7 +279,7 @@
         <a href="contact.html" class="btn btn-ghost">Request Access</a>
       </article>
       <article class="card tool-card">
-        <div class="tool-icon">✍️</div>
+        <div class="tool-icon">️</div>
         <h3>Writing</h3>
         <p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
         <a href="blog.html" class="btn btn-ghost">Read Guides</a>
@@ -345,7 +342,7 @@
       <div class="quiz-step" data-step="2">
         <h3 style="text-align: center;">What's your budget?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="free"> Completely Free</div>
+          <div class="quiz-option" data-value="free">💚 Completely Free</div>
           <div class="quiz-option" data-value="freemium">💙 Free + Paid Plans</div>
           <div class="quiz-option" data-value="budget">💛 Under $20/month</div>
           <div class="quiz-option" data-value="premium">💜 $20+/month</div>
@@ -355,16 +352,16 @@
       <div class="quiz-step" data-step="3">
         <h3 style="text-align: center;">Your skill level?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
+          <div class="quiz-option" data-value="beginner"> Beginner</div>
           <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
-          <div class="quiz-option" data-value="advanced"> Advanced</div>
+          <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
         </div>
       </div>
       
       <div class="quiz-step" data-step="4">
         <h3 style="text-align: center;">What's most important to you?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="speed">⚡ Speed</div>
+          <div class="quiz-option" data-value="speed"> Speed</div>
           <div class="quiz-option" data-value="quality">✨ Quality</div>
           <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
           <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
@@ -410,7 +407,7 @@
     </div>
     
     <div class="tools-filters">
-      <input type="text" id="searchBox" placeholder=" Search tools...">
+      <input type="text" id="searchBox" placeholder="🔍 Search tools...">
       <select id="categoryFilter">
         <option value="">All Categories</option>
         <option value="writing">Writing</option>
@@ -432,17 +429,15 @@
       <h3>No tools found</h3>
       <p>Try adjusting your filters</p>
     </div>
-  </section>
 
-  <!-- FAQ Section - جداگانه و واضح -->
-  <section class="section shell reveal" id="faq">
-    <div class="section-head">
-      <span class="kicker">Support</span>
-      <h2>Frequently Asked Questions</h2>
-      <p>Everything you need to know about our AI tools directory.</p>
-    </div>
-    
+    <!-- FAQ Section - اینجا قرار دارد -->
     <div class="faq-section">
+      <div class="section-head" style="margin-top: 80px;">
+        <span class="kicker">Support</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about our AI tools directory.</p>
+      </div>
+      
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
           <span>How do I choose the right AI tool?</span>

@@ -107,11 +107,49 @@ gtag('config', 'G-ECFTMP6ZQD');
 
 
   <style id="aitooldiscovery-badge-style">
-    .aitd-badge-wrap { display:flex; justify-content:center; align-items:center; padding:18px 20px 22px; }
-    .aitd-badge-link { display:inline-flex; align-items:center; justify-content:center; line-height:0; border-radius:10px; transition:transform .2s ease, opacity .2s ease; }
-    .aitd-badge-link:hover { transform:translateY(-2px); opacity:.92; }
-    .aitd-badge-link:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
-    .aitd-badge-link img { display:block; width:200px; max-width:100%; height:auto; }
+    .footer-brand-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .aitd-badge-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      border-radius: 8px;
+      opacity: 0.9;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .aitd-badge-link:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .aitd-badge-link:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+
+    .aitd-badge-link img {
+      display: block;
+      width: 152px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      .footer-brand-group {
+        align-items: center;
+      }
+
+      .aitd-badge-link img {
+        width: 142px;
+      }
+    }
   </style>
 
 </head>
@@ -284,10 +322,16 @@ gtag('config', 'G-ECFTMP6ZQD');
 </main>
 <footer class="footer">
   <div class="shell footer-inner">
-    <a class="brand" href="index.html">
-      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
-      <span>Zynovix AI</span>
-    </a>
+    <div class="footer-brand-group">
+      <a class="brand" href="index.html">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+        <span>Zynovix AI</span>
+      </a>
+
+      <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
+        <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="152" height="41" loading="lazy" decoding="async" />
+      </a>
+    </div>
 
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="privacy.html">Privacy</a>
@@ -297,12 +341,6 @@ gtag('config', 'G-ECFTMP6ZQD');
     </nav>
 
     <span>© 2026 Zynovix AI</span>
-  </div>
-
-  <div class="aitd-badge-wrap" aria-label="AI Tool Discovery verification badge">
-    <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
-      <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="200" height="54" loading="lazy" decoding="async" />
-    </a>
   </div>
 </footer>
 

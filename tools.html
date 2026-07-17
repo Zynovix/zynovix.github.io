@@ -7,8 +7,245 @@
   <meta name="description" content="Find the perfect AI Tool for your workflow. Take our interactive quiz or browse our curated directory." />
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="stylesheet" href="style.css" />
+
+  <style id="tools-page-repair">
+    .tools-page main { overflow: hidden; }
+
+    .tools-page .tools-hero {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      padding-top: 82px;
+      padding-bottom: 68px;
+      text-align: center;
+    }
+
+    .tools-page .tools-hero .hero-copy {
+      width: min(920px, 100%);
+      margin-inline: auto;
+    }
+
+    .tools-page .tools-hero p {
+      margin-inline: auto;
+    }
+
+    .tools-page .tools-hero .actions {
+      justify-content: center;
+    }
+
+    .tools-page .category-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .tools-page .tool-icon {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      line-height: 1;
+    }
+
+    .tools-page #quiz,
+    .tools-page #directory {
+      scroll-margin-top: 96px;
+    }
+
+    .tools-page .quiz-container {
+      width: min(900px, 100%);
+      margin-inline: auto;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+
+    .tools-page .quiz-progress {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .tools-page .progress-dot {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      transition: background .25s ease, box-shadow .25s ease;
+    }
+
+    .tools-page .progress-dot.active {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      box-shadow: 0 0 18px rgba(34,211,238,.35);
+    }
+
+    .tools-page .quiz-step {
+      display: none;
+    }
+
+    .tools-page .quiz-step.active {
+      display: block;
+      animation: toolsStepIn .28s ease both;
+    }
+
+    .tools-page .quiz-step > h3 {
+      font-size: clamp(23px, 3vw, 31px);
+    }
+
+    .tools-page .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .tools-page .quiz-option {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+      color: #e5eefb;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .tools-page .quiz-option:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34,211,238,.65);
+      background: rgba(34,211,238,.08);
+    }
+
+    .tools-page .quiz-option.selected {
+      border-color: var(--cyan);
+      background: linear-gradient(135deg, rgba(37,99,235,.24), rgba(34,211,238,.13));
+      box-shadow: inset 0 0 0 1px rgba(34,211,238,.18), 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .tools-page .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .tools-page .quiz-nav button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .tools-page .quiz-nav button:disabled {
+      opacity: .42;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .tools-page .result-card {
+      text-align: center;
+      padding: 28px;
+      border: 1px solid rgba(34,211,238,.28);
+      border-radius: 24px;
+      background: rgba(34,211,238,.07);
+    }
+
+    .tools-page .tools-filters {
+      width: min(1000px, 100%);
+      margin: 0 auto 30px;
+      display: grid;
+      grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(180px, .75fr));
+      gap: 14px;
+    }
+
+    .tools-page .tools-filters input,
+    .tools-page .tools-filters select {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      outline: none;
+      color: #f8fafc;
+      background: rgba(255,255,255,.06);
+      font: inherit;
+    }
+
+    .tools-page .tools-filters input:focus,
+    .tools-page .tools-filters select:focus {
+      border-color: rgba(34,211,238,.75);
+      box-shadow: 0 0 0 3px rgba(34,211,238,.1);
+    }
+
+    .tools-page .tools-filters select option {
+      color: #111827;
+      background: #fff;
+    }
+
+    .tools-page .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .tools-page .tools-grid .card {
+      min-height: 250px;
+    }
+
+    .tools-page .no-results {
+      width: min(620px, 100%);
+      margin-inline: auto;
+      padding: 34px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.04);
+    }
+
+    @keyframes toolsStepIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1050px) {
+      .tools-page .category-grid,
+      .tools-page .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tools-page .tools-hero {
+        padding-top: 56px;
+        padding-bottom: 46px;
+      }
+
+      .tools-page .category-grid,
+      .tools-page .tools-grid,
+      .tools-page .quiz-options,
+      .tools-page .tools-filters {
+        grid-template-columns: 1fr;
+      }
+
+      .tools-page .quiz-container {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .tools-page .quiz-option {
+        min-height: 64px;
+      }
+
+      .tools-page .quiz-nav {
+        flex-direction: column-reverse;
+      }
+
+      .tools-page .quiz-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+
 </head>
-<body>
+<body class="tools-page">
 <div class="noise"></div>
 <div class="orb orb-a"></div>
 <div class="orb orb-b"></div>
@@ -19,7 +256,7 @@
       <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
     <div class="nav-menu" id="navMenu">
       <a href="tools.html" class="active">AI Tools</a>
       <a href="learn.html">Learn</a>
@@ -31,7 +268,7 @@
 </header>
 
 <main>
-  <section class="hero shell">
+  <section class="hero shell tools-hero">
     <div class="hero-copy reveal">
       <div class="pill">AI Tools Directory</div>
       <h1>Find the perfect <span>AI Tool</span> for your workflow</h1>
@@ -50,9 +287,9 @@
       <p>Find the right AI solution for your specific needs.</p>
     </div>
     
-    <div class="cards four">
+    <div class="cards four category-grid">
       <article class="card tool-card">
-        <div class="tool-icon"></div>
+        <div class="tool-icon" aria-hidden="true">🤖</div>
         <h3>Assistant</h3>
         <p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
         <a href="contact.html" class="btn btn-ghost">Request Access</a>
@@ -80,7 +317,7 @@
       </article>
     </div>
     
-    <div class="cards three" style="margin-top: 20px;">
+    <div class="cards four category-grid" style="margin-top: 20px;">
       <article class="card tool-card">
         <div class="tool-icon">📚</div>
         <h3>Learning</h3>
@@ -151,7 +388,7 @@
         <div class="quiz-options">
           <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
           <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
-          <div class="quiz-option" data-value="advanced"> Advanced</div>
+          <div class="quiz-option" data-value="advanced">🚀 Advanced</div>
         </div>
       </div>
       
@@ -292,7 +529,7 @@ function showResults() {
   document.getElementById('resultContent').innerHTML = `
     <h4 style="font-size: 1.5rem; margin-bottom: 8px;">${bestTool.name}</h4>
     <p style="margin-bottom: 16px;">${bestTool.description}</p>
-    <a href="${bestTool.url}" target="_blank" class="btn btn-primary">Try ${bestTool.name} →</a>
+    <a href="${bestTool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try ${bestTool.name} →</a>
   `;
 }
 
@@ -328,7 +565,7 @@ function renderTools(filtered = tools) {
       <p style="margin-bottom:16px;">${tool.description}</p>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
         <span style="color:#fbbf24;">${'★'.repeat(tool.rating)}${'☆'.repeat(5-tool.rating)}</span>
-        <a href="${tool.url}" target="_blank" class="btn btn-ghost" style="padding:8px 16px;">Visit →</a>
+        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="padding:8px 16px;">Visit →</a>
       </div>
     </article>
   `).join('');

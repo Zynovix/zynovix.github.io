@@ -21,29 +21,13 @@
   <link rel="stylesheet" href="style.css" />
   <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
-  <style>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zynovix AI | Build Smarter with AI" />
+  <meta name="twitter:description" content="Zynovix AI is a modern AI platform for learning, automation, productivity tools, and digital intelligence." />
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712" />
+  <style id="zynovix-logo-final-fix">
     .brand img,
     .logo img {
-      width: 52px !important;
-      height: 52px !important;
-      object-fit: contain !important;
-      background: #ffffff !important;
-      border-radius: 8px !important;
-      padding: 2px !important;
-      flex: 0 0 auto !important;
-    }
-
-    @media (max-width: 600px) {
-      .brand img,
-      .logo img {
-        width: 46px !important;
-        height: 46px !important;
-      }
-    }
-  </style>
-
-  <style id="zynovix-logo-final-fix">
-    .brand img, .logo img {
       width: 52px !important;
       height: 52px !important;
       display: block !important;
@@ -53,8 +37,17 @@
       padding: 2px !important;
       flex: 0 0 52px !important;
     }
+
+    .tool-icon svg {
+      width: 1em;
+      height: 1em;
+      display: block;
+      stroke: currentColor;
+    }
+
     @media (max-width: 600px) {
-      .brand img, .logo img {
+      .brand img,
+      .logo img {
         width: 46px !important;
         height: 46px !important;
         flex-basis: 46px !important;
@@ -119,7 +112,7 @@ gtag('config', 'G-ECFTMP6ZQD');
       <span>Zynovix AI</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
 
     <div class="nav-menu" id="navMenu">
       <a href="tools.html">AI Tools</a>
@@ -213,7 +206,13 @@ gtag('config', 'G-ECFTMP6ZQD');
       </article>
 
       <article class="card tool-card">
-        <div class="tool-icon">📝</div>
+        <div class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 3.75h7.25L18 7.5v12.75H7z"/>
+            <path d="M14 3.75V8h4"/>
+            <path d="M9.75 11.25h5.5M9.75 14.5h5.5M9.75 17.75h3.5"/>
+          </svg>
+        </div>
         <h3>Prompt Library</h3>
         <p>Free collection of tested AI prompts. Copy-ready prompts for writing, coding, marketing, and more.</p>
         <a href="prompts.html" class="btn btn-primary">Browse Prompts</a>

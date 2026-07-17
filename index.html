@@ -105,54 +105,6 @@ gtag('config', 'G-ECFTMP6ZQD');
 }
 </script>
 
-
-  <style id="aitooldiscovery-badge-style">
-    .footer-brand-group {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .aitd-badge-link {
-      display: inline-flex;
-      margin-top: 4px;
-      align-items: center;
-      justify-content: center;
-      line-height: 0;
-      border-radius: 8px;
-      opacity: 0.9;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .aitd-badge-link:hover {
-      transform: translateY(-2px);
-      opacity: 1;
-    }
-
-    .aitd-badge-link:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 4px;
-    }
-
-    .aitd-badge-link img {
-      display: block;
-      width: 120px;
-      max-width: 100%;
-      height: auto;
-    }
-
-    @media (max-width: 700px) {
-      .footer-brand-group {
-        align-items: center;
-      }
-
-      .aitd-badge-link img {
-        width: 120px;
-      }
-    }
-  </style>
-
 </head>
 
 <body>
@@ -192,7 +144,6 @@ gtag('config', 'G-ECFTMP6ZQD');
 
       <div class="trust-row hero-tags">
         <a href="tools.html" class="hero-tag"><span>🤖</span>AI Tools</a>
-        <a href="prompts.html" class="hero-tag"><span></span>Prompt Library</a>
         <a href="learn.html" class="hero-tag"><span>📚</span>Learning Paths</a>
         <a href="tools.html" class="hero-tag"><span>⚡</span>Automation</a>
       </div>
@@ -262,7 +213,7 @@ gtag('config', 'G-ECFTMP6ZQD');
       </article>
 
       <article class="card tool-card">
-        <div class="tool-icon">📝</div>
+        <div class="tool-icon"></div>
         <h3>Prompt Library</h3>
         <p>Free collection of tested AI prompts. Copy-ready prompts for writing, coding, marketing, and more.</p>
         <a href="prompts.html" class="btn btn-primary">Browse Prompts</a>
@@ -323,16 +274,10 @@ gtag('config', 'G-ECFTMP6ZQD');
 </main>
 <footer class="footer">
   <div class="shell footer-inner">
-    <div class="footer-brand-group">
-      <a class="brand" href="index.html">
-        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
-        <span>Zynovix AI</span>
-      </a>
-
-      <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
-        <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async" />
-      </a>
-    </div>
+    <a class="brand" href="index.html">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
 
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="privacy.html">Privacy</a>

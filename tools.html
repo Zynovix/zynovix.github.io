@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AI Tools Directory | Zynovix AI</title>
-  <meta name="description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory of 30+ AI resources." />
+  <title>AI Tools | Zynovix AI</title>
+  <meta name="description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory of AI tools." />
   <meta name="theme-color" content="#050816" />
   <link rel="canonical" href="https://zynovix.github.io/tools.html" />
 
-  <meta property="og:title" content="AI Tools Directory | Zynovix AI" />
+  <meta property="og:title" content="AI Tools | Zynovix AI" />
   <meta property="og:description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zynovix.github.io/tools.html" />
@@ -39,174 +39,6 @@
         flex-basis: 46px !important;
       }
     }
-
-    /* Quiz & Directory Specific Styles */
-    .quiz-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 40px;
-    }
-    .quiz-step { display: none; }
-    .quiz-step.active { display: block; animation: fadeIn 0.5s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    .quiz-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-    @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
-    
-    .quiz-option {
-      padding: 16px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.9);
-    }
-    .quiz-option:hover {
-      border-color: rgba(139, 92, 246, 0.5);
-      background: rgba(139, 92, 246, 0.1);
-    }
-    .quiz-option.selected {
-      border-color: #8b5cf6;
-      background: rgba(139, 92, 246, 0.2);
-      color: #fff;
-    }
-    
-    .quiz-progress {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .progress-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: background 0.3s;
-    }
-    .progress-dot.active { background: #8b5cf6; }
-    
-    .quiz-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 32px;
-    }
-    
-    .result-card {
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 16px;
-      padding: 32px;
-      margin-top: 24px;
-      text-align: center;
-    }
-    
-    .tools-filters {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    .tools-filters input, .tools-filters select {
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .tools-filters input:focus, .tools-filters select:focus {
-      border-color: #8b5cf6;
-    }
-    .tools-filters input { flex: 1; min-width: 200px; }
-    .tools-filters select { min-width: 150px; cursor: pointer; }
-    .tools-filters select option { background: #050816; color: #fff; }
-    
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    
-    .tool-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .badge-free { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
-    .badge-freemium { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
-    .badge-paid { background: rgba(239, 68, 68, 0.15); color: #f87171; }
-    
-    .no-results {
-      text-align: center;
-      padding: 40px;
-      color: rgba(255, 255, 255, 0.6);
-      grid-column: 1 / -1;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 0;
-    }
-    .faq-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-    .faq-question {
-      padding: 20px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      color: #fff;
-      transition: background 0.2s;
-    }
-    .faq-question:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .faq-answer {
-      padding: 0 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .faq-item.active .faq-answer {
-      padding: 0 20px 20px;
-      max-height: 200px;
-    }
-    .faq-toggle {
-      font-size: 1.5rem;
-      transition: transform 0.3s;
-    }
-    .faq-item.active .faq-toggle {
-      transform: rotate(45deg);
-    }
   </style>
 
   <script type="text/javascript">
@@ -234,7 +66,7 @@
       <span>Zynovix AI</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"></button>
 
     <div class="nav-menu" id="navMenu">
       <a href="tools.html" class="active">AI Tools</a>
@@ -252,7 +84,7 @@
     <div class="hero-copy">
       <div class="pill">AI Tools Directory</div>
       <h1>Find the perfect <span>AI Tool</span> for your workflow</h1>
-      <p>Take our interactive quiz to get a personalized recommendation, or explore 30+ AI resources including expert reviews, comparisons, practical guides, and curated tool recommendations.</p>
+      <p>Take our interactive quiz to get a personalized recommendation, or browse our curated directory of honest AI tool reviews.</p>
       <div class="actions">
         <a href="#quiz" class="btn btn-primary">Take the Quiz</a>
         <a href="#directory" class="btn btn-ghost">Browse Directory</a>
@@ -269,7 +101,7 @@
     </div>
     <div class="cards four">
       <article class="card tool-card">
-        <div class="tool-icon">🤖</div>
+        <div class="tool-icon"></div>
         <h3>Assistant</h3>
         <p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
         <a href="contact.html" class="btn btn-ghost">Request Access</a>
@@ -342,8 +174,8 @@
         <div class="quiz-options">
           <div class="quiz-option" data-value="writing">✍️ Writing & Content</div>
           <div class="quiz-option" data-value="coding">💻 Coding</div>
-          <div class="quiz-option" data-value="design">🎨 Design & Images</div>
-          <div class="quiz-option" data-value="automation">⚡ Automation</div>
+          <div class="quiz-option" data-value="design"> Design & Images</div>
+          <div class="quiz-option" data-value="automation"> Automation</div>
         </div>
       </div>
       
@@ -369,7 +201,7 @@
       <div class="quiz-step" data-step="4">
         <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What's most important to you?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="speed">⚡ Speed</div>
+          <div class="quiz-option" data-value="speed"> Speed</div>
           <div class="quiz-option" data-value="quality">✨ Quality</div>
           <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
           <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
@@ -396,13 +228,7 @@
     <div class="section-head">
       <span class="kicker">Directory</span>
       <h2>AI Tools Directory</h2>
-      <p>Browse our curated collection of honest reviews with ratings, pros & cons.</p>
-    </div>
-    
-    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
-      <span>✅ 30+ AI Resources</span>
-      <span>🎯 8 Tool Categories</span>
-      <span>💯 100% Free to Use</span>
+      <p>Browse our curated collection of honest reviews.</p>
     </div>
     
     <div class="tools-filters">
@@ -427,103 +253,6 @@
     <div class="no-results" id="noResults" style="display: none;">
       <h3>No tools found</h3>
       <p>Try adjusting your filters</p>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="section shell reveal">
-    <div class="section-head">
-      <span class="kicker">Support</span>
-      <h2>Frequently Asked Questions</h2>
-      <p>Everything you need to know about our AI tools directory.</p>
-    </div>
-    
-    <div class="faq-section">
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>How do I choose the right AI tool?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Finding the right AI tool depends on your goals, budget, and workflow. Zynovix AI compares features, pricing, pros and cons, and real-world use cases to help you choose the best option.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Are these AI tools really free?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Many AI tools offer free plans or free trials, while others require a paid subscription for advanced features. Each review clearly explains pricing, limitations, and available plans.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>How often do you update reviews?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>We regularly update reviews to reflect new features, pricing changes, major releases, and important updates from official sources.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Can I suggest an AI tool?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. We welcome suggestions from our community. Contact us and we'll consider the tool for future coverage.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Do you receive commissions from these tools?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Some links may be affiliate links, but this never influences our reviews or ratings. We remain committed to honest, transparent, and independent evaluations.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Do I need an account to use Zynovix AI?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>No. You can browse AI tool reviews, comparisons, guides, and resources without creating an account.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>How do you review AI tools?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Every review is based on official documentation, feature analysis, pricing, usability, practical testing whenever possible, and comparisons with competing products.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Can developers submit their AI tools?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. Developers are welcome to submit their AI tools for consideration. Publication is based on our editorial standards.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-      <h3 style="color: #fff; margin-bottom: 12px;">Still have questions?</h3>
-      <p style="color: rgba(255,255,255,0.7); margin-bottom: 24px;">We're always happy to help. If you couldn't find the answer you're looking for, feel free to contact us.</p>
-      <a href="contact.html" class="btn btn-primary">Contact Us</a>
     </div>
   </section>
 
@@ -724,14 +453,6 @@
   document.getElementById('searchBox').addEventListener('input', filterTools);
   document.getElementById('categoryFilter').addEventListener('change', filterTools);
   document.getElementById('pricingFilter').addEventListener('change', filterTools);
-
-  // FAQ Toggle
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const item = question.parentElement;
-      item.classList.toggle('active');
-    });
-  });
 
   // Initialize
   showStep(1);

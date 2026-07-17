@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="tools-page">
 <div class="noise"></div>
 <div class="orb orb-a"></div>
 <div class="orb orb-b"></div>
@@ -19,7 +19,7 @@
       <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     <div class="nav-menu" id="navMenu">
       <a href="tools.html" class="active">AI Tools</a>
       <a href="learn.html">Learn</a>
@@ -52,7 +52,9 @@
     
     <div class="cards four">
       <article class="card tool-card">
-        <div class="tool-icon"></div>
+        <div class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img"><path d="M12 3a6 6 0 0 0-6 6v1a4 4 0 0 0-2 3.46V17a2 2 0 0 0 2 2h1v-7H6V9a6 6 0 0 1 12 0v3h-1v7h1a2 2 0 0 0 2-2v-3.54A4 4 0 0 0 18 10V9a6 6 0 0 0-6-6Z"/><path d="M9 21h6"/></svg>
+        </div>
         <h3>Assistant</h3>
         <p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
         <a href="contact.html" class="btn btn-ghost">Request Access</a>
@@ -103,7 +105,9 @@
       </article>
       
       <article class="card tool-card">
-        <div class="tool-icon">📝</div>
+        <div class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5"/><path d="M10 12h6M10 16h6"/></svg>
+        </div>
         <h3>Prompt Library</h3>
         <p>Free collection of tested AI prompts. Copy-ready prompts for writing, coding, marketing, and more.</p>
         <a href="prompts.html" class="btn btn-ghost">Browse Prompts</a>
@@ -151,7 +155,7 @@
         <div class="quiz-options">
           <div class="quiz-option" data-value="beginner">🌱 Beginner</div>
           <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
-          <div class="quiz-option" data-value="advanced"> Advanced</div>
+          <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
         </div>
       </div>
       

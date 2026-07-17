@@ -1,245 +1,112 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-  <loc>https://zynovix.github.io/how-i-built-zynovix-ai-free-tools.html</loc>
-  <lastmod>2026-07-10</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
   
+  <!-- صفحات اصلی -->
   <url>
     <loc>https://zynovix.github.io/</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-17</lastmod>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
   </url>
-
-  <url>
-    <loc>https://zynovix.github.io/blog.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
+  
   <url>
     <loc>https://zynovix.github.io/tools.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-17</lastmod>
     <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
-
+  
+  <url>
+    <loc>https://zynovix.github.io/calculator.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://zynovix.github.io/prompts.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
   <url>
     <loc>https://zynovix.github.io/learn.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
-
+  
+  <url>
+    <loc>https://zynovix.github.io/blog.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  
   <url>
     <loc>https://zynovix.github.io/about.html</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
   </url>
-
+  
   <url>
     <loc>https://zynovix.github.io/contact.html</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://zynovix.github.io/privacy.html</loc>
-    <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
-
-  <url>
-    <loc>https://zynovix.github.io/terms.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
+  
+  <!-- مقالات -->
   <url>
     <loc>https://zynovix.github.io/what-is-artificial-intelligence.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
+  
   <url>
     <loc>https://zynovix.github.io/what-is-machine-learning.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
-  <url>
-    <loc>https://zynovix.github.io/what-is-deep-learning.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  
   <url>
     <loc>https://zynovix.github.io/25-best-free-ai-tools-2026.html</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
-
+  
   <url>
-    <loc>https://zynovix.github.io/chatgpt-prompts-content-marketing-2026.html</loc>
+    <loc>https://zynovix.github.io/how-i-built-zynovix-ai-free-tools.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
-  <url>
-    <loc>https://zynovix.github.io/best-free-ai-writing-tools-bloggers-2026.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://zynovix.github.io/chatgpt-vs-claude-vs-gemini-content-writing-2026.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  
   <url>
     <loc>https://zynovix.github.io/automate-email-replies-chatgpt-zapier.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
+  
+  <!-- صفحات قانونی -->
   <url>
-    <loc>https://zynovix.github.io/jasper-vs-copyai-2026.html</loc>
+    <loc>https://zynovix.github.io/privacy.html</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
-
+  
   <url>
-    <loc>https://zynovix.github.io/perplexity-ai-vs-chatgpt-2026.html</loc>
+    <loc>https://zynovix.github.io/terms.html</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
-
-  <url>
-    <loc>https://zynovix.github.io/claude-vs-chatgpt-for-coding-2026.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-<url><loc>https://zynovix.github.io/best-ai-coding-tools-2026.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url><url><loc>https://zynovix.github.io/best-ai-image-generators-2026.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url><url>
-  <loc>https://zynovix.github.io/best-ai-video-generators-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-<url>
-  <loc>https://zynovix.github.io/best-ai-agents-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-<loc>https://zynovix.github.io/cursor-vs-github-copilot-2026.html</loc>
-<lastmod>2026-07-14</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.9</priority>
-</url>
-<url><loc>https://zynovix.github.io/windsurf-formerly-codeium-review-2026.html</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url>
-  <loc>https://zynovix.github.io/claude-code-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/devin-ai-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url><loc>https://zynovix.github.io/tabnine-review-2026.html</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-
-<url><loc>https://zynovix.github.io/cline-review-2026.html</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-
-<url>
-  <loc>https://zynovix.github.io/roo-code-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/amazon-q-developer-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/gemini-code-assist-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/github-copilot-review-2026.html</loc>
-  <lastmod>2026-07-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/cursor-review-2026.html</loc>
-  <lastmod>2026-07-15</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/cursor-vs-claude-code-2026.html</loc>
-  <lastmod>2026-07-15</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://zynovix.github.io/github-copilot-vs-gemini-code-assist-2026.html</loc>
-  <lastmod>2026-07-15</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
-<url>
-  <loc>https://zynovix.github.io/cursor-vs-windsurf-2026.html</loc>
-  <lastmod>2026-07-15</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
+  
 </urlset>

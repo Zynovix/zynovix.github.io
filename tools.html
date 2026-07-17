@@ -421,18 +421,21 @@
     <div class="section-head">
       <span class="kicker">Directory</span>
       <h2>AI Tools Directory</h2>
-      <p>Browse our curated collection of honest reviews.</p>
+      <p>Browse 34 curated AI tools across coding, writing, images, video, automation, agents, research, and productivity.</p>
     </div>
     
     <div class="tools-filters">
       <input type="text" id="searchBox" placeholder="🔍 Search tools...">
       <select id="categoryFilter">
         <option value="">All Categories</option>
+        <option value="chatbot">Chatbots & Research</option>
         <option value="writing">Writing</option>
         <option value="coding">Coding</option>
-        <option value="design">Design</option>
+        <option value="design">Image & Design</option>
+        <option value="video">Video</option>
         <option value="automation">Automation</option>
-        <option value="chatbot">Chatbots</option>
+        <option value="agent">AI Agents</option>
+        <option value="productivity">Productivity</option>
       </select>
       <select id="pricingFilter">
         <option value="">All Prices</option>
@@ -476,16 +479,312 @@
 <script src="script.js"></script>
 <script>
 const tools = [
-  { name: "ChatGPT", category: "chatbot", pricing: "freemium", rating: 5, description: "The most popular AI chatbot. Great for writing, brainstorming, and general tasks.", url: "https://chat.openai.com" },
-  { name: "Claude", category: "chatbot", pricing: "freemium", rating: 5, description: "Anthropic's AI assistant. Excellent for long documents and nuanced writing.", url: "https://claude.ai" },
-  { name: "Cursor", category: "coding", pricing: "freemium", rating: 5, description: "AI-first code editor. The best tool for developers in 2026.", url: "https://cursor.com" },
-  { name: "GitHub Copilot", category: "coding", pricing: "paid", rating: 4, description: "AI pair programmer integrated with VS Code.", url: "https://github.com/features/copilot" },
-  { name: "Midjourney", category: "design", pricing: "paid", rating: 5, description: "Best AI image generator for artistic visuals.", url: "https://midjourney.com" },
-  { name: "Canva AI", category: "design", pricing: "freemium", rating: 4, description: "Easy-to-use design tool with AI features.", url: "https://canva.com" },
-  { name: "Zapier", category: "automation", pricing: "freemium", rating: 4, description: "Connect apps and automate workflows.", url: "https://zapier.com" },
-  { name: "Perplexity AI", category: "chatbot", pricing: "freemium", rating: 5, description: "AI-powered search engine with citations.", url: "https://perplexity.ai" },
-  { name: "Gemini", category: "chatbot", pricing: "free", rating: 4, description: "Google's AI assistant.", url: "https://gemini.google.com" },
-  { name: "n8n", category: "automation", pricing: "free", rating: 5, description: "Open-source workflow automation.", url: "https://n8n.io" }
+  {
+    name: "ChatGPT",
+    category: "chatbot",
+    pricing: "freemium",
+    rating: 5,
+    description: "A versatile AI assistant for writing, research, coding, analysis, images, and everyday productivity.",
+    url: "https://chatgpt.com",
+    review: "25-best-free-ai-tools-2026.html"
+  },
+  {
+    name: "Claude",
+    category: "chatbot",
+    pricing: "freemium",
+    rating: 5,
+    description: "A strong AI assistant for long documents, careful writing, analysis, and complex reasoning workflows.",
+    url: "https://claude.ai",
+    review: "claude-vs-chatgpt-for-coding-2026.html"
+  },
+  {
+    name: "Gemini",
+    category: "chatbot",
+    pricing: "freemium",
+    rating: 4,
+    description: "Google's AI assistant for research, writing, multimodal tasks, and integration with Google services.",
+    url: "https://gemini.google.com",
+    review: "chatgpt-vs-claude-vs-gemini-content-writing-2026.html"
+  },
+  {
+    name: "Perplexity AI",
+    category: "chatbot",
+    pricing: "freemium",
+    rating: 5,
+    description: "An AI research and answer engine focused on web search, citations, summaries, and source discovery.",
+    url: "https://www.perplexity.ai",
+    review: "perplexity-ai-vs-chatgpt-2026.html"
+  },
+  {
+    name: "Jasper",
+    category: "writing",
+    pricing: "paid",
+    rating: 4,
+    description: "An AI content platform for marketing teams, campaigns, brand voice, and business content workflows.",
+    url: "https://www.jasper.ai",
+    review: "jasper-vs-copyai-2026.html"
+  },
+  {
+    name: "Copy.ai",
+    category: "writing",
+    pricing: "freemium",
+    rating: 4,
+    description: "An AI writing and go-to-market platform for sales, marketing, content, and workflow automation.",
+    url: "https://www.copy.ai",
+    review: "jasper-vs-copyai-2026.html"
+  },
+  {
+    name: "Notion AI",
+    category: "productivity",
+    pricing: "paid",
+    rating: 4,
+    description: "AI assistance inside Notion for drafting, summarizing, organizing knowledge, and workplace productivity.",
+    url: "https://www.notion.so/product/ai",
+    review: "25-best-free-ai-tools-2026.html"
+  },
+  {
+    name: "Gamma",
+    category: "productivity",
+    pricing: "freemium",
+    rating: 4,
+    description: "AI-powered presentations, documents, and webpages with fast generation and modern layouts.",
+    url: "https://gamma.app",
+    review: "25-best-free-ai-tools-2026.html"
+  },
+  {
+    name: "Cursor",
+    category: "coding",
+    pricing: "freemium",
+    rating: 5,
+    description: "An AI-first code editor with repository context, agents, code generation, and debugging support.",
+    url: "https://www.cursor.com",
+    review: "cursor-review-2026.html"
+  },
+  {
+    name: "GitHub Copilot",
+    category: "coding",
+    pricing: "paid",
+    rating: 5,
+    description: "AI coding assistance across popular editors, GitHub workflows, chat, agents, and code completion.",
+    url: "https://github.com/features/copilot",
+    review: "github-copilot-review-2026.html"
+  },
+  {
+    name: "Claude Code",
+    category: "coding",
+    pricing: "paid",
+    rating: 5,
+    description: "A terminal-focused coding agent for repository analysis, edits, debugging, and automation.",
+    url: "https://www.anthropic.com/claude-code",
+    review: "claude-code-review-2026.html"
+  },
+  {
+    name: "Windsurf",
+    category: "coding",
+    pricing: "freemium",
+    rating: 4,
+    description: "An AI coding environment with agentic workflows, codebase context, and assisted development.",
+    url: "https://windsurf.com",
+    review: "windsurf-formerly-codeium-review-2026.html"
+  },
+  {
+    name: "Gemini Code Assist",
+    category: "coding",
+    pricing: "freemium",
+    rating: 4,
+    description: "Google's AI coding assistant for IDEs, code completion, chat, and enterprise development workflows.",
+    url: "https://codeassist.google",
+    review: "gemini-code-assist-review-2026.html"
+  },
+  {
+    name: "Amazon Q Developer",
+    category: "coding",
+    pricing: "freemium",
+    rating: 4,
+    description: "AWS-focused AI coding support for development, modernization, security analysis, and cloud workflows.",
+    url: "https://aws.amazon.com/q/developer/",
+    review: "amazon-q-developer-review-2026.html"
+  },
+  {
+    name: "Tabnine",
+    category: "coding",
+    pricing: "freemium",
+    rating: 4,
+    description: "An enterprise-oriented AI coding assistant with privacy controls and multiple deployment options.",
+    url: "https://www.tabnine.com",
+    review: "tabnine-review-2026.html"
+  },
+  {
+    name: "Cline",
+    category: "coding",
+    pricing: "free",
+    rating: 4,
+    description: "An open-source coding agent for VS Code with terminal, browser, MCP, and provider flexibility.",
+    url: "https://cline.bot",
+    review: "cline-review-2026.html"
+  },
+  {
+    name: "Roo Code",
+    category: "coding",
+    pricing: "free",
+    rating: 4,
+    description: "An open-source agentic coding extension with custom modes, tools, and MCP support.",
+    url: "https://roocode.com",
+    review: "roo-code-review-2026.html"
+  },
+  {
+    name: "Devin",
+    category: "agent",
+    pricing: "paid",
+    rating: 4,
+    description: "A cloud-based autonomous software engineering agent for larger development tasks and team workflows.",
+    url: "https://devin.ai",
+    review: "devin-ai-review-2026.html"
+  },
+  {
+    name: "Midjourney",
+    category: "design",
+    pricing: "paid",
+    rating: 5,
+    description: "A leading AI image generator known for stylized, artistic, and high-quality visual output.",
+    url: "https://www.midjourney.com",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Ideogram",
+    category: "design",
+    pricing: "freemium",
+    rating: 5,
+    description: "An AI image generator especially useful for text rendering, posters, logos, and graphic concepts.",
+    url: "https://ideogram.ai",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Recraft",
+    category: "design",
+    pricing: "freemium",
+    rating: 4,
+    description: "AI design and image generation for branding, vector graphics, illustrations, and visual assets.",
+    url: "https://www.recraft.ai",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Leonardo AI",
+    category: "design",
+    pricing: "freemium",
+    rating: 4,
+    description: "AI image generation and editing with models, styles, canvas tools, and creative controls.",
+    url: "https://leonardo.ai",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Adobe Firefly",
+    category: "design",
+    pricing: "freemium",
+    rating: 4,
+    description: "Adobe's generative AI suite for images, effects, design assets, and Creative Cloud workflows.",
+    url: "https://firefly.adobe.com",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Canva AI",
+    category: "design",
+    pricing: "freemium",
+    rating: 4,
+    description: "Easy AI-assisted design for social posts, presentations, images, marketing, and visual content.",
+    url: "https://www.canva.com/ai-image-generator/",
+    review: "best-ai-image-generators-2026.html"
+  },
+  {
+    name: "Runway",
+    category: "video",
+    pricing: "freemium",
+    rating: 5,
+    description: "AI video generation and editing for filmmakers, creators, ads, visual effects, and creative production.",
+    url: "https://runwayml.com",
+    review: "best-ai-video-generators-2026.html"
+  },
+  {
+    name: "Kling AI",
+    category: "video",
+    pricing: "freemium",
+    rating: 4,
+    description: "AI video generation for cinematic motion, image-to-video, and creative visual storytelling.",
+    url: "https://klingai.com",
+    review: "best-ai-video-generators-2026.html"
+  },
+  {
+    name: "Pika",
+    category: "video",
+    pricing: "freemium",
+    rating: 4,
+    description: "A creator-friendly AI video platform for short clips, transformations, effects, and social content.",
+    url: "https://pika.art",
+    review: "best-ai-video-generators-2026.html"
+  },
+  {
+    name: "Luma Dream Machine",
+    category: "video",
+    pricing: "freemium",
+    rating: 4,
+    description: "AI video creation focused on cinematic movement, realistic scenes, and image-to-video generation.",
+    url: "https://lumalabs.ai/dream-machine",
+    review: "best-ai-video-generators-2026.html"
+  },
+  {
+    name: "Zapier",
+    category: "automation",
+    pricing: "freemium",
+    rating: 4,
+    description: "A no-code automation platform connecting apps, AI actions, workflows, and business processes.",
+    url: "https://zapier.com",
+    review: "automate-email-replies-chatgpt-zapier.html"
+  },
+  {
+    name: "n8n",
+    category: "automation",
+    pricing: "free",
+    rating: 5,
+    description: "A flexible workflow automation platform with self-hosting, AI nodes, and advanced integrations.",
+    url: "https://n8n.io",
+    review: "best-ai-agents-2026.html"
+  },
+  {
+    name: "Make",
+    category: "automation",
+    pricing: "freemium",
+    rating: 4,
+    description: "A visual automation platform for building multi-step workflows across apps and services.",
+    url: "https://www.make.com",
+    review: "25-best-free-ai-tools-2026.html"
+  },
+  {
+    name: "CrewAI",
+    category: "agent",
+    pricing: "free",
+    rating: 4,
+    description: "An open-source framework for building collaborative multi-agent systems and automated AI workflows.",
+    url: "https://www.crewai.com",
+    review: "best-ai-agents-2026.html"
+  },
+  {
+    name: "LangGraph",
+    category: "agent",
+    pricing: "free",
+    rating: 5,
+    description: "A framework for stateful, controllable, and production-oriented AI agent workflows.",
+    url: "https://www.langchain.com/langgraph",
+    review: "best-ai-agents-2026.html"
+  },
+  {
+    name: "Microsoft AutoGen",
+    category: "agent",
+    pricing: "free",
+    rating: 4,
+    description: "An open-source framework for developing multi-agent applications and conversational workflows.",
+    url: "https://microsoft.github.io/autogen/",
+    review: "best-ai-agents-2026.html"
+  }
 ];
 
 let currentStep = 1;
@@ -525,11 +824,40 @@ function prevStep() {
 function showResults() {
   currentStep = 'result';
   showStep('result');
-  const bestTool = tools[Math.floor(Math.random() * tools.length)];
+
+  const categoryMap = {
+    writing: ['writing', 'productivity', 'chatbot'],
+    coding: ['coding', 'agent'],
+    design: ['design', 'video'],
+    automation: ['automation', 'agent']
+  };
+
+  const preferredCategories = categoryMap[answers[1]] || [];
+  let matches = tools.filter(tool => preferredCategories.includes(tool.category));
+
+  if (answers[2] === 'free') {
+    const freeMatches = matches.filter(tool => tool.pricing === 'free');
+    if (freeMatches.length) matches = freeMatches;
+  } else if (answers[2] === 'freemium' || answers[2] === 'budget') {
+    const affordableMatches = matches.filter(tool => tool.pricing !== 'paid');
+    if (affordableMatches.length) matches = affordableMatches;
+  } else if (answers[2] === 'premium') {
+    const premiumMatches = matches.filter(tool => tool.pricing === 'paid');
+    if (premiumMatches.length) matches = premiumMatches;
+  }
+
+  if (!matches.length) matches = tools;
+
+  matches.sort((a, b) => b.rating - a.rating);
+  const bestTool = matches[0];
+
   document.getElementById('resultContent').innerHTML = `
-    <h4 style="font-size: 1.5rem; margin-bottom: 8px;">${bestTool.name}</h4>
-    <p style="margin-bottom: 16px;">${bestTool.description}</p>
-    <a href="${bestTool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try ${bestTool.name} →</a>
+    <h4 style="font-size:1.5rem;margin-bottom:8px;">${bestTool.name}</h4>
+    <p style="margin-bottom:16px;">${bestTool.description}</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+      <a href="${bestTool.review}" class="btn btn-primary">Read Zynovix Review</a>
+      <a href="${bestTool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Official Site ↗</a>
+    </div>
   `;
 }
 
@@ -550,22 +878,33 @@ document.querySelectorAll('.quiz-option').forEach(option => {
 function renderTools(filtered = tools) {
   const grid = document.getElementById('toolsGrid');
   const noResults = document.getElementById('noResults');
+
   if (filtered.length === 0) {
     grid.innerHTML = '';
     noResults.style.display = 'block';
     return;
   }
+
   noResults.style.display = 'none';
+
   grid.innerHTML = filtered.map(tool => `
     <article class="card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;">
         <h3 style="margin:0;font-size:1.2rem;">${tool.name}</h3>
-        <span style="padding:4px 10px;border-radius:20px;font-size:0.75rem;background:rgba(59,130,246,0.15);color:#60a5fa;">${tool.pricing}</span>
+        <span style="padding:4px 10px;border-radius:20px;font-size:.75rem;background:rgba(59,130,246,.15);color:#60a5fa;text-transform:capitalize;white-space:nowrap;">${tool.pricing}</span>
       </div>
-      <p style="margin-bottom:16px;">${tool.description}</p>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-        <span style="color:#fbbf24;">${'★'.repeat(tool.rating)}${'☆'.repeat(5-tool.rating)}</span>
-        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="padding:8px 16px;">Visit →</a>
+
+      <p style="margin-bottom:18px;">${tool.description}</p>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;flex-wrap:wrap;">
+        <span aria-label="${tool.rating} out of 5 stars" style="color:#fbbf24;">
+          ${'★'.repeat(tool.rating)}${'☆'.repeat(5 - tool.rating)}
+        </span>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="${tool.review}" class="btn btn-primary" style="padding:8px 14px;">Read Review</a>
+          <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="padding:8px 14px;">Official Site ↗</a>
+        </div>
       </div>
     </article>
   `).join('');

@@ -1,509 +1,579 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI Tools Directory | Zynovix AI</title>
-<meta content="Find the best AI tools for your needs. Interactive quiz, honest reviews, pros &amp; cons, and a curated directory of AI tools." name="description"/>
-<link href="/logo.png?v=20260712" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<style>
-    /* Stats Bar */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin: 40px 0;
-      flex-wrap: wrap;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Tools Directory | Zynovix AI</title>
+  <meta name="description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory of 30+ AI resources." />
+  <meta name="theme-color" content="#050816" />
+  <link rel="canonical" href="https://zynovix.github.io/tools.html" />
+
+  <meta property="og:title" content="AI Tools Directory | Zynovix AI" />
+  <meta property="og:description" content="Find the best AI tools for your needs. Interactive quiz, honest reviews, and a curated directory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zynovix.github.io/tools.html" />
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <style>
+    .brand img, .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
     }
-    .stat-item {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px 30px;
-      text-align: center;
-      min-width: 140px;
-    }
-    .stat-number {
-      font-size: 32px;
-      font-weight: 900;
-      color: #67e8f9;
-      display: block;
-    }
-    .stat-label {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 5px;
+    @media (max-width: 600px) {
+      .brand img, .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
     }
 
-    /* Quiz Styles */
+    /* Quiz & Directory Specific Styles */
     .quiz-container {
-      max-width: 800px;
+      max-width: 700px;
       margin: 0 auto;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
       padding: 40px;
     }
     .quiz-step { display: none; }
-    .quiz-step.active { display: block; }
+    .quiz-step.active { display: block; animation: fadeIn 0.5s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
     .quiz-options {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-top: 24px;
     }
+    @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
+    
     .quiz-option {
-      padding: 20px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
       cursor: pointer;
-      transition: .3s ease;
+      transition: all 0.2s ease;
       text-align: center;
-      font-weight: 700;
-      color: var(--text);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
     }
     .quiz-option:hover {
-      border-color: var(--cyan);
-      background: rgba(34,211,238,.08);
-      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(139, 92, 246, 0.1);
     }
     .quiz-option.selected {
-      border-color: var(--cyan);
-      background: rgba(34,211,238,.15);
-      color: #67e8f9;
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.2);
+      color: #fff;
     }
+    
     .quiz-progress {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 8px;
+      margin-bottom: 24px;
     }
     .progress-dot {
-      width: 10px; height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, 0.2);
+      transition: background 0.3s;
     }
-    .progress-dot.active { background: var(--cyan); box-shadow: 0 0 10px rgba(34,211,238,.5); }
-    .quiz-nav { display: flex; justify-content: space-between; margin-top: 30px; }
-
-    /* Directory Filters */
+    .progress-dot.active { background: #8b5cf6; }
+    
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+    
+    .result-card {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 24px;
+      text-align: center;
+    }
+    
     .tools-filters {
       display: flex;
-      gap: 16px;
-      margin-bottom: 40px;
+      gap: 12px;
+      margin-bottom: 32px;
       flex-wrap: wrap;
-      justify-content: center;
     }
     .tools-filters input, .tools-filters select {
-      padding: 14px 20px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid var(--line);
-      border-radius: 16px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
       color: #fff;
       font-family: 'Outfit', sans-serif;
-      font-size: 15px;
+      font-size: 0.95rem;
       outline: none;
-      transition: .3s;
+      transition: border-color 0.2s;
     }
     .tools-filters input:focus, .tools-filters select:focus {
-      border-color: var(--cyan);
+      border-color: #8b5cf6;
     }
-    .tools-filters input { flex: 1; min-width: 250px; }
-    .tools-filters select { min-width: 180px; cursor: pointer; }
-    .tools-filters select option { background: #050816; }
-
-    /* Enhanced Tool Card */
-    .tool-card {
-      text-align: left;
-      min-height: auto;
-      padding: 28px;
-    }
-    .tool-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
-    }
-    .tool-title { font-size: 22px; margin-bottom: 4px; }
-    .tool-category-tag {
-      font-size: 12px;
-      color: #67e8f9;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-    .tool-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      font-size: 14px;
-    }
-    .stars { color: #fbbf24; font-size: 16px; }
-    .rating-text { color: var(--muted); }
+    .tools-filters input { flex: 1; min-width: 200px; }
+    .tools-filters select { min-width: 150px; cursor: pointer; }
+    .tools-filters select option { background: #050816; color: #fff; }
     
-    .pros-cons {
+    .tools-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
     }
-    @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
     
-    .pros h4, .cons h4 {
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 10px;
+    .tool-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .pros h4 { color: #4ade80; }
-    .cons h4 { color: #f87171; }
-    .pros ul, .cons ul { list-style: none; padding: 0; margin: 0; }
-    .pros li, .cons li {
-      font-size: 14px;
-      color: #cbd5e1;
-      padding: 4px 0 4px 20px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .pros li::before { content: "✓"; position: absolute; left: 0; color: #4ade80; font-weight: 900; }
-    .cons li::before { content: "✗"; position: absolute; left: 0; color: #f87171; font-weight: 900; }
-
-    .tool-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-    }
-    .price-badge {
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      background: rgba(255,255,255,.08);
-      color: #e2e8f0;
+    .badge-free { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+    .badge-freemium { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+    .badge-paid { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+    
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255, 255, 255, 0.6);
+      grid-column: 1 / -1;
     }
 
     /* FAQ Section */
     .faq-section {
-      margin-top: 60px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 0;
     }
     .faq-item {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       margin-bottom: 16px;
       overflow: hidden;
-      transition: .3s;
     }
-    .faq-item:hover { border-color: rgba(34,211,238,.3); }
     .faq-question {
-      padding: 24px;
-      font-weight: 700;
+      padding: 20px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--text);
-      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.05);
     }
     .faq-answer {
-      padding: 0 24px 24px;
-      color: var(--muted);
-      line-height: 1.8;
-      display: none;
-      font-size: 15px;
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.7);
     }
-    .faq-item.active .faq-answer { display: block; }
-    .faq-icon { font-size: 24px; color: var(--cyan); transition: .3s; font-weight: 900; }
-    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px;
+      max-height: 200px;
+    }
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
   </style>
-</link></head>
+
+  <script type="text/javascript">
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xkxn7wyps2");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECFTMP6ZQD"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ECFTMP6ZQD');
+  </script>
+</head>
+
 <body>
 <div class="noise"></div>
 <div class="orb orb-a"></div>
 <div class="orb orb-b"></div>
+
 <header class="header">
-<nav class="nav shell">
-<a class="brand" href="index.html">
-<img alt="Zynovix AI logo" src="/logo.png?v=20260712"/>
-<span>Zynovix AI</span>
-</a>
-<button class="menu-btn" id="menuBtn">☰</button>
-<div class="nav-menu" id="navMenu">
-<a class="active" href="tools.html">AI Tools</a>
-<a href="learn.html">Learn</a>
-<a href="blog.html">Blog</a>
-<a href="about.html">About</a>
-<a class="nav-cta" href="contact.html">Contact</a>
-</div>
-</nav>
+  <nav class="nav shell">
+    <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="tools.html" class="active">AI Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
 </header>
+
 <main>
-<!-- Hero -->
-<section class="page-hero shell reveal">
-<span class="kicker">AI Tools Directory</span>
-<h1>Find the perfect <span>AI Tool</span> for your workflow</h1>
-<p>Take our interactive quiz to get a personalized recommendation, or explore 30+ AI resources including expert reviews, comparisons, practical guides, and curated tool recommendations.</p>
-<div class="actions center-actions">
-<a class="btn btn-primary" href="#quiz">Take the Quiz</a>
-<a class="btn btn-ghost" href="#directory">Browse Directory</a>
-</div>
-</section>
-<!-- Categories -->
-<section class="section shell reveal">
-<div class="section-head">
-<span class="kicker">Categories</span>
-<h2>Explore by use case</h2>
-<p>Find the right AI solution for your specific needs.</p>
-</div>
-<div class="cards four">
-<article class="card tool-card">
-<div class="tool-icon">🤖</div>
-<h3>Assistant</h3>
-<p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
-<a class="btn btn-ghost" href="contact.html">Request Access</a>
-</article>
-<article class="card tool-card">
-<div class="tool-icon">✍️</div>
-<h3>Writing</h3>
-<p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
-<a class="btn btn-ghost" href="blog.html">Read Guides</a>
-</article>
-<article class="card tool-card">
-<div class="tool-icon">🎨</div>
-<h3>Creative</h3>
-<p>AI Image Prompts to create stronger prompts for image generators and visual concepts.</p>
-<a class="btn btn-ghost" href="contact.html">Get Help</a>
-</article>
-<article class="card tool-card">
-<div class="tool-icon">⚡</div>
-<h3>Automation</h3>
-<p>Workflow Automation to automate repetitive tasks and create smarter business systems.</p>
-<a class="btn btn-ghost" href="automate-email-replies-chatgpt-zapier.html">View Example</a>
-</article>
-</div>
-<div class="cards three" style="margin-top: 20px;">
-<article class="card tool-card">
-<div class="tool-icon">📚</div>
-<h3>Learning</h3>
-<p>AI Learning Hub to learn AI, machine learning, deep learning, and prompting step by step.</p>
-<a class="btn btn-ghost" href="learn.html">Start Learning</a>
-</article>
-<article class="card tool-card">
-<div class="tool-icon">📊</div>
-<h3>Business</h3>
-<p>AI Business Ideas to discover practical use cases for marketing, support, and operations.</p>
-<a class="btn btn-ghost" href="blog.html">Explore Ideas</a>
-</article>
-</div>
-</section>
-<!-- Quiz -->
-<section class="section shell reveal" id="quiz">
-<div class="section-head">
-<span class="kicker">Interactive Quiz</span>
-<h2>Find Your Perfect AI Tool</h2>
-<p>Answer 4 quick questions and get a personalized recommendation.</p>
-</div>
-<div class="quiz-container">
-<div class="quiz-progress">
-<div class="progress-dot active"></div>
-<div class="progress-dot"></div>
-<div class="progress-dot"></div>
-<div class="progress-dot"></div>
-</div>
-<div class="quiz-step active" data-step="1">
-<h3 style="text-align: center;">What do you want to do?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="writing">✍️ Writing &amp; Content</div>
-<div class="quiz-option" data-value="coding">💻 Coding</div>
-<div class="quiz-option" data-value="design">🎨 Design &amp; Images</div>
-<div class="quiz-option" data-value="automation">⚡ Automation</div>
-</div>
-</div>
-<div class="quiz-step" data-step="2">
-<h3 style="text-align: center;">What's your budget?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="free">💚 Completely Free</div>
-<div class="quiz-option" data-value="freemium">💙 Free + Paid Plans</div>
-<div class="quiz-option" data-value="budget">💛 Under $20/month</div>
-<div class="quiz-option" data-value="premium">💜 $20+/month</div>
-</div>
-</div>
-<div class="quiz-step" data-step="3">
-<h3 style="text-align: center;">Your skill level?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="beginner">🌱 Beginner</div>
-<div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
-<div class="quiz-option" data-value="advanced">🌳 Advanced</div>
-</div>
-</div>
-<div class="quiz-step" data-step="4">
-<h3 style="text-align: center;">What's most important to you?</h3>
-<div class="quiz-options">
-<div class="quiz-option" data-value="speed">⚡ Speed</div>
-<div class="quiz-option" data-value="quality">✨ Quality</div>
-<div class="quiz-option" data-value="privacy"> Privacy</div>
-<div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
-</div>
-</div>
-<div class="quiz-step" data-step="result">
-<div style="text-align: center;">
-<h3 style="margin-bottom: 20px;">🎉 Your Perfect AI Tool</h3>
-<div id="resultContent"></div>
-<button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
-</div>
-</div>
-<div class="quiz-nav" id="quizNav">
-<button class="btn btn-ghost" disabled="" id="prevBtn" onclick="prevStep()">Previous</button>
-<button class="btn btn-primary" disabled="" id="nextBtn" onclick="nextStep()">Next</button>
-</div>
-</div>
-</section>
-<!-- Directory -->
-<section class="section shell reveal" id="directory">
-<div class="section-head">
-<span class="kicker">Directory</span>
-<h2>AI Tools Directory</h2>
-<p>Browse our curated collection of honest reviews with ratings, pros &amp; cons.</p>
-</div>
-<div class="stats-bar">
-<div class="stat-item">
-<span class="stat-number" id="totalResources">30+</span>
-<div class="stat-label">AI Resources</div>
-</div>
-<div class="stat-item">
-<span class="stat-number" id="totalCategories">0</span>
-<div class="stat-label">Tool Categories</div>
-</div>
-<div class="stat-item">
-<span class="stat-number">100%</span>
-<div class="stat-label">Free to Use</div>
-</div>
-</div>
-<div class="tools-filters">
-<input id="searchBox" placeholder="🔍 Search tools..." type="text"/>
-<select id="categoryFilter">
-<option value="">All Categories</option>
-<option value="writing">Writing</option>
-<option value="coding">Coding</option>
-<option value="design">Design</option>
-<option value="automation">Automation</option>
-<option value="chatbot">Chatbots</option>
-</select>
-<select id="pricingFilter">
-<option value="">All Prices</option>
-<option value="free">Free</option>
-<option value="freemium">Freemium</option>
-<option value="paid">Paid</option>
-</select>
-</div>
-<div class="cards four" id="toolsGrid"></div>
-<div class="no-results" id="noResults" style="display: none; text-align: center; padding: 40px; color: var(--muted);">
-<h3>No tools found</h3>
-<p>Try adjusting your filters</p>
-</div>
-<!-- FAQ Section -->
-<div class="faq-section">
-<div class="section-head" style="margin-top: 80px;">
-<span class="kicker">Support</span>
-<h2>Frequently Asked Questions</h2>
-<p>Everything you need to know about our AI tools directory.</p>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>How do I choose the right AI tool?</span>
-<span class="faq-icon">+</span>
-</div>
-<div class="faq-answer">Finding the right AI tool depends on your goals, budget, and workflow. Zynovix AI compares features, pricing, pros and cons, and real-world use cases to help you choose the best option.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>Are these AI tools really free?</span>
-<span class="faq-icon">+</span>
-</div>
-<div class="faq-answer">Many AI tools offer free plans or free trials, while others require a paid subscription for advanced features. Each review clearly explains pricing, limitations, and available plans.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>How often do you update reviews?</span>
-<span class="faq-icon">+</span>
-</div>
-<div class="faq-answer">We regularly update reviews to reflect new features, pricing changes, major releases, and important updates from official sources.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>Can I suggest an AI tool?</span>
-<span class="faq-icon">+</span>
-</div>
-<div class="faq-answer">Yes. We welcome suggestions from our community. Contact us and we'll consider the tool for future coverage.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>Do you receive commissions from these tools?</span>
-<span class="faq-icon">+</span>
-</div>
-<div class="faq-answer">Some links may be affiliate links, but this never influences our reviews or ratings. We remain committed to honest, transparent, and independent evaluations.</div>
-</div>
-<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Do I need an account to use Zynovix AI?</span><span class="faq-icon">+</span></div><div class="faq-answer">No. You can browse AI tool reviews, comparisons, guides, and resources without creating an account.</div></div><div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How do you review AI tools?</span><span class="faq-icon">+</span></div><div class="faq-answer">Every review is based on official documentation, feature analysis, pricing, usability, practical testing whenever possible, and comparisons with competing products.</div></div><div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Can developers submit their AI tools?</span><span class="faq-icon">+</span></div><div class="faq-answer">Yes. Developers are welcome to submit their AI tools for consideration. Publication is based on our editorial standards.</div></div><div style="text-align:center;margin-top:32px;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--panel)">
-<h3>Still have questions?</h3>
-<p>We're always happy to help. If you couldn't find the answer you're looking for, feel free to contact us.</p>
-<a class="btn btn-primary" href="contact.html">Contact Us</a>
-</div></div>
-</section>
-<!-- CTA -->
-<section class="cta shell reveal">
-<span class="kicker">Start Today</span>
-<h2>Ready to build smarter with Zynovix AI?</h2>
-<p>Want a custom AI workflow? Tell us what you want to automate or improve.</p>
-<a class="btn btn-primary" href="contact.html">Contact Us</a>
-</section>
+  <!-- Hero Section -->
+  <section class="hero shell reveal">
+    <div class="hero-copy">
+      <div class="pill">AI Tools Directory</div>
+      <h1>Find the perfect <span>AI Tool</span> for your workflow</h1>
+      <p>Take our interactive quiz to get a personalized recommendation, or explore 30+ AI resources including expert reviews, comparisons, practical guides, and curated tool recommendations.</p>
+      <div class="actions">
+        <a href="#quiz" class="btn btn-primary">Take the Quiz</a>
+        <a href="#directory" class="btn btn-ghost">Browse Directory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Cards -->
+  <section class="section shell reveal">
+    <div class="section-head">
+      <span class="kicker">Categories</span>
+      <h2>Explore by use case</h2>
+      <p>Find the right AI solution for your specific needs.</p>
+    </div>
+    <div class="cards four">
+      <article class="card tool-card">
+        <div class="tool-icon">🤖</div>
+        <h3>Assistant</h3>
+        <p>AI Chat Assistants to brainstorm, summarize, research, and improve daily productivity.</p>
+        <a href="contact.html" class="btn btn-ghost">Request Access</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">✍️</div>
+        <h3>Writing</h3>
+        <p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
+        <a href="blog.html" class="btn btn-ghost">Read Guides</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">🎨</div>
+        <h3>Creative</h3>
+        <p>AI Image Prompts to create stronger prompts for image generators and visual concepts.</p>
+        <a href="contact.html" class="btn btn-ghost">Get Help</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">⚡</div>
+        <h3>Automation</h3>
+        <p>Workflow Automation to automate repetitive tasks and create smarter business systems.</p>
+        <a href="automate-email-replies-chatgpt-zapier.html" class="btn btn-ghost">View Example</a>
+      </article>
+    </div>
+    <div class="cards three" style="margin-top: 20px;">
+      <article class="card tool-card">
+        <div class="tool-icon">📚</div>
+        <h3>Learning</h3>
+        <p>AI Learning Hub to learn AI, machine learning, deep learning, and prompting step by step.</p>
+        <a href="learn.html" class="btn btn-ghost">Start Learning</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">📊</div>
+        <h3>Business</h3>
+        <p>AI Business Ideas to discover practical use cases for marketing, support, and operations.</p>
+        <a href="blog.html" class="btn btn-ghost">Explore Ideas</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">💰</div>
+        <h3>Cost Calculator</h3>
+        <p>Calculate and compare AI API costs. Free tool to estimate GPT-4, Claude, and Gemini expenses.</p>
+        <a href="calculator.html" class="btn btn-ghost">Try Calculator</a>
+      </article>
+      <article class="card tool-card">
+        <div class="tool-icon">📝</div>
+        <h3>Prompt Library</h3>
+        <p>Free collection of tested AI prompts. Copy-ready prompts for writing, coding, marketing, and more.</p>
+        <a href="prompts.html" class="btn btn-ghost">Browse Prompts</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="section shell reveal" id="quiz">
+    <div class="section-head">
+      <span class="kicker">Interactive Quiz</span>
+      <h2>Find Your Perfect AI Tool</h2>
+      <p>Answer 4 quick questions and get a personalized recommendation.</p>
+    </div>
+    
+    <div class="quiz-container">
+      <div class="quiz-progress">
+        <div class="progress-dot active"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+      </div>
+      
+      <div class="quiz-step active" data-step="1">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What do you want to do?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="writing">✍️ Writing & Content</div>
+          <div class="quiz-option" data-value="coding">💻 Coding</div>
+          <div class="quiz-option" data-value="design">🎨 Design & Images</div>
+          <div class="quiz-option" data-value="automation">⚡ Automation</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="2">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What's your budget?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="free">💚 Completely Free</div>
+          <div class="quiz-option" data-value="freemium">💙 Free + Paid Plans</div>
+          <div class="quiz-option" data-value="budget">💛 Under $20/month</div>
+          <div class="quiz-option" data-value="premium">💜 $20+/month</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="3">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">Your skill level?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="beginner"> Beginner</div>
+          <div class="quiz-option" data-value="intermediate">🌿 Intermediate</div>
+          <div class="quiz-option" data-value="advanced">🌳 Advanced</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="4">
+        <h3 style="text-align: center; margin-bottom: 10px; color: #fff;">What's most important to you?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="speed">⚡ Speed</div>
+          <div class="quiz-option" data-value="quality">✨ Quality</div>
+          <div class="quiz-option" data-value="privacy">🔒 Privacy</div>
+          <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
+        </div>
+      </div>
+      
+      <div class="quiz-step" data-step="result">
+        <div class="result-card">
+          <h3 style="margin-bottom: 16px; color: #fff;">🎉 Your Perfect AI Tool</h3>
+          <div id="resultContent"></div>
+          <button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
+        </div>
+      </div>
+      
+      <div class="quiz-nav" id="quizNav">
+        <button class="btn btn-ghost" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directory Section -->
+  <section class="section shell reveal" id="directory">
+    <div class="section-head">
+      <span class="kicker">Directory</span>
+      <h2>AI Tools Directory</h2>
+      <p>Browse our curated collection of honest reviews with ratings, pros & cons.</p>
+    </div>
+    
+    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+      <span>✅ 30+ AI Resources</span>
+      <span>🎯 8 Tool Categories</span>
+      <span>💯 100% Free to Use</span>
+    </div>
+    
+    <div class="tools-filters">
+      <input type="text" id="searchBox" placeholder="🔍 Search tools...">
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="writing">Writing</option>
+        <option value="coding">Coding</option>
+        <option value="design">Design</option>
+        <option value="automation">Automation</option>
+        <option value="chatbot">Chatbots</option>
+      </select>
+      <select id="pricingFilter">
+        <option value="">All Prices</option>
+        <option value="free">Free</option>
+        <option value="freemium">Freemium</option>
+        <option value="paid">Paid</option>
+      </select>
+    </div>
+    
+    <div class="tools-grid" id="toolsGrid"></div>
+    <div class="no-results" id="noResults" style="display: none;">
+      <h3>No tools found</h3>
+      <p>Try adjusting your filters</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section shell reveal">
+    <div class="section-head">
+      <span class="kicker">Support</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about our AI tools directory.</p>
+    </div>
+    
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I choose the right AI tool?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Finding the right AI tool depends on your goals, budget, and workflow. Zynovix AI compares features, pricing, pros and cons, and real-world use cases to help you choose the best option.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Are these AI tools really free?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Many AI tools offer free plans or free trials, while others require a paid subscription for advanced features. Each review clearly explains pricing, limitations, and available plans.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How often do you update reviews?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We regularly update reviews to reflect new features, pricing changes, major releases, and important updates from official sources.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I suggest an AI tool?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. We welcome suggestions from our community. Contact us and we'll consider the tool for future coverage.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you receive commissions from these tools?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Some links may be affiliate links, but this never influences our reviews or ratings. We remain committed to honest, transparent, and independent evaluations.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need an account to use Zynovix AI?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No. You can browse AI tool reviews, comparisons, guides, and resources without creating an account.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do you review AI tools?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Every review is based on official documentation, feature analysis, pricing, usability, practical testing whenever possible, and comparisons with competing products.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can developers submit their AI tools?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Developers are welcome to submit their AI tools for consideration. Publication is based on our editorial standards.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <h3 style="color: #fff; margin-bottom: 12px;">Still have questions?</h3>
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 24px;">We're always happy to help. If you couldn't find the answer you're looking for, feel free to contact us.</p>
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta shell reveal">
+    <span class="kicker">Start Today</span>
+    <h2>Ready to build smarter with Zynovix AI?</h2>
+    <p>Want a custom AI workflow? Tell us what you want to automate or improve.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </section>
 </main>
+
 <footer class="footer">
-<div class="shell footer-inner">
-<a class="brand" href="index.html">
-<img alt="Zynovix AI logo" src="/logo.png?v=20260712"/>
-<span>Zynovix AI</span>
-</a>
-<nav class="footer-links">
-<a href="privacy.html">Privacy</a>
-<a href="terms.html">Terms</a>
-<a href="contact.html">Contact</a>
-<a href="blog.html">Blog</a>
-</nav>
-<span>© 2026 Zynovix AI</span>
-</div>
+  <div class="shell footer-inner">
+    <a class="brand" href="index.html">
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <span>Zynovix AI</span>
+    </a>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <span>© 2026 Zynovix AI</span>
+  </div>
 </footer>
+
 <script src="script.js"></script>
 <script>
   // ===== TOOLS DATABASE =====
   const tools = [
-    { name: "ChatGPT", category: "chatbot", pricing: "freemium", rating: 5, reviews: "12.5K", description: "The most popular AI chatbot. Great for writing, brainstorming, and general tasks.", url: "https://chat.openai.com", pros: ["Very versatile", "Easy to use", "Large knowledge base"], cons: ["Can be slow during peak times", "Limited context in free version"] },
-    { name: "Claude", category: "chatbot", pricing: "freemium", rating: 5, reviews: "8.2K", description: "Anthropic's AI assistant. Excellent for long documents and nuanced writing.", url: "https://claude.ai", pros: ["Better at long-form content", "More nuanced responses", "Strong privacy focus"], cons: ["Smaller knowledge base than GPT", "No image generation"] },
-    { name: "Cursor", category: "coding", pricing: "freemium", rating: 5, reviews: "6.1K", description: "AI-first code editor. The best tool for developers in 2026.", url: "https://cursor.com", pros: ["Excellent code completion", "AI-powered refactoring", "VS Code compatible"], cons: ["Learning curve for beginners", "Paid tier can be expensive"] },
-    { name: "GitHub Copilot", category: "coding", pricing: "paid", rating: 4, reviews: "15.3K", description: "AI pair programmer integrated with VS Code. Industry standard.", url: "https://github.com/features/copilot", pros: ["Industry standard", "Great IDE integration", "Trained on real code"], cons: ["Requires subscription", "Occasionally suggests insecure code"] },
-    { name: "Midjourney", category: "design", pricing: "paid", rating: 5, reviews: "9.8K", description: "Best AI image generator for artistic and creative visuals.", url: "https://midjourney.com", pros: ["Stunning image quality", "Highly creative", "Active community"], cons: ["Discord-only interface", "No free tier"] },
-    { name: "Canva AI", category: "design", pricing: "freemium", rating: 4, reviews: "11.2K", description: "Easy-to-use design tool with AI features. Perfect for non-designers.", url: "https://canva.com", pros: ["Very beginner-friendly", "All-in-one design suite", "Great templates"], cons: ["Limited customization", "AI features require Pro"] },
-    { name: "Zapier", category: "automation", pricing: "freemium", rating: 4, reviews: "7.5K", description: "Connect apps and automate workflows without code.", url: "https://zapier.com", pros: ["No coding required", "5000+ app integrations", "Reliable"], cons: ["Can get expensive", "Limited custom logic"] },
-    { name: "Make", category: "automation", pricing: "freemium", rating: 4, reviews: "4.3K", description: "Visual automation platform. More flexible than Zapier for complex workflows.", url: "https://make.com", pros: ["More flexible than Zapier", "Visual workflow builder", "Better pricing"], cons: ["Steeper learning curve", "Occasional bugs"] },
-    { name: "Perplexity AI", category: "chatbot", pricing: "freemium", rating: 5, reviews: "5.7K", description: "AI-powered search engine. Best for research with citations.", url: "https://perplexity.ai", pros: ["Always cites sources", "Great for research", "Fast responses"], cons: ["Less creative than ChatGPT", "Limited conversation memory"] },
-    { name: "Gemini", category: "chatbot", pricing: "free", rating: 4, reviews: "10.1K", description: "Google's AI assistant. Free and integrated with Google services.", url: "https://gemini.google.com", pros: ["Completely free", "Google integration", "Fast and reliable"], cons: ["Less advanced than competitors", "Privacy concerns"] },
-    { name: "Jasper", category: "writing", pricing: "paid", rating: 4, reviews: "6.9K", description: "AI writing tool for marketers and businesses. Great for brand voice.", url: "https://jasper.ai", pros: ["Excellent for marketing", "Brand voice feature", "Team collaboration"], cons: ["Expensive", "Overkill for casual users"] },
-    { name: "Copy.ai", category: "writing", pricing: "freemium", rating: 4, reviews: "5.4K", description: "AI copywriting tool. Great for marketing content and emails.", url: "https://copy.ai", pros: ["Easy to use", "Good free tier", "Many templates"], cons: ["Quality varies", "Limited customization"] },
-    { name: "Notion AI", category: "writing", pricing: "freemium", rating: 4, reviews: "8.6K", description: "AI writing assistant inside Notion. Perfect for notes and docs.", url: "https://notion.so", pros: ["Seamless Notion integration", "Great for documentation", "Affordable"], cons: ["Only works in Notion", "Limited features"] },
-    { name: "DALL-E 3", category: "design", pricing: "paid", rating: 4, reviews: "7.2K", description: "OpenAI's image generator. Great for realistic and detailed images.", url: "https://openai.com/dall-e-3", pros: ["Excellent realism", "Great prompt understanding", "Integrated with ChatGPT"], cons: ["Requires ChatGPT Plus", "Slower than alternatives"] },
-    { name: "Windsurf", category: "coding", pricing: "freemium", rating: 5, reviews: "3.8K", description: "Next-gen AI IDE with agentic coding capabilities.", url: "https://codeium.com", pros: ["Agentic AI features", "Fast and accurate", "Modern interface"], cons: ["Newer tool (less proven)", "Limited documentation"] },
-    { name: "n8n", category: "automation", pricing: "free", rating: 5, reviews: "4.1K", description: "Open-source workflow automation. Self-hostable and free.", url: "https://n8n.io", pros: ["Completely free", "Self-hostable", "Very powerful"], cons: ["Requires technical knowledge", "No official support"] }
+    { name: "ChatGPT", category: "chatbot", pricing: "freemium", rating: 5, description: "The most popular AI chatbot. Great for writing, brainstorming, and general tasks.", url: "https://chat.openai.com", bestFor: ["writing", "learning", "personal"], priority: ["quality", "ease"] },
+    { name: "Claude", category: "chatbot", pricing: "freemium", rating: 5, description: "Anthropic's AI assistant. Excellent for long documents and nuanced writing.", url: "https://claude.ai", bestFor: ["writing", "business", "learning"], priority: ["quality", "privacy"] },
+    { name: "Cursor", category: "coding", pricing: "freemium", rating: 5, description: "AI-first code editor. The best tool for developers in 2026.", url: "https://cursor.com", bestFor: ["coding", "business", "personal"], priority: ["speed", "quality"] },
+    { name: "GitHub Copilot", category: "coding", pricing: "paid", rating: 4, description: "AI pair programmer integrated with VS Code. Industry standard.", url: "https://github.com/features/copilot", bestFor: ["coding", "business", "team"], priority: ["speed", "quality"] },
+    { name: "Midjourney", category: "design", pricing: "paid", rating: 5, description: "Best AI image generator for artistic and creative visuals.", url: "https://midjourney.com", bestFor: ["design", "personal", "business"], priority: ["quality"] },
+    { name: "Canva AI", category: "design", pricing: "freemium", rating: 4, description: "Easy-to-use design tool with AI features. Perfect for non-designers.", url: "https://canva.com", bestFor: ["design", "beginner", "business"], priority: ["ease", "speed"] },
+    { name: "Zapier", category: "automation", pricing: "freemium", rating: 4, description: "Connect apps and automate workflows without code.", url: "https://zapier.com", bestFor: ["automation", "business", "team"], priority: ["ease"] },
+    { name: "Make (Integromat)", category: "automation", pricing: "freemium", rating: 4, description: "Visual automation platform. More flexible than Zapier for complex workflows.", url: "https://make.com", bestFor: ["automation", "business", "advanced"], priority: ["quality"] },
+    { name: "Perplexity AI", category: "chatbot", pricing: "freemium", rating: 5, description: "AI-powered search engine. Best for research with citations.", url: "https://perplexity.ai", bestFor: ["learning", "personal", "business"], priority: ["quality", "speed"] },
+    { name: "Gemini", category: "chatbot", pricing: "free", rating: 4, description: "Google's AI assistant. Free and integrated with Google services.", url: "https://gemini.google.com", bestFor: ["learning", "personal", "beginner"], priority: ["ease", "speed"] },
+    { name: "Jasper", category: "writing", pricing: "paid", rating: 4, description: "AI writing tool for marketers and businesses. Great for brand voice.", url: "https://jasper.ai", bestFor: ["writing", "business", "team"], priority: ["quality"] },
+    { name: "Copy.ai", category: "writing", pricing: "freemium", rating: 4, description: "AI copywriting tool. Great for marketing content and emails.", url: "https://copy.ai", bestFor: ["writing", "business", "beginner"], priority: ["speed", "ease"] },
+    { name: "Notion AI", category: "writing", pricing: "freemium", rating: 4, description: "AI writing assistant inside Notion. Perfect for notes and docs.", url: "https://notion.so", bestFor: ["writing", "business", "personal"], priority: ["ease"] },
+    { name: "DALL-E 3", category: "design", pricing: "paid", rating: 4, description: "OpenAI's image generator. Great for realistic and detailed images.", url: "https://openai.com/dall-e-3", bestFor: ["design", "personal", "business"], priority: ["quality"] },
+    { name: "Windsurf", category: "coding", pricing: "freemium", rating: 5, description: "Next-gen AI IDE with agentic coding capabilities.", url: "https://codeium.com", bestFor: ["coding", "advanced", "business"], priority: ["speed", "quality"] },
+    { name: "n8n", category: "automation", pricing: "free", rating: 5, description: "Open-source workflow automation. Self-hostable and free.", url: "https://n8n.io", bestFor: ["automation", "advanced", "personal"], priority: ["privacy", "quality"] }
   ];
 
   // ===== QUIZ LOGIC =====
@@ -513,13 +583,16 @@
 
   function updateProgress() {
     const dots = document.querySelectorAll('.progress-dot');
-    dots.forEach((dot, index) => dot.classList.toggle('active', index < currentStep));
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index < currentStep);
+    });
   }
 
   function showStep(step) {
     document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
     const targetStep = document.querySelector(`[data-step="${step}"]`);
     if (targetStep) targetStep.classList.add('active');
+    
     document.getElementById('prevBtn').disabled = step === 1;
     document.getElementById('nextBtn').disabled = !answers[step];
     document.getElementById('nextBtn').textContent = step === totalSteps ? 'See Results' : 'Next';
@@ -529,41 +602,61 @@
   function selectOption(step, value) {
     answers[step] = value;
     const options = document.querySelectorAll(`[data-step="${step}"] .quiz-option`);
-    options.forEach(opt => opt.classList.toggle('selected', opt.dataset.value === value));
+    options.forEach(opt => {
+      opt.classList.toggle('selected', opt.dataset.value === value);
+    });
     document.getElementById('nextBtn').disabled = false;
   }
 
   function nextStep() {
-    if (currentStep < totalSteps) { currentStep++; showStep(currentStep); updateProgress(); } 
-    else { showResults(); }
+    if (currentStep < totalSteps) {
+      currentStep++;
+      showStep(currentStep);
+      updateProgress();
+    } else {
+      showResults();
+    }
   }
 
   function prevStep() {
-    if (currentStep > 1) { currentStep--; showStep(currentStep); updateProgress(); }
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+      updateProgress();
+    }
   }
 
   function showResults() {
     currentStep = 'result';
     showStep('result');
-    let bestTool = tools[0], bestScore = 0;
+    
+    let bestTool = tools[0];
+    let bestScore = 0;
+    
     tools.forEach(tool => {
       let score = 0;
       if (tool.category === answers[1]) score += 3;
       if (tool.pricing === answers[2] || (answers[2] === 'budget' && tool.pricing === 'freemium')) score += 2;
-      if (tool.pricing === 'free' && answers[2] === 'free') score += 3;
-      if (score > bestScore) { bestScore = score; bestTool = tool; }
+      if (tool.bestFor.includes(answers[3] === 'beginner' ? 'learning' : 'business')) score += 2;
+      if (tool.priority.includes(answers[4])) score += 1;
+      
+      if (score > bestScore) {
+        bestScore = score;
+        bestTool = tool;
+      }
     });
+    
     const stars = '★'.repeat(bestTool.rating) + '☆'.repeat(5 - bestTool.rating);
+    const badgeClass = bestTool.pricing === 'free' ? 'badge-free' : bestTool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
+    
     document.getElementById('resultContent').innerHTML = `
-      <div style="background: rgba(34,211,238,.1); border: 1px solid var(--cyan); border-radius: 22px; padding: 30px; margin-top: 20px;">
-        <h3 style="color: #67e8f9; margin-bottom: 10px;">${bestTool.name}</h3>
-        <p style="color: var(--muted); margin-bottom: 15px;">${bestTool.description}</p>
-        <div style="margin-bottom: 20px;">
-          <span class="stars">${stars}</span>
-          <span style="color: var(--muted); margin-left: 10px;">(${bestTool.reviews} reviews)</span>
-        </div>
-        <a href="${bestTool.url}" target="_blank" class="btn btn-primary">Try ${bestTool.name} →</a>
+      <h4 style="font-size: 1.5rem; margin-bottom: 8px; color: #fff;">${bestTool.name}</h4>
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 16px;">${bestTool.description}</p>
+      <div style="margin-bottom: 20px;">
+        <span style="color: #fbbf24; font-size: 1.2rem;">${stars}</span>
+        <span class="tool-badge ${badgeClass}" style="margin-left: 12px;">${bestTool.pricing}</span>
       </div>
+      <a href="${bestTool.url}" target="_blank" class="btn btn-primary">Try ${bestTool.name} →</a>
     `;
   }
 
@@ -586,41 +679,27 @@
   function renderTools(filteredTools) {
     const grid = document.getElementById('toolsGrid');
     const noResults = document.getElementById('noResults');
+    
     if (filteredTools.length === 0) {
       grid.innerHTML = '';
       noResults.style.display = 'block';
       return;
     }
+    
     noResults.style.display = 'none';
     grid.innerHTML = filteredTools.map(tool => {
       const stars = '★'.repeat(tool.rating) + '☆'.repeat(5 - tool.rating);
-      const priceText = tool.pricing === 'free' ? 'Free' : tool.pricing === 'freemium' ? 'Freemium' : 'Paid';
+      const badgeClass = tool.pricing === 'free' ? 'badge-free' : tool.pricing === 'freemium' ? 'badge-freemium' : 'badge-paid';
       return `
-        <article class="card tool-card">
-          <div class="tool-card-header">
-            <div>
-              <h3 class="tool-title">${tool.name}</h3>
-              <div class="tool-category-tag">${tool.category}</div>
-            </div>
+        <article class="card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <h3 style="font-size: 1.2rem; margin: 0; color: #fff;">${tool.name}</h3>
+            <span class="tool-badge ${badgeClass}">${tool.pricing}</span>
           </div>
-          <div class="tool-rating">
-            <span class="stars">${stars}</span>
-            <span class="rating-text">${tool.rating}.0 (${tool.reviews})</span>
-          </div>
-          <p>${tool.description}</p>
-          <div class="pros-cons">
-            <div class="pros">
-              <h4>Pros</h4>
-              <ul>${tool.pros.map(pro => `<li>${pro}</li>`).join('')}</ul>
-            </div>
-            <div class="cons">
-              <h4>Cons</h4>
-              <ul>${tool.cons.map(con => `<li>${con}</li>`).join('')}</ul>
-            </div>
-          </div>
-          <div class="tool-footer">
-            <span class="price-badge">${priceText}</span>
-            <a href="${tool.url}" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Visit →</a>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 16px; flex-grow: 1;">${tool.description}</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+            <span style="color: #fbbf24; font-size: 0.9rem;">${stars}</span>
+            <a href="${tool.url}" target="_blank" class="btn btn-ghost" style="padding: 8px 16px; font-size: 0.9rem;">Visit →</a>
           </div>
         </article>
       `;
@@ -631,43 +710,32 @@
     const search = document.getElementById('searchBox').value.toLowerCase();
     const category = document.getElementById('categoryFilter').value;
     const pricing = document.getElementById('pricingFilter').value;
+    
     const filtered = tools.filter(tool => {
       const matchSearch = tool.name.toLowerCase().includes(search) || tool.description.toLowerCase().includes(search);
       const matchCategory = !category || tool.category === category;
       const matchPricing = !pricing || tool.pricing === pricing;
       return matchSearch && matchCategory && matchPricing;
     });
+    
     renderTools(filtered);
-  }
-
-  // ===== FAQ LOGIC =====
-  function toggleFaq(element) {
-    const faqItem = element.parentElement;
-    const isActive = faqItem.classList.contains('active');
-    
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('active');
-    });
-    
-    if (!isActive) {
-      faqItem.classList.add('active');
-    }
-  }
-
-  function updateStats() {
-    const totalResources = document.getElementById('totalResources');
-    if (totalResources) totalResources.textContent = '30+';
-    const categories = [...new Set(tools.map(p => p.category))];
-    document.getElementById('totalCategories').textContent = categories.length;
   }
 
   document.getElementById('searchBox').addEventListener('input', filterTools);
   document.getElementById('categoryFilter').addEventListener('change', filterTools);
   document.getElementById('pricingFilter').addEventListener('change', filterTools);
 
+  // FAQ Toggle
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+
+  // Initialize
   showStep(1);
   renderTools(tools);
-  updateStats();
 </script>
 </body>
 </html>

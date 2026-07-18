@@ -107,6 +107,7 @@ a{color:inherit;text-decoration:none}
 .footer{border-top:1px solid var(--line);padding:36px 0;background:rgba(2,6,23,.5)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px;color:#cbd5e1}
+.footer-links a{transition:.25s ease}
 .footer-links a:hover{color:#67e8f9}
 .not-found{min-height:70vh;display:grid;place-content:center}
 .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
@@ -156,14 +157,6 @@ a{color:inherit;text-decoration:none}
   color:#67e8f9;
   background:rgba(34,211,238,.08);
 }
-/* Essential pages and footer */
-.footer-links{display:flex;flex-wrap:wrap;gap:18px;color:#cbd5e1}
-.footer-links a{transition:.25s ease}
-.footer-links a:hover{color:#67e8f9}
-.form label{display:grid;gap:8px;color:#dbe5f3;font-weight:700}
-.form button{border:0;cursor:pointer;justify-self:start}
-@media(max-width:720px){.footer-links{margin:18px 0}}
-
 .comparison-table tr:last-child td{border-bottom:0}
 
 /* Fast, consistent entrance for every Blog card */
@@ -202,8 +195,12 @@ a{color:inherit;text-decoration:none}
   }
 }
 
-/* Compact homepage layout on desktop only — mobile remains unchanged */
+/* Desktop layout — mobile and tablet remain unchanged */
 @media (min-width: 981px) {
+  .shell {
+    width: min(1500px, 96%);
+  }
+
   .hero {
     min-height: auto;
     padding: 54px 0 64px;
@@ -249,26 +246,9 @@ a{color:inherit;text-decoration:none}
     padding-top: 64px;
     padding-bottom: 64px;
   }
-}
-
-/* Restore a wider desktop homepage layout only */
-@media (min-width: 981px) {
-  main > .hero.shell,
-  main > .hero.shell ~ .section.shell,
-  main > .hero.shell ~ .split.shell,
-  main > .hero.shell ~ .cta.shell {
-    width: min(1500px, 96%);
-  }
 
   main > .hero.shell {
     grid-template-columns: 1.08fr 0.92fr;
-  }
-}
-
-/* Wider layout for all pages on desktop — mobile and tablet stay unchanged */
-@media (min-width: 981px) {
-  .shell {
-    width: min(1500px, 96%);
   }
 
   .page-hero {
@@ -311,4 +291,3 @@ a{color:inherit;text-decoration:none}
 .nav-menu .nav-cta::after {
   display: none;
 }
-

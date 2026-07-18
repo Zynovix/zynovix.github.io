@@ -5,14 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>AI Cost Calculator | Zynovix AI</title>
-  <meta name="description" content="Calculate the cost of using different AI models like GPT-4, Claude, and Gemini. Compare API pricing and optimize your AI budget." />
+  <meta name="description" content="Estimate and compare standard text-token API costs for current OpenAI, Anthropic Claude, and Google Gemini models." />
   <meta name="theme-color" content="#050816" />
   <link rel="canonical" href="https://zynovix.github.io/calculator.html" />
 
   <meta property="og:title" content="AI Cost Calculator | Zynovix AI" />
-  <meta property="og:description" content="Calculate and compare AI API costs. Free tool to estimate GPT-4, Claude, and Gemini expenses." />
+  <meta property="og:description" content="Estimate and compare standard text-token API costs for current OpenAI, Claude, and Gemini models." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zynovix.github.io/calculator.html" />
+  <meta property="og:site_name" content="Zynovix AI" />
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712" />
+  <meta property="og:image:alt" content="Zynovix AI Cost Calculator" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Cost Calculator | Zynovix AI" />
+  <meta name="twitter:description" content="Compare standard text-token API costs for current OpenAI, Claude, and Gemini models." />
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712" />
+  <meta name="twitter:image:alt" content="Zynovix AI Cost Calculator" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Cost Calculator",
+    "url": "https://zynovix.github.io/calculator.html",
+    "description": "A free browser-based calculator for estimating and comparing standard text-token API costs across current AI models.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zynovix AI",
+      "url": "https://zynovix.github.io/"
+    }
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -243,7 +275,7 @@
     <div class="hero-copy">
       <div class="pill">Free Tool</div>
       <h1>AI Cost <span>Calculator</span></h1>
-      <p>Estimate and compare the cost of using different AI models like GPT-4, Claude, and Gemini. Optimize your AI budget with accurate pricing calculations.</p>
+      <p>Estimate and compare standard text-token costs for current OpenAI, Claude, and Gemini API models.</p>
       <div class="actions">
         <a href="#calculator" class="btn btn-primary">Start Calculating</a>
         <a href="tools.html" class="btn btn-ghost">Browse AI Tools</a>
@@ -265,14 +297,15 @@
         <div class="input-group">
           <label for="model">AI Model</label>
           <select id="model">
-            <option value="gpt-4">GPT-4 Turbo</option>
-            <option value="gpt-4o">GPT-4o</option>
-            <option value="gpt-3.5">GPT-3.5 Turbo</option>
-            <option value="claude-3-opus">Claude 3 Opus</option>
-            <option value="claude-3-sonnet">Claude 3 Sonnet</option>
-            <option value="claude-3-haiku">Claude 3 Haiku</option>
-            <option value="gemini-pro">Gemini Pro</option>
-            <option value="gemini-ultra">Gemini Ultra</option>
+            <option value="gpt-5.6-sol">GPT-5.6 Sol</option>
+            <option value="gpt-5.6-terra">GPT-5.6 Terra</option>
+            <option value="gpt-5.6-luna">GPT-5.6 Luna</option>
+            <option value="claude-fable-5">Claude Fable 5</option>
+            <option value="claude-sonnet-5">Claude Sonnet 5</option>
+            <option value="claude-haiku-4.5">Claude Haiku 4.5</option>
+            <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
+            <option value="gemini-3.1-pro">Gemini 3.1 Pro Preview</option>
+            <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</option>
           </select>
           <div class="input-hint">Select the AI model you want to use</div>
         </div>
@@ -299,7 +332,7 @@
         
         <!-- Pricing Reference -->
         <div class="pricing-info">
-          <h3 style="margin-bottom: 12px; color: rgba(255,255,255,0.9); font-size: 1.1rem;">Current Pricing (per 1K tokens)</h3>
+          <h3 style="margin-bottom: 12px; color: rgba(255,255,255,0.9); font-size: 1.1rem;">Standard Text Pricing (per 1K tokens)</h3>
           <table class="pricing-table">
             <thead>
               <tr>
@@ -310,43 +343,58 @@
             </thead>
             <tbody>
               <tr>
-                <td>GPT-4 Turbo</td>
-                <td>$0.01</td>
-                <td>$0.03</td>
-              </tr>
-              <tr>
-                <td>GPT-4o</td>
+                <td>GPT-5.6 Sol</td>
                 <td>$0.005</td>
+                <td>$0.030</td>
+              </tr>
+              <tr>
+                <td>GPT-5.6 Terra</td>
+                <td>$0.0025</td>
                 <td>$0.015</td>
               </tr>
               <tr>
-                <td>GPT-3.5 Turbo</td>
-                <td>$0.0005</td>
+                <td>GPT-5.6 Luna</td>
+                <td>$0.001</td>
+                <td>$0.006</td>
+              </tr>
+              <tr>
+                <td>Claude Fable 5</td>
+                <td>$0.010</td>
+                <td>$0.050</td>
+              </tr>
+              <tr>
+                <td>Claude Sonnet 5*</td>
+                <td>$0.002</td>
+                <td>$0.010</td>
+              </tr>
+              <tr>
+                <td>Claude Haiku 4.5</td>
+                <td>$0.001</td>
+                <td>$0.005</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.5 Flash</td>
                 <td>$0.0015</td>
+                <td>$0.009</td>
               </tr>
               <tr>
-                <td>Claude 3 Opus</td>
-                <td>$0.015</td>
-                <td>$0.075</td>
+                <td>Gemini 3.1 Pro Preview**</td>
+                <td>$0.002</td>
+                <td>$0.012</td>
               </tr>
               <tr>
-                <td>Claude 3 Sonnet</td>
-                <td>$0.003</td>
-                <td>$0.015</td>
-              </tr>
-              <tr>
-                <td>Claude 3 Haiku</td>
+                <td>Gemini 3.1 Flash-Lite</td>
                 <td>$0.00025</td>
-                <td>$0.00125</td>
-              </tr>
-              <tr>
-                <td>Gemini Pro</td>
-                <td>$0.00025</td>
-                <td>$0.0005</td>
+                <td>$0.0015</td>
               </tr>
             </tbody>
           </table>
-          <p style="margin-top: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">*Prices updated July 2026. Check official docs for latest pricing.</p>
+          <p style="margin-top: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+            Rates verified July 18, 2026. Standard text-token pricing only; caching, batch, tools, taxes, regional processing, and long-context surcharges are excluded. *Claude Sonnet 5 introductory pricing applies through August 31, 2026. **Gemini 3.1 Pro rate shown for prompts up to 200K tokens. Always confirm the
+            <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener noreferrer" style="color:#7dd3fc;">OpenAI</a>,
+            <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer" style="color:#7dd3fc;">Anthropic</a>, and
+            <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer" style="color:#7dd3fc;">Google</a> pricing pages before budgeting.
+          </p>
         </div>
       </div>
       
@@ -420,16 +468,17 @@
 
 <script src="script.js"></script>
 <script>
-  // Pricing data (per 1K tokens)
+  // Standard text-token pricing (per 1K tokens), verified July 18, 2026.
   const pricing = {
-    'gpt-4': { input: 0.01, output: 0.03, name: 'GPT-4 Turbo' },
-    'gpt-4o': { input: 0.005, output: 0.015, name: 'GPT-4o' },
-    'gpt-3.5': { input: 0.0005, output: 0.0015, name: 'GPT-3.5 Turbo' },
-    'claude-3-opus': { input: 0.015, output: 0.075, name: 'Claude 3 Opus' },
-    'claude-3-sonnet': { input: 0.003, output: 0.015, name: 'Claude 3 Sonnet' },
-    'claude-3-haiku': { input: 0.00025, output: 0.00125, name: 'Claude 3 Haiku' },
-    'gemini-pro': { input: 0.00025, output: 0.0005, name: 'Gemini Pro' },
-    'gemini-ultra': { input: 0.0025, output: 0.0075, name: 'Gemini Ultra' }
+    'gpt-5.6-sol': { input: 0.005, output: 0.03, name: 'GPT-5.6 Sol' },
+    'gpt-5.6-terra': { input: 0.0025, output: 0.015, name: 'GPT-5.6 Terra' },
+    'gpt-5.6-luna': { input: 0.001, output: 0.006, name: 'GPT-5.6 Luna' },
+    'claude-fable-5': { input: 0.01, output: 0.05, name: 'Claude Fable 5' },
+    'claude-sonnet-5': { input: 0.002, output: 0.01, name: 'Claude Sonnet 5' },
+    'claude-haiku-4.5': { input: 0.001, output: 0.005, name: 'Claude Haiku 4.5' },
+    'gemini-3.5-flash': { input: 0.0015, output: 0.009, name: 'Gemini 3.5 Flash' },
+    'gemini-3.1-pro': { input: 0.002, output: 0.012, name: 'Gemini 3.1 Pro Preview' },
+    'gemini-3.1-flash-lite': { input: 0.00025, output: 0.0015, name: 'Gemini 3.1 Flash-Lite' }
   };
 
   function calculateCost() {
@@ -490,4 +539,3 @@
 </script>
 </body>
 </html>
-

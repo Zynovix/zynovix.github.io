@@ -6,8 +6,8 @@
 
   <title>Page Not Found | Zynovix AI</title>
   <meta name="description" content="The requested page could not be found." />
+  <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#050816" />
-  <link rel="canonical" href="https://zynovix.github.io/404.html" />
 
   <meta property="og:title" content="Page Not Found | Zynovix AI" />
   <meta property="og:description" content="The requested page could not be found." />
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
   <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
   <style>
@@ -72,19 +72,19 @@
 
 <header class="header">
   <nav class="nav shell">
-    <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+    <a class="brand" href="/" aria-label="Zynovix AI Home">
       <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
 
     <div class="nav-menu" id="navMenu">
-      <a href="tools.html">AI Tools</a>
-      <a href="learn.html">Learn</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+      <a href="/tools.html">AI Tools</a>
+      <a href="/learn.html">Learn</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html" class="nav-cta">Contact</a>
     </div>
   </nav>
 </header>
@@ -94,15 +94,15 @@
     <h1>Page not found</h1>
     <p>The page may have moved, been renamed, or no longer exists.</p>
     <div class="actions center-actions">
-      <a class="btn btn-primary" href="index.html">Return Home</a>
-      <a class="btn btn-ghost" href="blog.html">Visit Blog</a>
+      <a class="btn btn-primary" href="/">Return Home</a>
+      <a class="btn btn-ghost" href="/blog.html">Visit Blog</a>
     </div>
   </section>
 </main>
 <footer class="footer">
   <div class="shell footer-inner">
     <div class="footer-brand-group">
-      <a class="brand" href="index.html">
+      <a class="brand" href="/">
         <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
         <span>Zynovix AI</span>
       </a>
@@ -113,16 +113,16 @@
     </div>
 
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog.html">Blog</a>
     </nav>
 
     <span>© 2026 Zynovix AI. All rights reserved.</span>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>

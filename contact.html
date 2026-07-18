@@ -13,6 +13,12 @@
   <meta property="og:description" content="Contact Zynovix AI about partnerships, content, AI education, and automation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zynovix.github.io/contact.html" />
+  <meta property="og:site_name" content="Zynovix AI" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Zynovix AI" />
+  <meta name="twitter:description" content="Contact Zynovix AI about partnerships, content, AI education, and automation." />
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712" />
 
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +67,44 @@
         flex-basis: 46px !important;
       }
     }
+
+    .form-status {
+      display: none;
+      max-width: 960px;
+      margin: 42px auto -22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(34, 211, 238, .45);
+      border-radius: 18px;
+      background: rgba(34, 211, 238, .10);
+      color: #e6fbff;
+      text-align: center;
+    }
+
+    .form-status.visible {
+      display: block;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .form-note a {
+      color: #67e8f9;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .honey-field {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0 0 0 0) !important;
+      white-space: nowrap !important;
+      clip-path: inset(50%) !important;
+    }
   </style>
 
 </head>
@@ -77,14 +121,14 @@
       <span>Zynovix AI</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
 
     <div class="nav-menu" id="navMenu">
       <a href="tools.html">AI Tools</a>
       <a href="learn.html">Learn</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+      <a href="contact.html" class="nav-cta" aria-current="page">Contact</a>
     </div>
   </nav>
 </header>
@@ -102,12 +146,22 @@
       <article class="card"><small>Automation</small><h3>Custom AI Workflows</h3><p>Tell us what you want to automate or improve.</p></article>
     </div>
 
-    <form class="form" action="mailto:hello@zynovix.ai" method="post" enctype="text/plain">
-      <label><span>Name</span><input type="text" name="name" autocomplete="name" required /></label>
-      <label><span>Email</span><input type="email" name="email" autocomplete="email" required /></label>
-      <label><span>Subject</span><input type="text" name="subject" required /></label>
-      <label><span>Message</span><textarea name="message" required></textarea></label>
+    <div class="form-status" id="formStatus" role="status" aria-live="polite">
+      <strong>Message sent successfully.</strong> Thank you for contacting Zynovix AI. We’ll review your message as soon as possible.
+    </div>
+
+    <form class="form" action="https://formsubmit.co/beozpc2017@gmail.com" method="post" accept-charset="UTF-8">
+      <input type="hidden" name="_subject" value="New message from Zynovix AI" />
+      <input type="hidden" name="_next" value="https://zynovix.github.io/contact.html?sent=1" />
+      <input type="hidden" name="_template" value="table" />
+      <input class="honey-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label><span>Name</span><input type="text" name="name" autocomplete="name" minlength="2" maxlength="80" required /></label>
+      <label><span>Email</span><input type="email" name="email" autocomplete="email" maxlength="120" required /></label>
+      <label><span>Subject</span><input type="text" name="subject" minlength="3" maxlength="120" required /></label>
+      <label><span>Message</span><textarea name="message" minlength="10" maxlength="3000" required></textarea></label>
       <button class="btn btn-primary" type="submit">Send Message</button>
+      <p class="form-note">Your message is processed securely by our form delivery provider and sent to Zynovix AI. See our <a href="privacy.html">Privacy Policy</a>.</p>
     </form>
   </section>
 </main>
@@ -136,5 +190,17 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const status = document.getElementById("formStatus");
+
+    if (params.get("sent") !== "1" || !status) return;
+
+    status.classList.add("visible");
+    status.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.history.replaceState({}, document.title, "contact.html");
+  })();
+</script>
 </body>
 </html>

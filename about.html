@@ -13,6 +13,7 @@
   <meta property="og:description" content="Learn about Zynovix AI and its mission to make artificial intelligence easier to understand and use." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zynovix.github.io/about.html" />
+  <meta property="og:site_name" content="Zynovix AI" />
 
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,6 +21,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="About Zynovix AI" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Zynovix AI" />
+  <meta name="twitter:description" content="Learn about Zynovix AI and its mission to make artificial intelligence easier to understand and use." />
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712" />
+  <meta name="twitter:image:alt" content="About Zynovix AI" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Zynovix AI",
+    "url": "https://zynovix.github.io/about.html",
+    "description": "Learn about Zynovix AI and its mission to make artificial intelligence easier to understand and use.",
+    "inLanguage": "en",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Zynovix AI",
+      "url": "https://zynovix.github.io/",
+      "logo": "https://zynovix.github.io/logo.png?v=20260712",
+      "description": "Zynovix AI provides clear AI education, practical tools, automation guidance, and structured learning paths."
+    }
+  }
+  </script>
 
   <style>
     .brand img,
@@ -77,13 +103,13 @@
       <span>Zynovix AI</span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
 
     <div class="nav-menu" id="navMenu">
       <a href="tools.html">AI Tools</a>
       <a href="learn.html">Learn</a>
       <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
+      <a href="about.html" aria-current="page">About</a>
       <a href="contact.html" class="nav-cta">Contact</a>
     </div>
   </nav>

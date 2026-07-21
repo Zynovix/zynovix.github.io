@@ -603,6 +603,33 @@
       font-size: 15px;
     }
 
+    .governance-tool-cta {
+      display: grid;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 19px;
+      border: 1px solid rgba(34, 211, 238, .3);
+      border-radius: 19px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .15), rgba(124, 58, 237, .1));
+    }
+
+    .governance-tool-cta[hidden] {
+      display: none !important;
+    }
+
+    .governance-tool-cta strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--assessment-strong);
+      font-size: 18px;
+    }
+
+    .governance-tool-cta p {
+      color: var(--assessment-soft);
+      font-size: 14px;
+    }
+
     .plan-grid {
       display: grid;
       gap: 13px;
@@ -817,6 +844,10 @@
 
       .insight-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .governance-tool-cta {
+        grid-template-columns: minmax(0, 1fr) auto;
       }
 
       .plan-grid {
@@ -1163,6 +1194,13 @@
           <section class="result-section" aria-labelledby="insightsTitle">
             <h3 id="insightsTitle">Strengths and priorities</h3>
             <div class="insight-grid" id="insightGrid"></div>
+            <aside class="governance-tool-cta" id="governanceToolCta" hidden>
+              <div>
+                <strong>Turn your Governance result into action</strong>
+                <p>Create a customized AI acceptable use policy with approved tools, data rules, human oversight, disclosure, and incident reporting.</p>
+              </div>
+              <a href="ai-policy-generator.html" class="btn btn-primary">Generate AI Policy</a>
+            </aside>
           </section>
 
           <section class="result-section" aria-labelledby="planTitle">
@@ -1882,6 +1920,7 @@
       renderDimensionResults(results);
       priorities = renderInsights(results);
       renderPlan(results, priorities);
+      document.getElementById("governanceToolCta").hidden = results.dimensions.Governance.percent >= 85;
       saveLatestResult(results);
       showPanel("result");
       document.getElementById("assessment").scrollIntoView({ behavior: "smooth", block: "start" });

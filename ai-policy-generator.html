@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free AI Acceptable Use Policy Generator | Zynovix AI</title>
+  <meta name="description" content="Create a customized AI acceptable use policy for your business. Define approved tools, data rules, human oversight, disclosure, training, and incident reporting in minutes.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-policy-generator.html">
+
+  <meta property="og:title" content="Free AI Acceptable Use Policy Generator | Zynovix AI">
+  <meta property="og:description" content="Answer a few practical questions and generate a copy-ready AI usage policy for your organization.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zynovix.github.io/ai-policy-generator.html">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Acceptable Use Policy Generator | Zynovix AI">
+  <meta name="twitter:description" content="Generate a practical AI policy covering tools, data, oversight, disclosure, security, and training.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xkxn7wyps2");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECFTMP6ZQD"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ECFTMP6ZQD");
+  </script>
+
+  <style id="ai-policy-generator-styles">
+    .policy-page {
+      --policy-surface: rgba(15, 23, 42, .86);
+      --policy-surface-2: rgba(255, 255, 255, .055);
+      --policy-strong: #f8fafc;
+      --policy-soft: #a8b5c7;
+      --policy-line: rgba(255, 255, 255, .13);
+      --policy-focus: #67e8f9;
+      --policy-warning: #fbbf24;
+      min-height: 100vh;
+    }
+
+    .policy-page[data-theme="light"] {
+      --policy-surface: rgba(255, 255, 255, .96);
+      --policy-surface-2: rgba(15, 23, 42, .045);
+      --policy-strong: #0f172a;
+      --policy-soft: #475569;
+      --policy-line: rgba(15, 23, 42, .14);
+      --policy-focus: #0369a1;
+      --policy-warning: #92400e;
+      color: var(--policy-strong);
+      background:
+        radial-gradient(circle at 12% 16%, rgba(37, 99, 235, .14), transparent 30%),
+        radial-gradient(circle at 88% 80%, rgba(124, 58, 237, .13), transparent 34%),
+        linear-gradient(180deg, #f8fafc, #eef2ff);
+    }
+
+    .policy-page[data-theme="light"] .header {
+      background: rgba(248, 250, 252, .9);
+    }
+
+    .policy-page[data-theme="light"] .nav-menu,
+    .policy-page[data-theme="light"] .brand,
+    .policy-page[data-theme="light"] .btn-ghost {
+      color: #172033;
+    }
+
+    .policy-page[data-theme="light"] .nav-menu a:hover {
+      color: #0369a1;
+    }
+
+    .policy-page[data-theme="light"] .menu-btn,
+    .policy-page[data-theme="light"] .theme-toggle {
+      color: #0f172a;
+      background: rgba(15, 23, 42, .05);
+    }
+
+    .policy-page[data-theme="light"] .noise {
+      opacity: .4;
+    }
+
+    .brand img,
+    .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--policy-line);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 19px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, .7);
+    }
+
+    .policy-hero {
+      min-height: auto;
+      display: block;
+      padding: 72px 0 42px;
+      text-align: center;
+    }
+
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+      color: var(--policy-soft);
+      font-size: 14px;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--policy-focus);
+    }
+
+    .policy-hero h1 {
+      max-width: 980px;
+      margin: 20px auto 18px;
+      color: var(--policy-strong);
+      font-size: clamp(40px, 7.5vw, 76px);
+      line-height: 1;
+      letter-spacing: -2.6px;
+    }
+
+    .policy-hero h1 span {
+      background: linear-gradient(135deg, #60a5fa, #22d3ee, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .policy-hero p {
+      max-width: 790px;
+      margin: 0 auto;
+      color: var(--policy-soft);
+      font-size: clamp(17px, 2.4vw, 20px);
+    }
+
+    .hero-facts {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 27px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-facts li {
+      padding: 9px 13px;
+      border: 1px solid var(--policy-line);
+      border-radius: 999px;
+      background: var(--policy-surface-2);
+      color: var(--policy-strong);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .generator-shell {
+      width: min(1040px, 92%);
+      margin: 0 auto 92px;
+      scroll-margin-top: 98px;
+    }
+
+    .legal-notice {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 16px;
+      border: 1px solid rgba(251, 191, 36, .32);
+      border-radius: 17px;
+      background: rgba(251, 191, 36, .075);
+      color: var(--policy-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .legal-notice strong {
+      color: var(--policy-warning);
+    }
+
+    .notice-icon {
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .generator-card,
+    .result-card {
+      overflow: hidden;
+      border: 1px solid var(--policy-line);
+      border-radius: 30px;
+      background: linear-gradient(180deg, var(--policy-surface), rgba(15, 23, 42, .64));
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .35);
+    }
+
+    .policy-page[data-theme="light"] .generator-card,
+    .policy-page[data-theme="light"] .result-card {
+      background: var(--policy-surface);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, .12);
+    }
+
+    .generator-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .step-sidebar {
+      padding: 23px;
+      border-bottom: 1px solid var(--policy-line);
+      background: rgba(37, 99, 235, .07);
+    }
+
+    .step-sidebar h2 {
+      margin-bottom: 7px;
+      color: var(--policy-strong);
+      font-size: 21px;
+    }
+
+    .step-sidebar > p {
+      color: var(--policy-soft);
+      font-size: 14px;
+    }
+
+    .step-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 19px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-item {
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      color: var(--policy-soft);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--policy-line);
+      border-radius: 10px;
+      background: var(--policy-surface-2);
+      color: var(--policy-soft);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .step-item.active,
+    .step-item.complete {
+      color: var(--policy-strong);
+    }
+
+    .step-item.active .step-number {
+      border-color: transparent;
+      background: linear-gradient(135deg, #2563eb, #22d3ee);
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, .3);
+    }
+
+    .step-item.complete .step-number {
+      border-color: rgba(34, 211, 238, .45);
+      color: var(--policy-focus);
+    }
+
+    .form-area {
+      min-width: 0;
+      padding: 24px;
+    }
+
+    .policy-progress {
+      width: 100%;
+      height: 7px;
+      display: block;
+      appearance: none;
+      overflow: hidden;
+      margin-bottom: 25px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+    }
+
+    .policy-progress::-webkit-progress-bar {
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+    }
+
+    .policy-progress::-webkit-progress-value {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #22d3ee, #7c3aed);
+    }
+
+    .policy-progress::-moz-progress-bar {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #22d3ee, #7c3aed);
+    }
+
+    .form-step[hidden] {
+      display: none !important;
+    }
+
+    .step-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--policy-focus);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .55px;
+      text-transform: uppercase;
+    }
+
+    .form-step h2 {
+      margin-bottom: 7px;
+      color: var(--policy-strong);
+      font-size: clamp(27px, 4vw, 38px);
+      line-height: 1.15;
+    }
+
+    .step-intro {
+      margin-bottom: 24px;
+      color: var(--policy-soft);
+      font-size: 15px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 17px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      color: var(--policy-strong);
+      font-weight: 800;
+    }
+
+    .field-help {
+      color: var(--policy-soft);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .required-mark {
+      color: #f87171;
+    }
+
+    .policy-form input[type="text"],
+    .policy-form input[type="email"],
+    .policy-form input[type="date"],
+    .policy-form textarea,
+    .policy-form select {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 14px;
+      border: 1px solid var(--policy-line);
+      border-radius: 14px;
+      background: var(--policy-surface-2);
+      color: var(--policy-strong);
+      font: inherit;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .policy-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .policy-form select option {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .policy-page[data-theme="light"] .policy-form select option {
+      background: #fff;
+      color: #0f172a;
+    }
+
+    .policy-form input:focus,
+    .policy-form textarea:focus,
+    .policy-form select:focus {
+      border-color: var(--policy-focus);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, .12);
+    }
+
+    .choice-group {
+      display: grid;
+      gap: 10px;
+    }
+
+    .choice-label {
+      position: relative;
+      display: block;
+      cursor: pointer;
+    }
+
+    .choice-label input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice-content {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: 25px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      padding: 12px 13px;
+      border: 1px solid var(--policy-line);
+      border-radius: 14px;
+      background: var(--policy-surface-2);
+      color: var(--policy-strong);
+      line-height: 1.4;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .choice-label:hover .choice-content {
+      transform: translateY(-1px);
+      border-color: rgba(34, 211, 238, .55);
+    }
+
+    .choice-marker {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--policy-line);
+      border-radius: 7px;
+      color: transparent;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .choice-label input[type="radio"] + .choice-content .choice-marker {
+      border-radius: 50%;
+    }
+
+    .choice-label input:checked + .choice-content {
+      border-color: #22d3ee;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .18), rgba(34, 211, 238, .1));
+    }
+
+    .choice-label input:checked + .choice-content .choice-marker {
+      border-color: transparent;
+      background: linear-gradient(135deg, #2563eb, #22d3ee);
+      color: #fff;
+    }
+
+    .choice-label input:focus-visible + .choice-content {
+      outline: 3px solid var(--policy-focus);
+      outline-offset: 3px;
+    }
+
+    .choice-description {
+      display: block;
+      margin-top: 2px;
+      color: var(--policy-soft);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .form-error {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #fca5a5;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .form-actions button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .form-actions button:disabled {
+      opacity: .42;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .result-card[hidden],
+    .generator-card[hidden] {
+      display: none !important;
+    }
+
+    .result-header {
+      padding: 28px;
+      border-bottom: 1px solid var(--policy-line);
+      text-align: center;
+    }
+
+    .result-icon {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #2563eb, #22d3ee, #7c3aed);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, .34);
+      font-size: 36px;
+    }
+
+    .result-header h2 {
+      margin-bottom: 8px;
+      color: var(--policy-strong);
+      font-size: clamp(29px, 5vw, 43px);
+      line-height: 1.1;
+    }
+
+    .result-header p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--policy-soft);
+    }
+
+    .policy-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      padding: 16px 20px 0;
+    }
+
+    .policy-tab {
+      padding: 12px 14px;
+      border: 1px solid var(--policy-line);
+      border-radius: 13px;
+      background: var(--policy-surface-2);
+      color: var(--policy-soft);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .policy-tab[aria-selected="true"] {
+      border-color: rgba(34, 211, 238, .55);
+      background: rgba(34, 211, 238, .1);
+      color: var(--policy-focus);
+    }
+
+    .document-wrap {
+      padding: 20px;
+    }
+
+    .policy-document {
+      padding: 22px;
+      border: 1px solid var(--policy-line);
+      border-radius: 20px;
+      background: rgba(2, 6, 23, .52);
+      color: #dbe5f3;
+    }
+
+    .policy-page[data-theme="light"] .policy-document {
+      background: #fff;
+      color: #334155;
+    }
+
+    .policy-document[hidden] {
+      display: none !important;
+    }
+
+    .document-title {
+      margin-bottom: 7px;
+      color: var(--policy-strong);
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.15;
+    }
+
+    .document-subtitle {
+      margin-bottom: 19px;
+      color: var(--policy-soft);
+      font-size: 14px;
+    }
+
+    .document-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 23px;
+      padding: 15px;
+      border: 1px solid var(--policy-line);
+      border-radius: 14px;
+      background: var(--policy-surface-2);
+    }
+
+    .document-meta div {
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .document-meta dt {
+      color: var(--policy-soft);
+      font-weight: 700;
+    }
+
+    .document-meta dd {
+      color: var(--policy-strong);
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .document-section + .document-section {
+      margin-top: 23px;
+    }
+
+    .document-section h3 {
+      margin-bottom: 8px;
+      color: var(--policy-strong);
+      font-size: 19px;
+      line-height: 1.3;
+    }
+
+    .document-section p,
+    .document-section li {
+      color: inherit;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .document-section p + p {
+      margin-top: 8px;
+    }
+
+    .document-section ul {
+      margin: 8px 0 0 20px;
+    }
+
+    .document-section li + li {
+      margin-top: 6px;
+    }
+
+    .document-footer-note {
+      margin-top: 27px;
+      padding: 13px 15px;
+      border-left: 3px solid var(--policy-warning);
+      border-radius: 10px;
+      background: rgba(251, 191, 36, .07);
+      color: var(--policy-soft);
+      font-size: 12px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px 24px;
+    }
+
+    .result-actions button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .action-status {
+      width: 100%;
+      min-height: 23px;
+      color: var(--policy-focus);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .coverage-section {
+      padding: 84px 0;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .coverage-card {
+      min-height: 0;
+      padding: 23px;
+    }
+
+    .coverage-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .88), rgba(34, 211, 238, .88));
+      font-size: 25px;
+    }
+
+    .coverage-card h3 {
+      font-size: 20px;
+    }
+
+    .coverage-card p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    .assessment-bridge {
+      display: grid;
+      gap: 18px;
+      align-items: center;
+      margin-top: 50px;
+      padding: 27px;
+      border: 1px solid rgba(34, 211, 238, .28);
+      border-radius: 25px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .13), rgba(124, 58, 237, .1));
+    }
+
+    .assessment-bridge h2 {
+      margin-bottom: 7px;
+      color: var(--policy-strong);
+      font-size: clamp(25px, 4vw, 36px);
+      line-height: 1.15;
+    }
+
+    .assessment-bridge p {
+      color: var(--policy-soft);
+    }
+
+    .faq-section {
+      padding: 0 0 94px;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--policy-line);
+      border-radius: 18px;
+      background: var(--policy-surface-2);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 19px;
+      border: 0;
+      background: transparent;
+      color: var(--policy-strong);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      color: var(--policy-focus);
+      font-size: 24px;
+      transition: transform .2s ease;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 19px 19px;
+      color: var(--policy-soft);
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    .footer {
+      color: var(--policy-strong);
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--policy-focus);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 600px) {
+      .form-area {
+        padding: 34px;
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .use-case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .document-wrap {
+        padding: 26px;
+      }
+
+      .policy-document {
+        padding: 30px;
+      }
+
+      .document-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .coverage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .assessment-bridge {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .generator-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+      }
+
+      .step-sidebar {
+        border-right: 1px solid var(--policy-line);
+        border-bottom: 0;
+      }
+
+      .step-list {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .step-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        justify-items: start;
+        align-items: center;
+        font-size: 14px;
+        text-align: left;
+      }
+
+      .coverage-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-actions .nav-cta {
+        display: none;
+      }
+
+      .policy-page[data-theme="light"] .nav-menu {
+        background: rgba(248, 250, 252, .98);
+      }
+
+      .policy-hero {
+        padding-top: 48px;
+      }
+
+      .policy-hero h1 {
+        letter-spacing: -1.7px;
+      }
+
+      .form-actions {
+        flex-direction: column-reverse;
+      }
+
+      .form-actions .btn,
+      .result-actions .btn {
+        width: 100%;
+      }
+
+      .document-meta div {
+        grid-template-columns: 1fr;
+        gap: 1px;
+      }
+
+      .brand img,
+      .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      .header,
+      .policy-hero,
+      .legal-notice,
+      .generator-card,
+      .policy-tabs,
+      .result-header,
+      .result-actions,
+      .coverage-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb {
+        display: none !important;
+      }
+
+      body,
+      .policy-page {
+        background: #fff !important;
+        color: #111827 !important;
+      }
+
+      .generator-shell {
+        width: 100%;
+        margin: 0;
+      }
+
+      .result-card {
+        display: block !important;
+        border: 0;
+        background: #fff !important;
+        box-shadow: none;
+      }
+
+      .document-wrap {
+        padding: 0;
+      }
+
+      .policy-document {
+        border: 0;
+        background: #fff !important;
+        color: #334155 !important;
+      }
+
+      .policy-document[hidden] {
+        display: none !important;
+      }
+
+      .document-title,
+      .document-section h3,
+      .document-meta dd {
+        color: #111827 !important;
+      }
+
+      .document-meta {
+        background: #fff !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-policy-generator.html#app",
+        "name": "AI Acceptable Use Policy Generator",
+        "url": "https://zynovix.github.io/ai-policy-generator.html",
+        "description": "A free browser-based tool that creates a customized AI acceptable use policy covering approved tools, data handling, human oversight, disclosure, security, training, and incident reporting.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "Zynovix AI",
+          "url": "https://zynovix.github.io/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-policy-generator.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://zynovix.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AI Tools",
+            "item": "https://zynovix.github.io/tools.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Policy Generator",
+            "item": "https://zynovix.github.io/ai-policy-generator.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-policy-generator.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an AI acceptable use policy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An AI acceptable use policy explains how employees and contractors may use artificial intelligence at work. It defines approved tools, permitted and prohibited uses, data rules, human review, disclosure, security, and incident reporting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the generated AI policy legally binding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The generator creates an educational starting draft, not legal advice. An organization should have qualified legal, privacy, security, HR, and compliance professionals review the policy before adoption."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the generator store company information?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No company or policy information is submitted to a server. Generation occurs locally in the browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should an AI policy cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A practical policy should cover scope, approved tools, permitted use cases, prohibited activities, confidential and personal data, human oversight, accuracy checks, disclosure, intellectual property, vendor security, incidents, training, and regular review."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should an AI use policy be reviewed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The review frequency depends on risk and regulatory context. Many organizations choose a six- or twelve-month cycle and also review the policy after material incidents, tool changes, or legal developments."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="policy-page" data-theme="dark">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="nav shell">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <a href="tools.html">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch color theme">☀️</button>
+        <a href="contact.html" class="nav-cta">Contact</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="policy-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">AI Policy Generator</span>
+      </nav>
+
+      <span class="kicker">Free Governance Tool</span>
+      <h1>Create your <span>AI acceptable use policy</span></h1>
+      <p>Answer a few practical questions and generate a clear, copy-ready policy for responsible AI use across your organization.</p>
+
+      <ul class="hero-facts">
+        <li>✓ 4 guided steps</li>
+        <li>📄 Short + full policy</li>
+        <li>🔒 Runs locally</li>
+        <li>⬇ Copy, print or download</li>
+      </ul>
+    </section>
+
+    <section class="generator-shell" id="generator" aria-label="AI Policy Generator">
+      <aside class="legal-notice" aria-label="Legal notice">
+        <span class="notice-icon" aria-hidden="true">⚖️</span>
+        <div><strong>Important:</strong> This tool provides an educational starting draft, not legal advice. Have qualified legal, privacy, security, HR, and compliance professionals review the policy before adoption.</div>
+      </aside>
+
+      <div class="generator-card" id="generatorCard">
+        <div class="generator-layout">
+          <aside class="step-sidebar" aria-labelledby="builderSidebarTitle">
+            <h2 id="builderSidebarTitle">Build your policy</h2>
+            <p>Your information remains on this device and is not submitted.</p>
+            <ol class="step-list" id="stepList">
+              <li class="step-item active" data-step-indicator="1"><span class="step-number">1</span><span>Organization</span></li>
+              <li class="step-item" data-step-indicator="2"><span class="step-number">2</span><span>Tools &amp; uses</span></li>
+              <li class="step-item" data-step-indicator="3"><span class="step-number">3</span><span>Data &amp; risk</span></li>
+              <li class="step-item" data-step-indicator="4"><span class="step-number">4</span><span>Controls</span></li>
+            </ol>
+          </aside>
+
+          <div class="form-area">
+            <progress class="policy-progress" id="policyProgress" max="4" value="1" aria-label="Policy generator progress">Step 1 of 4</progress>
+
+            <form class="policy-form" id="policyForm">
+              <section class="form-step" data-step="1">
+                <span class="step-kicker">Step 1 of 4</span>
+                <h2>Tell us about the organization</h2>
+                <p class="step-intro">These details personalize the policy title, scope, ownership, and industry guidance.</p>
+
+                <div class="form-grid">
+                  <label class="form-field">
+                    <span class="form-label">Organization name <span class="required-mark" aria-hidden="true">*</span></span>
+                    <input type="text" id="companyName" name="companyName" autocomplete="organization" maxlength="100" placeholder="Example: Northstar Studio" required>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Policy owner <span class="required-mark" aria-hidden="true">*</span></span>
+                    <input type="text" id="policyOwner" name="policyOwner" maxlength="100" placeholder="Example: Operations Director" required>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Industry</span>
+                    <select id="industry" name="industry">
+                      <option value="general">General business</option>
+                      <option value="technology">Technology &amp; software</option>
+                      <option value="professional">Professional services</option>
+                      <option value="education">Education</option>
+                      <option value="healthcare">Healthcare</option>
+                      <option value="finance">Finance &amp; insurance</option>
+                      <option value="retail">Retail &amp; ecommerce</option>
+                      <option value="manufacturing">Manufacturing</option>
+                      <option value="nonprofit">Nonprofit</option>
+                      <option value="public">Government &amp; public sector</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Team size</span>
+                    <select id="teamSize" name="teamSize">
+                      <option value="1–10 people">1–10 people</option>
+                      <option value="11–50 people">11–50 people</option>
+                      <option value="51–200 people">51–200 people</option>
+                      <option value="201–1,000 people">201–1,000 people</option>
+                      <option value="More than 1,000 people">More than 1,000 people</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Effective date</span>
+                    <input type="date" id="effectiveDate" name="effectiveDate">
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Who must follow the policy?</span>
+                    <select id="scope" name="scope">
+                      <option value="All employees, contractors, temporary workers, and authorized third parties">Employees, contractors &amp; authorized third parties</option>
+                      <option value="All employees and temporary workers">Employees &amp; temporary workers</option>
+                      <option value="All employees">Employees only</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="2" hidden>
+                <span class="step-kicker">Step 2 of 4</span>
+                <h2>Define approved tools and uses</h2>
+                <p class="step-intro">Name the tools people may use and the business activities the policy should permit.</p>
+
+                <div class="form-grid">
+                  <label class="form-field full">
+                    <span class="form-label">Approved AI tools <span class="required-mark" aria-hidden="true">*</span></span>
+                    <span class="field-help">Use product and plan names where possible. Separate multiple tools with commas.</span>
+                    <textarea id="approvedTools" name="approvedTools" maxlength="500" placeholder="Example: ChatGPT Business, Microsoft 365 Copilot, Claude for Work" required></textarea>
+                  </label>
+
+                  <fieldset class="form-field full">
+                    <legend class="form-label">How may new AI tools be used?</legend>
+                    <div class="choice-group">
+                      <label class="choice-label">
+                        <input type="radio" name="toolAccess" value="approved-only" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Approved tools only<span class="choice-description">Unlisted tools require formal approval before any business use.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="toolAccess" value="manager-exception">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Approved tools plus documented exceptions<span class="choice-description">A manager and the policy owner may approve a limited exception.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="toolAccess" value="controlled-choice">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Employee choice within stated controls<span class="choice-description">Tools may be used if data, security, and disclosure rules are followed.</span></span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="form-field full">
+                    <legend class="form-label">Permitted business uses <span class="required-mark" aria-hidden="true">*</span></legend>
+                    <span class="field-help">Select at least one. Every output remains subject to review and data rules.</span>
+                    <div class="use-case-grid" id="useCaseGrid">
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Drafting, editing, summarizing, and translating business content" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Writing &amp; summarization</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Research assistance, brainstorming, and idea development" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Research &amp; brainstorming</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Software development assistance, testing, and documentation" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Coding &amp; documentation</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Data analysis, reporting, and visualization with authorized data" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Data analysis</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Customer support drafting and agent assistance">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Customer support</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Marketing concepts, campaigns, and approved creative production">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Marketing &amp; creative</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Internal process improvement and workflow automation">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Workflow automation</span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="checkbox" name="useCases" value="Decision support where an authorized person remains accountable">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Decision support</span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="3" hidden>
+                <span class="step-kicker">Step 3 of 4</span>
+                <h2>Set data and decision rules</h2>
+                <p class="step-intro">These choices define the most important boundaries for confidential information and high-impact work.</p>
+
+                <div class="form-grid">
+                  <fieldset class="form-field full">
+                    <legend class="form-label">How may confidential or sensitive data be used?</legend>
+                    <div class="choice-group">
+                      <label class="choice-label">
+                        <input type="radio" name="dataRule" value="prohibit" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Do not enter it into AI tools<span class="choice-description">The strictest and simplest default for confidential, personal, or regulated data.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="dataRule" value="enterprise-only">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Only in approved enterprise tools<span class="choice-description">Allowed only when contracts, retention, access, and training controls are approved.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="dataRule" value="authorized-case">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Only for specifically authorized use cases<span class="choice-description">Each sensitive-data use requires documented approval and safeguards.</span></span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="form-field full">
+                    <legend class="form-label">Does your organization handle personal or regulated data?</legend>
+                    <div class="choice-group">
+                      <label class="choice-label">
+                        <input type="radio" name="regulatedData" value="yes" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Yes<span class="choice-description">Add explicit privacy, minimization, and authorization requirements.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="regulatedData" value="no">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>No or not normally<span class="choice-description">General confidentiality and security rules still apply.</span></span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="form-field full">
+                    <legend class="form-label">What is the rule for high-impact decisions?</legend>
+                    <div class="choice-group">
+                      <label class="choice-label">
+                        <input type="radio" name="decisionRule" value="no-autonomous" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>No fully automated high-impact decisions<span class="choice-description">AI may assist, but an authorized person must review evidence and make the final decision.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="decisionRule" value="formal-approval">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>Only through a formally approved system<span class="choice-description">Requires documented testing, monitoring, appeal, and accountable human oversight.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="decisionRule" value="prohibited">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>AI may not be used for high-impact decisions<span class="choice-description">Do not use AI to influence employment, credit, healthcare, education, legal, or similar outcomes.</span></span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="form-field full">
+                    <legend class="form-label">When should AI assistance be disclosed?</legend>
+                    <div class="choice-group">
+                      <label class="choice-label">
+                        <input type="radio" name="disclosureRule" value="material" checked>
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>For material external or decision-related use<span class="choice-description">Disclose when AI meaningfully shapes customer-facing content, advice, or decisions.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="disclosureRule" value="all-external">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>For all external AI-assisted content<span class="choice-description">Use a clear notice whenever external content was drafted or generated with AI.</span></span></span>
+                      </label>
+                      <label class="choice-label">
+                        <input type="radio" name="disclosureRule" value="context">
+                        <span class="choice-content"><span class="choice-marker">✓</span><span>When context, law, contract, or professional standards require it<span class="choice-description">The content owner decides and records the basis when disclosure is material.</span></span></span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="4" hidden>
+                <span class="step-kicker">Step 4 of 4</span>
+                <h2>Choose operational controls</h2>
+                <p class="step-intro">Finish with verification, training, policy review, and the contact for questions or incidents.</p>
+
+                <div class="form-grid">
+                  <label class="form-field">
+                    <span class="form-label">Output verification rule</span>
+                    <select id="verificationRule" name="verificationRule">
+                      <option value="material">Verify material or external outputs</option>
+                      <option value="all">Verify every AI-assisted output before use</option>
+                      <option value="risk-based">Use risk-based verification standards</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">AI training frequency</span>
+                    <select id="trainingCycle" name="trainingCycle">
+                      <option value="At onboarding and at least annually">Onboarding + annually</option>
+                      <option value="At onboarding and every six months">Onboarding + every six months</option>
+                      <option value="Before access and whenever material rules or tools change">Before access + when rules change</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Policy review frequency</span>
+                    <select id="reviewCycle" name="reviewCycle">
+                      <option value="every twelve months">Every 12 months</option>
+                      <option value="every six months">Every 6 months</option>
+                      <option value="every three months">Every 3 months</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Employee acknowledgement</span>
+                    <select id="acknowledgement" name="acknowledgement">
+                      <option value="required">Require recorded acknowledgement</option>
+                      <option value="training-record">Use completion of training as acknowledgement</option>
+                      <option value="recommended">Recommend acknowledgement</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Questions and incident contact</span>
+                    <input type="text" id="incidentContact" name="incidentContact" maxlength="100" placeholder="Example: Security &amp; Privacy Team">
+                  </label>
+
+                  <label class="form-field">
+                    <span class="form-label">Contact email <span class="field-help">(optional)</span></span>
+                    <input type="email" id="incidentEmail" name="incidentEmail" autocomplete="email" maxlength="120" placeholder="ai-policy@example.com">
+                  </label>
+                </div>
+              </section>
+
+              <div class="form-error" id="formError" aria-live="polite"></div>
+
+              <div class="form-actions">
+                <button class="btn btn-ghost" id="backButton" type="button" disabled>← Back</button>
+                <button class="btn btn-primary" id="nextButton" type="submit">Next →</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card" id="resultCard" hidden>
+        <header class="result-header">
+          <div class="result-icon" aria-hidden="true">📜</div>
+          <h2>Your AI policy draft is ready</h2>
+          <p>Review every section, replace any remaining general language, and obtain professional approval before publishing or enforcing it.</p>
+        </header>
+
+        <div class="policy-tabs" role="tablist" aria-label="Policy version">
+          <button class="policy-tab" id="quickTab" type="button" role="tab" aria-selected="true" aria-controls="quickPolicy">Quick policy</button>
+          <button class="policy-tab" id="fullTab" type="button" role="tab" aria-selected="false" aria-controls="fullPolicy">Full policy</button>
+        </div>
+
+        <div class="document-wrap">
+          <article class="policy-document" id="quickPolicy" role="tabpanel" aria-labelledby="quickTab"></article>
+          <article class="policy-document" id="fullPolicy" role="tabpanel" aria-labelledby="fullTab" hidden></article>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Policy</button>
+          <button class="btn btn-ghost" id="downloadButton" type="button">⬇ Download TXT</button>
+          <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
+          <button class="btn btn-ghost" id="editButton" type="button">✏️ Edit Answers</button>
+          <div class="action-status" id="actionStatus" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage-section shell" aria-labelledby="coverageTitle">
+      <div class="section-head">
+        <span class="kicker">Policy Coverage</span>
+        <h2 id="coverageTitle">What your AI policy includes</h2>
+        <p>The generator combines practical workplace rules with clear ownership, review, and escalation responsibilities.</p>
+      </div>
+
+      <div class="coverage-grid">
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">✅</div>
+          <h3>Approved tools and uses</h3>
+          <p>Defines which AI services may be used and the business activities they can support.</p>
+        </article>
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">🔐</div>
+          <h3>Data protection</h3>
+          <p>Sets boundaries for confidential, personal, regulated, customer, and company information.</p>
+        </article>
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">👤</div>
+          <h3>Human oversight</h3>
+          <p>Keeps accountable people in control of important decisions and high-risk outputs.</p>
+        </article>
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">🔎</div>
+          <h3>Accuracy and disclosure</h3>
+          <p>Requires verification and explains when customers or audiences should be told about AI assistance.</p>
+        </article>
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">🚨</div>
+          <h3>Incident response</h3>
+          <p>Explains how people report unsafe output, data exposure, bias, security events, and other failures.</p>
+        </article>
+        <article class="card coverage-card">
+          <div class="coverage-icon" aria-hidden="true">🔄</div>
+          <h3>Training and review</h3>
+          <p>Creates a repeatable cycle for employee training, acknowledgement, monitoring, and policy updates.</p>
+        </article>
+      </div>
+
+      <div class="assessment-bridge">
+        <div>
+          <h2>Not sure what your organization needs first?</h2>
+          <p>Use the free AI Readiness Assessment to score strategy, people, data, technology, and governance before finalizing your policy.</p>
+        </div>
+        <a href="ai-readiness-assessment.html" class="btn btn-primary">Check AI Readiness</a>
+      </div>
+    </section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2 id="faqTitle">AI policy generator questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+            <span>What is an AI acceptable use policy?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-1" hidden>An AI acceptable use policy explains how employees and contractors may use artificial intelligence at work. It defines approved tools, allowed and prohibited uses, data rules, human review, disclosure, security, and incident reporting.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+            <span>Is the generated policy legally binding?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-2" hidden>The generator creates an educational starting draft, not legal advice. Whether a policy becomes binding depends on local law, contracts, communication, acknowledgement, and organizational procedures. Obtain qualified professional review.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+            <span>Does Zynovix store my company information?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-3" hidden>No company or policy information is submitted to a server. The draft is generated locally in your browser. Only your color-theme preference may be stored on the device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+            <span>What should an AI policy cover?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-4" hidden>A practical policy should cover scope, approved tools, permitted use cases, prohibited activities, confidential and personal data, human oversight, accuracy checks, disclosure, intellectual property, vendor security, incidents, training, and regular review.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
+            <span>How often should the policy be reviewed?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-5" hidden>The right frequency depends on risk and regulatory context. Many organizations choose a six- or twelve-month cycle and also review the policy after material incidents, tool changes, new use cases, or legal developments.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand-group">
+        <a class="brand" href="index.html">
+          <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+          <span>Zynovix AI</span>
+        </a>
+
+        <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
+          <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+
+      <span>© 2026 Zynovix AI. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var form = document.getElementById("policyForm");
+    var generatorCard = document.getElementById("generatorCard");
+    var resultCard = document.getElementById("resultCard");
+    var progress = document.getElementById("policyProgress");
+    var backButton = document.getElementById("backButton");
+    var nextButton = document.getElementById("nextButton");
+    var formError = document.getElementById("formError");
+    var quickPolicy = document.getElementById("quickPolicy");
+    var fullPolicy = document.getElementById("fullPolicy");
+    var quickTab = document.getElementById("quickTab");
+    var fullTab = document.getElementById("fullTab");
+    var actionStatus = document.getElementById("actionStatus");
+    var currentStep = 1;
+    var activeVersion = "quick";
+    var generatedPolicies = null;
+
+    var labels = {
+      industry: {
+        general: "General business",
+        technology: "Technology & software",
+        professional: "Professional services",
+        education: "Education",
+        healthcare: "Healthcare",
+        finance: "Finance & insurance",
+        retail: "Retail & ecommerce",
+        manufacturing: "Manufacturing",
+        nonprofit: "Nonprofit",
+        public: "Government & public sector"
+      },
+      toolAccess: {
+        "approved-only": "Only tools listed as approved may be used. Every other tool requires formal approval before business use.",
+        "manager-exception": "Approved tools may be used. A limited exception requires documented approval from a manager and the policy owner before use.",
+        "controlled-choice": "Employees may select AI tools only when they can confirm that the tool and intended use comply with this policy, data requirements, contracts, and security standards."
+      },
+      dataRule: {
+        prohibit: "Confidential, personal, regulated, customer, employee, security-sensitive, or proprietary information must not be entered into an AI tool.",
+        "enterprise-only": "Sensitive information may be processed only in specifically approved enterprise AI services with appropriate contracts, access controls, retention settings, security review, and policy-owner authorization.",
+        "authorized-case": "Sensitive information may be processed only for a specifically documented and approved use case with data minimization, access controls, retention limits, monitoring, and any required privacy or security review."
+      },
+      decisionRule: {
+        "no-autonomous": "AI may support a high-impact decision, but it must not make the final decision. An authorized person must independently review relevant evidence, understand material limitations, and remain accountable.",
+        "formal-approval": "AI may influence a high-impact decision only through a formally approved system with documented testing, monitoring, human oversight, explanation, recordkeeping, and a practical correction or appeal process.",
+        prohibited: "AI must not be used to make or materially influence high-impact decisions involving employment, credit, insurance, healthcare, education, legal rights, eligibility, safety, or similarly significant outcomes."
+      },
+      disclosureRule: {
+        material: "Disclose AI assistance when it materially shapes external content, professional advice, customer interactions, or a decision affecting another person.",
+        "all-external": "Clearly disclose AI assistance on all external content that was substantially drafted, generated, or transformed by an AI system.",
+        context: "Disclose AI assistance whenever required by law, contract, client instruction, platform rules, professional standards, or when omission could reasonably mislead the audience."
+      },
+      verificationRule: {
+        material: "Every material, external, factual, technical, financial, legal, safety-related, or decision-support output must be checked by a qualified person before use.",
+        all: "Every AI-assisted output must be reviewed by a person for accuracy, relevance, confidentiality, bias, and appropriateness before it is used or shared.",
+        "risk-based": "Review depth must match the potential impact. Higher-risk outputs require documented checks by a qualified person; low-risk internal drafts require a reasonable accuracy and confidentiality check."
+      },
+      acknowledgement: {
+        required: "Everyone in scope must complete training and provide recorded acknowledgement of this policy before receiving or retaining access to approved AI tools.",
+        "training-record": "Completion of required AI training serves as acknowledgement of this policy and may be recorded in the organization's training system.",
+        recommended: "Managers should obtain acknowledgement that personnel have read and understood this policy before allowing business use of AI."
+      }
+    };
+
+    var industryGuidance = {
+      general: [
+        "Apply existing confidentiality, privacy, security, records, intellectual-property, and professional-conduct requirements to every AI use.",
+        "Escalate any use that could materially affect a person, customer, contract, or regulated obligation."
+      ],
+      technology: [
+        "Do not submit source code, credentials, tokens, vulnerability information, customer environments, or nonpublic architecture to an unapproved AI service.",
+        "AI-generated code must undergo the same review, testing, dependency, license, and security checks as human-authored code."
+      ],
+      professional: [
+        "Protect client confidentiality, privilege, work product, contractual restrictions, and professional duties when using AI.",
+        "A qualified professional must verify material analysis, advice, citations, calculations, and deliverables before client use."
+      ],
+      education: [
+        "Protect student records and follow institutional rules for academic integrity, accessibility, assessment, and age-appropriate technology use.",
+        "AI must not assign grades, discipline, admission, or other consequential outcomes without authorized human review and an appropriate correction process."
+      ],
+      healthcare: [
+        "Do not enter protected health information or identifiable patient data into an AI system unless the specific use, service, contract, and safeguards are formally approved.",
+        "AI output must not replace licensed clinical judgment, patient-specific assessment, or required documentation and safety procedures."
+      ],
+      finance: [
+        "Protect financial, account, transaction, identity, customer, and market-sensitive information in accordance with applicable controls and retention requirements.",
+        "AI must not make unapproved credit, pricing, fraud, trading, insurance, suitability, or customer-eligibility decisions."
+      ],
+      retail: [
+        "Protect customer, payment, loyalty, order, employee, and supplier information and use only approved data for personalization.",
+        "Customer-facing AI content, recommendations, prices, product claims, and support responses require appropriate accuracy and fairness checks."
+      ],
+      manufacturing: [
+        "Protect production, safety, supplier, design, maintenance, quality, and trade-secret information.",
+        "AI output must not override required engineering, quality, maintenance, or workplace-safety controls."
+      ],
+      nonprofit: [
+        "Protect donor, beneficiary, volunteer, employee, grant, and community information and consider potential impact on vulnerable populations.",
+        "AI-assisted fundraising, eligibility, allocation, or public messaging requires mission, fairness, privacy, and accuracy review."
+      ],
+      public: [
+        "Protect official, personal, security-sensitive, procurement, law-enforcement, and nonpublic government information.",
+        "AI use affecting public rights, services, eligibility, enforcement, or records requires documented authority, transparency, accessibility, human review, and a correction or appeal path."
+      ]
+    };
+
+    function setDefaultDate() {
+      var dateInput = document.getElementById("effectiveDate");
+      if (dateInput.value) return;
+      var now = new Date();
+      var local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+      dateInput.value = local.toISOString().slice(0, 10);
+    }
+
+    function showStep(step) {
+      currentStep = step;
+      document.querySelectorAll(".form-step").forEach(function (section) {
+        section.hidden = Number(section.dataset.step) !== step;
+      });
+      document.querySelectorAll("[data-step-indicator]").forEach(function (indicator) {
+        var number = Number(indicator.dataset.stepIndicator);
+        indicator.classList.toggle("active", number === step);
+        indicator.classList.toggle("complete", number < step);
+        indicator.querySelector(".step-number").textContent = number < step ? "✓" : String(number);
+      });
+      progress.value = step;
+      progress.textContent = "Step " + step + " of 4";
+      backButton.disabled = step === 1;
+      nextButton.textContent = step === 4 ? "Generate My Policy →" : "Next →";
+      formError.textContent = "";
+      var heading = document.querySelector('.form-step[data-step="' + step + '"] h2');
+      heading.setAttribute("tabindex", "-1");
+      heading.focus();
+    }
+
+    function visibleRequiredFields() {
+      return Array.prototype.slice.call(document.querySelectorAll('.form-step[data-step="' + currentStep + '"] [required]'));
+    }
+
+    function validateCurrentStep() {
+      var valid = true;
+      visibleRequiredFields().some(function (field) {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          valid = false;
+          return true;
+        }
+        return false;
+      });
+      if (!valid) {
+        formError.textContent = "Complete the required fields before continuing.";
+        return false;
+      }
+      if (currentStep === 2 && !form.querySelector('input[name="useCases"]:checked')) {
+        formError.textContent = "Select at least one permitted business use.";
+        var firstUseCase = form.querySelector('input[name="useCases"]');
+        firstUseCase.focus();
+        return false;
+      }
+      formError.textContent = "";
+      return true;
+    }
+
+    function getFormData() {
+      var data = new FormData(form);
+      return {
+        companyName: String(data.get("companyName") || "").trim(),
+        policyOwner: String(data.get("policyOwner") || "").trim(),
+        industry: String(data.get("industry") || "general"),
+        teamSize: String(data.get("teamSize") || ""),
+        effectiveDate: String(data.get("effectiveDate") || ""),
+        scope: String(data.get("scope") || ""),
+        approvedTools: String(data.get("approvedTools") || "").trim(),
+        toolAccess: String(data.get("toolAccess") || "approved-only"),
+        useCases: data.getAll("useCases").map(function (item) { return String(item); }),
+        dataRule: String(data.get("dataRule") || "prohibit"),
+        regulatedData: String(data.get("regulatedData") || "yes"),
+        decisionRule: String(data.get("decisionRule") || "no-autonomous"),
+        disclosureRule: String(data.get("disclosureRule") || "material"),
+        verificationRule: String(data.get("verificationRule") || "material"),
+        trainingCycle: String(data.get("trainingCycle") || ""),
+        reviewCycle: String(data.get("reviewCycle") || ""),
+        acknowledgement: String(data.get("acknowledgement") || "required"),
+        incidentContact: String(data.get("incidentContact") || "").trim(),
+        incidentEmail: String(data.get("incidentEmail") || "").trim()
+      };
+    }
+
+    function formatDate(value) {
+      if (!value) return "To be confirmed";
+      var parts = value.split("-");
+      if (parts.length !== 3) return value;
+      var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+
+    function contactText(data) {
+      var contact = data.incidentContact || data.policyOwner;
+      if (data.incidentEmail) return contact + " at " + data.incidentEmail;
+      return contact;
+    }
+
+    function regulatedText(data) {
+      if (data.regulatedData === "yes") {
+        return "Personal or regulated data must be minimized, used only for an authorized purpose, protected by approved safeguards, and processed in accordance with applicable privacy notices, contracts, retention rules, and legal requirements.";
+      }
+      return "Even when a use case does not normally involve personal or regulated data, users must check inputs and attachments for hidden identifiers, confidential information, and metadata before submission.";
+    }
+
+    function toolRuleBullets(data) {
+      var bullets = [
+        "Approved tools: " + data.approvedTools + ".",
+        labels.toolAccess[data.toolAccess],
+        "Use business accounts and organization-approved settings where provided.",
+        "Do not bypass access, logging, retention, geographic, procurement, or security controls."
+      ];
+      return bullets;
+    }
+
+    function prohibitedBullets() {
+      return [
+        "Enter passwords, authentication secrets, payment-card data, private keys, or information that the user is not authorized to disclose.",
+        "Use AI to deceive, impersonate, harass, discriminate, manipulate, conduct surveillance without authority, or create illegal or harmful material.",
+        "Present unverified AI output, invented citations, fabricated evidence, or generated analysis as confirmed fact.",
+        "Use AI output to avoid professional duties, required approvals, safety procedures, records obligations, or human accountability.",
+        "Upload third-party material or generate content in a way that knowingly violates copyright, license, confidentiality, privacy, or contract terms.",
+        "Connect an AI tool to company systems, data, email, code repositories, or automated actions without required technical and security approval."
+      ];
+    }
+
+    function createMeta(data) {
+      return [
+        ["Organization", data.companyName],
+        ["Industry", labels.industry[data.industry]],
+        ["Effective date", formatDate(data.effectiveDate)],
+        ["Policy owner", data.policyOwner],
+        ["Applies to", data.scope],
+        ["Team size", data.teamSize]
+      ];
+    }
+
+    function buildQuickPolicy(data) {
+      return {
+        title: data.companyName + " — AI Acceptable Use Policy",
+        subtitle: "Quick-start workplace rules",
+        meta: createMeta(data),
+        sections: [
+          {
+            title: "Purpose and scope",
+            paragraphs: [
+              data.companyName + " supports responsible use of artificial intelligence to improve work while protecting people, information, customers, and the organization. This policy applies to " + data.scope.toLowerCase() + "."
+            ]
+          },
+          {
+            title: "Use approved tools for approved work",
+            bullets: toolRuleBullets(data).concat(data.useCases.map(function (item) { return "Permitted: " + item + "."; }))
+          },
+          {
+            title: "Protect information",
+            paragraphs: [
+              labels.dataRule[data.dataRule],
+              regulatedText(data)
+            ]
+          },
+          {
+            title: "Keep people accountable",
+            paragraphs: [
+              labels.decisionRule[data.decisionRule],
+              labels.verificationRule[data.verificationRule]
+            ]
+          },
+          {
+            title: "Be transparent and respect rights",
+            bullets: [
+              labels.disclosureRule[data.disclosureRule],
+              "Check ownership, license, attribution, trademark, privacy, and confidentiality before using AI-generated material.",
+              "Do not present AI output as the independent work or professional judgment of a person when that would mislead others."
+            ]
+          },
+          {
+            title: "Never use AI to",
+            bullets: prohibitedBullets()
+          },
+          {
+            title: "Report problems",
+            paragraphs: [
+              "Immediately stop the affected use and report suspected data exposure, unsafe or discriminatory output, significant inaccuracy, unauthorized access, security events, or policy violations to " + contactText(data) + ". Preserve relevant records and do not conceal or independently remediate a serious incident without authorization."
+            ]
+          },
+          {
+            title: "Training and acknowledgement",
+            paragraphs: [
+              data.trainingCycle + ". " + labels.acknowledgement[data.acknowledgement]
+            ]
+          }
+        ]
+      };
+    }
+
+    function buildFullPolicy(data) {
+      var ownerContact = contactText(data);
+      return {
+        title: data.companyName + " — AI Acceptable Use Policy",
+        subtitle: "Full organizational draft",
+        meta: createMeta(data),
+        sections: [
+          {
+            title: "1. Purpose",
+            paragraphs: [
+              data.companyName + " recognizes that artificial intelligence can improve productivity, creativity, analysis, and service delivery. The purpose of this policy is to enable useful AI adoption while protecting people, confidential information, privacy, security, intellectual property, quality, fairness, and organizational accountability.",
+              "AI use must remain consistent with all other applicable policies, contracts, professional duties, records requirements, security standards, and laws. If requirements conflict, the stricter requirement applies until the policy owner provides written direction."
+            ]
+          },
+          {
+            title: "2. Scope",
+            paragraphs: [
+              "This policy applies to " + data.scope.toLowerCase() + " when they access, evaluate, purchase, configure, connect, develop, or use an AI system for or on behalf of " + data.companyName + ". It applies to free and paid tools, embedded AI features, models, assistants, agents, application programming interfaces, and internally developed systems.",
+              "The policy covers AI use on organization-owned and personal devices whenever company work, information, accounts, customers, systems, or reputation may be affected."
+            ]
+          },
+          {
+            title: "3. Definitions",
+            bullets: [
+              "AI system: software that generates, predicts, recommends, classifies, summarizes, analyzes, or takes actions using machine-learning or related techniques.",
+              "Approved AI tool: a tool and service plan that " + data.companyName + " has authorized for defined business use.",
+              "Sensitive information: confidential, proprietary, personal, regulated, security-sensitive, customer, employee, financial, legal, health, identity, authentication, or trade-secret information.",
+              "High-impact decision: a decision that may materially affect employment, credit, insurance, healthcare, education, legal rights, eligibility, safety, access to essential services, or a similarly significant interest."
+            ]
+          },
+          {
+            title: "4. Responsible-use principles",
+            bullets: [
+              "Use AI for a legitimate, authorized business purpose and apply the minimum data and capability needed.",
+              "Keep an accountable person in control and do not transfer professional or managerial responsibility to an AI system.",
+              "Verify important output and communicate uncertainty, limitations, and material AI involvement.",
+              "Protect privacy, confidentiality, security, fairness, accessibility, intellectual property, and human dignity.",
+              "Stop, report, and correct AI use that creates unacceptable risk or produces a material failure."
+            ]
+          },
+          {
+            title: "5. Approved tools and authorization",
+            bullets: toolRuleBullets(data)
+          },
+          {
+            title: "6. Permitted uses",
+            paragraphs: [
+              "Subject to all controls in this policy, approved AI tools may support the following activities:"
+            ],
+            bullets: data.useCases
+          },
+          {
+            title: "7. Prohibited uses",
+            paragraphs: [
+              "Users must not use AI to perform, enable, or conceal any of the following activities:"
+            ],
+            bullets: prohibitedBullets()
+          },
+          {
+            title: "8. Data privacy and confidentiality",
+            paragraphs: [
+              labels.dataRule[data.dataRule],
+              regulatedText(data),
+              "Users must remove unnecessary identifiers, use the minimum data required, confirm authorization before uploading files or connecting data sources, and follow deletion, retention, records, and access requirements. Publicly available information is not automatically safe to use if it remains protected by contract, license, privacy, or confidentiality obligations."
+            ]
+          },
+          {
+            title: "9. Human oversight and high-impact decisions",
+            paragraphs: [
+              labels.decisionRule[data.decisionRule],
+              "Human reviewers must have sufficient authority, competence, context, and time to challenge the output. They must not treat an AI recommendation as correct merely because it is automated. Material disagreements, limitations, and overrides should be documented when required by the use case."
+            ]
+          },
+          {
+            title: "10. Accuracy, quality, and bias",
+            paragraphs: [
+              labels.verificationRule[data.verificationRule],
+              "Verification may include checking claims against authoritative sources, testing calculations and code, reviewing citations, evaluating edge cases, checking for discriminatory or inappropriate output, and confirming that the result fits the intended audience and purpose.",
+              "Repeated errors, unexplained performance changes, unsafe output, or evidence of unfair impact must be reported and may require the tool or use case to be suspended."
+            ]
+          },
+          {
+            title: "11. Transparency and disclosure",
+            paragraphs: [
+              labels.disclosureRule[data.disclosureRule],
+              "Disclosures must be clear enough for the intended audience and must not exaggerate the capability, accuracy, independence, or human review of an AI system. Users must answer reasonable questions about how material output was created when authorized and appropriate."
+            ]
+          },
+          {
+            title: "12. Intellectual property and content rights",
+            bullets: [
+              "Do not submit content, code, data, images, recordings, or documents unless " + data.companyName + " has the right and authority to use them for the intended AI activity.",
+              "Review output for protected material, license restrictions, attribution duties, trademarks, confidential information, and similarity to third-party work.",
+              "Do not assume that AI output is unique, accurate, non-infringing, or eligible for ownership protection.",
+              "Follow organization requirements for documenting sources, licenses, authorship, and use of AI assistance."
+            ]
+          },
+          {
+            title: "13. Security, integrations, and vendors",
+            bullets: [
+              "Use organization-managed accounts, multifactor authentication, least-privilege access, approved devices, and secure credential handling where required.",
+              "Do not install extensions, grant broad permissions, enable training on company data, connect repositories or applications, or allow autonomous actions without appropriate approval.",
+              "Material vendors and use cases should be reviewed for data use, retention, model training, subprocessors, geographic processing, security, availability, auditability, portability, and termination.",
+              "Logs, prompts, outputs, configurations, approvals, and evaluation records must be retained when required for security, quality, legal, or business purposes."
+            ]
+          },
+          {
+            title: "14. Industry-specific safeguards",
+            paragraphs: [
+              "Because " + data.companyName + " operates in " + labels.industry[data.industry].toLowerCase() + ", the following additional safeguards apply:"
+            ],
+            bullets: industryGuidance[data.industry]
+          },
+          {
+            title: "15. Incident reporting and response",
+            paragraphs: [
+              "Users must promptly report suspected data exposure, security compromise, harmful or discriminatory output, significant inaccuracy, intellectual-property concern, unauthorized automation, customer impact, or other material AI failure to " + ownerContact + ".",
+              "When safe to do so, the user should stop the affected process, avoid further disclosure, preserve relevant prompts, outputs, logs, dates, tools, and decisions, and follow incident instructions. Authorized teams will assess impact, notification, correction, recovery, and whether the tool or use case may resume."
+            ]
+          },
+          {
+            title: "16. Training, acknowledgement, and compliance",
+            paragraphs: [
+              data.trainingCycle + ". Training should address approved tools, data handling, verification, human oversight, disclosure, security, incidents, and role-specific risks.",
+              labels.acknowledgement[data.acknowledgement],
+              "Violations may result in removal of AI access, correction or deletion of affected work, additional training, contractual action, or discipline consistent with applicable policy, contract, and law. Good-faith questions and incident reports should be encouraged and handled without retaliation."
+            ]
+          },
+          {
+            title: "17. Ownership and review",
+            paragraphs: [
+              data.policyOwner + " owns this policy and coordinates required input from legal, privacy, security, HR, procurement, compliance, technology, records, and relevant business leaders.",
+              "The policy must be reviewed " + data.reviewCycle + " and sooner after a material incident, significant new use case, vendor or model change, audit finding, legal development, or evidence that a control is ineffective. Approved exceptions must be documented, time-limited, and reviewed by the policy owner."
+            ]
+          }
+        ]
+      };
+    }
+
+    function buildPolicies(data) {
+      return {
+        data: data,
+        quick: buildQuickPolicy(data),
+        full: buildFullPolicy(data)
+      };
+    }
+
+    function renderDocument(documentData, container) {
+      var title = document.createElement("h2");
+      var subtitle = document.createElement("p");
+      var meta = document.createElement("dl");
+      var note = document.createElement("div");
+
+      container.innerHTML = "";
+      title.className = "document-title";
+      title.textContent = documentData.title;
+      subtitle.className = "document-subtitle";
+      subtitle.textContent = documentData.subtitle;
+      meta.className = "document-meta";
+
+      documentData.meta.forEach(function (pair) {
+        var item = document.createElement("div");
+        var term = document.createElement("dt");
+        var description = document.createElement("dd");
+        term.textContent = pair[0];
+        description.textContent = pair[1];
+        item.appendChild(term);
+        item.appendChild(description);
+        meta.appendChild(item);
+      });
+
+      container.appendChild(title);
+      container.appendChild(subtitle);
+      container.appendChild(meta);
+
+      documentData.sections.forEach(function (sectionData) {
+        var section = document.createElement("section");
+        var heading = document.createElement("h3");
+        section.className = "document-section";
+        heading.textContent = sectionData.title;
+        section.appendChild(heading);
+
+        (sectionData.paragraphs || []).forEach(function (paragraphText) {
+          var paragraph = document.createElement("p");
+          paragraph.textContent = paragraphText;
+          section.appendChild(paragraph);
+        });
+
+        if (sectionData.bullets && sectionData.bullets.length) {
+          var list = document.createElement("ul");
+          sectionData.bullets.forEach(function (bulletText) {
+            var item = document.createElement("li");
+            item.textContent = bulletText;
+            list.appendChild(item);
+          });
+          section.appendChild(list);
+        }
+        container.appendChild(section);
+      });
+
+      note.className = "document-footer-note";
+      note.textContent = "Draft generated by Zynovix AI for educational purposes. This document is not legal advice and must be reviewed and adapted by qualified professionals before adoption.";
+      container.appendChild(note);
+    }
+
+    function policyToText(documentData) {
+      var lines = [documentData.title, documentData.subtitle, ""];
+      documentData.meta.forEach(function (pair) {
+        lines.push(pair[0] + ": " + pair[1]);
+      });
+      documentData.sections.forEach(function (sectionData) {
+        lines.push("");
+        lines.push(sectionData.title);
+        (sectionData.paragraphs || []).forEach(function (paragraph) {
+          lines.push(paragraph);
+        });
+        (sectionData.bullets || []).forEach(function (bullet) {
+          lines.push("- " + bullet);
+        });
+      });
+      lines.push("");
+      lines.push("IMPORTANT: Draft generated by Zynovix AI for educational purposes. This document is not legal advice and must be reviewed and adapted by qualified professionals before adoption.");
+      return lines.join("\n");
+    }
+
+    function generatePolicy() {
+      var data = getFormData();
+      generatedPolicies = buildPolicies(data);
+      renderDocument(generatedPolicies.quick, quickPolicy);
+      renderDocument(generatedPolicies.full, fullPolicy);
+      selectVersion("quick");
+      generatorCard.hidden = true;
+      resultCard.hidden = false;
+      actionStatus.textContent = "";
+      document.getElementById("generator").scrollIntoView({ behavior: "smooth", block: "start" });
+      document.querySelector(".result-header h2").setAttribute("tabindex", "-1");
+      document.querySelector(".result-header h2").focus();
+    }
+
+    function selectVersion(version) {
+      activeVersion = version;
+      var isQuick = version === "quick";
+      quickTab.setAttribute("aria-selected", isQuick ? "true" : "false");
+      fullTab.setAttribute("aria-selected", isQuick ? "false" : "true");
+      quickPolicy.hidden = !isQuick;
+      fullPolicy.hidden = isQuick;
+      actionStatus.textContent = "";
+    }
+
+    function activeDocument() {
+      return generatedPolicies ? generatedPolicies[activeVersion] : null;
+    }
+
+    function fallbackCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      var copied = document.execCommand("copy");
+      document.body.removeChild(area);
+      return copied;
+    }
+
+    function copyPolicy() {
+      var policy = activeDocument();
+      if (!policy) return;
+      var text = policyToText(policy);
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () {
+          actionStatus.textContent = "Policy copied to your clipboard.";
+        }).catch(function () {
+          actionStatus.textContent = fallbackCopy(text) ? "Policy copied to your clipboard." : "Copy failed. Please try again.";
+        });
+      } else {
+        actionStatus.textContent = fallbackCopy(text) ? "Policy copied to your clipboard." : "Copy failed. Please try again.";
+      }
+    }
+
+    function slugify(value) {
+      return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "organization";
+    }
+
+    function downloadPolicy() {
+      var policy = activeDocument();
+      if (!policy || !generatedPolicies) return;
+      var blob = new Blob([policyToText(policy)], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = slugify(generatedPolicies.data.companyName) + "-ai-policy-" + activeVersion + ".txt";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      actionStatus.textContent = "TXT policy downloaded.";
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!validateCurrentStep()) return;
+      if (currentStep < 4) {
+        showStep(currentStep + 1);
+      } else {
+        generatePolicy();
+      }
+    });
+
+    backButton.addEventListener("click", function () {
+      if (currentStep > 1) showStep(currentStep - 1);
+    });
+
+    quickTab.addEventListener("click", function () { selectVersion("quick"); });
+    fullTab.addEventListener("click", function () { selectVersion("full"); });
+    document.getElementById("copyButton").addEventListener("click", copyPolicy);
+    document.getElementById("downloadButton").addEventListener("click", downloadPolicy);
+    document.getElementById("printButton").addEventListener("click", function () { window.print(); });
+    document.getElementById("editButton").addEventListener("click", function () {
+      resultCard.hidden = true;
+      generatorCard.hidden = false;
+      showStep(1);
+      document.getElementById("generator").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var expanded = button.getAttribute("aria-expanded") === "true";
+        var answer = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", expanded ? "false" : "true");
+        answer.hidden = expanded;
+      });
+    });
+
+    var themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(theme) {
+      document.body.dataset.theme = theme;
+      themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#050816" : "#f8fafc");
+    }
+
+    themeToggle.addEventListener("click", function () {
+      var nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try {
+        localStorage.setItem("zynovix-theme", nextTheme);
+      } catch (error) {
+        return;
+      }
+    });
+
+    try {
+      var savedTheme = localStorage.getItem("zynovix-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        applyTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+        applyTheme("light");
+      }
+    } catch (error) {
+      applyTheme("dark");
+    }
+
+    setDefaultDate();
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Learn AI | Zynovix AI</title>
-  <meta name="description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step." />
-  <meta name="theme-color" content="#050816" />
-  <link rel="canonical" href="https://zynovix.github.io/learn.html" />
+  <meta name="description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step. Practice with the free AI Prompt Challenge.">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/learn.html">
 
-  <meta property="og:title" content="Learn AI | Zynovix AI" />
-  <meta property="og:description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zynovix.github.io/learn.html" />
-  <meta property="og:site_name" content="Zynovix AI" />
+  <meta property="og:title" content="Learn AI | Zynovix AI">
+  <meta property="og:description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zynovix.github.io/learn.html">
+  <meta property="og:site_name" content="Zynovix AI">
 
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
-  <meta property="og:image:alt" content="Learn AI with Zynovix AI" />
+  <meta property="og:image:alt" content="Learn AI with Zynovix AI">
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Learn AI | Zynovix AI" />
-  <meta name="twitter:description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step." />
-  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712" />
-  <meta name="twitter:image:alt" content="Learn AI with Zynovix AI" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn AI | Zynovix AI">
+  <meta name="twitter:description" content="Learn artificial intelligence, machine learning, deep learning, prompting, and automation step by step.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta name="twitter:image:alt" content="Learn AI with Zynovix AI">
 
   <script type="application/ld+json">
   {
@@ -45,7 +45,7 @@
     "mainEntity": {
       "@type": "ItemList",
       "name": "AI Learning Paths",
-      "numberOfItems": 3,
+      "numberOfItems": 4,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -64,6 +64,12 @@
           "position": 3,
           "name": "Deep Learning",
           "url": "https://zynovix.github.io/what-is-deep-learning.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "AI Prompt Challenge",
+          "url": "https://zynovix.github.io/ai-prompt-challenge.html"
         }
       ]
     }
@@ -112,6 +118,46 @@
     }
   </style>
 
+
+  <style id="learn-game-banner-styles">
+    .learn-game-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid rgba(82, 218, 255, .3);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(0, 188, 255, .11), rgba(126, 70, 255, .14));
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .2);
+    }
+    .learn-game-banner h3 {
+      margin: 5px 0 8px;
+      color: #fff;
+      font-size: clamp(24px, 4vw, 34px);
+    }
+    .learn-game-banner p {
+      max-width: 700px;
+      margin: 0;
+      color: rgba(255, 255, 255, .68);
+      line-height: 1.7;
+    }
+    .learn-game-banner .game-label {
+      color: #75e3ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 720px) {
+      .learn-game-banner {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -120,9 +166,9 @@
 <div class="orb orb-b"></div>
 
 <header class="header">
-  <nav class="nav shell">
+  <nav class="nav shell" aria-label="Primary navigation">
     <a class="brand" href="index.html" aria-label="Zynovix AI Home">
-      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo">
       <span>Zynovix AI</span>
     </a>
 
@@ -156,6 +202,15 @@
       <article class="card tool-card"><div class="tool-icon">🧠</div><small>Core AI</small><h3>Machine Learning</h3><p>Understand how machines learn from data and make predictions.</p><a href="what-is-machine-learning.html" class="btn btn-primary">Learn ML</a></article>
       <article class="card tool-card"><div class="tool-icon">🕸️</div><small>Advanced</small><h3>Deep Learning</h3><p>Explore neural networks and advanced AI applications.</p><a href="what-is-deep-learning.html" class="btn btn-primary">Explore Deep AI</a></article>
     </div>
+
+    <div class="learn-game-banner" id="prompt-game">
+      <div>
+        <span class="game-label">Interactive Learning Game</span>
+        <h3>AI Prompt Challenge</h3>
+        <p>Choose the strongest prompt, learn from instant explanations, track your best score, and practice safer, clearer AI instructions.</p>
+      </div>
+      <a href="ai-prompt-challenge.html" class="btn btn-primary">Play Free</a>
+    </div>
   </section>
 
   <section class="split shell reveal">
@@ -175,12 +230,12 @@
   <div class="shell footer-inner">
     <div class="footer-brand-group">
       <a class="brand" href="index.html">
-        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo">
         <span>Zynovix AI</span>
       </a>
 
       <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
-        <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async" />
+        <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async">
       </a>
     </div>
 

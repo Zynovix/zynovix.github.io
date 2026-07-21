@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Automation ROI Calculator – Time &amp; Cost Savings | Zynovix AI</title>
+  <meta name="description" content="Estimate automation ROI, monthly hours saved, labor savings, payback period, and three-year value with this free business calculator.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/automation-roi-calculator.html">
+
+  <meta property="og:title" content="Free Automation ROI Calculator | Zynovix AI">
+  <meta property="og:description" content="Calculate time savings, net monthly value, first-year ROI, and payback period for an automation project.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zynovix.github.io/automation-roi-calculator.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:site_name" content="Zynovix AI">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automation ROI Calculator | Zynovix AI">
+  <meta name="twitter:description" content="Estimate the real business value and payback period of workflow automation.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="stylesheet" href="style.css">
+
+  <style id="automation-roi-styles">
+    .roi-page main{overflow:hidden}
+    .roi-page .noise,.roi-page .orb{pointer-events:none}
+    .roi-breadcrumb{
+      width:min(1180px,calc(100% - 36px));
+      margin:0 auto;
+      padding-top:98px;
+      color:rgba(255,255,255,.62);
+      font-size:14px
+    }
+    .roi-breadcrumb ol{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;padding:0;list-style:none}
+    .roi-breadcrumb li+li::before{content:"/";margin-right:8px;color:rgba(255,255,255,.28)}
+    .roi-breadcrumb a{color:#91dcff;text-decoration:none}
+    .roi-breadcrumb a:hover{text-decoration:underline}
+    .roi-hero{
+      min-height:auto;
+      grid-template-columns:1fr;
+      padding-top:78px;
+      padding-bottom:54px;
+      text-align:center
+    }
+    .roi-hero .hero-copy{width:min(900px,100%);margin-inline:auto}
+    .roi-hero p{max-width:760px;margin-inline:auto}
+    .roi-hero .actions{justify-content:center}
+    .trust-list{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:24px 0 0;
+      padding:0;
+      list-style:none
+    }
+    .trust-list li{
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.045);
+      color:#dce8f5;
+      font-size:13px;
+      font-weight:800
+    }
+    .calculator-section{padding-top:24px;padding-bottom:90px;scroll-margin-top:90px}
+    .calculator-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+      gap:24px;
+      align-items:start;
+      width:min(1180px,100%);
+      margin-inline:auto
+    }
+    .calculator-panel{
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));
+      box-shadow:0 28px 70px rgba(0,0,0,.24);
+      overflow:hidden
+    }
+    .panel-head{padding:24px 24px 0}
+    .panel-head h2{margin:0 0 7px;color:#fff;font-size:24px}
+    .panel-head p{margin:0;color:rgba(255,255,255,.65);font-size:14px;line-height:1.65}
+    .calculator-form{padding:22px 24px 24px}
+    .input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .field{min-width:0}
+    .field.full{grid-column:1/-1}
+    .field label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+      color:#e7eff9;
+      font-size:13px;
+      font-weight:800
+    }
+    .field label span{color:rgba(255,255,255,.45);font-size:11px;font-weight:600}
+    .field input,.field select{
+      width:100%;
+      min-height:48px;
+      padding:11px 13px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:14px;
+      outline:none;
+      background:#0a1227;
+      color:#fff;
+      font:inherit;
+      color-scheme:dark
+    }
+    .field input:focus,.field select:focus{
+      border-color:rgba(78,215,255,.72);
+      box-shadow:0 0 0 4px rgba(78,215,255,.1)
+    }
+    .field-help{display:block;margin-top:6px;color:rgba(255,255,255,.43);font-size:11px;line-height:1.45}
+    .range-field{padding:14px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(2,8,22,.34)}
+    .range-row{display:grid;grid-template-columns:1fr 88px;gap:12px;align-items:center}
+    .range-row input[type="range"]{min-height:auto;padding:0;border:0;box-shadow:none;accent-color:#4fdcff;background:transparent}
+    .range-row input[type="number"]{min-height:42px;text-align:center}
+    .form-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .form-actions .btn{border:0;cursor:pointer;font:inherit}
+    .results-panel{position:sticky;top:92px}
+    .results-content{padding:22px 24px 24px}
+    .result-status{
+      margin-bottom:18px;
+      padding:14px 16px;
+      border:1px solid rgba(92,218,255,.24);
+      border-radius:16px;
+      background:rgba(49,188,255,.08);
+      color:#dff8ff;
+      font-size:13px;
+      line-height:1.6
+    }
+    .result-status.negative{border-color:rgba(255,157,91,.36);background:rgba(255,131,61,.09);color:#ffe4ce}
+    .primary-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .metric{
+      min-width:0;
+      padding:16px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:18px;
+      background:rgba(2,8,22,.36)
+    }
+    .metric.featured{
+      grid-column:1/-1;
+      background:linear-gradient(135deg,rgba(0,191,255,.13),rgba(118,71,255,.14));
+      border-color:rgba(87,217,255,.28)
+    }
+    .metric-label{display:block;margin-bottom:6px;color:rgba(255,255,255,.55);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .metric-value{display:block;color:#fff;font-size:clamp(22px,3vw,32px);font-weight:900;line-height:1.15;overflow-wrap:anywhere}
+    .metric.featured .metric-value{
+      background:linear-gradient(135deg,#62e4ff,#8da2ff 58%,#c07bff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent
+    }
+    .metric-note{display:block;margin-top:5px;color:rgba(255,255,255,.43);font-size:11px}
+    .cost-breakdown{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+    .cost-row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;color:rgba(255,255,255,.65);font-size:13px}
+    .cost-row strong{color:#e9f1fb;text-align:right}
+    .scenario-wrap{margin-top:22px}
+    .scenario-wrap h3{margin:0 0 11px;color:#fff;font-size:16px}
+    .scenario-scroll{overflow-x:auto;border:1px solid rgba(255,255,255,.1);border-radius:16px}
+    .scenario-table{width:100%;min-width:510px;border-collapse:collapse;font-size:12px}
+    .scenario-table th,.scenario-table td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right}
+    .scenario-table th:first-child,.scenario-table td:first-child{text-align:left}
+    .scenario-table th{background:rgba(255,255,255,.045);color:#bfeeff;font-weight:800}
+    .scenario-table td{color:#d7e0ec}
+    .scenario-table tr:last-child td{border-bottom:0}
+    .result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .copy-result{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:9px 14px;
+      border:1px solid rgba(83,218,255,.48);
+      border-radius:13px;
+      background:rgba(46,186,255,.1);
+      color:#eafaff;
+      cursor:pointer;
+      font:inherit;
+      font-size:13px;
+      font-weight:900
+    }
+    .copy-result:hover{background:rgba(46,186,255,.18);border-color:#68e2ff}
+    .privacy-note{margin:14px 0 0;color:rgba(255,255,255,.4);font-size:11px;line-height:1.5}
+    .guide-section,.faq-section{padding-top:16px;padding-bottom:88px}
+    .guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+    .guide-card{padding:24px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.04)}
+    .guide-icon{
+      display:grid;
+      place-items:center;
+      width:42px;
+      height:42px;
+      margin-bottom:15px;
+      border-radius:13px;
+      background:linear-gradient(135deg,rgba(0,192,255,.2),rgba(139,75,255,.22));
+      font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+      font-size:20px
+    }
+    .guide-card h3{margin:0 0 8px;color:#fff}
+    .guide-card p{margin:0;color:rgba(255,255,255,.65);font-size:14px;line-height:1.7}
+    .formula-box{
+      width:min(900px,100%);
+      margin:28px auto 0;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      background:rgba(2,8,22,.38);
+      color:#d9e5f3;
+      font-size:13px;
+      line-height:1.8
+    }
+    .formula-box strong{color:#7de4ff}
+    .faq-list{display:grid;gap:12px;width:min(900px,100%);margin:30px auto 0}
+    .faq-item{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04);overflow:hidden}
+    .faq-question{
+      position:relative;
+      width:100%;
+      padding:18px 48px 18px 20px;
+      border:0;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      text-align:left;
+      font:inherit;
+      font-weight:800
+    }
+    .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#6ce1ff;font-size:22px}
+    .faq-question[aria-expanded="true"]::after{content:"−"}
+    .faq-answer{display:none;padding:0 20px 18px;color:rgba(255,255,255,.68);line-height:1.75}
+    .faq-answer p{margin:0}
+    .faq-item.open .faq-answer{display:block}
+    .toast{
+      position:fixed;
+      z-index:1000;
+      left:50%;
+      bottom:24px;
+      transform:translate(-50%,20px);
+      padding:11px 16px;
+      border:1px solid rgba(84,226,173,.5);
+      border-radius:999px;
+      background:#0b211b;
+      color:#caffeb;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      font-size:13px;
+      font-weight:800;
+      opacity:0;
+      visibility:hidden;
+      transition:.2s ease
+    }
+    .toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
+    @media(max-width:900px){
+      .calculator-layout{grid-template-columns:1fr}
+      .results-panel{position:static}
+    }
+    @media(max-width:700px){
+      .roi-breadcrumb{padding-top:84px}
+      .roi-hero{padding-top:54px;padding-bottom:38px}
+      .input-grid,.guide-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .primary-results{grid-template-columns:1fr}
+      .metric.featured{grid-column:auto}
+      .panel-head,.calculator-form,.results-content{padding-left:18px;padding-right:18px}
+    }
+    @media(max-width:420px){
+      .range-row{grid-template-columns:1fr 76px}
+      .form-actions .btn,.result-actions .copy-result{width:100%}
+      .trust-list{gap:7px}
+      .trust-list li{font-size:11px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .toast{transition:none}
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://zynovix.github.io/automation-roi-calculator.html#app",
+      "name": "Automation ROI Calculator",
+      "url": "https://zynovix.github.io/automation-roi-calculator.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "description": "Free browser-based calculator for estimating automation time savings, labor value, net savings, first-year ROI, and payback period.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Zynovix AI",
+        "url": "https://zynovix.github.io/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://zynovix.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Tools",
+          "item": "https://zynovix.github.io/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Automation ROI Calculator",
+          "item": "https://zynovix.github.io/automation-roi-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does automation ROI mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automation ROI compares the estimated financial benefit created by saved labor time with setup, software, and maintenance costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the calculator estimate hours saved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It multiplies employees, weekly task frequency, minutes per task, average weeks per month, automation coverage, and real-world adoption."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is real-world adoption?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Real-world adoption reduces the theoretical savings estimate to account for incomplete usage, exceptions, review time, and operational friction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a positive estimate guarantee actual savings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The result is a planning estimate. Actual savings depend on process quality, adoption, error rates, implementation, and the accuracy of the inputs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Zynovix store calculator data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Calculations run locally in the browser and no account is required."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body class="roi-page">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" decoding="async">
+        <span>Zynovix AI</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html" class="active">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <nav class="roi-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tools.html">AI Tools</a></li>
+        <li aria-current="page">Automation ROI Calculator</li>
+      </ol>
+    </nav>
+
+    <section class="hero shell roi-hero">
+      <div class="hero-copy">
+        <span class="pill">Free Business Tool</span>
+        <h1>Automation ROI <span>Calculator</span></h1>
+        <p>Estimate how much time and money a workflow automation could save. Compare software, setup, and maintenance costs with realistic labor savings.</p>
+        <div class="actions">
+          <a href="#calculator" class="btn btn-primary">Calculate ROI</a>
+          <a href="tools.html" class="btn btn-ghost">Explore AI Tools</a>
+        </div>
+        <ul class="trust-list">
+          <li>✓ Free &amp; Private</li>
+          <li>✓ Realistic Adoption Factor</li>
+          <li>✓ Payback Estimate</li>
+          <li>✓ No Sign-up</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section shell calculator-section" id="calculator" aria-labelledby="calculator-heading">
+      <div class="section-head">
+        <span class="kicker">ROI Estimate</span>
+        <h2 id="calculator-heading">Calculate the value of your automation</h2>
+        <p>Use loaded labor cost—not salary alone—and lower the adoption percentage when the process has exceptions or still needs human review.</p>
+      </div>
+
+      <div class="calculator-layout">
+        <section class="calculator-panel" aria-labelledby="inputs-heading">
+          <div class="panel-head">
+            <h2 id="inputs-heading">Workflow inputs</h2>
+            <p>Enter your current process and expected automation costs.</p>
+          </div>
+
+          <form class="calculator-form" id="roi-form">
+            <div class="input-grid">
+              <div class="field">
+                <label for="currency">Currency</label>
+                <select id="currency" name="currency">
+                  <option value="USD">USD · $</option>
+                  <option value="EUR">EUR · €</option>
+                  <option value="GBP">GBP · £</option>
+                  <option value="CAD">CAD · C$</option>
+                  <option value="AUD">AUD · A$</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="employees">People doing the task <span>1–10,000</span></label>
+                <input id="employees" name="employees" type="number" min="1" max="10000" step="1" value="3" required>
+              </div>
+
+              <div class="field">
+                <label for="tasks-week">Tasks per person each week <span>1–100,000</span></label>
+                <input id="tasks-week" name="tasksWeek" type="number" min="1" max="100000" step="1" value="20" required>
+              </div>
+
+              <div class="field">
+                <label for="minutes-task">Minutes per task <span>1–1,440</span></label>
+                <input id="minutes-task" name="minutesTask" type="number" min="1" max="1440" step="1" value="15" required>
+              </div>
+
+              <div class="field">
+                <label for="hourly-cost">Loaded hourly labor cost</label>
+                <input id="hourly-cost" name="hourlyCost" type="number" min="0" max="100000" step="0.01" value="25" required>
+                <span class="field-help">Include salary, benefits, taxes, and overhead when possible.</span>
+              </div>
+
+              <div class="field">
+                <label for="software-cost">Automation software per month</label>
+                <input id="software-cost" name="softwareCost" type="number" min="0" max="10000000" step="0.01" value="99" required>
+              </div>
+
+              <div class="field">
+                <label for="setup-cost">One-time setup cost</label>
+                <input id="setup-cost" name="setupCost" type="number" min="0" max="100000000" step="0.01" value="1500" required>
+              </div>
+
+              <div class="field">
+                <label for="maintenance-hours">Maintenance hours per month</label>
+                <input id="maintenance-hours" name="maintenanceHours" type="number" min="0" max="10000" step="0.25" value="2" required>
+              </div>
+
+              <div class="field full range-field">
+                <label for="coverage-range">Share of task time automated <span>0–100%</span></label>
+                <div class="range-row">
+                  <input id="coverage-range" type="range" min="0" max="100" step="1" value="70" aria-label="Share of task time automated">
+                  <input id="coverage" name="coverage" type="number" min="0" max="100" step="1" value="70" aria-label="Automation coverage percentage" required>
+                </div>
+                <span class="field-help">Use the percentage of total task time actually removed—not the number of steps automated.</span>
+              </div>
+
+              <div class="field full range-field">
+                <label for="adoption-range">Real-world adoption and reliability <span>0–100%</span></label>
+                <div class="range-row">
+                  <input id="adoption-range" type="range" min="0" max="100" step="1" value="80" aria-label="Real-world adoption and reliability">
+                  <input id="adoption" name="adoption" type="number" min="0" max="100" step="1" value="80" aria-label="Adoption and reliability percentage" required>
+                </div>
+                <span class="field-help">Accounts for exceptions, review time, downtime, and incomplete team adoption.</span>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Calculate ROI</button>
+              <button class="btn btn-ghost" id="reset-calculator" type="button">Reset</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="calculator-panel results-panel" aria-labelledby="results-heading">
+          <div class="panel-head">
+            <h2 id="results-heading">Estimated results</h2>
+            <p>Planning estimate based on the inputs provided.</p>
+          </div>
+
+          <div class="results-content">
+            <div class="result-status" id="result-status" role="status" aria-live="polite">This automation is estimated to create positive net value in the first year.</div>
+
+            <div class="primary-results">
+              <div class="metric featured">
+                <span class="metric-label">First-year ROI</span>
+                <strong class="metric-value" id="roi-value">0%</strong>
+                <span class="metric-note">Net first-year benefit ÷ first-year investment</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Hours saved / month</span>
+                <strong class="metric-value" id="hours-saved">0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Net savings / month</span>
+                <strong class="metric-value" id="monthly-net">$0</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Payback period</span>
+                <strong class="metric-value" id="payback-period">—</strong>
+              </div>
+              <div class="metric">
+                <span class="metric-label">3-year net savings</span>
+                <strong class="metric-value" id="three-year-net">$0</strong>
+              </div>
+            </div>
+
+            <div class="cost-breakdown" role="group" aria-label="Calculation breakdown">
+              <div class="cost-row"><span>Current task hours / month</span><strong id="current-hours">0 hours</strong></div>
+              <div class="cost-row"><span>Gross labor value saved / month</span><strong id="gross-savings">$0</strong></div>
+              <div class="cost-row"><span>Software + maintenance / month</span><strong id="ongoing-cost">$0</strong></div>
+              <div class="cost-row"><span>First-year net benefit</span><strong id="year-one-net">$0</strong></div>
+              <div class="cost-row"><span>First-year investment</span><strong id="year-one-investment">$0</strong></div>
+            </div>
+
+            <div class="scenario-wrap">
+              <h3>Sensitivity scenarios</h3>
+              <div class="scenario-scroll" tabindex="0" aria-label="Automation ROI scenarios">
+                <table class="scenario-table">
+                  <thead><tr><th scope="col">Scenario</th><th scope="col">Adoption</th><th scope="col">Monthly net</th><th scope="col">Year 1 ROI</th><th scope="col">Payback</th></tr></thead>
+                  <tbody id="scenario-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="result-actions">
+              <button class="copy-result" id="copy-results" type="button">Copy Results</button>
+            </div>
+            <p class="privacy-note">Calculations stay in your browser. This estimate is for planning and does not guarantee financial results.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section shell guide-section" aria-labelledby="guide-heading">
+      <div class="section-head">
+        <span class="kicker">Use Better Inputs</span>
+        <h2 id="guide-heading">How to estimate automation ROI realistically</h2>
+        <p>A credible estimate includes implementation friction, ongoing costs, and the value of the time genuinely returned to useful work.</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <span class="guide-icon" aria-hidden="true">⏱️</span>
+          <h3>Measure the current process</h3>
+          <p>Sample real task times across several people and include rework, handoffs, waiting, and exception handling.</p>
+        </article>
+        <article class="guide-card">
+          <span class="guide-icon" aria-hidden="true">⚙️</span>
+          <h3>Reduce theoretical savings</h3>
+          <p>Use coverage and adoption to account for human review, failures, edge cases, and teams that do not use the workflow consistently.</p>
+        </article>
+        <article class="guide-card">
+          <span class="guide-icon" aria-hidden="true">📈</span>
+          <h3>Validate after launch</h3>
+          <p>Compare the estimate with actual usage, error rates, hours saved, maintenance, and whether recovered time creates real value.</p>
+        </article>
+      </div>
+
+      <div class="formula-box">
+        <strong>Hours saved per month</strong> = people × tasks per week × minutes per task ÷ 60 × 4.33 × automation coverage × adoption.<br>
+        <strong>First-year ROI</strong> = first-year net benefit ÷ setup, software, and maintenance investment × 100.
+      </div>
+    </section>
+
+    <section class="section shell faq-section" aria-labelledby="faq-heading">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2 id="faq-heading">Automation ROI Calculator questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">What does automation ROI mean?</button>
+          <div class="faq-answer" id="faq-answer-1"><p>It compares the estimated financial benefit of saved labor time with setup, software, and maintenance costs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">How are monthly hours saved calculated?</button>
+          <div class="faq-answer" id="faq-answer-2"><p>The calculator combines task frequency and duration with the number of employees, then adjusts the total using automation coverage and real-world adoption.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">Why include adoption and reliability?</button>
+          <div class="faq-answer" id="faq-answer-3"><p>Automations rarely remove every minute of work. Exceptions, review, downtime, and incomplete usage reduce theoretical savings.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">Does a positive result guarantee savings?</button>
+          <div class="faq-answer" id="faq-answer-4"><p>No. It is a planning estimate. Validate the result using actual process data before and after implementation.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">Is my calculation data stored?</button>
+          <div class="faq-answer" id="faq-answer-5"><p>No. The calculator runs locally in the browser and does not require an account.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand-group">
+        <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+          <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async">
+          <span>Zynovix AI</span>
+        </a>
+        <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
+          <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async">
+        </a>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <span>© 2026 Zynovix AI. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Results copied</div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var form = document.getElementById('roi-form');
+      var currency = document.getElementById('currency');
+      var coverage = document.getElementById('coverage');
+      var coverageRange = document.getElementById('coverage-range');
+      var adoption = document.getElementById('adoption');
+      var adoptionRange = document.getElementById('adoption-range');
+      var scenarioBody = document.getElementById('scenario-body');
+      var toast = document.getElementById('toast');
+      var latestSummary = '';
+      var defaults = {
+        currency: 'USD', employees: 3, tasksWeek: 20, minutesTask: 15,
+        hourlyCost: 25, softwareCost: 99, setupCost: 1500,
+        maintenanceHours: 2, coverage: 70, adoption: 80
+      };
+
+      function number(id) {
+        var element = document.getElementById(id);
+        var value = parseFloat(element.value);
+        return Number.isFinite(value) ? Math.max(0, value) : 0;
+      }
+
+      function money(value) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: currency.value,
+          maximumFractionDigits: Math.abs(value) < 100 ? 2 : 0
+        }).format(value);
+      }
+
+      function percent(value) {
+        if (!Number.isFinite(value)) return '∞';
+        return new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value) + '%';
+      }
+
+      function decimal(value, digits) {
+        return new Intl.NumberFormat('en-US', { maximumFractionDigits: digits }).format(value);
+      }
+
+      function calculateScenario(input, adoptionRate) {
+        var currentHours = input.employees * input.tasksWeek * input.minutesTask / 60 * 4.33;
+        var savedHours = currentHours * input.coverage / 100 * adoptionRate / 100;
+        var grossMonthly = savedHours * input.hourlyCost;
+        var maintenanceCost = input.maintenanceHours * input.hourlyCost;
+        var ongoingCost = input.softwareCost + maintenanceCost;
+        var monthlyNet = grossMonthly - ongoingCost;
+        var firstYearInvestment = input.setupCost + ongoingCost * 12;
+        var firstYearNet = grossMonthly * 12 - firstYearInvestment;
+        var roi = firstYearInvestment > 0 ? firstYearNet / firstYearInvestment * 100 : (grossMonthly > 0 ? Infinity : 0);
+        var payback = monthlyNet > 0 ? input.setupCost / monthlyNet : null;
+        var threeYearNet = monthlyNet * 36 - input.setupCost;
+
+        return {
+          currentHours: currentHours,
+          savedHours: savedHours,
+          grossMonthly: grossMonthly,
+          maintenanceCost: maintenanceCost,
+          ongoingCost: ongoingCost,
+          monthlyNet: monthlyNet,
+          firstYearInvestment: firstYearInvestment,
+          firstYearNet: firstYearNet,
+          roi: roi,
+          payback: payback,
+          threeYearNet: threeYearNet
+        };
+      }
+
+      function readInputs() {
+        return {
+          employees: number('employees'),
+          tasksWeek: number('tasks-week'),
+          minutesTask: number('minutes-task'),
+          hourlyCost: number('hourly-cost'),
+          softwareCost: number('software-cost'),
+          setupCost: number('setup-cost'),
+          maintenanceHours: number('maintenance-hours'),
+          coverage: Math.min(100, number('coverage')),
+          adoption: Math.min(100, number('adoption'))
+        };
+      }
+
+      function paybackLabel(value, monthlyNet, setupCost) {
+        if (monthlyNet <= 0) return 'No payback';
+        if (setupCost === 0) return 'Immediate';
+        if (value < 1) return '< 1 month';
+        return decimal(value, 1) + ' months';
+      }
+
+      function renderScenarios(input) {
+        var scenarios = [
+          { name: 'Conservative', adoption: Math.max(0, input.adoption * 0.75) },
+          { name: 'Base estimate', adoption: input.adoption },
+          { name: 'Optimistic', adoption: Math.min(100, input.adoption * 1.15) }
+        ];
+
+        scenarioBody.innerHTML = scenarios.map(function (scenario) {
+          var result = calculateScenario(input, scenario.adoption);
+          return '<tr><td>' + scenario.name + '</td><td>' + decimal(scenario.adoption, 0) + '%</td><td>' +
+            money(result.monthlyNet) + '</td><td>' + percent(result.roi) + '</td><td>' +
+            paybackLabel(result.payback, result.monthlyNet, input.setupCost) + '</td></tr>';
+        }).join('');
+      }
+
+      function calculate() {
+        var input = readInputs();
+        var result = calculateScenario(input, input.adoption);
+
+        document.getElementById('roi-value').textContent = percent(result.roi);
+        document.getElementById('hours-saved').textContent = decimal(result.savedHours, 1);
+        document.getElementById('monthly-net').textContent = money(result.monthlyNet);
+        document.getElementById('payback-period').textContent = paybackLabel(result.payback, result.monthlyNet, input.setupCost);
+        document.getElementById('three-year-net').textContent = money(result.threeYearNet);
+        document.getElementById('current-hours').textContent = decimal(result.currentHours, 1) + ' hours';
+        document.getElementById('gross-savings').textContent = money(result.grossMonthly);
+        document.getElementById('ongoing-cost').textContent = money(result.ongoingCost);
+        document.getElementById('year-one-net').textContent = money(result.firstYearNet);
+        document.getElementById('year-one-investment').textContent = money(result.firstYearInvestment);
+
+        var status = document.getElementById('result-status');
+        status.classList.toggle('negative', result.firstYearNet <= 0);
+        status.textContent = result.firstYearNet > 0
+          ? 'This automation is estimated to create positive net value in the first year.'
+          : 'Under these assumptions, the automation does not recover its total first-year cost. Review task volume, coverage, and ongoing expenses.';
+
+        renderScenarios(input);
+
+        latestSummary = [
+          'Automation ROI Estimate',
+          'Currency: ' + currency.value,
+          'Current task hours/month: ' + decimal(result.currentHours, 1),
+          'Hours saved/month: ' + decimal(result.savedHours, 1),
+          'Gross labor value saved/month: ' + money(result.grossMonthly),
+          'Ongoing cost/month: ' + money(result.ongoingCost),
+          'Net savings/month: ' + money(result.monthlyNet),
+          'First-year investment: ' + money(result.firstYearInvestment),
+          'First-year net benefit: ' + money(result.firstYearNet),
+          'First-year ROI: ' + percent(result.roi),
+          'Payback period: ' + paybackLabel(result.payback, result.monthlyNet, input.setupCost),
+          '3-year net savings: ' + money(result.threeYearNet),
+          'Planning estimate only — verify with actual process data.'
+        ].join('\n');
+
+        return result;
+      }
+
+      function syncPair(source, target) {
+        target.value = source.value;
+        calculate();
+      }
+
+      coverageRange.addEventListener('input', function () { syncPair(coverageRange, coverage); });
+      coverage.addEventListener('input', function () { syncPair(coverage, coverageRange); });
+      adoptionRange.addEventListener('input', function () { syncPair(adoptionRange, adoption); });
+      adoption.addEventListener('input', function () { syncPair(adoption, adoptionRange); });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        calculate();
+      });
+
+      form.addEventListener('input', function (event) {
+        if (event.target !== coverage && event.target !== coverageRange && event.target !== adoption && event.target !== adoptionRange) {
+          calculate();
+        }
+      });
+
+      form.addEventListener('change', calculate);
+
+      document.getElementById('reset-calculator').addEventListener('click', function () {
+        currency.value = defaults.currency;
+        document.getElementById('employees').value = defaults.employees;
+        document.getElementById('tasks-week').value = defaults.tasksWeek;
+        document.getElementById('minutes-task').value = defaults.minutesTask;
+        document.getElementById('hourly-cost').value = defaults.hourlyCost;
+        document.getElementById('software-cost').value = defaults.softwareCost;
+        document.getElementById('setup-cost').value = defaults.setupCost;
+        document.getElementById('maintenance-hours').value = defaults.maintenanceHours;
+        coverage.value = defaults.coverage;
+        coverageRange.value = defaults.coverage;
+        adoption.value = defaults.adoption;
+        adoptionRange.value = defaults.adoption;
+        calculate();
+      });
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast.timer);
+        showToast.timer = window.setTimeout(function () { toast.classList.remove('show'); }, 1700);
+      }
+
+      function fallbackCopy(text) {
+        var area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand('copy');
+          showToast('Results copied');
+        } catch (error) {
+          showToast('Copy the results manually');
+        }
+        area.remove();
+      }
+
+      document.getElementById('copy-results').addEventListener('click', function () {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(latestSummary).then(function () {
+            showToast('Results copied');
+          }).catch(function () {
+            fallbackCopy(latestSummary);
+          });
+        } else {
+          fallbackCopy(latestSummary);
+        }
+      });
+
+      document.querySelectorAll('.faq-question').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var item = button.closest('.faq-item');
+          var open = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!open));
+          item.classList.toggle('open', !open);
+        });
+      });
+
+      calculate();
+    }());
+  </script>
+</body>
+</html>

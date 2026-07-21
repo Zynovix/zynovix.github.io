@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Readiness Assessment | Zynovix AI</title>
+  <meta name="description" content="Take the free 5-minute AI Readiness Assessment. Score your strategy, people, data, technology, and governance, then get a personalized 30-day action plan.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-readiness-assessment.html">
+
+  <meta property="og:title" content="Free AI Readiness Assessment | Zynovix AI">
+  <meta property="og:description" content="Measure AI readiness across five dimensions and get an instant, personalized 30-day action plan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zynovix.github.io/ai-readiness-assessment.html">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Readiness Assessment | Zynovix AI">
+  <meta name="twitter:description" content="Score your AI strategy, people, data, technology, and governance in five minutes.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xkxn7wyps2");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECFTMP6ZQD"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ECFTMP6ZQD");
+  </script>
+
+  <style id="ai-readiness-styles">
+    .readiness-page {
+      --assessment-surface: rgba(15, 23, 42, .82);
+      --assessment-surface-2: rgba(255, 255, 255, .055);
+      --assessment-strong: #f8fafc;
+      --assessment-soft: #a8b5c7;
+      --assessment-line: rgba(255, 255, 255, .13);
+      --assessment-focus: #67e8f9;
+      min-height: 100vh;
+    }
+
+    .readiness-page[data-theme="light"] {
+      --assessment-surface: rgba(255, 255, 255, .94);
+      --assessment-surface-2: rgba(15, 23, 42, .045);
+      --assessment-strong: #0f172a;
+      --assessment-soft: #475569;
+      --assessment-line: rgba(15, 23, 42, .14);
+      --assessment-focus: #0369a1;
+      color: var(--assessment-strong);
+      background:
+        radial-gradient(circle at 12% 16%, rgba(37, 99, 235, .14), transparent 30%),
+        radial-gradient(circle at 88% 80%, rgba(124, 58, 237, .13), transparent 34%),
+        linear-gradient(180deg, #f8fafc, #eef2ff);
+    }
+
+    .readiness-page[data-theme="light"] .header {
+      background: rgba(248, 250, 252, .9);
+    }
+
+    .readiness-page[data-theme="light"] .nav-menu,
+    .readiness-page[data-theme="light"] .brand,
+    .readiness-page[data-theme="light"] .btn-ghost {
+      color: #172033;
+    }
+
+    .readiness-page[data-theme="light"] .nav-menu a:hover {
+      color: #0369a1;
+    }
+
+    .readiness-page[data-theme="light"] .menu-btn,
+    .readiness-page[data-theme="light"] .theme-toggle {
+      color: #0f172a;
+      background: rgba(15, 23, 42, .05);
+    }
+
+    .readiness-page[data-theme="light"] .noise {
+      opacity: .4;
+    }
+
+    .brand img,
+    .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--assessment-line);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 19px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, .7);
+    }
+
+    .assessment-hero {
+      min-height: auto;
+      display: block;
+      padding: 74px 0 42px;
+      text-align: center;
+    }
+
+    .assessment-hero h1 {
+      max-width: 900px;
+      margin: 20px auto 18px;
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 1;
+      letter-spacing: -2.6px;
+    }
+
+    .assessment-hero h1 span {
+      background: linear-gradient(135deg, #60a5fa, #22d3ee, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .assessment-hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--assessment-soft);
+      font-size: clamp(17px, 2.5vw, 20px);
+    }
+
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+      color: var(--assessment-soft);
+      font-size: 14px;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--assessment-focus);
+    }
+
+    .hero-facts {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 27px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-facts li {
+      padding: 9px 13px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 999px;
+      background: var(--assessment-surface-2);
+      color: var(--assessment-strong);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .assessment-shell {
+      width: min(920px, 92%);
+      margin: 0 auto 92px;
+      scroll-margin-top: 100px;
+    }
+
+    .assessment-card {
+      overflow: hidden;
+      border: 1px solid var(--assessment-line);
+      border-radius: 30px;
+      background: linear-gradient(180deg, var(--assessment-surface), rgba(15, 23, 42, .62));
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .35);
+    }
+
+    .readiness-page[data-theme="light"] .assessment-card {
+      background: var(--assessment-surface);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, .12);
+    }
+
+    .assessment-panel {
+      padding: 25px;
+    }
+
+    .assessment-panel[hidden] {
+      display: none !important;
+    }
+
+    .intro-icon {
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #2563eb, #22d3ee, #7c3aed);
+      box-shadow: 0 18px 45px rgba(37, 99, 235, .35);
+      font-size: 43px;
+    }
+
+    .intro-panel {
+      text-align: center;
+      padding-block: 38px;
+    }
+
+    .intro-panel h2 {
+      margin-bottom: 12px;
+      color: var(--assessment-strong);
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+    }
+
+    .intro-panel > p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--assessment-soft);
+      font-size: 17px;
+    }
+
+    .dimension-preview {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      max-width: 720px;
+      margin: 28px auto;
+      padding: 0;
+      list-style: none;
+    }
+
+    .dimension-preview li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 15px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 16px;
+      background: var(--assessment-surface-2);
+      color: var(--assessment-strong);
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .previous-result {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      padding: 13px 16px;
+      border: 1px solid rgba(34, 211, 238, .3);
+      border-radius: 15px;
+      background: rgba(34, 211, 238, .075);
+      color: var(--assessment-strong);
+      font-size: 14px;
+    }
+
+    .start-btn {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .privacy-note {
+      display: block;
+      margin-top: 16px;
+      color: var(--assessment-soft);
+      font-size: 13px;
+    }
+
+    .quiz-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+
+    .dimension-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--assessment-focus);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .question-count {
+      color: var(--assessment-soft);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .progress-track {
+      width: 100%;
+      display: block;
+      appearance: none;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+    }
+
+    .progress-track::-webkit-progress-bar {
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+    }
+
+    .progress-track::-webkit-progress-value {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #22d3ee, #7c3aed);
+      transition: width .35s ease;
+    }
+
+    .progress-track::-moz-progress-bar {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #22d3ee, #7c3aed);
+    }
+
+    .question-fieldset {
+      min-width: 0;
+      border: 0;
+    }
+
+    .question-fieldset legend {
+      width: 100%;
+      margin-bottom: 9px;
+      color: var(--assessment-strong);
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      line-height: 1.22;
+    }
+
+    .question-context {
+      margin-bottom: 24px;
+      color: var(--assessment-soft);
+      font-size: 15px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .answer-option {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 17px;
+      background: var(--assessment-surface-2);
+      color: var(--assessment-strong);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      line-height: 1.45;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .answer-option:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, .65);
+      background: rgba(34, 211, 238, .08);
+    }
+
+    .answer-option.selected {
+      border-color: #22d3ee;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .2), rgba(34, 211, 238, .12));
+      box-shadow: 0 0 0 2px rgba(34, 211, 238, .12);
+    }
+
+    .answer-marker {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--assessment-line);
+      border-radius: 11px;
+      color: var(--assessment-soft);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .answer-option.selected .answer-marker {
+      border-color: transparent;
+      background: linear-gradient(135deg, #2563eb, #22d3ee);
+      color: #fff;
+    }
+
+    .quiz-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .quiz-actions button,
+    .result-actions button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .quiz-actions button:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .validation-message {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #fbbf24;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .result-header {
+      text-align: center;
+    }
+
+    .score-ring {
+      --score-angle: 0deg;
+      width: 170px;
+      height: 170px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: conic-gradient(#22d3ee var(--score-angle), rgba(148, 163, 184, .18) 0);
+      position: relative;
+    }
+
+    .score-ring::before {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border-radius: 50%;
+      background: #0b1225;
+    }
+
+    .readiness-page[data-theme="light"] .score-ring::before {
+      background: #fff;
+    }
+
+    .score-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .score-value {
+      display: block;
+      color: var(--assessment-strong);
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .score-label {
+      color: var(--assessment-soft);
+      font-size: 13px;
+    }
+
+    .maturity-pill {
+      display: inline-flex;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, .1);
+      border: 1px solid rgba(34, 211, 238, .35);
+      color: var(--assessment-focus);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .result-title {
+      margin: 13px 0 8px;
+      color: var(--assessment-strong);
+      font-size: clamp(29px, 5vw, 44px);
+      line-height: 1.1;
+    }
+
+    .result-summary {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--assessment-soft);
+      font-size: 16px;
+    }
+
+    .result-section {
+      margin-top: 30px;
+      padding-top: 27px;
+      border-top: 1px solid var(--assessment-line);
+    }
+
+    .result-section h3 {
+      margin-bottom: 16px;
+      color: var(--assessment-strong);
+      font-size: 22px;
+    }
+
+    .dimension-results {
+      display: grid;
+      gap: 14px;
+    }
+
+    .dimension-row {
+      padding: 15px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 17px;
+      background: var(--assessment-surface-2);
+    }
+
+    .dimension-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+      color: var(--assessment-strong);
+      font-weight: 800;
+    }
+
+    .dimension-row-top span:last-child {
+      color: var(--assessment-focus);
+    }
+
+    .dimension-bar {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+    }
+
+    .dimension-bar span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #2563eb, #22d3ee);
+      transition: width .65s ease;
+    }
+
+    .insight-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .insight-card {
+      padding: 18px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 18px;
+      background: var(--assessment-surface-2);
+    }
+
+    .insight-card strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--assessment-strong);
+      font-size: 17px;
+    }
+
+    .insight-card p {
+      color: var(--assessment-soft);
+      font-size: 15px;
+    }
+
+    .plan-grid {
+      display: grid;
+      gap: 13px;
+    }
+
+    .plan-card {
+      padding: 18px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .11), rgba(124, 58, 237, .08));
+    }
+
+    .plan-card small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--assessment-focus);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .plan-card h4 {
+      margin-bottom: 8px;
+      color: var(--assessment-strong);
+      font-size: 18px;
+    }
+
+    .plan-card ul {
+      margin-left: 20px;
+      color: var(--assessment-soft);
+    }
+
+    .plan-card li + li {
+      margin-top: 5px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .copy-status {
+      min-height: 24px;
+      margin-top: 10px;
+      color: var(--assessment-focus);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .guide-section {
+      padding: 84px 0;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .pillar-card {
+      min-height: 0;
+      padding: 23px;
+    }
+
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .85), rgba(34, 211, 238, .85));
+      font-size: 26px;
+    }
+
+    .pillar-card h3 {
+      font-size: 21px;
+    }
+
+    .pillar-card p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    .levels-panel {
+      margin-top: 58px;
+      padding: 26px;
+      border: 1px solid var(--assessment-line);
+      border-radius: 25px;
+      background: var(--assessment-surface-2);
+    }
+
+    .levels-panel h2 {
+      margin-bottom: 18px;
+      color: var(--assessment-strong);
+      font-size: clamp(27px, 4vw, 38px);
+    }
+
+    .level-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .level-item {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 13px;
+      align-items: start;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--assessment-line);
+    }
+
+    .level-item:last-child {
+      border-bottom: 0;
+    }
+
+    .level-range {
+      color: var(--assessment-focus);
+      font-weight: 900;
+    }
+
+    .level-item strong {
+      color: var(--assessment-strong);
+    }
+
+    .level-item p {
+      color: var(--assessment-soft);
+      font-size: 14px;
+    }
+
+    .faq-section {
+      padding: 0 0 94px;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--assessment-line);
+      border-radius: 18px;
+      background: var(--assessment-surface-2);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 19px;
+      border: 0;
+      background: transparent;
+      color: var(--assessment-strong);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      color: var(--assessment-focus);
+      font-size: 24px;
+      transition: transform .2s ease;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 19px 19px;
+      color: var(--assessment-soft);
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    .footer {
+      color: var(--assessment-strong);
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--assessment-focus);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 600px) {
+      .assessment-panel {
+        padding: 38px;
+      }
+
+      .dimension-preview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .dimension-preview li:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 5px);
+      }
+
+      .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .plan-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 760px) {
+      .guide-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guide-grid .pillar-card:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .guide-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .guide-grid .pillar-card:last-child {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-actions .nav-cta {
+        display: none;
+      }
+
+      .readiness-page[data-theme="light"] .nav-menu {
+        background: rgba(248, 250, 252, .98);
+      }
+
+      .assessment-hero {
+        padding-top: 48px;
+      }
+
+      .assessment-hero h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .quiz-actions {
+        flex-direction: column-reverse;
+      }
+
+      .quiz-actions .btn {
+        width: 100%;
+      }
+
+      .result-actions .btn {
+        width: 100%;
+      }
+
+      .brand img,
+      .logo img {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      .header,
+      .assessment-hero,
+      #introPanel,
+      #quizPanel,
+      .result-actions,
+      .copy-status,
+      .guide-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb {
+        display: none !important;
+      }
+
+      body,
+      .readiness-page {
+        background: #fff !important;
+        color: #111827 !important;
+      }
+
+      .assessment-shell {
+        width: 100%;
+        margin: 0;
+      }
+
+      .assessment-card {
+        border: 0;
+        box-shadow: none;
+        background: #fff !important;
+      }
+
+      #resultPanel {
+        display: block !important;
+        padding: 0;
+      }
+
+      .score-ring::before,
+      .dimension-row,
+      .insight-card,
+      .plan-card {
+        background: #fff !important;
+      }
+
+      .result-title,
+      .result-section h3,
+      .dimension-row-top,
+      .insight-card strong,
+      .plan-card h4,
+      .score-value {
+        color: #111827 !important;
+      }
+
+      .result-summary,
+      .insight-card p,
+      .plan-card ul {
+        color: #334155 !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-readiness-assessment.html#app",
+        "name": "AI Readiness Assessment",
+        "url": "https://zynovix.github.io/ai-readiness-assessment.html",
+        "description": "A free interactive assessment that scores AI readiness across strategy, people, data, technology, and governance and creates a personalized 30-day action plan.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "Zynovix AI",
+          "url": "https://zynovix.github.io/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-readiness-assessment.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://zynovix.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AI Tools",
+            "item": "https://zynovix.github.io/tools.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Readiness Assessment",
+            "item": "https://zynovix.github.io/ai-readiness-assessment.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-readiness-assessment.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does AI readiness mean?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI readiness is an organization's ability to adopt artificial intelligence safely and productively. It includes clear strategy, capable people, reliable data, suitable technology, and practical governance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the AI readiness score calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The assessment uses 15 questions across five dimensions. Each answer is scored from zero to four, producing an overall percentage and a separate score for each dimension."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does the assessment take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most people complete all 15 questions in about five minutes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my assessment data stored or sent anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No answers are sent to a server. The assessment runs in your browser and only saves the latest score locally on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who should take the AI Readiness Assessment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is useful for founders, managers, consultants, operations leaders, technology teams, and anyone responsible for planning or improving AI adoption."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="readiness-page" data-theme="dark">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="nav shell">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <a href="tools.html">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch color theme">☀️</button>
+        <a href="contact.html" class="nav-cta">Contact</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="assessment-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">AI Readiness Assessment</span>
+      </nav>
+
+      <span class="kicker">Free Business Assessment</span>
+      <h1>How <span>AI-ready</span> is your organization?</h1>
+      <p>Answer 15 practical questions to benchmark your strategy, people, data, technology, and governance—then get a personalized 30-day action plan.</p>
+
+      <ul class="hero-facts">
+        <li>✓ 15 questions</li>
+        <li>⏱ About 5 minutes</li>
+        <li>🔒 No signup</li>
+        <li>📋 Instant action plan</li>
+      </ul>
+    </section>
+
+    <section class="assessment-shell" id="assessment" aria-label="AI Readiness Assessment">
+      <div class="assessment-card">
+        <div class="assessment-panel intro-panel" id="introPanel">
+          <div class="intro-icon" aria-hidden="true">🧭</div>
+          <h2>Get a clear AI readiness baseline</h2>
+          <p>Choose the answer that best describes your organization today. Honest answers create a more useful score and action plan.</p>
+
+          <ul class="dimension-preview">
+            <li><span aria-hidden="true">🎯</span> Strategy</li>
+            <li><span aria-hidden="true">👥</span> People</li>
+            <li><span aria-hidden="true">🗂️</span> Data</li>
+            <li><span aria-hidden="true">⚙️</span> Technology</li>
+            <li><span aria-hidden="true">🛡️</span> Governance</li>
+          </ul>
+
+          <div class="previous-result" id="previousResult" hidden></div>
+          <button class="btn btn-primary start-btn" id="startButton" type="button">Start the Assessment →</button>
+          <small class="privacy-note">Your answers stay in this browser. Nothing is submitted or uploaded.</small>
+        </div>
+
+        <div class="assessment-panel" id="quizPanel" hidden>
+          <div class="quiz-top">
+            <span class="dimension-badge" id="dimensionBadge">🎯 Strategy</span>
+            <span class="question-count" id="questionCount">Question 1 of 15</span>
+          </div>
+
+          <progress class="progress-track" id="progressTrack" max="15" value="1" aria-label="Assessment progress">1 of 15</progress>
+
+          <fieldset class="question-fieldset">
+            <legend id="questionText" tabindex="-1"></legend>
+            <p class="question-context" id="questionContext"></p>
+            <div class="answer-list" id="answerList"></div>
+          </fieldset>
+
+          <div class="validation-message" id="validationMessage" aria-live="polite"></div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-ghost" id="backButton" type="button">← Back</button>
+            <button class="btn btn-primary" id="nextButton" type="button" disabled>Next →</button>
+          </div>
+        </div>
+
+        <div class="assessment-panel" id="resultPanel" hidden aria-live="polite">
+          <div class="result-header">
+            <div class="score-ring" id="scoreRing" role="img" aria-label="Overall AI readiness score">
+              <div class="score-content">
+                <span class="score-value" id="scoreValue">0</span>
+                <span class="score-label">out of 100</span>
+              </div>
+            </div>
+            <span class="maturity-pill" id="maturityPill">Exploring</span>
+            <h2 class="result-title" id="resultTitle">Your AI readiness result</h2>
+            <p class="result-summary" id="resultSummary"></p>
+          </div>
+
+          <section class="result-section" aria-labelledby="dimensionResultsTitle">
+            <h3 id="dimensionResultsTitle">Your five-dimension breakdown</h3>
+            <div class="dimension-results" id="dimensionResults"></div>
+          </section>
+
+          <section class="result-section" aria-labelledby="insightsTitle">
+            <h3 id="insightsTitle">Strengths and priorities</h3>
+            <div class="insight-grid" id="insightGrid"></div>
+          </section>
+
+          <section class="result-section" aria-labelledby="planTitle">
+            <h3 id="planTitle">Your personalized 30-day action plan</h3>
+            <div class="plan-grid" id="planGrid"></div>
+          </section>
+
+          <div class="result-actions">
+            <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Results</button>
+            <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
+            <button class="btn btn-ghost" id="restartButton" type="button">↻ Retake Assessment</button>
+          </div>
+          <div class="copy-status" id="copyStatus" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section shell" aria-labelledby="pillarsTitle">
+      <div class="section-head">
+        <span class="kicker">The Five Pillars</span>
+        <h2 id="pillarsTitle">What the assessment measures</h2>
+        <p>A strong AI program needs more than tools. These five dimensions work together to turn experiments into measurable, responsible outcomes.</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="card pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🎯</div>
+          <h3>Strategy</h3>
+          <p>Clear business goals, prioritized use cases, accountable owners, and measurable value.</p>
+        </article>
+        <article class="card pillar-card">
+          <div class="pillar-icon" aria-hidden="true">👥</div>
+          <h3>People</h3>
+          <p>Practical skills, adoption support, workflow ownership, and effective human oversight.</p>
+        </article>
+        <article class="card pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🗂️</div>
+          <h3>Data</h3>
+          <p>Accessible, reliable, classified data plus feedback needed to evaluate AI quality.</p>
+        </article>
+        <article class="card pillar-card">
+          <div class="pillar-icon" aria-hidden="true">⚙️</div>
+          <h3>Technology</h3>
+          <p>Approved tools, secure integrations, access controls, monitoring, and maintainable systems.</p>
+        </article>
+        <article class="card pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🛡️</div>
+          <h3>Governance</h3>
+          <p>Policies, risk reviews, vendor checks, quality controls, and a clear incident process.</p>
+        </article>
+      </div>
+
+      <div class="levels-panel">
+        <h2>AI readiness maturity levels</h2>
+        <div class="level-list">
+          <div class="level-item">
+            <span class="level-range">0–24</span>
+            <div><strong>Exploring</strong><p>Interest is growing, but foundations, ownership, and repeatable practices are still limited.</p></div>
+          </div>
+          <div class="level-item">
+            <span class="level-range">25–44</span>
+            <div><strong>Emerging</strong><p>Early experiments exist, though capability and controls are inconsistent across teams.</p></div>
+          </div>
+          <div class="level-item">
+            <span class="level-range">45–64</span>
+            <div><strong>Developing</strong><p>Several core practices are defined and useful pilots are becoming repeatable.</p></div>
+          </div>
+          <div class="level-item">
+            <span class="level-range">65–84</span>
+            <div><strong>Scaling</strong><p>AI is delivering measurable value with increasingly mature systems and governance.</p></div>
+          </div>
+          <div class="level-item">
+            <span class="level-range">85–100</span>
+            <div><strong>AI-Ready</strong><p>AI is managed as an organization-wide capability with strong measurement and controls.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2 id="faqTitle">Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+            <span>What does AI readiness mean?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-1" hidden>AI readiness is an organization's ability to adopt AI safely and productively. It combines strategy, people, data, technology, and governance—not just access to AI tools.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+            <span>How is the AI readiness score calculated?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-2" hidden>There are 15 questions, with three questions in each dimension. Every answer scores from 0 to 4. The final score is converted to a percentage, and each dimension receives its own percentage.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+            <span>How long does the assessment take?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-3" hidden>Most people finish it in about five minutes. You can move backward to review or change any answer before viewing your result.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+            <span>Is my assessment data stored or sent anywhere?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-4" hidden>No answers are sent to a server. The tool runs entirely in your browser and saves only the latest result locally on your device so you can compare it later.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
+            <span>Who should take the AI Readiness Assessment?</span><span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-5" hidden>It is designed for founders, managers, consultants, operations leaders, technology teams, and anyone responsible for planning or improving AI adoption.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand-group">
+        <a class="brand" href="index.html">
+          <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+          <span>Zynovix AI</span>
+        </a>
+        <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
+          <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+
+      <span>© 2026 Zynovix AI. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var dimensionMeta = {
+      Strategy: { icon: "🎯", label: "Strategy" },
+      People: { icon: "👥", label: "People" },
+      Data: { icon: "🗂️", label: "Data" },
+      Technology: { icon: "⚙️", label: "Technology" },
+      Governance: { icon: "🛡️", label: "Governance" }
+    };
+
+    var questions = [
+      {
+        dimension: "Strategy",
+        question: "How clearly are your AI goals connected to business priorities?",
+        context: "Think about revenue, cost, customer experience, quality, speed, or risk reduction.",
+        answers: [
+          "We have not defined any AI goals.",
+          "There is general interest in AI, but no agreed business goal.",
+          "A few teams have use cases linked to local needs.",
+          "Priority use cases and expected business outcomes are documented.",
+          "AI priorities are managed as a portfolio and reviewed against company strategy."
+        ]
+      },
+      {
+        dimension: "Strategy",
+        question: "How are AI use cases prioritized and owned?",
+        context: "Consider decision criteria, accountable owners, budgets, and the path from idea to pilot.",
+        answers: [
+          "There is no process or accountable owner.",
+          "Ideas are chosen informally by interested individuals.",
+          "Some use cases have owners, but prioritization is inconsistent.",
+          "Use cases follow defined value, feasibility, and risk criteria with named owners.",
+          "A cross-functional process continuously prioritizes, funds, and retires AI initiatives."
+        ]
+      },
+      {
+        dimension: "Strategy",
+        question: "How consistently do you measure value from AI initiatives?",
+        context: "Examples include time saved, conversion, accuracy, customer satisfaction, adoption, and cost.",
+        answers: [
+          "We do not measure AI outcomes.",
+          "We rely mainly on anecdotal feedback.",
+          "Some pilots track basic activity or usage metrics.",
+          "Most initiatives have baselines, targets, and outcome metrics.",
+          "Value is verified after launch and informs future investment decisions."
+        ]
+      },
+      {
+        dimension: "People",
+        question: "How prepared are employees to use AI effectively?",
+        context: "Include basic AI literacy, role-specific prompting, verification, and safe-use skills.",
+        answers: [
+          "Employees have received no AI guidance or training.",
+          "A few individuals learn independently.",
+          "Optional general training exists for some teams.",
+          "Role-specific training and practical guidance reach most relevant employees.",
+          "Skills are assessed, refreshed, and built into ongoing professional development."
+        ]
+      },
+      {
+        dimension: "People",
+        question: "How well is AI adoption supported across teams?",
+        context: "Think about communication, champions, feedback, incentives, and help during workflow changes.",
+        answers: [
+          "Adoption is not actively supported.",
+          "Enthusiasts promote tools informally.",
+          "Some teams have champions or occasional support.",
+          "A structured change plan supports users, managers, and affected workflows.",
+          "Adoption is measured and continuously improved through feedback and coaching."
+        ]
+      },
+      {
+        dimension: "People",
+        question: "How clearly are human responsibilities defined in AI-assisted workflows?",
+        context: "Consider who reviews outputs, approves high-impact decisions, corrects errors, and owns outcomes.",
+        answers: [
+          "Responsibilities are not defined.",
+          "People decide informally when to review AI output.",
+          "Critical tasks have some review steps, but ownership varies.",
+          "Human review, approval, and escalation roles are documented for most workflows.",
+          "Responsibilities are tested, audited, and adjusted using quality and risk evidence."
+        ]
+      },
+      {
+        dimension: "Data",
+        question: "How accessible and reliable is the data needed for priority AI use cases?",
+        context: "Consider completeness, accuracy, permissions, formats, and how quickly teams can access it.",
+        answers: [
+          "Required data is unknown, unavailable, or unreliable.",
+          "Data exists in scattered files and access depends on individuals.",
+          "Some priority data is usable after significant manual cleanup.",
+          "Most required data has owners, quality checks, and dependable access.",
+          "Data products are monitored with service levels and improve through user feedback."
+        ]
+      },
+      {
+        dimension: "Data",
+        question: "How well is sensitive data classified and protected for AI use?",
+        context: "Include personal, confidential, regulated, customer, employee, and intellectual-property data.",
+        answers: [
+          "We have not considered data sensitivity for AI.",
+          "Employees rely on personal judgment about what can be entered into tools.",
+          "Basic rules exist, but data classification or enforcement is incomplete.",
+          "Approved data classes, access rules, and handling controls are documented and applied.",
+          "Controls are automated where practical and regularly reviewed against threats and regulations."
+        ]
+      },
+      {
+        dimension: "Data",
+        question: "How do you collect feedback and evaluation data for AI quality?",
+        context: "Examples include correct answers, reviewer ratings, errors, edge cases, and user feedback.",
+        answers: [
+          "We do not collect quality or feedback data.",
+          "Problems are reported informally.",
+          "Some pilots capture manual feedback or small test sets.",
+          "Key systems use defined evaluation sets and structured feedback.",
+          "Evaluation data is continuously improved and used to monitor drift and performance."
+        ]
+      },
+      {
+        dimension: "Technology",
+        question: "How standardized is your approved AI toolset and integration approach?",
+        context: "Think about tool selection, vendor approval, APIs, reusable components, and avoiding duplicate solutions.",
+        answers: [
+          "Teams have no approved AI tools or integration approach.",
+          "Individuals use separate tools without coordination.",
+          "A few approved tools exist, but integration is mostly manual or one-off.",
+          "Standard tools, APIs, and reusable patterns support priority use cases.",
+          "The architecture is modular, interoperable, and reviewed as needs and models change."
+        ]
+      },
+      {
+        dimension: "Technology",
+        question: "How mature are security, access control, and logging for AI systems?",
+        context: "Include identity, least-privilege access, secrets, audit logs, and protection against misuse.",
+        answers: [
+          "AI-specific security controls have not been considered.",
+          "We depend mainly on vendor defaults and user caution.",
+          "Basic access controls exist for selected tools.",
+          "Production systems use approved identity, access, secrets, and logging controls.",
+          "Controls are continuously monitored, tested, and integrated with security operations."
+        ]
+      },
+      {
+        dimension: "Technology",
+        question: "How reliably can you deploy, monitor, and maintain AI solutions?",
+        context: "Consider testing, versioning, cost monitoring, quality monitoring, rollback, and ongoing ownership.",
+        answers: [
+          "We cannot deploy or maintain AI solutions consistently.",
+          "Experiments are run manually with no ongoing monitoring.",
+          "Some pilots can be deployed, but maintenance depends on individual experts.",
+          "Defined delivery and monitoring practices cover most production AI solutions.",
+          "Automated evaluation, observability, cost controls, and rollback support reliable scaling."
+        ]
+      },
+      {
+        dimension: "Governance",
+        question: "How complete is your policy for acceptable and responsible AI use?",
+        context: "A useful policy tells employees which tools, data, and use cases are allowed, restricted, or prohibited.",
+        answers: [
+          "We have no AI policy or employee guidance.",
+          "Expectations are shared informally.",
+          "A basic policy exists but has gaps or limited awareness.",
+          "A practical policy is documented, communicated, and connected to existing company rules.",
+          "The policy is owned, monitored, and updated as technology, incidents, and regulations change."
+        ]
+      },
+      {
+        dimension: "Governance",
+        question: "How consistently are AI risks, vendors, and high-impact use cases reviewed?",
+        context: "Consider privacy, security, legal, bias, accuracy, intellectual property, and vendor dependency.",
+        answers: [
+          "AI risks and vendors are not formally reviewed.",
+          "Reviews happen only when someone raises a concern.",
+          "Security or legal teams review selected tools and high-risk projects.",
+          "A tiered review process covers vendors and use cases before launch.",
+          "Reviews are evidence-based, repeatable, and revisited throughout the system lifecycle."
+        ]
+      },
+      {
+        dimension: "Governance",
+        question: "How prepared are you to detect, report, and respond to AI failures?",
+        context: "Examples include harmful output, data exposure, inaccurate decisions, model degradation, or vendor outages.",
+        answers: [
+          "There is no AI incident or quality response process.",
+          "Teams handle failures case by case.",
+          "Existing incident processes can cover some AI problems.",
+          "AI-specific triggers, owners, escalation, and correction steps are documented.",
+          "Response plans are tested, lessons are tracked, and controls improve after incidents."
+        ]
+      }
+    ];
+
+    var dimensionAdvice = {
+      Strategy: {
+        strength: "Your organization is connecting AI activity to business priorities and measurable outcomes.",
+        priority: "Clarify why AI matters, select a small number of valuable use cases, and assign accountable owners.",
+        actions: [
+          "Select three use cases using value, feasibility, and risk criteria.",
+          "Assign one accountable owner and one measurable outcome to each selected use case.",
+          "Record a baseline and a 30-day success target before the pilot starts."
+        ]
+      },
+      People: {
+        strength: "People, skills, and human oversight are supporting more consistent AI adoption.",
+        priority: "Build practical skills and define exactly where people must review, approve, and correct AI output.",
+        actions: [
+          "Run a role-specific AI skills and workflow gap review with one priority team.",
+          "Publish a one-page safe-use and output-verification checklist.",
+          "Name a team champion and define human review responsibilities for the pilot."
+        ]
+      },
+      Data: {
+        strength: "Data access, quality, protection, and feedback practices provide a useful base for AI.",
+        priority: "Make priority data usable and safe before adding more models or tools.",
+        actions: [
+          "Inventory the data required for one priority use case and name its owner.",
+          "Classify sensitive fields and define which approved tools may process them.",
+          "Create a small evaluation set containing normal cases, errors, and edge cases."
+        ]
+      },
+      Technology: {
+        strength: "Your tools and delivery practices can support secure, maintainable AI solutions.",
+        priority: "Standardize the toolset and add the access, logging, evaluation, and cost controls needed for a reliable pilot.",
+        actions: [
+          "Choose an approved tool and document the simplest secure pilot architecture.",
+          "Configure access, secrets, logging, and a basic cost limit before real use.",
+          "Define quality checks, an owner, and a rollback or manual fallback."
+        ]
+      },
+      Governance: {
+        strength: "Policies and risk controls are helping teams use AI with clearer boundaries and accountability.",
+        priority: "Create lightweight rules that tell teams what is allowed, what needs review, and how problems are escalated.",
+        actions: [
+          "Draft a one-page acceptable-use policy covering tools, data, and prohibited uses.",
+          "Create a risk checklist for privacy, security, accuracy, bias, and intellectual property.",
+          "Define who receives AI incident reports and what requires immediate escalation."
+        ]
+      }
+    };
+
+    var maturityLevels = [
+      {
+        min: 85,
+        label: "AI-Ready",
+        title: "You have a strong foundation for responsible AI at scale.",
+        summary: "Your organization treats AI as a managed capability. Focus on continuous evaluation, resilience, and sharing successful patterns across teams."
+      },
+      {
+        min: 65,
+        label: "Scaling",
+        title: "You are ready to scale proven AI practices.",
+        summary: "Core capabilities are working, but uneven areas may create risk or slow expansion. Strengthen the lowest dimensions before increasing scope."
+      },
+      {
+        min: 45,
+        label: "Developing",
+        title: "Your AI foundation is taking shape.",
+        summary: "You have useful building blocks and likely some credible pilots. The next step is to standardize ownership, measurement, and controls."
+      },
+      {
+        min: 25,
+        label: "Emerging",
+        title: "You have momentum, but your approach is still inconsistent.",
+        summary: "Early experiments can create value, yet clearer priorities, safer data practices, and repeatable delivery will improve results."
+      },
+      {
+        min: 0,
+        label: "Exploring",
+        title: "Start with a focused, low-risk AI foundation.",
+        summary: "You do not need a large transformation program. Choose one valuable workflow, set basic rules, and learn through a measured 30-day pilot."
+      }
+    ];
+
+    var currentQuestion = 0;
+    var responses = new Array(questions.length).fill(null);
+    var latestResult = null;
+
+    var introPanel = document.getElementById("introPanel");
+    var quizPanel = document.getElementById("quizPanel");
+    var resultPanel = document.getElementById("resultPanel");
+    var startButton = document.getElementById("startButton");
+    var backButton = document.getElementById("backButton");
+    var nextButton = document.getElementById("nextButton");
+    var questionText = document.getElementById("questionText");
+    var questionContext = document.getElementById("questionContext");
+    var questionCount = document.getElementById("questionCount");
+    var dimensionBadge = document.getElementById("dimensionBadge");
+    var answerList = document.getElementById("answerList");
+    var progressTrack = document.getElementById("progressTrack");
+    var validationMessage = document.getElementById("validationMessage");
+    var previousResult = document.getElementById("previousResult");
+    var copyStatus = document.getElementById("copyStatus");
+
+    function showPanel(panel) {
+      introPanel.hidden = panel !== "intro";
+      quizPanel.hidden = panel !== "quiz";
+      resultPanel.hidden = panel !== "result";
+    }
+
+    function renderQuestion() {
+      var item = questions[currentQuestion];
+      var meta = dimensionMeta[item.dimension];
+      questionText.textContent = item.question;
+      questionContext.textContent = item.context;
+      questionCount.textContent = "Question " + (currentQuestion + 1) + " of " + questions.length;
+      dimensionBadge.textContent = meta.icon + " " + meta.label;
+      progressTrack.value = currentQuestion + 1;
+      progressTrack.textContent = (currentQuestion + 1) + " of " + questions.length;
+      answerList.innerHTML = "";
+      validationMessage.textContent = "";
+
+      item.answers.forEach(function (answer, score) {
+        var button = document.createElement("button");
+        var marker = document.createElement("span");
+        var label = document.createElement("span");
+        button.type = "button";
+        button.className = "answer-option";
+        button.dataset.score = String(score);
+        button.setAttribute("aria-pressed", responses[currentQuestion] === score ? "true" : "false");
+        if (responses[currentQuestion] === score) {
+          button.classList.add("selected");
+        }
+        marker.className = "answer-marker";
+        marker.setAttribute("aria-hidden", "true");
+        marker.textContent = score === 0 ? "—" : String(score);
+        label.textContent = answer;
+        button.appendChild(marker);
+        button.appendChild(label);
+        button.addEventListener("click", function () {
+          selectAnswer(score);
+        });
+        answerList.appendChild(button);
+      });
+
+      backButton.disabled = currentQuestion === 0;
+      nextButton.disabled = responses[currentQuestion] === null;
+      nextButton.textContent = currentQuestion === questions.length - 1 ? "See My Results →" : "Next →";
+      questionText.focus && questionText.focus();
+    }
+
+    function selectAnswer(score) {
+      responses[currentQuestion] = score;
+      Array.prototype.forEach.call(answerList.querySelectorAll(".answer-option"), function (button) {
+        var selected = Number(button.dataset.score) === score;
+        button.classList.toggle("selected", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      });
+      nextButton.disabled = false;
+      validationMessage.textContent = "";
+    }
+
+    function getMaturity(score) {
+      for (var i = 0; i < maturityLevels.length; i += 1) {
+        if (score >= maturityLevels[i].min) return maturityLevels[i];
+      }
+      return maturityLevels[maturityLevels.length - 1];
+    }
+
+    function calculateResults() {
+      var dimensionScores = {};
+      Object.keys(dimensionMeta).forEach(function (dimension) {
+        dimensionScores[dimension] = { total: 0, count: 0, percent: 0 };
+      });
+
+      questions.forEach(function (question, index) {
+        dimensionScores[question.dimension].total += responses[index];
+        dimensionScores[question.dimension].count += 1;
+      });
+
+      Object.keys(dimensionScores).forEach(function (dimension) {
+        var item = dimensionScores[dimension];
+        item.percent = Math.round((item.total / (item.count * 4)) * 100);
+      });
+
+      var total = responses.reduce(function (sum, value) { return sum + value; }, 0);
+      var percent = Math.round((total / (questions.length * 4)) * 100);
+      return {
+        percent: percent,
+        maturity: getMaturity(percent),
+        dimensions: dimensionScores
+      };
+    }
+
+    function sortedDimensions(results) {
+      return Object.keys(results.dimensions).sort(function (a, b) {
+        var difference = results.dimensions[b].percent - results.dimensions[a].percent;
+        return difference || a.localeCompare(b);
+      });
+    }
+
+    function makeInsightCard(title, body) {
+      var card = document.createElement("div");
+      var heading = document.createElement("strong");
+      var text = document.createElement("p");
+      card.className = "insight-card";
+      heading.textContent = title;
+      text.textContent = body;
+      card.appendChild(heading);
+      card.appendChild(text);
+      return card;
+    }
+
+    function renderDimensionResults(results) {
+      var container = document.getElementById("dimensionResults");
+      container.innerHTML = "";
+      Object.keys(dimensionMeta).forEach(function (dimension) {
+        var meta = dimensionMeta[dimension];
+        var percent = results.dimensions[dimension].percent;
+        var row = document.createElement("div");
+        var top = document.createElement("div");
+        var label = document.createElement("span");
+        var value = document.createElement("span");
+        var bar = document.createElement("div");
+        var fill = document.createElement("span");
+
+        row.className = "dimension-row";
+        top.className = "dimension-row-top";
+        label.textContent = meta.icon + " " + meta.label;
+        value.textContent = percent + "%";
+        bar.className = "dimension-bar";
+        fill.style.width = percent + "%";
+        bar.appendChild(fill);
+        top.appendChild(label);
+        top.appendChild(value);
+        row.appendChild(top);
+        row.appendChild(bar);
+        container.appendChild(row);
+      });
+    }
+
+    function renderInsights(results) {
+      var order = sortedDimensions(results);
+      var strongest = order[0];
+      var secondStrongest = order[1];
+      var primaryPriority = order[order.length - 1];
+      var secondaryPriority = order[order.length - 2];
+      var grid = document.getElementById("insightGrid");
+      grid.innerHTML = "";
+
+      grid.appendChild(makeInsightCard(
+        "✓ Strongest: " + strongest + " (" + results.dimensions[strongest].percent + "%)",
+        dimensionAdvice[strongest].strength
+      ));
+      grid.appendChild(makeInsightCard(
+        "✓ Supporting strength: " + secondStrongest + " (" + results.dimensions[secondStrongest].percent + "%)",
+        dimensionAdvice[secondStrongest].strength
+      ));
+      grid.appendChild(makeInsightCard(
+        "1. First priority: " + primaryPriority + " (" + results.dimensions[primaryPriority].percent + "%)",
+        dimensionAdvice[primaryPriority].priority
+      ));
+      grid.appendChild(makeInsightCard(
+        "2. Next priority: " + secondaryPriority + " (" + results.dimensions[secondaryPriority].percent + "%)",
+        dimensionAdvice[secondaryPriority].priority
+      ));
+
+      return {
+        strongest: strongest,
+        secondStrongest: secondStrongest,
+        primary: primaryPriority,
+        secondary: secondaryPriority
+      };
+    }
+
+    function createPlanCard(period, title, items) {
+      var card = document.createElement("article");
+      var label = document.createElement("small");
+      var heading = document.createElement("h4");
+      var list = document.createElement("ul");
+      card.className = "plan-card";
+      label.textContent = period;
+      heading.textContent = title;
+      items.forEach(function (item) {
+        var li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      card.appendChild(label);
+      card.appendChild(heading);
+      card.appendChild(list);
+      return card;
+    }
+
+    function renderPlan(results, priorities) {
+      var primary = dimensionAdvice[priorities.primary];
+      var secondary = dimensionAdvice[priorities.secondary];
+      var grid = document.getElementById("planGrid");
+      var plans = [
+        {
+          period: "Days 1–7",
+          title: "Align and establish the baseline",
+          items: [
+            primary.actions[0],
+            "Record the current " + priorities.primary.toLowerCase() + " score of " + results.dimensions[priorities.primary].percent + "% as your baseline."
+          ]
+        },
+        {
+          period: "Days 8–14",
+          title: "Add ownership and guardrails",
+          items: [
+            primary.actions[1],
+            secondary.actions[0]
+          ]
+        },
+        {
+          period: "Days 15–21",
+          title: "Run one controlled pilot",
+          items: [
+            primary.actions[2],
+            secondary.actions[1],
+            "Keep the pilot small enough to review every important output."
+          ]
+        },
+        {
+          period: "Days 22–30",
+          title: "Measure, learn, and decide",
+          items: [
+            secondary.actions[2],
+            "Compare results with the baseline, document failures and lessons, then decide whether to improve, expand, or stop.",
+            "Retake this assessment after the next improvement cycle."
+          ]
+        }
+      ];
+
+      grid.innerHTML = "";
+      plans.forEach(function (plan) {
+        grid.appendChild(createPlanCard(plan.period, plan.title, plan.items));
+      });
+    }
+
+    function saveLatestResult(results) {
+      var payload = {
+        score: results.percent,
+        level: results.maturity.label,
+        date: new Date().toISOString(),
+        dimensions: {}
+      };
+      Object.keys(results.dimensions).forEach(function (dimension) {
+        payload.dimensions[dimension] = results.dimensions[dimension].percent;
+      });
+      try {
+        localStorage.setItem("zynovix-ai-readiness-v1", JSON.stringify(payload));
+      } catch (error) {
+        return;
+      }
+    }
+
+    function loadPreviousResult() {
+      try {
+        var saved = JSON.parse(localStorage.getItem("zynovix-ai-readiness-v1"));
+        if (!saved || typeof saved.score !== "number") return;
+        var date = new Date(saved.date);
+        var dateText = isNaN(date.getTime()) ? "" : " on " + date.toLocaleDateString();
+        previousResult.textContent = "Previous result: " + saved.score + "/100 · " + saved.level + dateText;
+        previousResult.hidden = false;
+      } catch (error) {
+        previousResult.hidden = true;
+      }
+    }
+
+    function showResults() {
+      var results = calculateResults();
+      var priorities;
+      latestResult = results;
+      document.getElementById("scoreValue").textContent = results.percent;
+      document.getElementById("scoreRing").style.setProperty("--score-angle", (results.percent * 3.6) + "deg");
+      document.getElementById("maturityPill").textContent = results.maturity.label;
+      document.getElementById("resultTitle").textContent = results.maturity.title;
+      document.getElementById("resultSummary").textContent = results.maturity.summary;
+      renderDimensionResults(results);
+      priorities = renderInsights(results);
+      renderPlan(results, priorities);
+      saveLatestResult(results);
+      showPanel("result");
+      document.getElementById("assessment").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function startAssessment() {
+      currentQuestion = 0;
+      responses = new Array(questions.length).fill(null);
+      copyStatus.textContent = "";
+      showPanel("quiz");
+      renderQuestion();
+      document.getElementById("assessment").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function buildCopyText() {
+      if (!latestResult) return "";
+      var order = sortedDimensions(latestResult);
+      var lines = [
+        "AI Readiness Assessment — Zynovix AI",
+        "Overall score: " + latestResult.percent + "/100",
+        "Maturity level: " + latestResult.maturity.label,
+        "",
+        "Dimension scores:"
+      ];
+      Object.keys(dimensionMeta).forEach(function (dimension) {
+        lines.push("- " + dimension + ": " + latestResult.dimensions[dimension].percent + "%");
+      });
+      lines.push("");
+      lines.push("Top priority: " + order[order.length - 1]);
+      lines.push("Next priority: " + order[order.length - 2]);
+      lines.push("");
+      lines.push("Free assessment: https://zynovix.github.io/ai-readiness-assessment.html");
+      return lines.join("\n");
+    }
+
+    function fallbackCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      var copied = document.execCommand("copy");
+      document.body.removeChild(area);
+      return copied;
+    }
+
+    function copyResults() {
+      var text = buildCopyText();
+      if (!text) return;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () {
+          copyStatus.textContent = "Results copied to your clipboard.";
+        }).catch(function () {
+          copyStatus.textContent = fallbackCopy(text) ? "Results copied to your clipboard." : "Copy failed. Please try again.";
+        });
+      } else {
+        copyStatus.textContent = fallbackCopy(text) ? "Results copied to your clipboard." : "Copy failed. Please try again.";
+      }
+    }
+
+    startButton.addEventListener("click", startAssessment);
+
+    nextButton.addEventListener("click", function () {
+      if (responses[currentQuestion] === null) {
+        validationMessage.textContent = "Choose the answer that best describes your organization.";
+        return;
+      }
+      if (currentQuestion === questions.length - 1) {
+        showResults();
+        return;
+      }
+      currentQuestion += 1;
+      renderQuestion();
+    });
+
+    backButton.addEventListener("click", function () {
+      if (currentQuestion === 0) return;
+      currentQuestion -= 1;
+      renderQuestion();
+    });
+
+    document.getElementById("restartButton").addEventListener("click", startAssessment);
+    document.getElementById("copyButton").addEventListener("click", copyResults);
+    document.getElementById("printButton").addEventListener("click", function () { window.print(); });
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var expanded = button.getAttribute("aria-expanded") === "true";
+        var answer = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", expanded ? "false" : "true");
+        answer.hidden = expanded;
+      });
+    });
+
+    var themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(theme) {
+      document.body.dataset.theme = theme;
+      themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#050816" : "#f8fafc");
+    }
+
+    themeToggle.addEventListener("click", function () {
+      var nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try {
+        localStorage.setItem("zynovix-theme", nextTheme);
+      } catch (error) {
+        return;
+      }
+    });
+
+    try {
+      var savedTheme = localStorage.getItem("zynovix-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        applyTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+        applyTheme("light");
+      }
+    } catch (error) {
+      applyTheme("dark");
+    }
+
+    loadPreviousResult();
+  }());
+  </script>
+</body>
+</html>

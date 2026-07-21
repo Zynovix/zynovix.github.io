@@ -1,0 +1,2167 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude vs ChatGPT (2026): Honest, Hands-On Comparison</title>
+  <meta name="description" content="Claude vs ChatGPT in 2026: compare models, writing, coding, research, files, images, pricing, privacy, and the best AI assistant for your workflow.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Zynovix AI Editorial Team">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/claude-vs-chatgpt-2026.html">
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Claude vs ChatGPT (2026): Honest, Hands-On Comparison">
+  <meta property="og:description" content="A practical comparison of Claude and ChatGPT for writing, coding, research, files, images, price, and everyday work.">
+  <meta property="og:url" content="https://zynovix.github.io/claude-vs-chatgpt-2026.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="article:published_time" content="2026-07-21T08:00:00+04:00">
+  <meta property="article:modified_time" content="2026-07-21T08:00:00+04:00">
+  <meta property="article:section" content="AI Comparisons">
+  <meta property="article:tag" content="Claude">
+  <meta property="article:tag" content="ChatGPT">
+  <meta property="article:tag" content="AI assistants">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude vs ChatGPT (2026): Honest Comparison">
+  <meta name="twitter:description" content="Which AI assistant is better in 2026? Compare Claude and ChatGPT across the tasks that actually matter.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('zynovix-theme');
+        document.documentElement.dataset.theme = saved || 'dark';
+      } catch (e) {}
+    }());
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --surface-2: #f0f2f8;
+      --surface-3: #e8ebf5;
+      --text: #171927;
+      --muted: #63677a;
+      --line: #dde1ed;
+      --brand: #6d5dfc;
+      --brand-strong: #5544e8;
+      --brand-soft: #eeecff;
+      --chatgpt: #0a8f72;
+      --chatgpt-soft: #e4f7f1;
+      --claude: #c96647;
+      --claude-soft: #fff0e9;
+      --success: #16845b;
+      --warning: #a35c00;
+      --shadow-sm: 0 8px 28px rgba(25, 29, 58, 0.07);
+      --shadow-lg: 0 24px 70px rgba(38, 32, 92, 0.14);
+      --radius-sm: 12px;
+      --radius: 20px;
+      --radius-lg: 30px;
+      --max: 1200px;
+      --header-height: 78px;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #050816;
+      --surface: #0b1225;
+      --surface-2: #101a31;
+      --surface-3: #182540;
+      --text: #f8fafc;
+      --muted: #a8b5c7;
+      --line: #293550;
+      --brand: #22d3ee;
+      --brand-strong: #67e8f9;
+      --brand-soft: #102b3a;
+      --chatgpt: #4fd3ad;
+      --chatgpt-soft: #17372f;
+      --claude: #f09a77;
+      --claude-soft: #40271f;
+      --success: #62d8a9;
+      --warning: #ffc16b;
+      --shadow-sm: 0 8px 28px rgba(0, 0, 0, 0.22);
+      --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 28px);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 15% 20%, color-mix(in srgb, #2563eb 25%, transparent), transparent 32%),
+        radial-gradient(circle at 90% 80%, color-mix(in srgb, #7c3aed 28%, transparent), transparent 35%),
+        linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 86%, #020617));
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: "Outfit", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: var(--brand-strong); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+    a:hover { color: var(--brand); }
+    button, input, textarea, select { font: inherit; }
+    button { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--brand) 60%, transparent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 10000;
+      top: 10px;
+      left: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--text);
+      color: var(--surface);
+      transform: translateY(-150%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .progress-track {
+      position: fixed;
+      z-index: 9999;
+      inset: 0 0 auto;
+      height: 4px;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--claude), var(--brand), var(--chatgpt));
+      box-shadow: 0 0 12px color-mix(in srgb, var(--brand) 45%, transparent);
+      transition: width .08s linear;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      height: 78px;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      height: 100%;
+    }
+
+    .site-header .container { width: min(96%, 1500px); }
+
+    .brand {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border-radius: 8px;
+      background: #fff;
+      object-fit: contain;
+      padding: 2px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #8e7eff, #5544e8);
+      color: #fff;
+      font-size: 19px;
+      box-shadow: 0 8px 18px rgba(85, 68, 232, .22);
+    }
+
+    .brand-word span { color: var(--brand); }
+
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 78px;
+      right: 2%;
+      left: 2%;
+      align-items: center;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--surface) 98%, transparent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .main-nav.active { display: flex; flex-direction: column; align-items: stretch; }
+
+    .main-nav a {
+      position: relative;
+      padding: 7px 0;
+      color: #dbe5f3;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .main-nav a::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #22d3ee, #2563eb, #7c3aed);
+      content: "";
+      transition: width .28s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] { color: var(--text); }
+    .main-nav a:hover::after,
+    .main-nav a[aria-current="page"]::after { width: 100%; }
+
+    .main-nav .nav-cta {
+      display: inline-flex;
+      justify-content: center;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #22d3ee);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 12px 34px rgba(37, 99, 235, .38);
+    }
+
+    .main-nav .nav-cta::after { display: none; }
+
+    .header-actions { display: flex; align-items: center; gap: 9px; }
+
+    .menu-btn {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+      color: var(--text);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .theme-toggle {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .theme-toggle:hover { border-color: var(--brand); transform: translateY(-1px); }
+    .theme-toggle svg { width: 19px; height: 19px; }
+    .theme-toggle .moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+    .breadcrumb {
+      padding-block: 18px 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      margin-left: 7px;
+      color: var(--line);
+      content: "/";
+    }
+
+    .breadcrumb a { color: inherit; text-decoration: none; }
+    .breadcrumb a:hover { color: var(--brand); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 38px 0 52px;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(85px);
+      content: "";
+      opacity: .2;
+      pointer-events: none;
+    }
+
+    .hero::before { top: -180px; left: -160px; background: var(--claude); }
+    .hero::after { right: -170px; bottom: -200px; background: var(--chatgpt); }
+
+    .hero-grid { display: grid; gap: 34px; align-items: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 7px 11px;
+      border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+      content: "";
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent);
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+      color: var(--text);
+      line-height: 1.16;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin-bottom: 20px;
+      font-size: clamp(2.4rem, 8.5vw, 5rem);
+      letter-spacing: -.065em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--claude) 5%, var(--brand) 50%, var(--chatgpt) 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lede {
+      max-width: 760px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      align-items: center;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .hero-meta svg { width: 16px; height: 16px; color: var(--brand); }
+
+    .versus-card {
+      position: relative;
+      min-height: 300px;
+      padding: 22px;
+      border: 1px solid color-mix(in srgb, var(--line) 84%, transparent);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 94%, var(--claude) 6%), color-mix(in srgb, var(--surface) 94%, var(--chatgpt) 6%));
+      box-shadow: var(--shadow-lg);
+    }
+
+    .versus-stage {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+      min-height: 190px;
+    }
+
+    .ai-orb {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .ai-logo {
+      display: grid;
+      width: clamp(74px, 21vw, 108px);
+      height: clamp(74px, 21vw, 108px);
+      place-items: center;
+      border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+      border-radius: 30%;
+      font-size: clamp(1.8rem, 8vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.07em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 16px 34px rgba(20,25,50,.12);
+      transform: rotate(-3deg);
+    }
+
+    .ai-orb.chatgpt .ai-logo { background: var(--chatgpt-soft); color: var(--chatgpt); transform: rotate(3deg); }
+    .ai-orb.claude .ai-logo { background: var(--claude-soft); color: var(--claude); }
+    .ai-name { font-size: 15px; font-weight: 850; letter-spacing: -.02em; }
+
+    .vs-badge {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--text);
+      color: var(--surface);
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 9px 22px rgba(30, 30, 50, .18);
+    }
+
+    .verdict-chip {
+      margin: 8px 0 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: color-mix(in srgb, var(--surface) 86%, transparent);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .verdict-chip strong { color: var(--text); }
+
+    .article-layout { display: grid; gap: 28px; align-items: start; }
+    .toc-wrap { min-width: 0; }
+
+    .toc {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toc summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 850;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .toc summary::-webkit-details-marker { display: none; }
+    .toc summary::after { content: "+"; color: var(--brand); font-size: 20px; line-height: 1; }
+    .toc[open] summary::after { content: "−"; }
+
+    .toc ol { margin: 14px 0 0; padding: 13px 0 0 21px; border-top: 1px solid var(--line); }
+    .toc li { margin: 4px 0; color: var(--muted); }
+    .toc a {
+      display: block;
+      padding: 4px 6px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      text-decoration: none;
+      transition: color .18s ease, background .18s ease;
+    }
+
+    .toc a:hover { color: var(--brand); background: var(--brand-soft); }
+    .toc a.active { color: var(--brand-strong); background: var(--brand-soft); font-weight: 800; }
+
+    .article {
+      min-width: 0;
+      padding-bottom: 70px;
+    }
+
+    .article-section {
+      margin-bottom: 34px;
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-section h2 {
+      margin-bottom: 16px;
+      font-size: clamp(1.55rem, 5vw, 2.15rem);
+      letter-spacing: -.045em;
+    }
+
+    .article-section h3 {
+      margin: 28px 0 10px;
+      font-size: clamp(1.16rem, 3vw, 1.38rem);
+      letter-spacing: -.025em;
+    }
+
+    .article-section p { margin: 0 0 16px; }
+    .article-section p:last-child { margin-bottom: 0; }
+    .article-section ul, .article-section ol { padding-left: 22px; }
+    .article-section li { margin-block: 8px; }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--brand-strong);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .note {
+      margin: 20px 0;
+      padding: 16px 17px;
+      border-left: 4px solid var(--brand);
+      border-radius: 0 14px 14px 0;
+      background: var(--brand-soft);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note strong { color: var(--text); }
+    .note.warning { border-left-color: var(--warning); background: color-mix(in srgb, var(--surface) 84%, #ffb33b 16%); }
+
+    .winner-box {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 18px;
+      border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--line));
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--brand-soft), color-mix(in srgb, var(--surface) 92%, var(--chatgpt) 8%));
+    }
+
+    .winner-box .label {
+      color: var(--brand-strong);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .winner-box strong { font-size: 1.1rem; line-height: 1.45; }
+
+    .quick-grid,
+    .comparison-grid,
+    .related-grid,
+    .pros-cons-grid { display: grid; gap: 16px; }
+
+    .quick-card,
+    .comparison-card,
+    .related-card,
+    .pros-card {
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--surface-2);
+    }
+
+    .quick-card { padding: 17px; }
+    .quick-card .icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 13px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+    }
+    .quick-card svg { width: 20px; height: 20px; }
+    .quick-card h3 { margin: 0 0 7px; font-size: 1rem; }
+    .quick-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .table-scroll {
+      width: 100%;
+      margin: 20px 0;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    caption {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    thead th {
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody th { width: 25%; color: var(--text); font-weight: 800; }
+    tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 54%, transparent); }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .tag.claude { background: var(--claude-soft); color: var(--claude); }
+    .tag.chatgpt { background: var(--chatgpt-soft); color: var(--chatgpt); }
+    .tag.tie { background: var(--brand-soft); color: var(--brand-strong); }
+
+    .comparison-card { overflow: hidden; background: var(--surface); }
+    .comparison-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .comparison-card h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .comparison-card-head p { margin: 0; color: var(--muted); font-size: 13px; }
+    .comparison-card-body { padding: 18px; }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 76px 1fr 32px;
+      gap: 10px;
+      align-items: center;
+      margin: 11px 0;
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .score-track { height: 8px; overflow: hidden; border-radius: 99px; background: var(--surface-3); }
+    .score-fill { height: 100%; border-radius: inherit; }
+    .score-fill.claude { background: var(--claude); }
+    .score-fill.chatgpt { background: var(--chatgpt); }
+    .score-value { color: var(--muted); font-size: 12px; text-align: right; }
+    .score-note { margin: 15px 0 0; color: var(--muted); font-size: 13px; }
+
+    .pros-card { overflow: hidden; background: var(--surface); }
+    .pros-card h3 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.06rem;
+    }
+    .pros-card.claude h3 { background: var(--claude-soft); color: var(--claude); }
+    .pros-card.chatgpt h3 { background: var(--chatgpt-soft); color: var(--chatgpt); }
+    .pros-card ul { margin: 0; padding: 15px 18px 17px 38px; }
+    .pros-card li { margin: 7px 0; }
+
+    .prompt-card {
+      margin: 18px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #10131c;
+      color: #eef0f8;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .prompt-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid #2b3040;
+      background: #171b27;
+    }
+
+    .prompt-title { font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+    .copy-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border: 1px solid #3b4155;
+      border-radius: 9px;
+      background: #222738;
+      color: #f5f6fb;
+      font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background .18s ease, border-color .18s ease;
+    }
+
+    .copy-button:hover { border-color: #8175ff; background: #2a2f44; }
+    .copy-button svg { width: 15px; height: 15px; }
+    .prompt-text {
+      margin: 0;
+      padding: 17px;
+      overflow-x: auto;
+      color: #d7daea;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .decision-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .decision-item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-2);
+    }
+
+    .decision-num {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .decision-item h3 { margin: 0 0 4px; font-size: 1rem; }
+    .decision-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-2);
+    }
+
+    .faq-question {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--brand);
+      font-size: 19px;
+      transition: transform .2s ease;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .24s ease; }
+    .faq-answer > div { overflow: hidden; }
+    .faq-answer p { margin: 0; padding: 0 16px 16px; color: var(--muted); }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+
+    .source-list { margin-bottom: 0 !important; }
+    .source-list a { overflow-wrap: anywhere; }
+
+    .author-box {
+      display: grid;
+      gap: 16px;
+      margin: 0 0 34px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--surface), var(--brand-soft));
+      box-shadow: var(--shadow-sm);
+    }
+
+    .author-avatar {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #8e7eff, #5544e8);
+      color: #fff;
+      font-size: 28px;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(85,68,232,.2);
+    }
+
+    .author-box h2 { margin: 0 0 5px; font-size: 1.12rem; }
+    .author-box p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .related-card {
+      display: flex;
+      min-height: 170px;
+      flex-direction: column;
+      padding: 18px;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .related-card:hover {
+      border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+      color: var(--text);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .related-card .category { color: var(--brand-strong); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .related-card h3 { margin: 10px 0 8px; font-size: 1.05rem; line-height: 1.35; }
+    .related-card p { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .related-card .read { margin-top: auto; color: var(--brand-strong); font-size: 13px; font-weight: 850; }
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      background: color-mix(in srgb, #020617 62%, transparent);
+    }
+
+    .footer-inner { display: grid; gap: 18px; }
+    .footer-inner p { margin: 0; color: var(--muted); font-size: 13px; }
+    .footer-brand-group { display: grid; justify-items: start; gap: 10px; }
+    .aitd-badge-link { display: inline-flex; width: max-content; border-radius: 10px; transition: transform .2s ease, opacity .2s ease; }
+    .aitd-badge-link:hover { transform: translateY(-2px); opacity: .9; }
+    .aitd-badge-link img { display: block; width: 120px; height: 36px; object-fit: contain; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .footer-links a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .footer-links a:hover { color: var(--brand); }
+
+    .back-to-top {
+      position: fixed;
+      z-index: 800;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--brand-strong);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top svg { width: 20px; height: 20px; }
+
+    @media (min-width: 600px) {
+      .container { width: min(calc(100% - 48px), var(--max)); }
+      .quick-grid, .pros-cons-grid, .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .article-section { padding: 30px; }
+      .author-box { grid-template-columns: auto 1fr; align-items: center; }
+    }
+
+    @media (min-width: 820px) {
+      .hero { padding: 58px 0 68px; }
+      .hero-grid { grid-template-columns: minmax(0, 1.35fr) minmax(310px, .65fr); }
+      .quick-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 900px) {
+      .main-nav {
+        display: flex;
+        position: static;
+        width: auto;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        flex-direction: row;
+        align-items: center;
+        gap: 28px;
+      }
+      .main-nav a { padding: 8px 0; }
+      .menu-btn { display: none; }
+      .footer-inner { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 22px; }
+      .footer-links { justify-self: center; }
+      .footer-inner > p { justify-self: end; text-align: right; }
+    }
+
+    @media (min-width: 1024px) {
+      .article-layout { grid-template-columns: 230px minmax(0, 1fr); gap: 34px; }
+      .toc-wrap { position: sticky; top: calc(var(--header-height) + 22px); }
+      .toc { max-height: calc(100vh - var(--header-height) - 44px); overflow-y: auto; }
+      .toc summary { cursor: default; pointer-events: none; }
+      .toc summary::after { display: none; }
+      .toc ol { display: block !important; }
+    }
+
+    @media (max-width: 599px) {
+      .brand-word { font-size: .95rem; }
+      .brand img { width: 46px; height: 46px; flex-basis: 46px; }
+      .hero { padding-top: 27px; }
+      .versus-card { min-height: 255px; }
+      .versus-stage { min-height: 160px; }
+      .article-section { margin-bottom: 22px; }
+      .table-scroll::after {
+        display: block;
+        padding: 8px 12px;
+        border-top: 1px solid var(--line);
+        background: var(--surface-2);
+        color: var(--muted);
+        content: "Swipe horizontally to see the full table →";
+        font-size: 11px;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media print {
+      .site-header, .progress-track, .toc-wrap, .theme-toggle, .back-to-top, .site-footer, .copy-button { display: none !important; }
+      body { background: #fff; color: #111; }
+      .container { width: 100%; max-width: none; }
+      .hero { padding: 20px 0; }
+      .hero-grid, .article-layout { display: block; }
+      .versus-card { margin-top: 20px; box-shadow: none; }
+      .article-section, .author-box { break-inside: avoid; box-shadow: none; }
+      a { color: inherit; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://zynovix.github.io/claude-vs-chatgpt-2026.html"
+    },
+    "headline": "Claude vs ChatGPT (2026): Honest, Hands-On Comparison",
+    "description": "A practical comparison of Claude and ChatGPT for writing, coding, research, files, images, pricing, privacy, and everyday work.",
+    "image": "https://zynovix.github.io/logo.png?v=20260712",
+    "datePublished": "2026-07-21T08:00:00+04:00",
+    "dateModified": "2026-07-21T08:00:00+04:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Zynovix AI Editorial Team",
+      "url": "https://zynovix.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zynovix AI",
+      "url": "https://zynovix.github.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://zynovix.github.io/logo.png?v=20260712"
+      }
+    },
+    "articleSection": "AI Comparisons",
+    "keywords": ["Claude vs ChatGPT", "Claude vs ChatGPT 2026", "best AI assistant", "ChatGPT", "Claude AI"],
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Claude better than ChatGPT in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude is often the better fit for careful long-form writing, close reading, and workflows centered on large documents. ChatGPT is the stronger all-round choice for most people because it combines strong reasoning with image generation, voice, data analysis, custom GPTs, projects, research, and a broader tool ecosystem."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for coding: Claude or ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are capable coding assistants. Claude is especially compelling when paired with Claude Code for repository work, while ChatGPT offers Codex and a broad integrated workflow. The better choice depends on your repository, language, tool access, and whether you value focused terminal work or an all-in-one workspace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for writing: Claude or ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude has a slight edge for natural long-form prose, editing, and preserving a requested voice. ChatGPT is usually better when writing is one part of a larger workflow involving research, images, data, automation, or custom assistants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Claude and ChatGPT free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both offer free plans with usage limits. Paid consumer plans begin at different tiers and availability can vary by region. As of July 21, 2026, ChatGPT Plus and Claude Pro are each listed at 20 US dollars per month before local taxes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Claude generate images?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude can analyze images and create visual or interactive artifacts, but ChatGPT is the clearer choice when native text-to-image generation and conversational image editing are central to the workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI is better for research?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both support web-assisted research. ChatGPT has an edge for a broad, tool-rich research workflow, while Claude is excellent for reading, synthesizing, and writing from a supplied document set. Always open and verify important citations yourself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Claude and ChatGPT with confidential information?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Do not paste confidential or regulated information into a consumer AI account without checking the current plan terms, retention settings, organizational controls, and your employer's policy. Business and enterprise plans provide different controls from consumer plans."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I subscribe to both Claude and ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most people should start with one paid plan. Paying for both makes sense for professionals who can recover the extra cost by cross-checking important work or using Claude for document-heavy writing and ChatGPT for multimodal, research, image, data, and automation tasks."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://zynovix.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://zynovix.github.io/blog.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claude vs ChatGPT (2026)",
+        "item": "https://zynovix.github.io/claude-vs-chatgpt-2026.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-bar" id="reading-progress"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" decoding="async">
+        <span class="brand-word">Zynovix AI</span>
+      </a>
+
+      <nav class="main-nav" id="nav-menu" aria-label="Primary navigation">
+        <a href="tools.html">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html" aria-current="page">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Change color theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+          </svg>
+        </button>
+        <button class="menu-btn" id="menu-button" type="button" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li aria-current="page">Claude vs ChatGPT</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="hero" aria-labelledby="article-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Updated for July 2026</p>
+          <h1 id="article-title"><span class="gradient-text">Claude vs ChatGPT</span> (2026)</h1>
+          <p class="hero-lede">Which AI assistant deserves your time and money? We compare the current products—not just benchmark headlines—across writing, coding, research, files, images, pricing, privacy, and everyday usefulness.</p>
+          <p class="hero-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+              <span id="reading-time">12 min read</span>
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+              Fact-checked against official sources
+            </span>
+            <span>By Zynovix AI Editorial Team</span>
+          </p>
+        </div>
+
+        <div class="versus-card" aria-label="Claude and ChatGPT comparison illustration">
+          <div class="versus-stage">
+            <div class="ai-orb claude">
+              <div class="ai-logo" aria-hidden="true">C</div>
+              <div class="ai-name">Claude</div>
+            </div>
+            <div class="vs-badge" aria-hidden="true">VS</div>
+            <div class="ai-orb chatgpt">
+              <div class="ai-logo" aria-hidden="true">G</div>
+              <div class="ai-name">ChatGPT</div>
+            </div>
+          </div>
+          <p class="verdict-chip"><strong>Short answer:</strong> ChatGPT is the better all-rounder; Claude remains an exceptional specialist for writing and document-heavy work.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container article-layout">
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <details class="toc" open>
+          <summary>Table of contents</summary>
+          <ol>
+            <li><a href="#quick-verdict">Quick verdict</a></li>
+            <li><a href="#at-a-glance">At a glance</a></li>
+            <li><a href="#models">Models and product strategy</a></li>
+            <li><a href="#writing">Writing and editing</a></li>
+            <li><a href="#coding">Coding</a></li>
+            <li><a href="#research">Research and accuracy</a></li>
+            <li><a href="#files">Files and long documents</a></li>
+            <li><a href="#multimodal">Images, voice, and multimodal</a></li>
+            <li><a href="#features">Features and ecosystem</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#privacy">Privacy and business use</a></li>
+            <li><a href="#scores">Comparison scores</a></li>
+            <li><a href="#prompts">Prompts to test both</a></li>
+            <li><a href="#choose">Which one should you choose?</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ol>
+        </details>
+      </aside>
+
+      <article class="article" id="article-content">
+        <section class="article-section" id="quick-verdict">
+          <span class="section-kicker">The answer in 30 seconds</span>
+          <h2>Claude vs ChatGPT: quick verdict</h2>
+          <p><strong>ChatGPT is our overall winner for most people in 2026.</strong> The reason is not a clean sweep in raw model quality. It is the completeness of the product: strong general reasoning, web research, native image generation and editing, voice, data analysis, projects, custom GPTs, scheduled tasks, Codex, and a growing work-and-plugin ecosystem.</p>
+          <p><strong>Claude is the better choice for a narrower but important group.</strong> If most of your day involves reading long documents, refining prose, maintaining a consistent tone, or collaborating on a complex codebase through Claude Code, Claude can feel more focused and less cluttered. Its Artifacts experience is also excellent for turning an idea into a shareable tool, document, visualization, or prototype.</p>
+
+          <div class="quick-grid" aria-label="Quick recommendations">
+            <div class="quick-card">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v15.5"></path><path d="M6 18h14v2H6a2 2 0 1 1 0-4h12"></path></svg>
+              </span>
+              <h3>Best for writing</h3>
+              <p><strong>Claude</strong> for polished long-form prose and voice preservation.</p>
+            </div>
+            <div class="quick-card">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"></path></svg>
+              </span>
+              <h3>Best for coding</h3>
+              <p><strong>Tie</strong>—choose Claude Code or Codex based on your workflow.</p>
+            </div>
+            <div class="quick-card">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4M11 8v6M8 11h6"></path></svg>
+              </span>
+              <h3>Best for research</h3>
+              <p><strong>ChatGPT</strong> for the broader research and tool workflow.</p>
+            </div>
+            <div class="quick-card">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+              </span>
+              <h3>Best all-rounder</h3>
+              <p><strong>ChatGPT</strong> for multimodal creation and a wider toolset.</p>
+            </div>
+          </div>
+
+          <div class="winner-box">
+            <span class="label">Overall winner</span>
+            <strong>ChatGPT—by ecosystem breadth, not because Claude is universally less capable.</strong>
+          </div>
+
+          <p class="note"><strong>Important:</strong> AI products change quickly. Model access, usage limits, and features can differ by plan, region, workspace settings, and rollout status. This comparison was checked on <time datetime="2026-07-21">July 21, 2026</time>.</p>
+        </section>
+
+        <section class="article-section" id="at-a-glance">
+          <span class="section-kicker">Side-by-side</span>
+          <h2>Claude vs ChatGPT at a glance</h2>
+          <p>This table compares the consumer products people actually use. API pricing and enterprise contracts are separate and should not be confused with app subscriptions.</p>
+
+          <div class="table-scroll" role="region" aria-label="Claude versus ChatGPT feature table" tabindex="0">
+            <table>
+              <caption>Practical comparison as checked July 21, 2026. Availability and limits may change.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Claude</th>
+                  <th scope="col">ChatGPT</th>
+                  <th scope="col">Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Everyday answers</th>
+                  <td>Thoughtful, direct, often strong at nuance</td>
+                  <td>Versatile, fast, and adaptable across task types</td>
+                  <td><span class="tag tie">Tie</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Long-form writing</th>
+                  <td>Natural tone, strong structure, good voice control</td>
+                  <td>Strong, especially with detailed style instructions</td>
+                  <td><span class="tag claude">Claude</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Coding</th>
+                  <td>Claude Code plus strong repository reasoning</td>
+                  <td>Codex plus integrated chat, work, and review tools</td>
+                  <td><span class="tag tie">Depends</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Web research</th>
+                  <td>Web search and Research; strong synthesis</td>
+                  <td>Search, deep research, connected tools, finished deliverables</td>
+                  <td><span class="tag chatgpt">ChatGPT</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Large documents</th>
+                  <td>Excellent close reading and document-centered workflows</td>
+                  <td>Strong file analysis, projects, and data tools</td>
+                  <td><span class="tag claude">Claude</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Image generation</th>
+                  <td>Visual understanding and artifact creation; not the main native image workflow</td>
+                  <td>Native image generation and conversational editing</td>
+                  <td><span class="tag chatgpt">ChatGPT</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Voice</th>
+                  <td>Available experiences vary by surface</td>
+                  <td>Mature voice workflow across supported apps and web</td>
+                  <td><span class="tag chatgpt">ChatGPT</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Reusable assistants</th>
+                  <td>Projects, connectors, skills, and specialized Claude apps</td>
+                  <td>Projects, custom GPTs, plugins, tasks, and memory</td>
+                  <td><span class="tag chatgpt">ChatGPT</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Interactive creation</th>
+                  <td>Artifacts are focused and easy to share or remix</td>
+                  <td>Canvas, files, images, data analysis, Sites, and work deliverables</td>
+                  <td><span class="tag tie">Tie</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Paid entry plan</th>
+                  <td>Claude Pro: $20/month in the US</td>
+                  <td>ChatGPT Plus: $20/month in the US</td>
+                  <td><span class="tag tie">Tie</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="article-section" id="models">
+          <span class="section-kicker">What powers the products</span>
+          <h2>Models and product strategy in 2026</h2>
+          <p>The name on the app is not the model. Claude is Anthropic's product and model family; ChatGPT is OpenAI's product that can route among multiple GPT models and reasoning levels. That distinction matters because the model you receive can change with your plan, selected mode, usage limits, or automatic routing.</p>
+
+          <h3>Claude's current approach</h3>
+          <p>Anthropic offers a tiered model family that includes faster models for high-volume work and more capable models for difficult reasoning, coding, and agentic tasks. Its 2026 lineup includes the Sonnet, Opus, and Haiku families, with newer Fable-level options appearing at the high end. Claude's product strategy is increasingly work-oriented: chat sits alongside Claude Code, Cowork, Artifacts, connectors, and specialized experiences.</p>
+
+          <h3>ChatGPT's current approach</h3>
+          <p>ChatGPT combines a fast everyday route with higher-reasoning options. As of this review, OpenAI lists GPT-5.5 Instant for everyday responses and GPT-5.6 Sol reasoning modes for eligible paid plans, with GPT-5.6 Sol Pro at the highest ChatGPT reasoning tier. Rollout is gradual, so a model described on the pricing page may not appear in every account immediately.</p>
+
+          <p class="note warning"><strong>Do not choose from model names alone.</strong> The best model on paper is irrelevant if your plan gives it a small allowance or your workflow depends on a tool the other product handles better. Evaluate the full product: model, limits, tools, interface, integrations, and output quality on your own tasks.</p>
+        </section>
+
+        <section class="article-section" id="writing">
+          <span class="section-kicker">Prose, editing, and tone</span>
+          <h2>Which is better for writing?</h2>
+          <p><strong>Claude wins narrowly for pure writing.</strong> It is particularly good at turning rough material into coherent long-form prose without making every section sound like a template. It tends to handle tone constraints, narrative flow, and close editing with a restrained style—useful for reports, essays, newsletters, scripts, and brand content.</p>
+          <p>ChatGPT is still a very capable writer. Its advantage appears when writing is connected to other tasks: researching current sources, analyzing a spreadsheet, generating a supporting image, building a content calendar, or packaging the result into a document. It can also match a voice well, but it benefits from explicit constraints and an example of the desired style.</p>
+
+          <div class="pros-cons-grid">
+            <div class="pros-card claude">
+              <h3>Why writers choose Claude</h3>
+              <ul>
+                <li>Natural long-form rhythm and transitions</li>
+                <li>Strong editing without unnecessary expansion</li>
+                <li>Good at preserving a supplied voice or structure</li>
+                <li>Comfortable working from large reference documents</li>
+              </ul>
+            </div>
+            <div class="pros-card chatgpt">
+              <h3>Why writers choose ChatGPT</h3>
+              <ul>
+                <li>Research, writing, images, and data in one workflow</li>
+                <li>Custom GPTs and projects for repeatable style rules</li>
+                <li>Strong brainstorming and content repurposing</li>
+                <li>Broader multimodal publishing support</li>
+              </ul>
+            </div>
+          </div>
+
+          <p><strong>Best choice:</strong> Claude for authors, editors, and document-first knowledge workers. ChatGPT for marketers and creators who need an end-to-end content system rather than a writing surface alone.</p>
+        </section>
+
+        <section class="article-section" id="coding">
+          <span class="section-kicker">From snippets to repositories</span>
+          <h2>Claude vs ChatGPT for coding</h2>
+          <p>For coding, a simple winner label would be misleading. Both companies now offer agentic coding products that can inspect repositories, edit files, run commands, and help with tests and reviews. The practical comparison is therefore often <strong>Claude Code vs Codex</strong>, not a single chat response against another.</p>
+
+          <h3>Where Claude is compelling</h3>
+          <p>Claude Code is a focused developer tool that works in the terminal and supported editor surfaces. It is well suited to codebase exploration, multi-file changes, debugging, refactoring, and tool-assisted workflows. Developers who want an AI coding partner close to their shell may prefer its directness and strong repository-level reasoning.</p>
+
+          <h3>Where ChatGPT is compelling</h3>
+          <p>ChatGPT pairs conversational help with Codex and a broader work environment. That combination is useful when a coding task includes planning, research, documentation, browser validation, pull-request review, or deliverables outside the repository. It is also convenient for people who move between technical and nontechnical tasks during the same project.</p>
+
+          <div class="table-scroll" role="region" aria-label="Coding workflow comparison" tabindex="0">
+            <table>
+              <caption>Choose the workflow that matches your repository and risk level.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Coding need</th>
+                  <th scope="col">Better starting point</th>
+                  <th scope="col">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Explain a small code snippet</th>
+                  <td>Either</td>
+                  <td>Both are more than capable; prompt clarity matters more.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Focused terminal workflow</th>
+                  <td>Claude Code</td>
+                  <td>Developer-centered flow with repository and command-line tools.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Mixed research + coding project</th>
+                  <td>ChatGPT + Codex</td>
+                  <td>Wider product workflow around implementation.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Large refactor</th>
+                  <td>Test both</td>
+                  <td>Repository structure, language, tests, and instructions dominate.</td>
+                </tr>
+                <tr>
+                  <th scope="row">High-risk production change</th>
+                  <td>Neither unattended</td>
+                  <td>Require review, tests, backups, least privilege, and staged rollout.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="note"><strong>Our coding verdict:</strong> a functional tie. Use each tool on a representative issue from your own repository. Compare the patch, tests, hidden assumptions, security impact, and how much supervision was needed—not just whether the code looked convincing.</p>
+        </section>
+
+        <section class="article-section" id="research">
+          <span class="section-kicker">Sources, synthesis, and trust</span>
+          <h2>Research and factual accuracy</h2>
+          <p>Both Claude and ChatGPT can search the web and synthesize sources. Both can also produce a confident mistake, misread a source, or cite a page that does not fully support the claim. The correct question is not “Which one never hallucinates?” Neither earns that promise. The useful question is “Which workflow makes verification easier for this task?”</p>
+
+          <p><strong>ChatGPT has the overall research edge</strong> because research is integrated with a broader toolset. Search is useful for quick current questions, while deep research is designed for multi-step source gathering and structured, cited outputs. Its wider environment is helpful when you want to turn findings into a spreadsheet, chart, report, presentation, or continuing project.</p>
+          <p><strong>Claude is excellent at synthesis</strong>, especially when you already have a curated set of source documents. Its Research, web search, projects, connectors, and long-document strengths make it a serious alternative for literature review, policy analysis, and internal knowledge work.</p>
+
+          <h3>A safer research workflow</h3>
+          <ol>
+            <li>Ask the assistant to separate verified facts, interpretations, and open questions.</li>
+            <li>Require a direct source link for every time-sensitive or numerical claim.</li>
+            <li>Open the most important links and confirm the cited passage yourself.</li>
+            <li>Prefer primary sources: official documentation, filings, papers, and datasets.</li>
+            <li>Run a second pass asking the model to challenge its own conclusion.</li>
+          </ol>
+        </section>
+
+        <section class="article-section" id="files">
+          <span class="section-kicker">PDFs, spreadsheets, and context</span>
+          <h2>Files and long documents</h2>
+          <p>Claude has built much of its reputation around long-context work. In practice, it is excellent at close reading, cross-document comparison, rewriting from references, and maintaining a coherent response across a large body of material. Claude Projects can organize ongoing work, and Anthropic's RAG support helps scale project knowledge beyond simply pasting everything into one prompt.</p>
+          <p>ChatGPT is also strong with PDFs, documents, presentations, images, and structured data. Its advantage is breadth: code execution and data analysis make it especially effective for CSVs and spreadsheets, while Projects keep related chats, instructions, and files together. ChatGPT Work can also create finished documents, slide decks, spreadsheets, reports, and sites on eligible plans.</p>
+
+          <p><strong>Winner for close reading and long-form synthesis:</strong> Claude. <strong>Winner for varied file types, analysis, and finished deliverables:</strong> ChatGPT.</p>
+
+          <p class="note warning"><strong>Context-window warning:</strong> a model accepting a large file does not guarantee perfect recall of every detail. For critical analysis, ask for page or section references, split the task into checkpoints, and verify the original document.</p>
+        </section>
+
+        <section class="article-section" id="multimodal">
+          <span class="section-kicker">Beyond text</span>
+          <h2>Images, voice, and multimodal work</h2>
+          <p><strong>ChatGPT wins the multimodal category.</strong> It can analyze uploaded images, generate new images from text, and edit images conversationally. It also combines voice, files, data analysis, search, and visual creation in one familiar interface. For creators, teachers, product teams, and anyone who thinks visually, that breadth is a meaningful advantage.</p>
+          <p>Claude can understand images and build visual or interactive Artifacts. Artifacts are especially useful when the desired output is a shareable app, dashboard, diagram, document, or prototype. But if your main requirement is native text-to-image generation and iterative image editing, ChatGPT is the more complete choice.</p>
+        </section>
+
+        <section class="article-section" id="features">
+          <span class="section-kicker">The product around the model</span>
+          <h2>Features and ecosystem</h2>
+          <p>The strongest argument for ChatGPT is the number of jobs it can handle without forcing you to change tools. The strongest argument for Claude is that its core experiences often feel intentionally designed around a few professional workflows.</p>
+
+          <div class="table-scroll" role="region" aria-label="Product ecosystem comparison" tabindex="0">
+            <table>
+              <caption>Selected product features; exact access depends on plan and rollout.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col">Claude</th>
+                  <th scope="col">ChatGPT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Project workspaces</th>
+                  <td>Yes—projects organize chats and documents</td>
+                  <td>Yes—projects combine chats, files, instructions, and memory</td>
+                </tr>
+                <tr>
+                  <th scope="row">Interactive creation</th>
+                  <td>Artifacts, live artifacts, sharing, and remixing</td>
+                  <td>Canvas, data analysis, images, documents, and Sites</td>
+                </tr>
+                <tr>
+                  <th scope="row">Coding agent</th>
+                  <td>Claude Code</td>
+                  <td>Codex</td>
+                </tr>
+                <tr>
+                  <th scope="row">Connected tools</th>
+                  <td>Connectors and desktop extensions</td>
+                  <td>Plugins/apps and connected services</td>
+                </tr>
+                <tr>
+                  <th scope="row">Custom workflows</th>
+                  <td>Projects, skills, connectors, specialized apps</td>
+                  <td>Custom GPTs, projects, skills, plugins, tasks</td>
+                </tr>
+                <tr>
+                  <th scope="row">Proactive automation</th>
+                  <td>Tool- and integration-dependent workflows</td>
+                  <td>Scheduled tasks and longer-running Work workflows</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Ecosystem winner: ChatGPT.</strong> Claude's ecosystem is expanding quickly, but ChatGPT currently gives the average user more ways to move from question to completed output in the same product.</p>
+        </section>
+
+        <section class="article-section" id="pricing">
+          <span class="section-kicker">What you pay</span>
+          <h2>Claude vs ChatGPT pricing</h2>
+          <p>Both services have useful free tiers, and both reserve higher limits or advanced capabilities for paid plans. The headline paid entry price is the same in the United States: $20 per month for Claude Pro or ChatGPT Plus. Beyond that, the plan structures differ.</p>
+
+          <div class="table-scroll" role="region" aria-label="Claude and ChatGPT pricing comparison" tabindex="0">
+            <table>
+              <caption>US list pricing checked July 21, 2026; taxes, local currency, promotions, and plan availability may differ.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Service</th>
+                  <th scope="col">Plan</th>
+                  <th scope="col">Listed price</th>
+                  <th scope="col">Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" rowspan="4">Claude</th>
+                  <td>Free</td>
+                  <td>$0</td>
+                  <td>Occasional use and evaluation</td>
+                </tr>
+                <tr>
+                  <td>Pro</td>
+                  <td>$20/month or $200/year</td>
+                  <td>Regular individual use</td>
+                </tr>
+                <tr>
+                  <td>Max 5x</td>
+                  <td>$100/month</td>
+                  <td>Frequent professional use</td>
+                </tr>
+                <tr>
+                  <td>Max 20x</td>
+                  <td>$200/month</td>
+                  <td>Heavy individual use</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="4">ChatGPT</th>
+                  <td>Free</td>
+                  <td>$0</td>
+                  <td>Everyday tasks with tighter limits</td>
+                </tr>
+                <tr>
+                  <td>Go</td>
+                  <td>$8/month</td>
+                  <td>More everyday usage at a lower price</td>
+                </tr>
+                <tr>
+                  <td>Plus</td>
+                  <td>$20/month</td>
+                  <td>Advanced reasoning and expanded tools</td>
+                </tr>
+                <tr>
+                  <td>Pro</td>
+                  <td>From $200/month</td>
+                  <td>Highest consumer limits and Pro reasoning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Which paid plan is better value?</h3>
+          <p>At $20 per month, <strong>ChatGPT Plus offers better value for most general users</strong> because it covers more task types. Claude Pro can be the better investment for a writer, researcher, analyst, or developer who consistently prefers Claude's output and does not need ChatGPT's image or broader automation features.</p>
+          <p>Usage caps are not perfectly comparable. They can depend on model, message length, files, tools, conversation size, demand, and plan. Before subscribing for one large project, check the current plan page and the limits shown inside your own account.</p>
+        </section>
+
+        <section class="article-section" id="privacy">
+          <span class="section-kicker">Data and responsible use</span>
+          <h2>Privacy, security, and business use</h2>
+          <p>Privacy cannot be reduced to “Claude is private” or “ChatGPT is private.” The relevant policy depends on whether you use a consumer, team, business, API, or enterprise product; whether model-improvement controls are enabled; which connectors are active; and what retention or administrator settings apply.</p>
+
+          <ul>
+            <li><strong>For personal use:</strong> review data controls, training preferences, chat history, sharing settings, and deletion options.</li>
+            <li><strong>For company work:</strong> use an approved business or enterprise workspace rather than a personal account.</li>
+            <li><strong>For regulated data:</strong> confirm contractual, residency, retention, access-control, and compliance requirements with the vendor and your legal or security team.</li>
+            <li><strong>For connectors:</strong> grant the minimum permissions needed and periodically remove unused integrations.</li>
+          </ul>
+
+          <p class="note warning"><strong>Safe default:</strong> never paste passwords, private keys, unpublished financial data, medical records, confidential client material, or proprietary source code into an AI service unless your organization has explicitly approved the product and configuration for that data.</p>
+        </section>
+
+        <section class="article-section" id="scores">
+          <span class="section-kicker">Editorial assessment</span>
+          <h2>Claude vs ChatGPT comparison scores</h2>
+          <p>These are Zynovix editorial scores for the complete consumer products, not scientific model benchmarks. A one-point difference means “slightly better fit,” not a universal quality gap.</p>
+
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Writing & editing</h3><p>Prose quality, tone, and revision</p></div>
+                <span class="tag claude">Claude wins</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:94%"></span></span><span class="score-value">9.4</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:90%"></span></span><span class="score-value">9.0</span></div>
+                <p class="score-note">Claude's edge is strongest on long, style-sensitive drafts.</p>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Coding workflow</h3><p>Repository work, tools, and review</p></div>
+                <span class="tag tie">Tie</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:94%"></span></span><span class="score-value">9.4</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:94%"></span></span><span class="score-value">9.4</span></div>
+                <p class="score-note">Claude Code and Codex are both serious tools; repository fit decides.</p>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Research & analysis</h3><p>Sources, synthesis, and tools</p></div>
+                <span class="tag chatgpt">ChatGPT wins</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:90%"></span></span><span class="score-value">9.0</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:94%"></span></span><span class="score-value">9.4</span></div>
+                <p class="score-note">ChatGPT's wider research-to-deliverable flow earns the edge.</p>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Multimodal creation</h3><p>Images, voice, files, and data</p></div>
+                <span class="tag chatgpt">ChatGPT wins</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:84%"></span></span><span class="score-value">8.4</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:96%"></span></span><span class="score-value">9.6</span></div>
+                <p class="score-note">Native image creation and broader modality support separate ChatGPT.</p>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Long documents</h3><p>Close reading and sustained context</p></div>
+                <span class="tag claude">Claude wins</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:96%"></span></span><span class="score-value">9.6</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:91%"></span></span><span class="score-value">9.1</span></div>
+                <p class="score-note">Claude remains especially comfortable in document-first workflows.</p>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <div class="comparison-card-head">
+                <div><h3>Overall product</h3><p>Capability, breadth, and value</p></div>
+                <span class="tag chatgpt">ChatGPT wins</span>
+              </div>
+              <div class="comparison-card-body">
+                <div class="score-row"><span>Claude</span><span class="score-track"><span class="score-fill claude" style="width:92%"></span></span><span class="score-value">9.2</span></div>
+                <div class="score-row"><span>ChatGPT</span><span class="score-track"><span class="score-fill chatgpt" style="width:96%"></span></span><span class="score-value">9.6</span></div>
+                <p class="score-note">ChatGPT is the safer single subscription for a mixed workload.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section" id="prompts">
+          <span class="section-kicker">Run your own test</span>
+          <h2>Three prompts to compare Claude and ChatGPT</h2>
+          <p>Do not rely only on reviews. Paste the same source material and prompt into both tools, use comparable model tiers, and judge the result blind if possible.</p>
+
+          <div class="prompt-card">
+            <div class="prompt-head">
+              <span class="prompt-title">Test 1 · Writing and editing</span>
+              <button class="copy-button" type="button" data-copy-target="prompt-writing" aria-label="Copy writing test prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="prompt-text" id="prompt-writing">You are a senior editor. Rewrite the draft below for an intelligent general audience.
+
+Goals:
+- Preserve every factual claim and the author's point of view.
+- Improve structure, clarity, rhythm, and transitions.
+- Remove clichés, filler, repetition, and sales language.
+- Keep the final text between 700 and 850 words.
+- After the rewrite, list five important editorial changes and why you made them.
+
+Voice sample: [paste a short example]
+Draft: [paste your draft]</pre>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-head">
+              <span class="prompt-title">Test 2 · Research</span>
+              <button class="copy-button" type="button" data-copy-target="prompt-research" aria-label="Copy research test prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="prompt-text" id="prompt-research">Research the following question using current primary sources: [insert question].
+
+Return:
+1. A concise answer in 150 words.
+2. A table of verified facts with the source and publication date for each.
+3. A separate section for interpretations or inferences.
+4. Contradictory evidence or credible uncertainty.
+5. Five direct source links I should open and verify.
+
+Do not cite search-result pages. If a claim cannot be verified, label it unverified.</pre>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-head">
+              <span class="prompt-title">Test 3 · Coding</span>
+              <button class="copy-button" type="button" data-copy-target="prompt-coding" aria-label="Copy coding test prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="prompt-text" id="prompt-coding">Review the attached repository issue and relevant code before proposing a change.
+
+First:
+- Restate the expected behavior.
+- Identify the likely root cause with file-level evidence.
+- List assumptions and risks.
+- Propose the smallest safe patch and tests.
+
+Then implement only the approved scope. Preserve existing conventions, do not rewrite unrelated code, and run the most relevant tests. Finish with a concise summary of changed files, test results, and any remaining uncertainty.</pre>
+          </div>
+        </section>
+
+        <section class="article-section" id="choose">
+          <span class="section-kicker">Final recommendation</span>
+          <h2>Which one should you choose?</h2>
+
+          <div class="decision-list">
+            <div class="decision-item">
+              <span class="decision-num">01</span>
+              <div>
+                <h3>Choose Claude if writing quality is the product</h3>
+                <p>You write or edit long reports, essays, scripts, proposals, or brand content and value natural tone, close reading, and a focused interface.</p>
+              </div>
+            </div>
+            <div class="decision-item">
+              <span class="decision-num">02</span>
+              <div>
+                <h3>Choose ChatGPT if your work changes shape</h3>
+                <p>Your day moves among research, writing, images, data, voice, documents, automation, and coding, and you want one broad workspace.</p>
+              </div>
+            </div>
+            <div class="decision-item">
+              <span class="decision-num">03</span>
+              <div>
+                <h3>Choose based on the coding environment, not a benchmark</h3>
+                <p>Try Claude Code and Codex on the same real issue. Score patch quality, tests, safety, speed, and supervision required.</p>
+              </div>
+            </div>
+            <div class="decision-item">
+              <span class="decision-num">04</span>
+              <div>
+                <h3>Start free before paying</h3>
+                <p>Run five representative tasks in both tools. Upgrade only after you know which limitation is actually costing you time.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Our final answer</h3>
+          <p>If you want one recommendation with no extra context, <strong>pick ChatGPT</strong>. It is the most complete general-purpose AI workspace in this comparison. Pick <strong>Claude</strong> instead when long-form writing, document interpretation, or the Claude Code workflow is central enough to outweigh ChatGPT's broader feature set.</p>
+          <p>The smartest professional setup is sometimes not loyalty to one brand. Use the better tool for each task, and cross-check important output when the cost of an error is higher than the cost of a second pass.</p>
+        </section>
+
+        <section class="article-section" id="faq">
+          <span class="section-kicker">Common questions</span>
+          <h2>Claude vs ChatGPT FAQ</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+                <span>Is Claude better than ChatGPT in 2026?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><div><p>Claude is often the better fit for careful long-form writing, close reading, and workflows centered on large documents. ChatGPT is the stronger all-round choice for most people because it combines strong reasoning with image generation, voice, data analysis, custom GPTs, projects, research, and a broader tool ecosystem.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                <span>Which is better for coding: Claude or ChatGPT?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2"><div><p>Both are capable coding assistants. Claude is especially compelling when paired with Claude Code for repository work, while ChatGPT offers Codex and a broad integrated workflow. The better choice depends on your repository, language, tool access, and whether you value focused terminal work or an all-in-one workspace.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                <span>Which is better for writing: Claude or ChatGPT?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3"><div><p>Claude has a slight edge for natural long-form prose, editing, and preserving a requested voice. ChatGPT is usually better when writing is one part of a larger workflow involving research, images, data, automation, or custom assistants.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                <span>Are Claude and ChatGPT free?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4"><div><p>Both offer free plans with usage limits. Paid consumer plans begin at different tiers and availability can vary by region. As of July 21, 2026, ChatGPT Plus and Claude Pro are each listed at $20 per month before local taxes.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                <span>Can Claude generate images?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5"><div><p>Claude can analyze images and create visual or interactive Artifacts, but ChatGPT is the clearer choice when native text-to-image generation and conversational image editing are central to the workflow.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                <span>Which AI is better for research?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6"><div><p>Both support web-assisted research. ChatGPT has an edge for a broad, tool-rich research workflow, while Claude is excellent for reading, synthesizing, and writing from a supplied document set. Always open and verify important citations yourself.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                <span>Can I use Claude and ChatGPT with confidential information?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7"><div><p>Do not paste confidential or regulated information into a consumer AI account without checking the current plan terms, retention settings, organizational controls, and your employer's policy. Business and enterprise plans provide different controls from consumer plans.</p></div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                <span>Should I subscribe to both Claude and ChatGPT?</span><span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8"><div><p>Most people should start with one paid plan. Paying for both makes sense for professionals who can recover the extra cost by cross-checking important work or using Claude for document-heavy writing and ChatGPT for multimodal, research, image, data, and automation tasks.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section" id="sources">
+          <span class="section-kicker">Editorial transparency</span>
+          <h2>Official sources and methodology</h2>
+          <p>We compared the products using public, first-party documentation and practical workflow criteria: output quality, task coverage, ease of verification, connected tools, plan value, and the amount of supervision required. Product claims and prices were checked on July 21, 2026.</p>
+          <ul class="source-list">
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener noreferrer">OpenAI: ChatGPT plans and pricing</a></li>
+            <li><a href="https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt" target="_blank" rel="noopener noreferrer">OpenAI Help Center: GPT-5.6 in ChatGPT</a></li>
+            <li><a href="https://help.openai.com/en/articles/9260256-chatgpt-capabilities-overview" target="_blank" rel="noopener noreferrer">OpenAI Help Center: ChatGPT capabilities overview</a></li>
+            <li><a href="https://help.openai.com/en/articles/10169521-projects-in-chatgpt" target="_blank" rel="noopener noreferrer">OpenAI Help Center: Projects in ChatGPT</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">Anthropic: Claude plans and pricing</a></li>
+            <li><a href="https://support.anthropic.com/en/articles/11049762-choosing-a-claude-ai-plan" target="_blank" rel="noopener noreferrer">Anthropic Help Center: choosing a Claude plan</a></li>
+            <li><a href="https://support.anthropic.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer">Anthropic Help Center: Claude Artifacts</a></li>
+            <li><a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer">Anthropic: Claude Code</a></li>
+          </ul>
+          <p class="note"><strong>Editorial note:</strong> Scorecards and winner labels are Zynovix editorial judgments based on the described use cases. They are not vendor benchmarks, guarantees, or paid endorsements.</p>
+        </section>
+
+        <section class="author-box" aria-labelledby="author-heading">
+          <div class="author-avatar" aria-hidden="true">Z</div>
+          <div>
+            <h2 id="author-heading">Zynovix AI Editorial Team</h2>
+            <p>Zynovix AI publishes practical tutorials, honest tool comparisons, and ready-to-use AI workflows for creators, developers, and businesses—no hype, just results.</p>
+          </div>
+        </section>
+
+        <section class="article-section" aria-labelledby="related-heading">
+          <span class="section-kicker">Continue reading</span>
+          <h2 id="related-heading">Related articles</h2>
+          <div class="related-grid">
+            <a class="related-card" href="perplexity-ai-vs-chatgpt-2026.html">
+              <span class="category">AI Comparison</span>
+              <h3>Perplexity AI vs ChatGPT (2026)</h3>
+              <p>Compare research, citations, writing, reasoning, pricing, and everyday usefulness.</p>
+              <span class="read">Read comparison →</span>
+            </a>
+            <a class="related-card" href="chatgpt-vs-claude-vs-gemini-content-writing-2026.html">
+              <span class="category">Content Writing</span>
+              <h3>ChatGPT vs Claude vs Gemini (2026)</h3>
+              <p>Compare three leading assistants for drafting, editing, research, and content workflows.</p>
+              <span class="read">Read comparison →</span>
+            </a>
+            <a class="related-card" href="25-best-free-ai-tools-2026.html">
+              <span class="category">AI Tools</span>
+              <h3>25 Best Free AI Tools in 2026</h3>
+              <p>Discover useful free tools for writing, research, images, coding, and productivity.</p>
+              <span class="read">Read article →</span>
+            </a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand-group">
+        <a class="brand" href="index.html" aria-label="Zynovix AI Home">
+          <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async">
+          <span>Zynovix AI</span>
+        </a>
+        <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)">
+          <img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async">
+        </a>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <p>© <span id="current-year">2026</span> Zynovix AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg>
+  </button>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var root = document.documentElement;
+      var themeButton = document.getElementById('theme-toggle');
+      var progressBar = document.getElementById('reading-progress');
+      var backToTop = document.getElementById('back-to-top');
+      var article = document.getElementById('article-content');
+      var menuButton = document.getElementById('menu-button');
+      var navMenu = document.getElementById('nav-menu');
+      var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+      var observedSections = Array.prototype.slice.call(document.querySelectorAll('.article-section[id]'));
+
+      function updateThemeLabel() {
+        var isDark = root.dataset.theme === 'dark';
+        themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+
+      themeButton.addEventListener('click', function () {
+        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('zynovix-theme', next); } catch (e) {}
+        updateThemeLabel();
+      });
+
+      updateThemeLabel();
+
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open menu');
+      }
+
+      menuButton.addEventListener('click', function () {
+        var isOpen = navMenu.classList.toggle('active');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      navMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      function updateScrollUI() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var value = scrollable > 0 ? Math.min(100, Math.max(0, (scrollTop / scrollable) * 100)) : 0;
+        progressBar.style.width = value + '%';
+        backToTop.classList.toggle('visible', scrollTop > 700);
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            updateScrollUI();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateScrollUI();
+
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var sectionObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            tocLinks.forEach(function (link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          });
+        }, { rootMargin: '-18% 0px -70% 0px', threshold: 0 });
+
+        observedSections.forEach(function (section) { sectionObserver.observe(section); });
+      }
+
+      document.querySelectorAll('.copy-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var target = document.getElementById(button.dataset.copyTarget);
+          var text = target ? target.textContent.trim() : '';
+          var label = button.querySelector('span');
+
+          function showCopied() {
+            label.textContent = 'Copied';
+            button.setAttribute('aria-label', 'Prompt copied');
+            window.setTimeout(function () {
+              label.textContent = 'Copy';
+              button.setAttribute('aria-label', 'Copy prompt');
+            }, 1800);
+          }
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(showCopied).catch(function () { fallbackCopy(text, showCopied); });
+          } else {
+            fallbackCopy(text, showCopied);
+          }
+        });
+      });
+
+      function fallbackCopy(text, onSuccess) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          if (document.execCommand('copy')) onSuccess();
+        } catch (e) {}
+        document.body.removeChild(textarea);
+      }
+
+      document.querySelectorAll('.faq-question').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var item = button.closest('.faq-item');
+          var isOpen = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!isOpen));
+          item.classList.toggle('open', !isOpen);
+        });
+      });
+
+      if (article) {
+        var words = article.innerText.trim().split(/\s+/).filter(Boolean).length;
+        var minutes = Math.max(1, Math.round(words / 220));
+        document.getElementById('reading-time').textContent = minutes + ' min read';
+      }
+
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    }());
+  </script>
+</body>
+</html>

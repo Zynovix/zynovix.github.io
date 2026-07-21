@@ -795,6 +795,12 @@
       color: var(--policy-soft);
     }
 
+    .bridge-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .faq-section {
       padding: 0 0 94px;
     }
@@ -943,7 +949,8 @@
       }
 
       .form-actions .btn,
-      .result-actions .btn {
+      .result-actions .btn,
+      .bridge-actions .btn {
         width: 100%;
       }
 
@@ -1544,7 +1551,10 @@
           <h2>Not sure what your organization needs first?</h2>
           <p>Use the free AI Readiness Assessment to score strategy, people, data, technology, and governance before finalizing your policy.</p>
         </div>
-        <a href="ai-readiness-assessment.html" class="btn btn-primary">Check AI Readiness</a>
+        <div class="bridge-actions">
+          <a href="ai-readiness-assessment.html" class="btn btn-primary">Check AI Readiness</a>
+          <a href="ai-acceptable-use-policy-template-2026.html" class="btn btn-ghost">Read Policy Guide</a>
+        </div>
       </div>
     </section>
 

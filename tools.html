@@ -50,7 +50,7 @@
     .tools-page .category-grid {
       width: min(1240px, 100%);
       margin-inline: auto;
-      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
       gap: 24px !important;
     }
 
@@ -325,7 +325,7 @@
 <header class="header">
   <nav class="nav shell">
     <a class="brand" href="index.html">
-      <img src="/logo.png?v=20260712" alt="Zynovix AI logo"  width="52" height="52"/>
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
       <span>Zynovix AI</span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
@@ -359,7 +359,7 @@
       <p>Find the right AI solution for your specific needs.</p>
     </div>
     
-    <div class="cards four category-grid">
+    <div class="cards three category-grid">
       <article class="card tool-card">
         <div class="tool-icon" aria-hidden="true">📜</div>
         <h3>AI Policy Generator</h3>
@@ -368,10 +368,17 @@
       </article>
       
       <article class="card tool-card">
-        <div class="tool-icon">✍️</div>
-        <h3>Writing</h3>
-        <p>AI Content Writers to create outlines, emails, posts, descriptions, and marketing content.</p>
-        <a href="blog.html" class="btn btn-ghost">Read Guides</a>
+        <div class="tool-icon" aria-hidden="true">🧭</div>
+        <h3>Automation Opportunity Finder</h3>
+        <p>Prioritize workflows for AI automation using impact, feasibility, readiness, risk, and realistic time-saving ranges.</p>
+        <a href="ai-automation-opportunity-finder.html" class="btn btn-ghost">Find Opportunities</a>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-icon" aria-hidden="true">🧩</div>
+        <h3>AI Workflow Blueprint Generator</h3>
+        <p>Turn one automation idea into a practical workflow with inputs, AI tasks, human review, controls, KPIs, and a 30-day pilot.</p>
+        <a href="ai-workflow-blueprint-generator.html" class="btn btn-ghost">Build Blueprint</a>
       </article>
       
       <article class="card tool-card">
@@ -387,9 +394,6 @@
         <p>Estimate hours saved, labor value, first-year ROI, and the payback period for workflow automation.</p>
         <a href="automation-roi-calculator.html" class="btn btn-ghost">Calculate ROI</a>
       </article>
-    </div>
-    
-    <div class="cards four category-grid" style="margin-top: 20px;">
       <article class="card tool-card">
         <div class="tool-icon">📚</div>
         <h3>Learning</h3>
@@ -478,13 +482,13 @@
         <div class="result-card">
           <h3 style="margin-bottom: 16px;">🎉 Your Perfect AI Tool</h3>
           <div id="resultContent"></div>
-          <button class="btn btn-ghost" type="button" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
+          <button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
         </div>
       </div>
       
       <div class="quiz-nav" id="quizNav">
-        <button class="btn btn-ghost" id="prevBtn" type="button" onclick="prevStep()" disabled>Previous</button>
-        <button class="btn btn-primary" id="nextBtn" type="button" onclick="nextStep()" disabled>Next</button>
+        <button class="btn btn-ghost" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
       </div>
     </div>
   </section>
@@ -497,8 +501,8 @@
     </div>
     
     <div class="tools-filters">
-      <input type="text" id="searchBox" aria-label="Search AI tools" placeholder="🔍 Search tools...">
-      <select id="categoryFilter" aria-label="Filter tools by category">
+      <input type="text" id="searchBox" placeholder="🔍 Search tools...">
+      <select id="categoryFilter">
         <option value="">All Categories</option>
         <option value="chatbot">Chatbots & Research</option>
         <option value="writing">Writing</option>
@@ -509,7 +513,7 @@
         <option value="agent">AI Agents</option>
         <option value="productivity">Productivity</option>
       </select>
-      <select id="pricingFilter" aria-label="Filter tools by pricing">
+      <select id="pricingFilter">
         <option value="">All Prices</option>
         <option value="free">Free</option>
         <option value="freemium">Freemium</option>
@@ -536,7 +540,7 @@
   <div class="shell footer-inner">
     <div class="footer-brand-group">
       <a class="brand" href="index.html">
-        <img src="/logo.png?v=20260712" alt="Zynovix AI logo"  width="52" height="52"/>
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
         <span>Zynovix AI</span>
       </a>
 
@@ -546,7 +550,6 @@
     </div>
 
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="editorial-policy.html">Editorial Policy</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="contact.html">Contact</a>
@@ -1013,4 +1016,3 @@ renderTools(tools);
 </script>
 </body>
 </html>
-

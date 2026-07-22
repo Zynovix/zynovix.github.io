@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Workflow Blueprint Generator | Zynovix AI</title>
+  <meta name="description" content="Design a practical AI workflow blueprint with triggers, inputs, AI tasks, human review, controls, exception paths, KPIs, and a 30-day pilot plan.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-workflow-blueprint-generator.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Workflow Blueprint Generator">
+  <meta property="og:description" content="Turn an AI automation idea into a reviewable workflow with clear inputs, controls, owners, exceptions, KPIs, and a pilot plan.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-workflow-blueprint-generator.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Workflow Blueprint Generator">
+  <meta name="twitter:description" content="Build a practical, human-reviewed AI workflow blueprint in five guided steps.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --bp-bg: #050816;
+      --bp-surface: rgba(11, 18, 41, .9);
+      --bp-surface-2: rgba(15, 25, 53, .88);
+      --bp-line: rgba(148, 163, 184, .2);
+      --bp-strong: #f8fbff;
+      --bp-text: #d6e0ef;
+      --bp-soft: #9eabc1;
+      --bp-cyan: #22d3ee;
+      --bp-blue: #3b82f6;
+      --bp-purple: #8b5cf6;
+      --bp-green: #34d399;
+      --bp-yellow: #fbbf24;
+      --bp-red: #fb7185;
+      --bp-shadow: 0 26px 80px rgba(0, 0, 0, .34);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.blueprint-page { color: var(--bp-text); overflow-x: hidden; }
+
+    .blueprint-page .brand img,
+    .blueprint-page .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 10000;
+      transform: translateY(-150%);
+      padding: 11px 15px;
+      border-radius: 10px;
+      color: #04101a;
+      background: var(--bp-cyan);
+      font-weight: 900;
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .blueprint-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--bp-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--bp-cyan); }
+    .blueprint-hero h1 { max-width: 1020px; margin: 18px auto; color: var(--bp-strong); font-size: clamp(40px, 8vw, 76px); line-height: 1; letter-spacing: -2.5px; }
+    .blueprint-hero h1 span { color: transparent; background: linear-gradient(90deg, var(--bp-cyan), #60a5fa, #a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .blueprint-hero > p { max-width: 810px; margin: 0 auto; color: var(--bp-soft); font-size: clamp(18px, 3.7vw, 22px); line-height: 1.72; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--bp-line); border-radius: 999px; color: #c7d5e7; background: rgba(255, 255, 255, .035); font-size: 13px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 850px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52, 211, 153, .24); border-radius: 17px; color: #c8e7db; background: rgba(52, 211, 153, .06); text-align: left; line-height: 1.6; }
+
+    .generator-section { padding: 16px 0 76px; }
+    .generator-card,
+    .results-card { border: 1px solid var(--bp-line); border-radius: 26px; background: var(--bp-surface); box-shadow: var(--bp-shadow); overflow: hidden; }
+    .generator-layout { display: block; }
+
+    .step-sidebar { padding: 21px; border-bottom: 1px solid var(--bp-line); background: rgba(4, 9, 24, .48); }
+    .step-sidebar > span { display: block; margin-bottom: 13px; color: var(--bp-cyan); font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+    .step-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .step-item { display: grid; justify-items: center; gap: 6px; color: #75839a; font-size: 11px; text-align: center; }
+    .step-number { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--bp-line); border-radius: 11px; background: rgba(255, 255, 255, .035); font-weight: 900; }
+    .step-item.active { color: var(--bp-strong); }
+    .step-item.active .step-number { border-color: rgba(34, 211, 238, .75); color: #04101a; background: linear-gradient(135deg, var(--bp-cyan), #60a5fa); box-shadow: 0 0 22px rgba(34, 211, 238, .2); }
+    .step-item.complete .step-number { color: #071a13; border-color: rgba(52, 211, 153, .55); background: var(--bp-green); }
+
+    .form-area { padding: 24px; }
+    .form-step { min-height: 520px; }
+    .step-kicker { display: block; margin-bottom: 8px; color: var(--bp-cyan); font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .form-step h2 { margin: 0 0 9px; color: var(--bp-strong); font-size: clamp(28px, 5vw, 40px); line-height: 1.12; }
+    .step-intro { max-width: 760px; margin: 0 0 25px; color: var(--bp-soft); line-height: 1.65; }
+
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    .field label,
+    .form-label,
+    fieldset legend { display: block; margin-bottom: 8px; color: var(--bp-strong); font-size: 14px; font-weight: 800; }
+    fieldset { min-width: 0; margin: 22px 0 0; padding: 0; border: 0; }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--bp-line);
+      border-radius: 14px;
+      outline: none;
+      color: var(--bp-strong);
+      background: #091127;
+      font: inherit;
+      color-scheme: dark;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .field textarea { min-height: 92px; resize: vertical; line-height: 1.55; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: rgba(34, 211, 238, .75); box-shadow: 0 0 0 4px rgba(34, 211, 238, .09); }
+    .field-help { display: block; margin-top: 6px; color: #77879f; font-size: 12px; line-height: 1.45; }
+
+    .choice-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .choice-label { position: relative; cursor: pointer; }
+    .choice-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice-content { display: flex; min-height: 62px; align-items: center; gap: 11px; padding: 13px; border: 1px solid var(--bp-line); border-radius: 15px; color: #bdc9da; background: rgba(255, 255, 255, .025); line-height: 1.35; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+    .choice-icon { display: grid; width: 36px; height: 36px; flex: 0 0 36px; place-items: center; border-radius: 11px; background: rgba(59, 130, 246, .12); font-size: 19px; }
+    .choice-label input:checked + .choice-content { border-color: rgba(34, 211, 238, .65); color: var(--bp-strong); background: rgba(34, 211, 238, .075); }
+    .choice-label input:focus-visible + .choice-content { outline: 3px solid var(--bp-cyan); outline-offset: 2px; }
+    .choice-label:hover .choice-content { transform: translateY(-1px); }
+
+    .safety-note { display: flex; gap: 11px; margin-top: 20px; padding: 15px; border: 1px solid rgba(251, 191, 36, .25); border-radius: 15px; color: #f9e3a8; background: rgba(251, 191, 36, .06); line-height: 1.55; }
+    .form-error { min-height: 24px; margin-top: 16px; color: #ff9daf; font-size: 14px; font-weight: 700; }
+    .form-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .form-actions button { border: 0; cursor: pointer; font: inherit; }
+    .form-actions button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+
+    .results-header { padding: 29px; border-bottom: 1px solid var(--bp-line); text-align: center; }
+    .results-icon { display: grid; width: 64px; height: 64px; place-items: center; margin: 0 auto 14px; border-radius: 19px; background: linear-gradient(135deg, var(--bp-blue), var(--bp-cyan)); font-size: 31px; box-shadow: 0 16px 38px rgba(59, 130, 246, .24); }
+    .results-header h2 { margin: 0 0 8px; color: var(--bp-strong); font-size: clamp(30px, 5vw, 46px); line-height: 1.1; }
+    .results-header p { max-width: 780px; margin: 0 auto; color: var(--bp-soft); line-height: 1.65; }
+    .profile-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 18px; border-bottom: 1px solid var(--bp-line); }
+    .profile-stat { padding: 14px; border: 1px solid var(--bp-line); border-radius: 14px; background: rgba(255, 255, 255, .026); text-align: center; }
+    .profile-stat strong { display: block; color: var(--bp-strong); font-size: 18px; line-height: 1.25; }
+    .profile-stat span { color: var(--bp-soft); font-size: 11px; }
+
+    .results-body { padding: 24px; }
+    .results-body > section { margin-bottom: 34px; }
+    .results-body h3 { margin: 0 0 16px; color: var(--bp-strong); font-size: clamp(23px, 4vw, 31px); }
+    .results-body h4 { margin: 0 0 7px; color: var(--bp-strong); font-size: 18px; }
+    .results-body p { color: var(--bp-soft); line-height: 1.65; }
+
+    .workflow-flow { display: grid; grid-template-columns: 1fr; gap: 26px; }
+    .flow-node { position: relative; min-height: 144px; padding: 19px; border: 1px solid var(--bp-line); border-radius: 18px; background: var(--bp-surface-2); }
+    .flow-node:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); color: var(--bp-cyan); font-size: 20px; font-weight: 900; }
+    .flow-icon { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 11px; border-radius: 13px; background: linear-gradient(135deg, rgba(59, 130, 246, .8), rgba(139, 92, 246, .78)); font-size: 22px; }
+    .flow-node small { display: block; margin-bottom: 5px; color: var(--bp-cyan); font-weight: 900; text-transform: uppercase; }
+    .flow-node p { margin: 0; font-size: 14px; }
+
+    .blueprint-grid,
+    .control-grid,
+    .kpi-grid,
+    .pilot-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .blueprint-card,
+    .control-card,
+    .kpi-card,
+    .pilot-card { padding: 18px; border: 1px solid var(--bp-line); border-radius: 17px; background: rgba(255, 255, 255, .027); }
+    .blueprint-card p,
+    .control-card p,
+    .kpi-card p,
+    .pilot-card p { margin: 0; font-size: 14px; }
+    .blueprint-card small,
+    .kpi-card small,
+    .pilot-card small { display: block; margin-bottom: 6px; color: var(--bp-cyan); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .control-card { display: flex; align-items: flex-start; gap: 11px; }
+    .control-mark { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border-radius: 9px; color: #06160f; background: var(--bp-green); font-weight: 900; }
+    .control-card.warning .control-mark { color: #281a00; background: var(--bp-yellow); }
+    .control-card.critical .control-mark { color: #300811; background: var(--bp-red); }
+
+    .exception-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .exception-list li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; align-items: flex-start; padding: 14px; border: 1px solid var(--bp-line); border-radius: 15px; color: #cbd6e6; background: rgba(255, 255, 255, .025); line-height: 1.55; }
+    .exception-list span { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 10px; background: rgba(251, 191, 36, .1); }
+
+    .risk-alert { display: flex; gap: 12px; margin-bottom: 32px; padding: 18px; border: 1px solid rgba(251, 191, 36, .3); border-radius: 17px; color: #f6e4b1; background: rgba(251, 191, 36, .065); line-height: 1.6; }
+    .risk-alert.critical { border-color: rgba(251, 113, 133, .38); color: #ffd2da; background: rgba(251, 113, 133, .07); }
+
+    .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 22px 26px; }
+    .result-actions button { border: 0; cursor: pointer; font: inherit; }
+    .action-status { width: 100%; min-height: 22px; color: #7ef0c4; text-align: center; font-size: 14px; }
+
+    .method-section { padding: 76px 0; }
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .method-card { min-height: 0; padding: 22px; }
+    .method-icon { display: grid; width: 50px; height: 50px; place-items: center; margin-bottom: 14px; border-radius: 15px; background: linear-gradient(135deg, rgba(59, 130, 246, .85), rgba(34, 211, 238, .8)); font-size: 24px; }
+    .method-card h3 { margin-bottom: 8px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 15px; }
+
+    .faq-section { padding: 0 0 90px; }
+    .faq-list { display: grid; gap: 11px; max-width: 900px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--bp-line); border-radius: 17px; background: var(--bp-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--bp-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--bp-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--bp-soft); line-height: 1.65; }
+    .faq-answer[hidden] { display: none; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--bp-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid,
+      .choice-grid,
+      .blueprint-grid,
+      .control-grid,
+      .kpi-grid,
+      .pilot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .profile-summary { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 920px) {
+      .blueprint-hero { padding-top: 72px; }
+      .generator-layout { display: grid; grid-template-columns: 248px minmax(0, 1fr); }
+      .step-sidebar { border-right: 1px solid var(--bp-line); border-bottom: 0; }
+      .step-list { grid-template-columns: 1fr; gap: 13px; }
+      .step-item { grid-template-columns: 36px minmax(0, 1fr); justify-items: start; align-items: center; font-size: 14px; text-align: left; }
+      .form-area { padding: 34px; }
+      .workflow-flow { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+      .flow-node:not(:last-child)::after { content: "→"; left: auto; right: -16px; bottom: auto; top: 50%; transform: translateY(-50%); z-index: 2; }
+      .method-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .blueprint-page .brand img,
+      .blueprint-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .blueprint-hero h1 { letter-spacing: -1.5px; }
+      .step-item span:last-child { display: none; }
+      .form-step { min-height: 0; }
+      .form-actions .btn { flex: 1; }
+      .result-actions .btn { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      .header,
+      .blueprint-hero,
+      .generator-card,
+      .result-actions,
+      .method-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb { display: none !important; }
+      body.blueprint-page { color: #111827; background: #fff !important; }
+      .generator-section { padding: 0; }
+      .results-card { border: 0; color: #111827; background: #fff !important; box-shadow: none; }
+      .results-header,
+      .profile-summary,
+      .results-body { padding: 16px 0; }
+      .results-header h2,
+      .profile-stat strong,
+      .results-body h3,
+      .results-body h4 { color: #111827 !important; }
+      .results-header p,
+      .flow-node p,
+      .blueprint-card p,
+      .control-card p,
+      .kpi-card p,
+      .pilot-card p { color: #334155 !important; }
+      .flow-node,
+      .blueprint-card,
+      .control-card,
+      .kpi-card,
+      .pilot-card { border-color: #cbd5e1; background: #fff !important; break-inside: avoid; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-workflow-blueprint-generator.html#application",
+        "name": "AI Workflow Blueprint Generator",
+        "url": "https://zynovix.github.io/ai-workflow-blueprint-generator.html",
+        "description": "A free guided tool for designing an AI-assisted business workflow with triggers, inputs, tasks, human review, controls, exception handling, KPIs, and a pilot plan.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-workflow-blueprint-generator.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Workflow Blueprint Generator", "item": "https://zynovix.github.io/ai-workflow-blueprint-generator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-workflow-blueprint-generator.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is an AI workflow blueprint?", "acceptedAnswer": { "@type": "Answer", "text": "An AI workflow blueprint documents the trigger, authorized inputs, AI task, validation, human review, destination, owners, exception paths, controls, and success measures for a bounded automation use case." } },
+          { "@type": "Question", "name": "Does the generator build or deploy the automation?", "acceptedAnswer": { "@type": "Answer", "text": "No. It produces a planning blueprint for discussion, testing, and implementation. A qualified team must select approved tools, configure integrations, test behavior, and authorize deployment." } },
+          { "@type": "Question", "name": "Is my workflow information stored?", "acceptedAnswer": { "@type": "Answer", "text": "No information is submitted to a server by this tool. The generator runs locally in the browser. Users should still avoid entering secrets, credentials, or unnecessary sensitive information." } },
+          { "@type": "Question", "name": "Should every AI output receive human review?", "acceptedAnswer": { "@type": "Answer", "text": "Review depth should match sensitivity, impact, reversibility, and error detectability. High-impact, sensitive, external, or consequential outputs generally need stronger human review and approval." } },
+          { "@type": "Question", "name": "What should I do after generating a blueprint?", "acceptedAnswer": { "@type": "Answer", "text": "Confirm the process owner, approved tools and data, baseline measures, controls, representative test cases, human-review method, exception path, rollback, and stop conditions before a small supervised pilot." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blueprint-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html" aria-current="page">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="blueprint-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a><span aria-hidden="true">›</span>
+        <span aria-current="page">Workflow Blueprint Generator</span>
+      </nav>
+      <span class="kicker">Free Business Planning Tool</span>
+      <h1>AI Workflow <span>Blueprint Generator</span></h1>
+      <p>Turn one automation opportunity into a clear, human-reviewed workflow with inputs, AI tasks, controls, owners, exception paths, KPIs, and a 30-day pilot plan.</p>
+      <ul class="hero-facts">
+        <li>✓ 5 guided steps</li>
+        <li>🧩 Ready-made templates</li>
+        <li>🛡️ Risk-based controls</li>
+        <li>📋 Copy and print</li>
+      </ul>
+      <aside class="privacy-note" aria-label="Privacy notice"><span aria-hidden="true">🔒</span><div><strong>Private by design:</strong> answers are processed in your browser and are not submitted to a server. Do not enter passwords, private keys, payment data, or unnecessary personal information.</div></aside>
+    </section>
+
+    <section class="generator-section shell" id="generator" aria-label="AI workflow blueprint generator">
+      <div class="generator-card" id="generatorCard">
+        <div class="generator-layout">
+          <aside class="step-sidebar" aria-label="Generator progress">
+            <span>Blueprint progress</span>
+            <ol class="step-list">
+              <li class="step-item active" data-step-indicator="1"><span class="step-number">1</span><span>Workflow</span></li>
+              <li class="step-item" data-step-indicator="2"><span class="step-number">2</span><span>Inputs</span></li>
+              <li class="step-item" data-step-indicator="3"><span class="step-number">3</span><span>AI task</span></li>
+              <li class="step-item" data-step-indicator="4"><span class="step-number">4</span><span>Review</span></li>
+              <li class="step-item" data-step-indicator="5"><span class="step-number">5</span><span>Delivery</span></li>
+            </ol>
+          </aside>
+
+          <div class="form-area">
+            <form id="blueprintForm" novalidate>
+              <section class="form-step" data-step="1">
+                <span class="step-kicker">Step 1 of 5</span>
+                <h2>Choose one bounded workflow</h2>
+                <p class="step-intro">Start with a single repeated process. You can load a template or describe your own opportunity.</p>
+                <div class="field-grid">
+                  <div class="field full"><label for="preset">Start from a template</label><select id="preset" name="preset"><option value="custom">Custom workflow</option><option value="report">Recurring report preparation</option><option value="ticket">Support ticket triage</option><option value="invoice">Invoice data capture</option><option value="meeting">Meeting-to-action workflow</option><option value="policy">Internal policy Q&amp;A</option><option value="content">Marketing content repurposing</option></select></div>
+                  <div class="field"><label for="workflowName">Workflow name</label><input id="workflowName" name="workflowName" type="text" maxlength="100" placeholder="Example: Weekly operations report" required></div>
+                  <div class="field"><label for="department">Department or function</label><select id="department" name="department" required><option value="">Select a function</option><option value="operations">Operations</option><option value="marketing">Marketing</option><option value="sales">Sales</option><option value="support">Customer Support</option><option value="finance">Finance &amp; Administration</option><option value="hr">People &amp; HR</option><option value="technology">Technology &amp; IT</option><option value="risk">Risk &amp; Compliance</option><option value="general">Cross-functional</option></select></div>
+                  <div class="field full"><label for="trigger">What starts the workflow?</label><textarea id="trigger" name="trigger" maxlength="240" placeholder="Example: Every Monday at 9:00, when the approved data export is ready" required></textarea></div>
+                  <div class="field"><label for="frequency">Frequency</label><select id="frequency" name="frequency"><option value="daily">Daily</option><option value="weekly" selected>Weekly</option><option value="monthly">Monthly</option><option value="event">Event-driven</option><option value="on-demand">On demand</option></select></div>
+                  <div class="field"><label for="monthlyVolume">Cases per month</label><input id="monthlyVolume" name="monthlyVolume" type="number" min="1" max="1000000" value="20" required></div>
+                  <div class="field"><label for="minutesPerCase">Current minutes per case</label><input id="minutesPerCase" name="minutesPerCase" type="number" min="1" max="10000" value="45" required></div>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="2" hidden>
+                <span class="step-kicker">Step 2 of 5</span>
+                <h2>Define authorized inputs</h2>
+                <p class="step-intro">Select the information formats the workflow needs and classify the most sensitive data involved.</p>
+                <fieldset><legend>Input types</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="emails"><span class="choice-content"><span class="choice-icon">✉️</span><span>Emails or messages</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="documents" checked><span class="choice-content"><span class="choice-icon">📄</span><span>Documents or PDFs</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="forms"><span class="choice-content"><span class="choice-icon">🧾</span><span>Forms or submissions</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="spreadsheets" checked><span class="choice-content"><span class="choice-icon">📊</span><span>Spreadsheets or tables</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="systems"><span class="choice-content"><span class="choice-icon">🗂️</span><span>CRM, help desk, or business system</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="inputTypes" value="knowledge"><span class="choice-content"><span class="choice-icon">📚</span><span>Approved knowledge base</span></span></label>
+                </div></fieldset>
+                <div class="field-grid">
+                  <div class="field full"><label for="sourceSystems">Approved sources or systems</label><input id="sourceSystems" name="sourceSystems" type="text" maxlength="220" placeholder="Example: Approved CRM export, reporting database, policy library" required><span class="field-help">Name categories or approved systems; do not enter credentials or secret connection details.</span></div>
+                </div>
+                <fieldset><legend>Highest data sensitivity</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="public"><span class="choice-content"><span class="choice-icon">🌐</span><span>Public information</span></span></label>
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="internal" checked><span class="choice-content"><span class="choice-icon">🏢</span><span>Internal business information</span></span></label>
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="confidential"><span class="choice-content"><span class="choice-icon">🔐</span><span>Confidential or proprietary</span></span></label>
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="personal"><span class="choice-content"><span class="choice-icon">👤</span><span>Personal or employee data</span></span></label>
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="regulated"><span class="choice-content"><span class="choice-icon">⚖️</span><span>Regulated or high-impact data</span></span></label>
+                  <label class="choice-label"><input type="radio" name="sensitivity" value="credentials"><span class="choice-content"><span class="choice-icon">🚫</span><span>Credentials, secrets, or payment data</span></span></label>
+                </div></fieldset>
+                <fieldset><legend>Input readiness</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="dataReadiness" value="ready" checked><span class="choice-content"><span class="choice-icon">✅</span><span>Accessible and representative</span></span></label>
+                  <label class="choice-label"><input type="radio" name="dataReadiness" value="partial"><span class="choice-content"><span class="choice-icon">🧹</span><span>Needs cleanup or permissions</span></span></label>
+                  <label class="choice-label"><input type="radio" name="dataReadiness" value="unknown"><span class="choice-content"><span class="choice-icon">❓</span><span>Not yet assessed</span></span></label>
+                </div></fieldset>
+              </section>
+
+              <section class="form-step" data-step="3" hidden>
+                <span class="step-kicker">Step 3 of 5</span>
+                <h2>Define the AI task and boundary</h2>
+                <p class="step-intro">Choose only the capabilities needed for this step. The surrounding workflow should use rules, systems, and human approval where they are more dependable.</p>
+                <fieldset><legend>What should AI assist with?</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="extract"><span class="choice-content"><span class="choice-icon">🔎</span><span>Extract fields or facts</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="classify"><span class="choice-content"><span class="choice-icon">🏷️</span><span>Classify or route</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="summarize" checked><span class="choice-content"><span class="choice-icon">📝</span><span>Summarize information</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="draft" checked><span class="choice-content"><span class="choice-icon">✍️</span><span>Draft an output</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="retrieve"><span class="choice-content"><span class="choice-icon">📚</span><span>Retrieve approved knowledge</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="aiTasks" value="compare"><span class="choice-content"><span class="choice-icon">⚖️</span><span>Compare or find differences</span></span></label>
+                </div></fieldset>
+                <div class="field-grid">
+                  <div class="field full"><label for="outputFormat">Expected AI-assisted output</label><input id="outputFormat" name="outputFormat" type="text" maxlength="220" placeholder="Example: A sourced report draft with anomalies and unanswered questions" required></div>
+                  <div class="field"><label for="primaryGoal">Primary goal</label><select id="primaryGoal" name="primaryGoal"><option value="time">Save employee time</option><option value="speed">Reduce cycle time</option><option value="quality">Improve consistency or quality</option><option value="capacity">Increase capacity</option><option value="cost">Reduce operating cost</option></select></div>
+                  <div class="field"><label for="grounding">How should output be grounded?</label><select id="grounding" name="grounding"><option value="sources">Only approved sources with references</option><option value="structured">Structured fields and validation rules</option><option value="examples">Approved examples and templates</option><option value="mixed">Sources, rules, and examples</option></select></div>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="4" hidden>
+                <span class="step-kicker">Step 4 of 5</span>
+                <h2>Add human review and authority</h2>
+                <p class="step-intro">The reviewer needs competence, context, evidence, authority, and enough time to challenge or reject the output.</p>
+                <div class="field-grid"><div class="field full"><label for="reviewerRole">Qualified reviewer role</label><input id="reviewerRole" name="reviewerRole" type="text" maxlength="120" placeholder="Example: Operations report owner" required></div></div>
+                <fieldset><legend>Review model</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="reviewMode" value="every" checked><span class="choice-content"><span class="choice-icon">👁️</span><span>Review every output</span></span></label>
+                  <label class="choice-label"><input type="radio" name="reviewMode" value="exceptions"><span class="choice-content"><span class="choice-icon">🚦</span><span>Review exceptions and low confidence</span></span></label>
+                  <label class="choice-label"><input type="radio" name="reviewMode" value="sample"><span class="choice-content"><span class="choice-icon">🧪</span><span>Sample-based quality review</span></span></label>
+                </div></fieldset>
+                <fieldset><legend>Impact if the output is wrong</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="impact" value="low"><span class="choice-content"><span class="choice-icon">🟢</span><span>Low and easily reversible</span></span></label>
+                  <label class="choice-label"><input type="radio" name="impact" value="medium" checked><span class="choice-content"><span class="choice-icon">🟡</span><span>Material but correctable</span></span></label>
+                  <label class="choice-label"><input type="radio" name="impact" value="high"><span class="choice-content"><span class="choice-icon">🔴</span><span>High-impact or difficult to reverse</span></span></label>
+                </div></fieldset>
+                <fieldset><legend>Is an approved AI tool or account available?</legend><div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="approvedTool" value="yes"><span class="choice-content"><span class="choice-icon">✅</span><span>Yes, approved for this use</span></span></label>
+                  <label class="choice-label"><input type="radio" name="approvedTool" value="no" checked><span class="choice-content"><span class="choice-icon">🛑</span><span>No or not yet confirmed</span></span></label>
+                </div></fieldset>
+                <div class="safety-note"><span aria-hidden="true">⚠️</span><div>An enterprise account alone does not automatically approve every data type, connector, model, or use case. Confirm the exact service, settings, contract, access, retention, and workflow.</div></div>
+              </section>
+
+              <section class="form-step" data-step="5" hidden>
+                <span class="step-kicker">Step 5 of 5</span>
+                <h2>Set delivery, ownership, and fallback</h2>
+                <p class="step-intro">Define where an approved output goes, who owns performance, and what happens when AI or an integration fails.</p>
+                <div class="field-grid">
+                  <div class="field"><label for="destination">Approved destination</label><select id="destination" name="destination"><option value="document">Document or shared workspace</option><option value="email">Draft email or message queue</option><option value="crm">CRM or business system</option><option value="helpdesk">Help-desk queue</option><option value="spreadsheet">Spreadsheet or reporting table</option><option value="api">Approved API or automation platform</option></select></div>
+                  <div class="field"><label for="workflowOwner">Workflow owner</label><input id="workflowOwner" name="workflowOwner" type="text" maxlength="120" placeholder="Example: Operations manager" required></div>
+                  <div class="field"><label for="successMetric">Primary success measure</label><select id="successMetric" name="successMetric"><option value="cycle">Cycle time</option><option value="handling">Human handling time</option><option value="quality">Correction or acceptance rate</option><option value="throughput">Throughput or backlog</option><option value="service">Service level or response time</option><option value="cost">Cost per case</option></select></div>
+                  <div class="field full"><label for="exceptionRoute">Where should exceptions go?</label><input id="exceptionRoute" name="exceptionRoute" type="text" maxlength="200" placeholder="Example: Route missing, conflicting, or low-confidence cases to the report owner" required></div>
+                </div>
+                <fieldset><legend>Required operating safeguard</legend><div class="choice-grid">
+                  <label class="choice-label"><input id="manualFallback" type="checkbox" name="manualFallback" value="yes"><span class="choice-content"><span class="choice-icon">🧯</span><span>A tested manual fallback and stop procedure will remain available</span></span></label>
+                  <label class="choice-label"><input id="logging" type="checkbox" name="logging" value="yes" checked><span class="choice-content"><span class="choice-icon">📜</span><span>Inputs, outputs, approvals, corrections, and incidents will be logged appropriately</span></span></label>
+                </div></fieldset>
+              </section>
+
+              <div class="form-error" id="formError" aria-live="polite"></div>
+              <div class="form-actions">
+                <button class="btn btn-ghost" id="backButton" type="button" disabled>← Back</button>
+                <button class="btn btn-primary" id="nextButton" type="submit">Next →</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-card" id="resultsCard" hidden>
+        <header class="results-header">
+          <div class="results-icon" aria-hidden="true">🧩</div>
+          <h2>Your AI workflow blueprint</h2>
+          <p id="resultIntro"></p>
+        </header>
+        <div class="profile-summary" id="profileSummary"></div>
+        <div class="results-body">
+          <section aria-labelledby="flowTitle"><h3 id="flowTitle">End-to-end workflow</h3><div class="workflow-flow" id="workflowFlow"></div></section>
+          <aside class="risk-alert" id="riskAlert" aria-label="Risk guidance"><span aria-hidden="true">⚠️</span><div></div></aside>
+          <section aria-labelledby="rolesTitle"><h3 id="rolesTitle">Ownership and operating boundary</h3><div class="blueprint-grid" id="roleGrid"></div></section>
+          <section aria-labelledby="controlsTitle"><h3 id="controlsTitle">Required controls</h3><div class="control-grid" id="controlGrid"></div></section>
+          <section aria-labelledby="exceptionsTitle"><h3 id="exceptionsTitle">Exception and failure paths</h3><ul class="exception-list" id="exceptionList"></ul></section>
+          <section aria-labelledby="kpiTitle"><h3 id="kpiTitle">Pilot measurement plan</h3><div class="kpi-grid" id="kpiGrid"></div></section>
+          <section aria-labelledby="pilotTitle"><h3 id="pilotTitle">30-day implementation plan</h3><div class="pilot-grid" id="pilotGrid"></div></section>
+        </div>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Blueprint</button>
+          <a class="btn btn-primary" href="automation-roi-calculator.html">Calculate ROI</a>
+          <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
+          <button class="btn btn-ghost" id="editButton" type="button">✏️ Edit Inputs</button>
+          <button class="btn btn-ghost" id="resetButton" type="button">↺ Start Over</button>
+          <div class="action-status" id="actionStatus" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section shell" aria-labelledby="methodTitle">
+      <div class="section-head"><span class="kicker">Blueprint Method</span><h2 id="methodTitle">A useful workflow needs more than a prompt</h2><p>The generator separates model capability from business authority, data controls, human responsibility, and operational resilience.</p></div>
+      <div class="method-grid">
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🎯</div><h3>Bounded task</h3><p>One clear trigger, input set, AI task, output, owner, and destination.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🛡️</div><h3>Risk-based controls</h3><p>Review and safeguards strengthen as data sensitivity and output impact increase.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">👤</div><h3>Human authority</h3><p>A qualified person can inspect evidence, correct results, reject output, and stop the process.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">📏</div><h3>Measurable pilot</h3><p>Baseline, quality, exceptions, review effort, cost, and business outcomes determine expansion.</p></article>
+      </div>
+    </section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">AI workflow blueprint questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>What is an AI workflow blueprint?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-1" hidden>It documents the trigger, authorized inputs, AI task, validation, human review, destination, owners, exceptions, controls, and measures for a bounded use case.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Does this tool deploy the automation?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-2" hidden>No. It creates a planning blueprint. A qualified team must select approved tools, configure systems, test behavior, complete required reviews, and authorize deployment.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>Is my workflow information stored?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-3" hidden>No information is submitted to a server by this tool. It runs locally in your browser. Avoid entering credentials, secrets, payment data, or unnecessary sensitive information.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Should every output receive human review?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-4" hidden>Review depth should match sensitivity, impact, reversibility, and error detectability. High-impact, sensitive, external, or consequential outputs generally need stronger review and approval.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>What should I do after generating a blueprint?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-5" hidden>Confirm the owner, approved tools and data, baseline, representative cases, controls, review method, exception path, rollback, stop conditions, and full cost before a small supervised pilot.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav>
+      <p>© 2026 Zynovix AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var form = document.getElementById("blueprintForm");
+    var generatorCard = document.getElementById("generatorCard");
+    var resultsCard = document.getElementById("resultsCard");
+    var backButton = document.getElementById("backButton");
+    var nextButton = document.getElementById("nextButton");
+    var formError = document.getElementById("formError");
+    var actionStatus = document.getElementById("actionStatus");
+    var currentStep = 1;
+    var latest = null;
+
+    var labels = {
+      departments: { operations:"Operations", marketing:"Marketing", sales:"Sales", support:"Customer Support", finance:"Finance & Administration", hr:"People & HR", technology:"Technology & IT", risk:"Risk & Compliance", general:"Cross-functional" },
+      inputs: { emails:"Emails or messages", documents:"Documents or PDFs", forms:"Forms or submissions", spreadsheets:"Spreadsheets or tables", systems:"CRM, help desk, or business system", knowledge:"Approved knowledge base" },
+      tasks: { extract:"Extract defined fields and facts", classify:"Classify, prioritize, or route", summarize:"Summarize authorized information", draft:"Draft the required output", retrieve:"Retrieve approved knowledge with references", compare:"Compare sources and identify differences" },
+      sensitivity: { public:"Public", internal:"Internal", confidential:"Confidential", personal:"Personal data", regulated:"Regulated or high-impact", credentials:"Credentials, secrets, or payment data" },
+      review: { every:"Every output", exceptions:"Exceptions and low confidence", sample:"Sample-based quality review" },
+      impact: { low:"Low and reversible", medium:"Material but correctable", high:"High-impact" },
+      destination: { document:"Document or shared workspace", email:"Draft email or message queue", crm:"CRM or business system", helpdesk:"Help-desk queue", spreadsheet:"Spreadsheet or reporting table", api:"Approved API or automation platform" },
+      metric: { cycle:"Cycle time", handling:"Human handling time", quality:"Correction and acceptance rate", throughput:"Throughput and backlog", service:"Service level or response time", cost:"Cost per case" },
+      goal: { time:"Save employee time", speed:"Reduce cycle time", quality:"Improve consistency or quality", capacity:"Increase capacity", cost:"Reduce operating cost" },
+      grounding: { sources:"Approved sources with references", structured:"Structured fields and validation rules", examples:"Approved examples and templates", mixed:"Approved sources, rules, and examples" }
+    };
+
+    var presets = {
+      report:{ workflowName:"Recurring report preparation", department:"operations", trigger:"At the scheduled weekly or monthly reporting deadline, after approved data is available", frequency:"weekly", monthlyVolume:4, minutesPerCase:180, inputs:["spreadsheets","systems"], sourceSystems:"Approved reporting database and verified spreadsheet export", sensitivity:"internal", tasks:["summarize","compare","draft"], outputFormat:"A sourced report draft with verified figures, changes, anomalies, and unanswered questions", goal:"time", grounding:"mixed", reviewerRole:"Report owner", reviewMode:"every", impact:"medium", destination:"document", workflowOwner:"Operations manager", successMetric:"handling", exceptionRoute:"Route missing, inconsistent, or unsupported figures to the report owner" },
+      ticket:{ workflowName:"Support ticket triage", department:"support", trigger:"When a new customer support ticket enters the approved help-desk queue", frequency:"event", monthlyVolume:1000, minutesPerCase:4, inputs:["emails","systems","knowledge"], sourceSystems:"Approved help desk, account-safe context, and current support taxonomy", sensitivity:"personal", tasks:["classify","summarize","retrieve"], outputFormat:"Suggested category, priority, queue, concise summary, and escalation flag", goal:"speed", grounding:"mixed", reviewerRole:"Support agent or queue owner", reviewMode:"exceptions", impact:"medium", destination:"helpdesk", workflowOwner:"Support operations manager", successMetric:"service", exceptionRoute:"Route urgent, safety-sensitive, legal, vulnerable-customer, and low-confidence tickets to a human queue" },
+      invoice:{ workflowName:"Invoice data capture", department:"finance", trigger:"When an invoice arrives through the approved accounts-payable channel", frequency:"event", monthlyVolume:500, minutesPerCase:8, inputs:["documents","forms","systems"], sourceSystems:"Approved invoice inbox, vendor master, purchase-order system, and accounting validation rules", sensitivity:"confidential", tasks:["extract","classify","compare"], outputFormat:"Extracted invoice fields with validation results and an exception summary", goal:"time", grounding:"structured", reviewerRole:"Accounts payable reviewer", reviewMode:"exceptions", impact:"high", destination:"api", workflowOwner:"Accounts payable manager", successMetric:"cost", exceptionRoute:"Route duplicates, mismatches, missing purchase orders, and low-confidence fields to accounts payable" },
+      meeting:{ workflowName:"Meeting-to-action workflow", department:"general", trigger:"When an authorized meeting transcript or approved notes become available", frequency:"event", monthlyVolume:30, minutesPerCase:25, inputs:["documents","emails"], sourceSystems:"Authorized transcript or approved meeting notes and action template", sensitivity:"internal", tasks:["extract","summarize","draft"], outputFormat:"Draft decisions, action owners, deadlines, dependencies, and follow-up message", goal:"time", grounding:"sources", reviewerRole:"Meeting owner", reviewMode:"every", impact:"low", destination:"document", workflowOwner:"Meeting owner", successMetric:"cycle", exceptionRoute:"Send uncertain decisions, missing owners, and conflicting deadlines back to the meeting owner" },
+      policy:{ workflowName:"Internal policy Q&A", department:"hr", trigger:"When an employee submits a routine policy question through the approved channel", frequency:"event", monthlyVolume:150, minutesPerCase:10, inputs:["emails","knowledge"], sourceSystems:"Current approved policy library with owners, effective dates, and source links", sensitivity:"personal", tasks:["classify","retrieve","draft"], outputFormat:"A concise answer with exact policy source links and an escalation path", goal:"speed", grounding:"sources", reviewerRole:"Policy owner or HR adviser", reviewMode:"exceptions", impact:"high", destination:"helpdesk", workflowOwner:"HR policy owner", successMetric:"service", exceptionRoute:"Escalate personal, exceptional, ambiguous, high-impact, or outdated-policy questions to HR" },
+      content:{ workflowName:"Marketing content repurposing", department:"marketing", trigger:"When an approved source article, webinar, or report is marked ready for repurposing", frequency:"weekly", monthlyVolume:12, minutesPerCase:90, inputs:["documents","knowledge"], sourceSystems:"Approved source asset, brand guide, claims library, and channel templates", sensitivity:"public", tasks:["summarize","draft","compare"], outputFormat:"Channel-specific content drafts with source references and a review checklist", goal:"capacity", grounding:"mixed", reviewerRole:"Marketing editor", reviewMode:"every", impact:"medium", destination:"document", workflowOwner:"Content marketing manager", successMetric:"throughput", exceptionRoute:"Route unsupported claims, rights concerns, sensitive topics, and major brand deviations to editorial review" }
+    };
+
+    function checkedValues(name) {
+      return Array.prototype.slice.call(form.querySelectorAll('input[name="' + name + '"]:checked')).map(function (input) { return input.value; });
+    }
+
+    function radioValue(name) {
+      var input = form.querySelector('input[name="' + name + '"]:checked');
+      return input ? input.value : "";
+    }
+
+    function setCheckedValues(name, values) {
+      form.querySelectorAll('input[name="' + name + '"]').forEach(function (input) { input.checked = values.indexOf(input.value) >= 0; });
+    }
+
+    function setRadio(name, value) {
+      var input = form.querySelector('input[name="' + name + '"][value="' + value + '"]');
+      if (input) input.checked = true;
+    }
+
+    function applyPreset(key) {
+      if (!presets[key]) return;
+      var preset = presets[key];
+      ["workflowName","department","trigger","frequency","monthlyVolume","minutesPerCase","sourceSystems","outputFormat","reviewerRole","destination","workflowOwner","exceptionRoute"].forEach(function (field) { document.getElementById(field).value = preset[field]; });
+      document.getElementById("primaryGoal").value = preset.goal;
+      document.getElementById("grounding").value = preset.grounding;
+      document.getElementById("successMetric").value = preset.successMetric;
+      setCheckedValues("inputTypes", preset.inputs);
+      setCheckedValues("aiTasks", preset.tasks);
+      setRadio("sensitivity", preset.sensitivity);
+      setRadio("reviewMode", preset.reviewMode);
+      setRadio("impact", preset.impact);
+      document.getElementById("manualFallback").checked = true;
+      document.getElementById("logging").checked = true;
+    }
+
+    function showStep(step) {
+      currentStep = step;
+      document.querySelectorAll(".form-step").forEach(function (section) { section.hidden = Number(section.dataset.step) !== step; });
+      document.querySelectorAll(".step-item").forEach(function (item) {
+        var itemStep = Number(item.dataset.stepIndicator);
+        item.classList.toggle("active", itemStep === step);
+        item.classList.toggle("complete", itemStep < step);
+        item.querySelector(".step-number").textContent = itemStep < step ? "✓" : itemStep;
+      });
+      backButton.disabled = step === 1;
+      nextButton.textContent = step === 5 ? "Generate Blueprint" : "Next →";
+      formError.textContent = "";
+      var heading = document.querySelector('.form-step[data-step="' + step + '"] h2');
+      heading.setAttribute("tabindex", "-1");
+      heading.focus();
+    }
+
+    function validateStep() {
+      var message = "";
+      if (currentStep === 1) {
+        if (!document.getElementById("workflowName").value.trim() || !document.getElementById("department").value || !document.getElementById("trigger").value.trim()) message = "Complete the workflow name, department, and trigger.";
+        else if (Number(document.getElementById("monthlyVolume").value) < 1 || Number(document.getElementById("minutesPerCase").value) < 1) message = "Use positive values for monthly volume and minutes per case.";
+      } else if (currentStep === 2) {
+        if (!checkedValues("inputTypes").length) message = "Select at least one input type.";
+        else if (!document.getElementById("sourceSystems").value.trim()) message = "Name the approved source or system categories.";
+      } else if (currentStep === 3) {
+        if (!checkedValues("aiTasks").length) message = "Select at least one AI task.";
+        else if (!document.getElementById("outputFormat").value.trim()) message = "Describe the expected AI-assisted output.";
+      } else if (currentStep === 4) {
+        if (!document.getElementById("reviewerRole").value.trim()) message = "Name a qualified human reviewer role.";
+      } else if (currentStep === 5) {
+        if (!document.getElementById("workflowOwner").value.trim() || !document.getElementById("exceptionRoute").value.trim()) message = "Name the workflow owner and exception route.";
+        else if (!document.getElementById("manualFallback").checked) message = "Confirm that a tested manual fallback and stop procedure will remain available.";
+      }
+      formError.textContent = message;
+      return !message;
+    }
+
+    function getProfile() {
+      return {
+        workflowName: document.getElementById("workflowName").value.trim(),
+        department: document.getElementById("department").value,
+        trigger: document.getElementById("trigger").value.trim(),
+        frequency: document.getElementById("frequency").value,
+        monthlyVolume: Number(document.getElementById("monthlyVolume").value),
+        minutesPerCase: Number(document.getElementById("minutesPerCase").value),
+        inputTypes: checkedValues("inputTypes"),
+        sourceSystems: document.getElementById("sourceSystems").value.trim(),
+        sensitivity: radioValue("sensitivity"),
+        dataReadiness: radioValue("dataReadiness"),
+        aiTasks: checkedValues("aiTasks"),
+        outputFormat: document.getElementById("outputFormat").value.trim(),
+        primaryGoal: document.getElementById("primaryGoal").value,
+        grounding: document.getElementById("grounding").value,
+        reviewerRole: document.getElementById("reviewerRole").value.trim(),
+        reviewMode: radioValue("reviewMode"),
+        impact: radioValue("impact"),
+        approvedTool: radioValue("approvedTool"),
+        destination: document.getElementById("destination").value,
+        workflowOwner: document.getElementById("workflowOwner").value.trim(),
+        successMetric: document.getElementById("successMetric").value,
+        exceptionRoute: document.getElementById("exceptionRoute").value.trim(),
+        manualFallback: document.getElementById("manualFallback").checked,
+        logging: document.getElementById("logging").checked
+      };
+    }
+
+    function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+    function assess(profile) {
+      var sensitivityScore = { public:10, internal:25, confidential:50, personal:68, regulated:82, credentials:100 }[profile.sensitivity];
+      var impactScore = { low:18, medium:48, high:82 }[profile.impact];
+      var reviewAdjustment = { every:-16, exceptions:-5, sample:8 }[profile.reviewMode];
+      var readinessAdjustment = profile.dataReadiness === "ready" ? -7 : (profile.dataReadiness === "partial" ? 4 : 10);
+      var toolAdjustment = profile.approvedTool === "yes" ? -8 : 14;
+      var risk = clamp(Math.round(sensitivityScore * .48 + impactScore * .35 + reviewAdjustment + readinessAdjustment + toolAdjustment), 5, 100);
+      var boundary = (profile.impact === "high" || sensitivityScore >= 65) ? "Assist + mandatory approval" : (profile.reviewMode === "exceptions" && profile.approvedTool === "yes" ? "Controlled automation" : "Draft + human review");
+      var riskLabel = risk >= 70 ? "High control" : (risk >= 42 ? "Moderate control" : "Lower control");
+      return { risk:risk, boundary:boundary, riskLabel:riskLabel, baselineHours:Math.round(profile.monthlyVolume * profile.minutesPerCase / 60 * 10) / 10 };
+    }
+
+    function appendTextCard(container, smallText, title, body, className) {
+      var card = document.createElement("article");
+      var small = document.createElement("small");
+      var heading = document.createElement("h4");
+      var paragraph = document.createElement("p");
+      card.className = className;
+      small.textContent = smallText;
+      heading.textContent = title;
+      paragraph.textContent = body;
+      card.appendChild(small); card.appendChild(heading); card.appendChild(paragraph); container.appendChild(card);
+    }
+
+    function renderSummary(profile, assessment) {
+      var container = document.getElementById("profileSummary");
+      var stats = [[labels.departments[profile.department],"Function"],[assessment.boundary,"Automation boundary"],[assessment.riskLabel,"Control level"],[assessment.baselineHours + " hrs","Baseline workload / month"]];
+      container.innerHTML = "";
+      stats.forEach(function (pair) { var box=document.createElement("div"),strong=document.createElement("strong"),span=document.createElement("span"); box.className="profile-stat"; strong.textContent=pair[0]; span.textContent=pair[1]; box.appendChild(strong); box.appendChild(span); container.appendChild(box); });
+      document.getElementById("resultIntro").textContent = "A planning blueprint for “" + profile.workflowName + ".” Validate every assumption with the process owner, representative cases, and required reviewers before implementation.";
+    }
+
+    function renderFlow(profile) {
+      var flow = document.getElementById("workflowFlow");
+      var nodes = [
+        ["⚡","Trigger",profile.trigger],
+        ["📥","Authorized inputs",profile.inputTypes.map(function (item) { return labels.inputs[item]; }).join(", ") + ". Sources: " + profile.sourceSystems],
+        ["🤖","AI task",profile.aiTasks.map(function (task) { return labels.tasks[task]; }).join("; ")],
+        ["✅","Validation",labels.grounding[profile.grounding] + "; check completeness, format, required fields, and unsupported claims"],
+        ["👤","Human review",profile.reviewerRole + " — " + labels.review[profile.reviewMode]],
+        ["📤","Destination",labels.destination[profile.destination] + ": " + profile.outputFormat]
+      ];
+      flow.innerHTML = "";
+      nodes.forEach(function (node) { var card=document.createElement("article"),icon=document.createElement("div"),small=document.createElement("small"),p=document.createElement("p"); card.className="flow-node"; icon.className="flow-icon"; icon.textContent=node[0]; icon.setAttribute("aria-hidden","true"); small.textContent=node[1]; p.textContent=node[2]; card.appendChild(icon); card.appendChild(small); card.appendChild(p); flow.appendChild(card); });
+    }
+
+    function renderRoles(profile, assessment) {
+      var grid = document.getElementById("roleGrid"); grid.innerHTML = "";
+      appendTextCard(grid,"Accountable owner",profile.workflowOwner,"Owns the business outcome, scope, baseline, budget, adoption, incidents, and expansion decision.","blueprint-card");
+      appendTextCard(grid,"Qualified reviewer",profile.reviewerRole,"Reviews " + labels.review[profile.reviewMode].toLowerCase() + ", verifies evidence, corrects output, and can stop the workflow.","blueprint-card");
+      appendTextCard(grid,"AI boundary",assessment.boundary,"The AI may " + profile.aiTasks.map(function (task) { return labels.tasks[task].toLowerCase(); }).join(", ") + "; it does not receive authority beyond the approved workflow.","blueprint-card");
+      appendTextCard(grid,"System responsibility","Technology, data, and security owners","Approve integrations, access, monitoring, retention, change control, reliability, and recovery appropriate to the workflow.","blueprint-card");
+    }
+
+    function addControl(container, type, title, body) {
+      var card=document.createElement("article"),mark=document.createElement("span"),wrap=document.createElement("div"),h=document.createElement("h4"),p=document.createElement("p"); card.className="control-card"+(type?" "+type:""); mark.className="control-mark"; mark.textContent=type==="critical"?"!":(type==="warning"?"!":"✓"); h.textContent=title; p.textContent=body; wrap.appendChild(h); wrap.appendChild(p); card.appendChild(mark); card.appendChild(wrap); container.appendChild(card);
+    }
+
+    function renderControls(profile) {
+      var grid=document.getElementById("controlGrid"); grid.innerHTML="";
+      addControl(grid,profile.approvedTool==="yes"?"":"critical","Approved service and configuration",profile.approvedTool==="yes"?"Confirm the approval covers this exact tool, account, model, connector, data type, retention, and purpose.":"Do not pilot until the exact service, account, model, connector, data type, retention, and purpose are approved.");
+      addControl(grid,profile.sensitivity==="public"||profile.sensitivity==="internal"?"":"warning","Data minimization and authorization","Use the minimum authorized data. Remove identifiers where practical and prevent hidden sensitive content in uploads, links, metadata, and connected sources.");
+      addControl(grid,"","Grounding and evidence",labels.grounding[profile.grounding] + ". Require traceability so the reviewer can verify important claims and fields.");
+      addControl(grid,profile.impact==="high"?"warning":"","Human authority",profile.reviewerRole + " must be able to inspect, correct, reject, override, escalate, and stop the workflow before high-impact or external action.");
+      addControl(grid,profile.logging?"":"warning","Records and monitoring",profile.logging?"Record appropriate inputs, outputs, approvals, corrections, model or configuration changes, incidents, and performance measures.":"Define appropriate logging for approvals, corrections, incidents, and performance before a pilot.");
+      addControl(grid,"","Testing and change control","Use representative normal, edge, adversarial, missing-data, and exception cases. Re-test after material model, prompt, source, integration, or policy changes.");
+      addControl(grid,"","Access and retention","Apply least privilege, authorized identities, retention and deletion rules, secure secrets handling, and separation between test and production environments.");
+      addControl(grid,"","Fallback and stop conditions","Maintain the current safe process, named escalation contacts, rollback, and stop conditions for security, privacy, quality, fairness, or reliability failures.");
+    }
+
+    function addException(list, icon, text) { var li=document.createElement("li"),span=document.createElement("span"),div=document.createElement("div"); span.textContent=icon; span.setAttribute("aria-hidden","true"); div.textContent=text; li.appendChild(span); li.appendChild(div); list.appendChild(li); }
+
+    function renderExceptions(profile) {
+      var list=document.getElementById("exceptionList"); list.innerHTML="";
+      addException(list,"?",profile.exceptionRoute + ". No output should silently continue when required information is missing, conflicting, unsupported, or low confidence.");
+      addException(list,"🔒","If unauthorized sensitive information, credentials, secrets, or payment data appear, stop processing, prevent further disclosure, and follow the approved incident path.");
+      addException(list,"👤","If the output could materially affect a person, customer, employee, account, right, service, payment, safety, or legal position, require qualified human decision and any applicable specialist review.");
+      addException(list,"↺","If the AI service, source, integration, or destination is unavailable, use the tested manual fallback; do not discard or duplicate work silently.");
+      addException(list,"📉","If corrections, complaints, unsafe outputs, reviewer effort, latency, or cost exceed pilot thresholds, pause and redesign before increasing volume.");
+    }
+
+    function renderKpis(profile, assessment) {
+      var grid=document.getElementById("kpiGrid"); grid.innerHTML="";
+      appendTextCard(grid,"Baseline workload",assessment.baselineHours + " hours/month",profile.monthlyVolume + " cases × " + profile.minutesPerCase + " minutes before automation. Verify with observed data.","kpi-card");
+      appendTextCard(grid,"Primary outcome",labels.metric[profile.successMetric],"Compare the supervised pilot with the existing process using the same case definition and time window.","kpi-card");
+      appendTextCard(grid,"Quality","Acceptance and correction rate","Record outputs accepted without change, minor edits, major corrections, rejected outputs, and missed exceptions.","kpi-card");
+      appendTextCard(grid,"Human effort","Review minutes per case","Include review, rework, escalations, training, monitoring, and maintenance—not only model processing time.","kpi-card");
+      appendTextCard(grid,"Reliability","Exception and fallback rate","Track missing inputs, low confidence, integration failures, timeouts, duplicate actions, and manual fallback usage.","kpi-card");
+      appendTextCard(grid,"Risk","Incidents and near misses","Monitor data exposure, unauthorized access, harmful or unfair output, unsupported claims, external errors, and stop events.","kpi-card");
+    }
+
+    function renderPilot(profile) {
+      var grid=document.getElementById("pilotGrid"); grid.innerHTML="";
+      appendTextCard(grid,"Days 1–7","Define and baseline","Confirm scope, owner, trigger, start and end points, current " + labels.metric[profile.successMetric].toLowerCase() + ", full costs, and stop conditions.","pilot-card");
+      appendTextCard(grid,"Days 8–14","Prepare controls","Approve tools and data, create representative test cases, configure access, define acceptance criteria, review, logs, exceptions, and fallback.","pilot-card");
+      appendTextCard(grid,"Days 15–21","Run supervised","Use a small volume alongside the current process. Record every output, correction, failure, review minute, exception, user issue, and cost.","pilot-card");
+      appendTextCard(grid,"Days 22–30","Decide with evidence","Compare results with baseline. Stop, redesign, continue, or expand gradually. Do not scale until quality, safety, ownership, and value are demonstrated.","pilot-card");
+    }
+
+    function renderRisk(profile, assessment) {
+      var alert=document.getElementById("riskAlert"),text=alert.querySelector("div"); alert.classList.toggle("critical",assessment.risk>=70||profile.sensitivity==="credentials");
+      if (profile.sensitivity === "credentials") text.textContent="Credentials, private keys, authentication secrets, and payment data should not be placed in ordinary AI prompts. Redesign the workflow so secrets remain in approved secure systems and obtain security review before any pilot.";
+      else if (assessment.risk >= 70) text.textContent="This workflow needs high-control implementation because of its data sensitivity, impact, readiness, or review model. Treat the blueprint as discovery only until privacy, security, legal, compliance, and accountable business reviewers approve the design.";
+      else if (profile.approvedTool !== "yes") text.textContent="No approved AI service or account has been confirmed. The workflow may be designed and tested with sanitized examples, but do not process real business data until the exact service and use are approved.";
+      else text.textContent="Start with a bounded, supervised pilot. The blueprint is a planning aid and does not replace process-owner, data, security, privacy, legal, compliance, or technical approval.";
+    }
+
+    function buildCopyText() {
+      if (!latest) return "";
+      var p=latest.profile,a=latest.assessment;
+      var lines=["AI Workflow Blueprint — Zynovix AI","Workflow: "+p.workflowName,"Function: "+labels.departments[p.department],"Boundary: "+a.boundary,"Control level: "+a.riskLabel,"Baseline workload: "+a.baselineHours+" hours/month","","END-TO-END FLOW","1. Trigger: "+p.trigger,"2. Inputs: "+p.inputTypes.map(function(item){return labels.inputs[item];}).join(", ")+". Sources: "+p.sourceSystems,"3. AI task: "+p.aiTasks.map(function(task){return labels.tasks[task];}).join("; "),"4. Validation: "+labels.grounding[p.grounding],"5. Human review: "+p.reviewerRole+" — "+labels.review[p.reviewMode],"6. Destination: "+labels.destination[p.destination]+" — "+p.outputFormat,"","OWNERSHIP","Workflow owner: "+p.workflowOwner,"Qualified reviewer: "+p.reviewerRole,"Exception route: "+p.exceptionRoute,"","MEASUREMENT","Primary KPI: "+labels.metric[p.successMetric],"Track acceptance, corrections, review time, exceptions, fallback, incidents, reliability, and full operating cost.","","30-DAY PILOT","Days 1–7: Define scope and baseline.","Days 8–14: Approve tools/data and prepare controls and test cases.","Days 15–21: Run a small supervised pilot alongside the current process.","Days 22–30: Compare evidence and stop, redesign, continue, or expand gradually.","","Planning aid only. Validate with accountable reviewers before implementation.","https://zynovix.github.io/ai-workflow-blueprint-generator.html"];
+      return lines.join("\n");
+    }
+
+    function fallbackCopy(text) { var area=document.createElement("textarea"); area.value=text; area.setAttribute("readonly",""); area.style.position="fixed"; area.style.opacity="0"; document.body.appendChild(area); area.select(); var copied=false; try{copied=document.execCommand("copy");}catch(error){copied=false;} document.body.removeChild(area); return copied; }
+
+    function copyBlueprint() {
+      var text=buildCopyText(); if(!text) return;
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){actionStatus.textContent="Blueprint copied to your clipboard.";}).catch(function(){actionStatus.textContent=fallbackCopy(text)?"Blueprint copied.":"Copy failed. Please try again.";});}
+      else actionStatus.textContent=fallbackCopy(text)?"Blueprint copied.":"Copy failed. Please try again.";
+    }
+
+    function showResults() {
+      var profile=getProfile(),assessment=assess(profile); latest={profile:profile,assessment:assessment};
+      renderSummary(profile,assessment); renderFlow(profile); renderRoles(profile,assessment); renderControls(profile); renderExceptions(profile); renderKpis(profile,assessment); renderPilot(profile); renderRisk(profile,assessment);
+      generatorCard.hidden=true; resultsCard.hidden=false; actionStatus.textContent=""; document.getElementById("generator").scrollIntoView({behavior:"smooth",block:"start"}); document.querySelector(".results-header h2").setAttribute("tabindex","-1"); document.querySelector(".results-header h2").focus();
+    }
+
+    function applyQueryParameters() {
+      var params=new URLSearchParams(window.location.search),workflow=params.get("workflow"),department=params.get("department"),goal=params.get("goal");
+      if(workflow){document.getElementById("workflowName").value=workflow.slice(0,100); document.getElementById("preset").value="custom";}
+      if(department&&labels.departments[department]) document.getElementById("department").value=department;
+      if(goal&&labels.goal[goal]) document.getElementById("primaryGoal").value=goal;
+    }
+
+    document.getElementById("preset").addEventListener("change",function(){applyPreset(this.value);});
+    form.addEventListener("submit",function(event){event.preventDefault(); if(!validateStep())return; if(currentStep<5)showStep(currentStep+1); else showResults();});
+    backButton.addEventListener("click",function(){if(currentStep>1)showStep(currentStep-1);});
+    document.getElementById("copyButton").addEventListener("click",copyBlueprint);
+    document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("editButton").addEventListener("click",function(){resultsCard.hidden=true;generatorCard.hidden=false;showStep(1);document.getElementById("generator").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("resetButton").addEventListener("click",function(){form.reset();document.getElementById("preset").value="custom";resultsCard.hidden=true;generatorCard.hidden=false;latest=null;showStep(1);document.getElementById("generator").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+
+    applyQueryParameters();
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

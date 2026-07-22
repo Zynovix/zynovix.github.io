@@ -627,6 +627,7 @@
         </div>
         <div class="result-actions">
           <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Results</button>
+          <a class="btn btn-primary" id="blueprintButton" href="ai-workflow-blueprint-generator.html">Build Workflow Blueprint</a>
           <a class="btn btn-primary" href="automation-roi-calculator.html">Calculate ROI</a>
           <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
           <button class="btn btn-ghost" id="editButton" type="button">✏️ Edit Answers</button>
@@ -905,6 +906,7 @@
       latest={profile:profile,results:results};list.innerHTML="";
       results.forEach(function(item,index){list.appendChild(renderOpportunity(item,index));});
       renderSummary(profile,results);renderRisk(profile,results);renderPlan(results[0]);
+      document.getElementById("blueprintButton").href="ai-workflow-blueprint-generator.html?"+new URLSearchParams({workflow:results[0].title,department:profile.department,goal:profile.goal}).toString();
       finderCard.hidden=true;resultsCard.hidden=false;actionStatus.textContent="";
       document.getElementById("finder").scrollIntoView({behavior:"smooth",block:"start"});
       document.querySelector(".results-header h2").setAttribute("tabindex","-1");document.querySelector(".results-header h2").focus();

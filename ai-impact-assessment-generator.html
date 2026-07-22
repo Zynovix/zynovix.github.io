@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Impact Assessment Generator (2026) | Zynovix AI</title>
+  <meta name="description" content="Assess an AI system's impacts on people, rights, privacy, fairness, safety, and operations. Generate a risk matrix, controls, monitoring plan, and decision brief.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-impact-assessment-generator.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Impact Assessment Generator">
+  <meta property="og:description" content="Map potential AI impacts, evaluate 29 controls, identify decision gates, and create an accountable mitigation and monitoring plan.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-impact-assessment-generator.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Impact Assessment Generator">
+  <meta name="twitter:description" content="Assess people, rights, data, fairness, safety, oversight, and lifecycle controls before piloting an AI system.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --ia-bg: #050816;
+      --ia-surface: rgba(10,17,39,.94);
+      --ia-surface-2: rgba(15,24,51,.9);
+      --ia-line: rgba(148,163,184,.2);
+      --ia-strong: #f8fbff;
+      --ia-text: #d6e0ef;
+      --ia-soft: #96a5bc;
+      --ia-cyan: #22d3ee;
+      --ia-blue: #3b82f6;
+      --ia-purple: #8b5cf6;
+      --ia-green: #34d399;
+      --ia-yellow: #fbbf24;
+      --ia-orange: #fb923c;
+      --ia-red: #fb7185;
+      --ia-shadow: 0 28px 85px rgba(0,0,0,.36);
+    }
+    html { scroll-behavior: smooth; }
+    body.impact-page { color: var(--ia-text); overflow-x: hidden; }
+    [hidden] { display: none !important; }
+    .impact-page .brand img,.impact-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-160%); padding: 11px 15px; border-radius: 10px; color: #041018; background: var(--ia-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .impact-hero { padding: 54px 0 40px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; color: var(--ia-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--ia-cyan); }
+    .impact-hero h1 { max-width: 1100px; margin: 18px auto; color: var(--ia-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.6px; }
+    .impact-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--ia-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .impact-hero > p { max-width: 920px; margin: 0 auto; color: var(--ia-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.7; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--ia-line); border-radius: 999px; color: #c8d6e8; background: rgba(255,255,255,.035); font-size: 13px; }
+    .hero-action { margin-top: 25px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 950px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
+    .privacy-note svg { width: 21px; height: 21px; flex: 0 0 21px; margin-top: 2px; color: var(--ia-green); }
+
+    .assessment-section { padding: 18px 0 88px; scroll-margin-top: 96px; }
+    .assessment-shell,.results-card { border: 1px solid var(--ia-line); border-radius: 28px; background: var(--ia-surface); box-shadow: var(--ia-shadow); overflow: hidden; }
+    .assessment-layout { display: block; }
+    .step-sidebar { padding: 20px; border-bottom: 1px solid var(--ia-line); background: rgba(4,9,24,.48); }
+    .step-sidebar > span { display: block; margin-bottom: 13px; color: var(--ia-cyan); font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+    .step-list { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .step-item { display: grid; justify-items: center; gap: 6px; color: #75839a; font-size: 9px; text-align: center; }
+    .step-number { display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid var(--ia-line); border-radius: 10px; background: rgba(255,255,255,.035); font-weight: 900; }
+    .step-item.active { color: var(--ia-strong); }
+    .step-item.active .step-number { border-color: rgba(34,211,238,.75); color: #04101a; background: linear-gradient(135deg,var(--ia-cyan),#60a5fa); box-shadow: 0 0 22px rgba(34,211,238,.2); }
+    .step-item.complete .step-number { color: #071a13; border-color: rgba(52,211,153,.55); background: var(--ia-green); }
+
+    .form-area { padding: 24px; }
+    .form-step { min-height: 690px; }
+    .step-kicker { display: block; margin-bottom: 8px; color: var(--ia-cyan); font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .form-step h2 { margin: 0 0 9px; color: var(--ia-strong); font-size: clamp(28px,5vw,40px); line-height: 1.12; }
+    .step-intro { max-width: 870px; margin: 0 0 25px; color: var(--ia-soft); line-height: 1.65; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1/-1; }
+    .field label,.field > span { display: block; margin-bottom: 8px; color: var(--ia-strong); font-size: 14px; font-weight: 800; }
+    .field input,.field select,.field textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--ia-line); border-radius: 14px; outline: none; color: var(--ia-strong); background: #091127; font: inherit; color-scheme: dark; transition: border-color .2s ease,box-shadow .2s ease; }
+    .field textarea { min-height: 104px; resize: vertical; }
+    .field input:focus,.field select:focus,.field textarea:focus { border-color: rgba(34,211,238,.75); box-shadow: 0 0 0 4px rgba(34,211,238,.09); }
+    .field-help { display: block; margin-top: 6px; color: #77879f; font-size: 12px; line-height: 1.45; }
+    .profile-note { margin: 19px 0 0; padding: 15px 17px; border: 1px solid rgba(34,211,238,.2); border-radius: 15px; color: #bddce5; background: rgba(34,211,238,.05); line-height: 1.55; }
+    .group-fieldset { margin: 20px 0 0; padding: 18px; border: 1px solid var(--ia-line); border-radius: 18px; }
+    .group-fieldset legend { padding: 0 8px; color: var(--ia-strong); font-weight: 900; }
+    .check-grid,.evidence-grid { display: grid; grid-template-columns: 1fr; gap: 9px; }
+    .check-label { position: relative; cursor: pointer; }
+    .check-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .check-label span { display: grid; grid-template-columns: 28px minmax(0,1fr); align-items: center; gap: 10px; min-height: 55px; padding: 11px; border: 1px solid var(--ia-line); border-radius: 13px; color: #becadb; background: rgba(255,255,255,.025); font-size: 13px; }
+    .check-label span::before { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid var(--ia-line); border-radius: 9px; color: transparent; background: #091127; content: "✓"; font-weight: 900; }
+    .check-label input:checked + span { border-color: rgba(52,211,153,.58); color: var(--ia-strong); background: rgba(52,211,153,.065); }
+    .check-label input:checked + span::before { border-color: var(--ia-green); color: #06160f; background: var(--ia-green); }
+    .check-label input:focus-visible + span { outline: 3px solid var(--ia-cyan); outline-offset: 2px; }
+
+    .impact-list { display: grid; gap: 13px; }
+    .impact-row { padding: 17px; border: 1px solid var(--ia-line); border-radius: 17px; background: rgba(255,255,255,.025); }
+    .impact-title { display: flex; align-items: flex-start; gap: 11px; }
+    .impact-icon { display: grid; width: 39px; height: 39px; flex: 0 0 39px; place-items: center; border-radius: 12px; background: linear-gradient(135deg,rgba(59,130,246,.8),rgba(139,92,246,.75)); font-size: 18px; }
+    .impact-title strong { display: block; color: var(--ia-strong); font-size: 16px; }
+    .impact-title small { display: block; margin-top: 4px; color: var(--ia-soft); line-height: 1.45; }
+    .impact-selects { display: grid; grid-template-columns: 1fr; gap: 9px; margin-top: 14px; }
+    .impact-selects label { color: #aebdd1; font-size: 12px; font-weight: 800; }
+    .impact-selects select { width: 100%; min-height: 43px; margin-top: 6px; padding: 8px 10px; border: 1px solid var(--ia-line); border-radius: 11px; color: var(--ia-strong); background: #091127; font: inherit; color-scheme: dark; }
+
+    .question-list { display: grid; gap: 14px; }
+    .control-question { padding: 17px; border: 1px solid var(--ia-line); border-radius: 17px; background: rgba(255,255,255,.025); }
+    .question-head { display: flex; align-items: flex-start; gap: 11px; }
+    .question-index { display: grid; width: 31px; height: 31px; flex: 0 0 31px; place-items: center; border-radius: 10px; color: #06131c; background: var(--ia-cyan); font-size: 12px; font-weight: 900; }
+    .question-copy strong { display: block; color: var(--ia-strong); font-size: 16px; line-height: 1.38; }
+    .question-copy small { display: block; margin-top: 5px; color: var(--ia-soft); line-height: 1.45; }
+    .answer-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 14px; }
+    .answer-label { position: relative; cursor: pointer; }
+    .answer-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .answer-label span { display: flex; min-height: 43px; align-items: center; justify-content: center; padding: 8px; border: 1px solid var(--ia-line); border-radius: 11px; color: #b9c7d9; background: #091127; font-size: 12px; font-weight: 800; text-align: center; transition: border-color .2s ease,background .2s ease,transform .2s ease; }
+    .answer-label:hover span { transform: translateY(-1px); }
+    .answer-label input:checked + span { border-color: rgba(34,211,238,.7); color: #fff; background: rgba(34,211,238,.1); }
+    .answer-label input:focus-visible + span { outline: 3px solid var(--ia-cyan); outline-offset: 2px; }
+    .answer-label[data-answer="verified"] input:checked + span { border-color: rgba(52,211,153,.7); color: #bdf5df; background: rgba(52,211,153,.09); }
+    .answer-label[data-answer="planned"] input:checked + span { border-color: rgba(59,130,246,.7); color: #c8dfff; background: rgba(59,130,246,.09); }
+    .answer-label[data-answer="unknown"] input:checked + span { border-color: rgba(251,191,36,.65); color: #ffe5a2; background: rgba(251,191,36,.08); }
+    .answer-label[data-answer="missing"] input:checked + span { border-color: rgba(251,113,133,.72); color: #ffc4cf; background: rgba(251,113,133,.09); }
+    .evidence-fieldset { margin: 0 0 22px; padding: 19px; border: 1px solid var(--ia-line); border-radius: 18px; background: rgba(255,255,255,.02); }
+    .evidence-fieldset legend { padding: 0 8px; color: var(--ia-strong); font-weight: 900; }
+
+    .form-error { min-height: 25px; margin-top: 17px; color: #ff9daf; font-size: 14px; font-weight: 700; }
+    .form-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .form-actions button { border: 0; cursor: pointer; font: inherit; }
+    .form-actions button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+
+    .results-header { padding: 30px; border-bottom: 1px solid var(--ia-line); text-align: center; }
+    .decision-icon { display: grid; width: 66px; height: 66px; place-items: center; margin: 0 auto 14px; border-radius: 20px; color: #06131c; background: linear-gradient(135deg,var(--ia-blue),var(--ia-cyan)); font-size: 31px; font-weight: 900; box-shadow: 0 16px 38px rgba(59,130,246,.24); }
+    .decision-badge { display: inline-flex; align-items: center; margin-bottom: 13px; padding: 8px 13px; border: 1px solid var(--ia-line); border-radius: 999px; font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .decision-badge.pilot { color: #9df5d5; border-color: rgba(52,211,153,.38); background: rgba(52,211,153,.09); }
+    .decision-badge.controls { color: #c8dfff; border-color: rgba(59,130,246,.42); background: rgba(59,130,246,.1); }
+    .decision-badge.pause { color: #ffe19a; border-color: rgba(251,191,36,.42); background: rgba(251,191,36,.09); }
+    .decision-badge.stop { color: #ffc1cc; border-color: rgba(251,113,133,.45); background: rgba(251,113,133,.1); }
+    .results-header h2 { margin: 0 0 9px; color: var(--ia-strong); font-size: clamp(31px,5vw,48px); line-height: 1.08; }
+    .results-header p { max-width: 880px; margin: 0 auto; color: var(--ia-soft); line-height: 1.65; }
+    .risk-score-wrap { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 15px; max-width: 620px; margin: 22px auto 0; padding: 14px; border: 1px solid var(--ia-line); border-radius: 18px; background: rgba(255,255,255,.03); text-align: left; }
+    .risk-score { display: grid; width: 86px; height: 86px; place-items: center; border: 7px solid rgba(34,211,238,.28); border-radius: 50%; color: var(--ia-strong); font-size: 24px; font-weight: 900; }
+    .risk-score-copy strong { display: block; color: var(--ia-strong); font-size: 17px; }
+    .risk-score-copy span { color: var(--ia-soft); font-size: 13px; line-height: 1.45; }
+    .results-body { padding: 24px; }
+    .results-body > section,.results-body > aside { margin-bottom: 35px; }
+    .results-body h3 { margin: 0 0 15px; color: var(--ia-strong); font-size: clamp(23px,4vw,31px); }
+    .results-body h4 { margin: 0 0 7px; color: var(--ia-strong); font-size: 17px; }
+    .summary-grid,.dimension-grid,.action-grid,.monitor-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .summary-card,.dimension-card,.action-card,.monitor-card { padding: 18px; border: 1px solid var(--ia-line); border-radius: 17px; background: rgba(255,255,255,.027); }
+    .summary-card small { display: block; margin-bottom: 5px; color: var(--ia-cyan); font-size: 11px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .summary-card strong { display: block; color: var(--ia-strong); font-size: 21px; line-height: 1.2; }
+    .summary-card span { display: block; margin-top: 5px; color: var(--ia-soft); font-size: 12px; line-height: 1.45; }
+    .dimension-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .dimension-head strong { color: var(--ia-strong); font-size: 17px; }
+    .dimension-head span { color: var(--ia-cyan); font-size: 20px; font-weight: 900; }
+    .score-track { height: 8px; margin: 13px 0 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .score-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--ia-blue),var(--ia-cyan)); }
+    .dimension-card p,.monitor-card p { margin: 0; color: var(--ia-soft); font-size: 12px; line-height: 1.5; }
+    .monitor-card strong { display: block; margin-bottom: 7px; color: var(--ia-strong); }
+    .impact-table-wrap { width: 100%; border: 1px solid var(--ia-line); border-radius: 17px; overflow-x: auto; }
+    .impact-table { width: 100%; min-width: 700px; border-collapse: collapse; }
+    .impact-table th,.impact-table td { padding: 13px 14px; border-bottom: 1px solid var(--ia-line); text-align: left; vertical-align: top; }
+    .impact-table th { color: var(--ia-strong); background: rgba(59,130,246,.11); font-size: 13px; }
+    .impact-table td { color: #c7d4e5; font-size: 13px; }
+    .impact-table tr:last-child td { border-bottom: 0; }
+    .risk-pill { display: inline-flex; padding: 5px 8px; border-radius: 999px; color: #fff; background: #475569; font-size: 11px; font-weight: 900; }
+    .risk-pill.low { color: #06160f; background: var(--ia-green); }
+    .risk-pill.moderate { color: #231900; background: var(--ia-yellow); }
+    .risk-pill.high { color: #291000; background: var(--ia-orange); }
+    .risk-pill.critical { color: #280711; background: var(--ia-red); }
+    .alert-box { padding: 18px; border: 1px solid rgba(251,191,36,.3); border-radius: 17px; color: #f6e4b1; background: rgba(251,191,36,.065); line-height: 1.6; }
+    .alert-box.danger { border-color: rgba(251,113,133,.38); color: #ffd2da; background: rgba(251,113,133,.07); }
+    .alert-box.clear { border-color: rgba(52,211,153,.3); color: #c5f5e4; background: rgba(52,211,153,.06); }
+    .alert-box ul { margin: 8px 0 0; padding-left: 20px; }
+    .action-card { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 11px; }
+    .action-number { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: #06131c; background: var(--ia-cyan); font-weight: 900; }
+    .action-card p { margin: 4px 0 0; color: var(--ia-soft); font-size: 13px; line-height: 1.5; }
+    .report-note { padding: 16px 18px; border-left: 4px solid var(--ia-cyan); border-radius: 0 14px 14px 0; color: #c7d5e7; background: rgba(34,211,238,.055); line-height: 1.6; }
+    .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 22px 27px; }
+    .result-actions button { border: 0; cursor: pointer; font: inherit; }
+    .action-status { width: 100%; min-height: 22px; color: #7ef0c4; text-align: center; font-size: 14px; }
+
+    .method-section { padding: 82px 0; }
+    .method-grid,.next-step-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .method-card { min-height: 0; padding: 21px; }
+    .method-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 14px; border-radius: 15px; color: #fff; background: linear-gradient(135deg,rgba(59,130,246,.88),rgba(34,211,238,.8)); font-size: 17px; font-weight: 900; }
+    .method-card h3 { margin-bottom: 7px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 14px; line-height: 1.55; }
+    .formula-box { margin-top: 22px; padding: 20px; border: 1px solid var(--ia-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .formula-box h3 { margin: 0 0 12px; color: var(--ia-strong); }
+    .formula-list { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--ia-soft); line-height: 1.55; }
+    .formula-list strong { color: #dce9f7; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .source-links a { padding: 8px 11px; border: 1px solid var(--ia-line); border-radius: 10px; color: #b9dff0; background: rgba(255,255,255,.025); font-size: 13px; }
+    .source-links a:hover { border-color: var(--ia-cyan); }
+    .next-step-section { padding: 0 0 86px; }
+    .next-card { display: flex; min-height: 100%; flex-direction: column; padding: 22px; }
+    .next-card span { color: var(--ia-cyan); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .next-card h3 { margin: 7px 0; }
+    .next-card p { margin: 0 0 17px; }
+    .next-card .btn { margin-top: auto; align-self: flex-start; }
+    .faq-section { padding: 0 0 92px; }
+    .faq-list { display: grid; gap: 11px; max-width: 930px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--ia-line); border-radius: 17px; background: var(--ia-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--ia-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--ia-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--ia-soft); line-height: 1.65; }
+    button:focus-visible,a:focus-visible { outline: 3px solid var(--ia-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid,.check-grid,.evidence-grid,.summary-grid,.dimension-grid,.action-grid,.monitor-grid,.method-grid,.next-step-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .impact-selects { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .answer-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+    }
+    @media (min-width: 920px) {
+      .impact-hero { padding-top: 72px; }
+      .assessment-layout { display: grid; grid-template-columns: 250px minmax(0,1fr); }
+      .step-sidebar { border-right: 1px solid var(--ia-line); border-bottom: 0; }
+      .step-list { grid-template-columns: 1fr; gap: 12px; }
+      .step-item { grid-template-columns: 36px minmax(0,1fr); justify-items: start; align-items: center; font-size: 14px; text-align: left; }
+      .form-area { padding: 34px; }
+      .dimension-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .next-step-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .impact-page .brand img,.impact-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .impact-hero h1 { letter-spacing: -1.5px; }
+      .step-item span:last-child { display: none; }
+      .form-step { min-height: 0; }
+      .form-actions .btn,.result-actions .btn { width: 100%; }
+      .risk-score-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,.impact-hero,.assessment-shell,.result-actions,.method-section,.next-step-section,.faq-section,.footer,.noise,.orb { display: none !important; }
+      body.impact-page { color: #111827; background: #fff !important; }
+      .assessment-section { padding: 0; }
+      .results-card { border: 0; color: #111827; background: #fff !important; box-shadow: none; }
+      .results-header,.results-body { padding: 16px 0; }
+      .results-header h2,.summary-card strong,.dimension-head strong,.results-body h3,.results-body h4,.monitor-card strong { color: #111827 !important; }
+      .results-header p,.summary-card span,.dimension-card p,.action-card p,.monitor-card p { color: #334155 !important; }
+      .summary-card,.dimension-card,.action-card,.monitor-card,.alert-box,.impact-table-wrap { break-inside: avoid; border-color: #cbd5e1; color: #334155; background: #fff !important; }
+    }
+  </style>
+
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-impact-assessment-generator.html#application",
+        "name": "AI Impact Assessment Generator",
+        "url": "https://zynovix.github.io/ai-impact-assessment-generator.html",
+        "description": "A free browser-based planning tool for mapping AI impacts, evaluating controls, identifying decision gates, and creating a mitigation and monitoring brief.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-impact-assessment-generator.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html"},
+          {"@type": "ListItem", "position": 3, "name": "AI Impact Assessment Generator", "item": "https://zynovix.github.io/ai-impact-assessment-generator.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-impact-assessment-generator.html#faq",
+        "mainEntity": [
+          {"@type": "Question", "name": "Is this a legally compliant AI impact assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a general planning aid and does not establish compliance with any law, replace a required AIA, DPIA, FRIA, safety assessment, legal review, or accountable approval process."}},
+          {"@type": "Question", "name": "What is the difference between inherent and residual AI risk?", "acceptedAnswer": {"@type": "Answer", "text": "Inherent risk is the plausible impact before considering the strength of controls. Residual planning risk is the remaining profile after applying the entered control maturity and evidence coverage."}},
+          {"@type": "Question", "name": "Who should participate in an AI impact assessment?", "acceptedAnswer": {"@type": "Answer", "text": "Participation should match the context and may include affected people, business owners, domain specialists, privacy, security, legal, compliance, accessibility, procurement, technical teams, frontline users, and independent reviewers."}},
+          {"@type": "Question", "name": "When should an AI impact assessment be updated?", "acceptedAnswer": {"@type": "Answer", "text": "Update it before deployment and after material changes to purpose, data, model, users, affected groups, authority, integrations, performance, vendor, controls, law, incidents, or operating conditions."}},
+          {"@type": "Question", "name": "Can a low score authorize production use?", "acceptedAnswer": {"@type": "Answer", "text": "No. The score supports discussion and prioritization. Production authorization remains with the organization's accountable decision-makers and applicable specialist review."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="impact-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="noise"></div><div class="orb orb-a"></div><div class="orb orb-b"></div>
+
+  <header class="header"><nav class="nav shell" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+    <div class="nav-menu" id="navMenu"><a href="tools.html" class="active" aria-current="page">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+  </nav></header>
+
+  <main id="main">
+    <section class="impact-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="tools.html">AI Tools</a><span aria-hidden="true">›</span><span>AI Impact Assessment</span></nav>
+      <div class="pill">Free governance tool · 2026 edition</div>
+      <h1>Understand who an AI system could affect <span>before you deploy it</span></h1>
+      <p>Map plausible impacts, test 29 lifecycle controls, expose blocking gaps, and generate an accountable mitigation and monitoring brief.</p>
+      <ul class="hero-facts" aria-label="Assessment features"><li>8 impact domains</li><li>29 control questions</li><li>Severity × likelihood matrix</li><li>Decision gates</li><li>JSON, CSV, and print report</li></ul>
+      <div class="hero-action"><a class="btn btn-primary" href="#assessment">Start Impact Assessment</a></div>
+      <aside class="privacy-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.8 2.9 8.5 7 10 4.1-1.5 7-5.2 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.8"/><path d="m9.3 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Private by design:</strong> your entries and calculations stay in this browser. Nothing is transmitted to Zynovix. Avoid entering confidential personal details; describe groups and risks at the level needed for assessment.</div></aside>
+    </section>
+
+    <section class="assessment-section shell" id="assessment">
+      <div class="assessment-shell" id="assessmentShell"><div class="assessment-layout">
+        <aside class="step-sidebar" aria-label="Assessment progress"><span>Assessment steps</span><ol class="step-list">
+          <li class="step-item active"><span class="step-number">1</span><span>Context</span></li>
+          <li class="step-item"><span class="step-number">2</span><span>Impacts</span></li>
+          <li class="step-item"><span class="step-number">3</span><span>Rights &amp; Data</span></li>
+          <li class="step-item"><span class="step-number">4</span><span>Quality</span></li>
+          <li class="step-item"><span class="step-number">5</span><span>Safety</span></li>
+          <li class="step-item"><span class="step-number">6</span><span>Oversight</span></li>
+          <li class="step-item"><span class="step-number">7</span><span>Evidence</span></li>
+        </ol></aside>
+
+        <form class="form-area" id="impactForm">
+          <section class="form-step" data-step="1">
+            <span class="step-kicker">Step 1 of 7 · System context</span><h2>Define the system and decision</h2>
+            <p class="step-intro">Assess one specific system, purpose, deployment, user group, and level of authority. A broad label such as “customer-service AI” is not a sufficient boundary.</p>
+            <div class="field-grid">
+              <div class="field full"><label for="systemName">AI system or project name *</label><input id="systemName" name="systemName" maxlength="100" required placeholder="Example: Customer refund recommendation assistant"><small class="field-help">Use a recognizable internal name; do not enter personal data.</small></div>
+              <div class="field"><label for="owner">Accountable business owner</label><input id="owner" name="owner" maxlength="100" placeholder="Role or team"></div>
+              <div class="field"><label for="department">Business function</label><select id="department"><option value="general">General / cross-functional</option><option value="support">Customer support</option><option value="hr">Human resources</option><option value="finance">Finance</option><option value="health">Health / care</option><option value="education">Education</option><option value="legal">Legal / compliance</option><option value="it">IT / security</option><option value="operations">Operations</option><option value="product">Product / engineering</option><option value="marketing">Marketing / sales</option></select></div>
+              <div class="field"><label for="stage">Decision stage</label><select id="stage"><option value="concept">Concept / discovery</option><option value="pilot">Pilot preparation</option><option value="limited">Limited deployment</option><option value="production">Production / material expansion</option></select></div>
+              <div class="field"><label for="authority">AI role and authority</label><select id="authority"><option value="assist">Draft or assist only</option><option value="recommend">Recommend to a human</option><option value="decide">Make or materially determine a decision</option><option value="act">Take actions in systems or the world</option></select></div>
+              <div class="field"><label for="reach">Reach</label><select id="reach"><option value="team">Small internal team</option><option value="organization">Broad internal use</option><option value="external">Limited external population</option><option value="public">Large-scale or public-facing</option></select></div>
+              <div class="field"><label for="reversibility">Reversibility of a harmful outcome</label><select id="reversibility"><option value="easy">Easy and timely to correct</option><option value="moderate">Correctable with effort</option><option value="difficult">Difficult, delayed, or costly to reverse</option><option value="irreversible">Potentially irreversible</option></select></div>
+              <div class="field"><label for="dataSensitivity">Highest data sensitivity</label><select id="dataSensitivity"><option value="public">Public or synthetic only</option><option value="internal">Internal, non-personal</option><option value="personal">Personal or confidential</option><option value="sensitive">Sensitive, restricted, or highly confidential</option></select></div>
+              <div class="field full"><label for="purpose">Purpose and intended outcome</label><textarea id="purpose" maxlength="600" placeholder="What problem should the AI address, what output or action will it produce, and how will people use it?"></textarea></div>
+            </div>
+            <fieldset class="group-fieldset"><legend>People or groups that may be affected *</legend><p class="step-intro">Include people affected by decisions or errors, not only direct users.</p><div class="check-grid">
+              <label class="check-label"><input type="checkbox" name="affected" value="workers"><span>Workers, contractors, or applicants</span></label>
+              <label class="check-label"><input type="checkbox" name="affected" value="customers"><span>Customers, clients, or service users</span></label>
+              <label class="check-label"><input type="checkbox" name="affected" value="children"><span>Children or young people</span></label>
+              <label class="check-label"><input type="checkbox" name="affected" value="vulnerable"><span>Vulnerable or marginalized groups</span></label>
+              <label class="check-label"><input type="checkbox" name="affected" value="public"><span>General public or communities</span></label>
+              <label class="check-label"><input type="checkbox" name="affected" value="organization"><span>Organization, partners, or operators</span></label>
+            </div></fieldset>
+            <p class="profile-note"><strong>Boundary rule:</strong> reassess when purpose, model, data, integrations, affected groups, reach, or authority changes materially.</p>
+          </section>
+
+          <section class="form-step" data-step="2" hidden><span class="step-kicker">Step 2 of 7 · Potential impacts</span><h2>Rate plausible severity and likelihood</h2><p class="step-intro">Consider the worst reasonably foreseeable outcome—not an impossible extreme and not only the average case. Rate impacts before relying on planned controls.</p><div class="impact-list" id="impactList"></div></section>
+          <div id="questionSteps"></div>
+
+          <section class="form-step" data-step="7" hidden>
+            <span class="step-kicker">Step 7 of 7 · Evidence and decision record</span><h2>Record what has actually been reviewed</h2><p class="step-intro">Select only current artifacts, tests, or engagement that apply to this system and use case. Planned work is not reviewed evidence.</p>
+            <fieldset class="evidence-fieldset"><legend>Evidence coverage</legend><div class="evidence-grid" id="evidenceGrid"></div></fieldset>
+            <div class="field-grid">
+              <div class="field"><label for="assessmentOwner">Assessment owner</label><input id="assessmentOwner" maxlength="100" placeholder="Role or team"></div>
+              <div class="field"><label for="reviewDate">Next review date or cadence</label><input id="reviewDate" maxlength="100" placeholder="Example: Before pilot, then quarterly"></div>
+              <div class="field full"><label for="notes">Important assumptions, conditions, or unresolved questions</label><textarea id="notes" maxlength="1200" placeholder="Record assumptions, known limitations, conditions, owners, deadlines, and topics requiring specialist review."></textarea></div>
+            </div>
+            <p class="profile-note"><strong>Important:</strong> this generator is a general planning aid. It does not determine legal applicability or replace a required AIA, DPIA, FRIA, safety assessment, accessibility review, consultation, audit, or approval.</p>
+          </section>
+
+          <p class="form-error" id="formError" role="alert" aria-live="assertive"></p>
+          <div class="form-actions"><button class="btn btn-ghost" type="button" id="backButton" disabled>Previous</button><button class="btn btn-primary" type="submit" id="nextButton">Next: Impacts</button></div>
+        </form>
+      </div></div>
+
+      <article class="results-card" id="resultsCard" hidden aria-live="polite">
+        <header class="results-header"><div class="decision-icon" id="decisionIcon">→</div><span class="decision-badge" id="decisionBadge">Decision</span><h2 id="decisionTitle">Impact assessment result</h2><p id="decisionSummary"></p><div class="risk-score-wrap"><div class="risk-score"><span id="riskScore">0</span></div><div class="risk-score-copy"><strong id="riskLevel">Residual planning risk</strong><span id="riskExplanation"></span></div></div></header>
+        <div class="results-body">
+          <section><h3>Assessment snapshot</h3><div class="summary-grid" id="summaryGrid"></div></section>
+          <section><h3>Impact matrix</h3><div class="impact-table-wrap"><table class="impact-table"><thead><tr><th>Impact domain</th><th>Severity</th><th>Likelihood</th><th>Inherent rating</th></tr></thead><tbody id="impactTableBody"></tbody></table></div></section>
+          <section><h3>Control maturity by dimension</h3><div class="dimension-grid" id="dimensionGrid"></div></section>
+          <section><h3>Decision gates and priority gaps</h3><div class="alert-box" id="gateBox"></div></section>
+          <section><h3>Required mitigation plan</h3><div class="action-grid" id="actionGrid"></div></section>
+          <section><h3>Monitoring and review plan</h3><div class="monitor-grid" id="monitorGrid"></div></section>
+          <aside class="report-note" id="reportNote"></aside>
+        </div>
+        <div class="result-actions"><button class="btn btn-primary" type="button" id="copyButton">Copy Impact Brief</button><button class="btn btn-ghost" type="button" id="jsonButton">Download JSON</button><button class="btn btn-ghost" type="button" id="csvButton">Download CSV</button><button class="btn btn-ghost" type="button" id="printButton">Print / Save PDF</button><button class="btn btn-ghost" type="button" id="editButton">Edit Assessment</button><button class="btn btn-ghost" type="button" id="resetButton">New Assessment</button><p class="action-status" id="actionStatus" role="status" aria-live="polite"></p></div>
+      </article>
+    </section>
+
+    <section class="method-section shell reveal" aria-labelledby="methodTitle">
+      <div class="section-head"><span class="kicker">Transparent methodology</span><h2 id="methodTitle">Impact first, then controls and evidence</h2><p>The tool separates plausible inherent impact from control maturity and reviewed evidence. A serious rights, safety, privacy, or human-oversight gap can pause the decision even when the average score looks acceptable.</p></div>
+      <div class="cards method-grid">
+        <article class="card method-card"><div class="method-icon">20%</div><h3>People &amp; rights</h3><p>Stakeholders, participation, notice, explanation, accessibility, challenge, and remedy.</p></article>
+        <article class="card method-card"><div class="method-icon">20%</div><h3>Data &amp; privacy</h3><p>Necessity, purpose, minimization, provenance, quality, retention, rights, and assessment.</p></article>
+        <article class="card method-card"><div class="method-icon">20%</div><h3>Quality &amp; fairness</h3><p>Fitness, representative tests, subgroup outcomes, failure analysis, reproducibility, and drift.</p></article>
+        <article class="card method-card"><div class="method-icon">20%</div><h3>Safety &amp; security</h3><p>Threats, injection, access, output handling, incidents, resilience, fallback, and recovery.</p></article>
+        <article class="card method-card"><div class="method-icon">20%</div><h3>Oversight &amp; lifecycle</h3><p>Ownership, human authority, training, monitoring, change, documentation, and decommissioning.</p></article>
+      </div>
+      <div class="formula-box"><h3>How the calculation works</h3><ul class="formula-list"><li><strong>Impact rating:</strong> severity (0–4) × likelihood (1–4) for each of eight domains.</li><li><strong>Inherent impact:</strong> the strongest plausible impact domains plus contextual uplift for reach, authority, reversibility, data, stage, and affected groups.</li><li><strong>Control maturity:</strong> Verified = 100, Partial = 60, Planned = 30, Unknown = 10, Missing = 0, weighted by importance.</li><li><strong>Residual planning risk:</strong> inherent impact reduced by control maturity, then adjusted for evidence coverage and critical gates.</li><li><strong>Scope:</strong> scores support prioritization and accountable discussion; they are not probabilities, certifications, or legal conclusions.</li></ul><nav class="source-links" aria-label="Methodology sources"><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI RMF ↗</a><a href="https://airc.nist.gov/airmf-resources/playbook/govern/" target="_blank" rel="noopener noreferrer">NIST Govern Playbook ↗</a><a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html" target="_blank" rel="noopener noreferrer">Canada AIA ↗</a><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/" target="_blank" rel="noopener noreferrer">ICO AI Risk Toolkit ↗</a></nav></div>
+      <div class="formula-box"><h3>Need the complete step-by-step process?</h3><p>Use the practical guide to define scope, involve affected stakeholders, map benefits and harms, rate severity and likelihood, verify controls, document mitigations, and set monitoring and reassessment triggers.</p><a class="btn btn-ghost" href="how-to-conduct-ai-impact-assessment-2026.html">Read the AI Impact Assessment Guide</a></div>
+    </section>
+
+    <section class="next-step-section shell reveal" aria-labelledby="nextTitle"><div class="section-head"><span class="kicker">Continue the governance chain</span><h2 id="nextTitle">Connect system impact to vendor, policy, and pilot evidence</h2><p>An impact assessment should shape procurement conditions, acceptable-use rules, controls, testing, monitoring, and reassessment.</p></div><div class="cards next-step-grid">
+      <article class="card next-card"><span>Vendor evidence</span><h3>AI Vendor Risk Assessment</h3><p>Check whether the selected vendor and contract can support the controls this impact review requires.</p><a class="btn btn-ghost" href="ai-vendor-risk-assessment.html">Assess the Vendor</a></article>
+      <article class="card next-card"><span>Governance rules</span><h3>AI Policy Generator</h3><p>Turn risk boundaries into workplace rules for tools, data, oversight, security, incidents, and training.</p><a class="btn btn-ghost" href="ai-policy-generator.html">Generate a Policy</a></article>
+      <article class="card next-card"><span>Observed evidence</span><h3>AI Automation Pilot Scorecard</h3><p>Test value, quality, reliability, controls, and evidence before making a scale decision.</p><a class="btn btn-ghost" href="ai-automation-pilot-scorecard.html">Score a Pilot</a></article>
+    </div></section>
+
+    <section class="faq-section shell reveal" aria-labelledby="faqTitle"><div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">AI impact assessment questions</h2></div><div class="faq-list">
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1">Is this a legally compliant AI impact assessment?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq1" hidden>No. It is a general planning aid and does not establish compliance with any law or replace a required AIA, DPIA, FRIA, safety assessment, legal review, consultation, audit, or accountable approval.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2">What is the difference between inherent and residual AI risk?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq2" hidden>Inherent risk is the plausible impact before relying on controls. Residual planning risk is the remaining profile after applying the entered control maturity and evidence coverage.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3">Who should participate in an AI impact assessment?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq3" hidden>Participation should match the context and may include affected people, business owners, domain specialists, privacy, security, legal, compliance, accessibility, procurement, technical teams, frontline users, and independent reviewers.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4">When should the assessment be updated?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq4" hidden>Update it before deployment and after material changes to purpose, data, model, users, affected groups, authority, integrations, performance, vendor, controls, law, incidents, or operating conditions.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5">Can a low score authorize production use?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq5" hidden>No. The score supports discussion and prioritization. Production authorization remains with the organization’s accountable decision-makers and applicable specialist review.</div></article>
+    </div></section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><span>© 2026 Zynovix AI. All rights reserved.</span></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var dimensions = {
+      rights:{label:"People & rights",weight:20,description:"Stakeholders, participation, notice, accessibility, challenge, and remedy"},
+      data:{label:"Data & privacy",weight:20,description:"Purpose, minimization, provenance, quality, retention, rights, and privacy assessment"},
+      quality:{label:"Quality & fairness",weight:20,description:"Fitness, representative tests, subgroup outcomes, failures, reproducibility, and drift"},
+      safety:{label:"Safety & security",weight:20,description:"Threats, access, injection, output handling, incidents, resilience, and recovery"},
+      oversight:{label:"Oversight & lifecycle",weight:20,description:"Ownership, human authority, training, monitoring, change, and decommissioning"}
+    };
+    var impactDomains = [
+      {id:"safety",icon:"🩺",label:"Physical health or safety",help:"Injury, unsafe action, delayed care, unsafe products, or environmental harm."},
+      {id:"rights",icon:"⚖️",label:"Rights and legal position",help:"Loss of rights, due process, freedom, access to remedy, or lawful treatment."},
+      {id:"economic",icon:"💳",label:"Economic or livelihood impact",help:"Employment, income, credit, benefits, price, financial loss, or material opportunity."},
+      {id:"discrimination",icon:"◈",label:"Discrimination or exclusion",help:"Unequal quality, allocation, access, burden, representation, or treatment across groups."},
+      {id:"privacy",icon:"🔐",label:"Privacy or confidentiality",help:"Unwanted inference, surveillance, disclosure, re-identification, misuse, or loss of control."},
+      {id:"service",icon:"🚪",label:"Access to services or opportunity",help:"Denial, delay, ranking, prioritization, exclusion, or reduced ability to obtain a service."},
+      {id:"dignity",icon:"🫶",label:"Dignity, autonomy, or wellbeing",help:"Manipulation, dependency, deception, stigma, chilling effects, distress, or loss of agency."},
+      {id:"operational",icon:"⚙️",label:"Operational, security, or societal impact",help:"Outage, fraud, cyber harm, misinformation, resource loss, institutional or community effects."}
+    ];
+    var questions = [
+      {id:"stakeholders",dimension:"rights",weight:3,title:"Affected people and impact pathways are identified",help:"The team maps direct users, people subject to outputs or actions, bystanders, vulnerable groups, and plausible benefit and harm pathways.",action:"Map affected people and impact pathways",detail:"Document who can benefit or be harmed, how the impact occurs, its scale, duration, reversibility, and who owns engagement."},
+      {id:"consultation",dimension:"rights",weight:3,title:"Relevant affected people or representatives are meaningfully consulted",help:"Engagement happens early enough to change requirements, testing, safeguards, communication, or the decision not to deploy.",action:"Plan meaningful stakeholder participation",detail:"Identify representative participants, accessible engagement methods, questions, feedback ownership, and how findings change the system."},
+      {id:"notice",dimension:"rights",weight:3,title:"People receive appropriate notice and understandable explanation",help:"Notice covers AI involvement, purpose, important factors, limitations, data use, human role, and available support where applicable.",action:"Design notice and explanation",detail:"Create context-appropriate disclosure and explanation, test comprehension, and keep communication aligned with actual system behavior."},
+      {id:"appeal",dimension:"rights",weight:3,title:"Challenge, correction, appeal, and remedy are workable",help:"People can reach a competent human, submit relevant information, correct errors, receive timely review, and obtain appropriate remedy.",action:"Create challenge and remedy routes",detail:"Define intake, response time, reviewer authority, correction, escalation, outcome communication, evidence retention, and trend analysis."},
+      {id:"accessibility",dimension:"rights",weight:2,title:"Accessibility and inclusion are designed and tested",help:"Interfaces, notices, review routes, and alternatives consider disability, language, literacy, access constraints, and digital exclusion.",action:"Complete accessibility and inclusion review",detail:"Test with relevant users, provide accessible alternatives, document exclusions, and prevent AI use from becoming a barrier to service."},
+      {id:"benefit",dimension:"rights",weight:2,title:"Expected benefits, distribution, and trade-offs are documented",help:"The business case identifies who benefits, who bears risk or work, what alternatives exist, and why AI is proportionate to the need.",action:"Document benefit distribution and alternatives",detail:"Compare the AI approach with non-AI options and record benefits, burdens, trade-offs, assumptions, and the conditions for stopping."},
+
+      {id:"lawful",dimension:"data",weight:3,title:"Purpose, necessity, legal basis, and role allocation are established",help:"The organization identifies applicable requirements, processing roles, decision responsibilities, and why each data use is necessary and proportionate.",action:"Establish purpose and data accountability",detail:"Confirm purpose, necessity, legal basis where applicable, controller/processor or equivalent roles, restrictions, and specialist review."},
+      {id:"minimize",dimension:"data",weight:3,title:"Data collection, access, retention, and reuse are minimized",help:"The system uses only the data and retention needed for the defined purpose, with controls on secondary use, training, logs, and deletion.",action:"Minimize data and secondary use",detail:"Remove unnecessary fields and access, set retention and deletion, constrain training or evaluation use, and verify downstream handling."},
+      {id:"data_quality",dimension:"data",weight:3,title:"Data provenance, relevance, quality, and representativeness are evaluated",help:"Sources, permissions, gaps, labels, age, coverage, feedback loops, proxies, and known limitations are documented and tested.",action:"Strengthen data quality and provenance",detail:"Create a data inventory, document sources and permissions, assess gaps and proxies, test relevant groups, and define quality monitoring."},
+      {id:"privacy_assessment",dimension:"data",weight:3,title:"Privacy and rights impacts are assessed with specialist input",help:"The assessment covers data flows, inference, surveillance, re-identification, sensitive data, rights, security, affected people, and mitigations.",action:"Complete the applicable privacy impact review",detail:"Map processing and risks to people, consult privacy specialists and affected groups, record mitigations, residual risk, and approvals."},
+      {id:"retention",dimension:"data",weight:2,title:"People's data rights, retention, deletion, and correction can be executed",help:"Operational processes cover access, correction, deletion, restriction, export, objection, consent withdrawal, and propagated changes where applicable.",action:"Operationalize data rights and deletion",detail:"Test requests end to end across models, prompts, files, embeddings, logs, backups, vendors, and connected systems."},
+
+      {id:"fitness",dimension:"quality",weight:3,title:"Fitness criteria and unacceptable failure thresholds are defined",help:"Metrics reflect real use, consequence, uncertainty, abstention, review burden, and failure severity—not only average accuracy or a vendor benchmark.",action:"Define fitness and failure thresholds",detail:"Set use-case metrics, subgroup and edge-case thresholds, serious-error limits, abstention behavior, review burden, and stop criteria before testing."},
+      {id:"representative",dimension:"quality",weight:3,title:"Representative and adversarial testing covers real operating conditions",help:"Tests include routine, difficult, incomplete, rare, multilingual, out-of-distribution, manipulated, and failure cases in realistic proportions.",action:"Build a representative evaluation set",detail:"Sample real operating conditions safely, include edge and adversarial cases, define ground truth and reviewer agreement, and preserve versions."},
+      {id:"subgroup",dimension:"quality",weight:3,title:"Performance and outcomes are evaluated across relevant groups",help:"The team examines error type, allocation, burden, accessibility, and outcome differences—not only aggregate model performance.",action:"Evaluate subgroup performance and outcomes",detail:"Identify relevant groups with specialist and stakeholder input, test meaningful outcomes and error types, investigate gaps, and mitigate or narrow scope."},
+      {id:"failure",dimension:"quality",weight:3,title:"Failure consequences, uncertainty, abstention, and fallback are tested",help:"The system can defer, fail safely, route to a person, continue service, and recover without hiding uncertainty or creating automation bias.",action:"Design safe failure and fallback",detail:"Define abstention and escalation, test outage and degraded modes, preserve a workable alternative, and prevent reviewers from over-trusting outputs."},
+      {id:"drift",dimension:"quality",weight:2,title:"Drift, degradation, and outcome changes can be detected",help:"Monitoring covers inputs, outputs, errors, subgroups, overrides, complaints, incidents, operating context, and model or data changes.",action:"Create drift and outcome monitoring",detail:"Set metrics, segments, baselines, thresholds, review frequency, alert owners, investigation, rollback, and reassessment triggers."},
+      {id:"reproducible",dimension:"quality",weight:2,title:"Tests, versions, prompts, data, configurations, and decisions are reproducible",help:"The team can identify what was assessed, compare changes, reproduce material findings, and trace an output or action when needed.",action:"Improve traceability and reproducibility",detail:"Version system components and test assets, log material configurations and decisions, and preserve evidence for investigation and reassessment."},
+
+      {id:"threat",dimension:"safety",weight:3,title:"A system-level threat and misuse assessment is completed",help:"The review covers malicious users, insiders, supply chain, models, retrieval, tools, agents, connected systems, abuse, and foreseeable dual use.",action:"Complete system threat and misuse modeling",detail:"Map assets, actors, trust boundaries, attack paths, misuse cases, dependencies, harms, preventive controls, detection, response, and owners."},
+      {id:"injection",dimension:"safety",weight:3,title:"Prompt injection, data poisoning, and untrusted content are tested",help:"Testing covers direct and indirect instructions, files, webpages, email, retrieval sources, memory, feedback, and connected-tool content.",action:"Test untrusted instructions and poisoned context",detail:"Use adversarial cases across every untrusted channel; separate instructions from data, restrict tools, validate context, monitor, and retest changes."},
+      {id:"access",dimension:"safety",weight:3,title:"Access, permissions, actions, and resource use are constrained",help:"Least privilege, scoped credentials, allowlisted tools, approvals, isolation, timeouts, budgets, rate limits, and a kill switch bound system authority.",action:"Constrain authority and resources",detail:"Reduce permissions and data access, require approvals for consequential actions, cap spend and loops, isolate execution, log actions, and test the kill switch."},
+      {id:"output",dimension:"safety",weight:3,title:"Outputs are validated before use by people or systems",help:"Typed schemas, sanitization, policy checks, provenance, human review, sandboxing, and safe rendering match the output's destination and consequence.",action:"Validate and safely handle outputs",detail:"Treat model output as untrusted, validate structure and content, sanitize rendering, sandbox execution, show sources, and require review where consequences matter."},
+      {id:"incident",dimension:"safety",weight:3,title:"AI incidents, near-misses, abuse, and harmful outcomes have a response process",help:"Detection, triage, containment, human escalation, user support, correction, notification, evidence, lessons, and reassessment are assigned and tested.",action:"Establish AI incident response",detail:"Define AI-specific events and severity, reporting channels, owners, containment, rollback, communication, remedy, evidence preservation, learning, and exercises."},
+      {id:"resilience",dimension:"safety",weight:2,title:"Availability, dependency failure, recovery, and safe shutdown are tested",help:"The organization can handle model, vendor, API, connector, data, identity, or network failure without uncontrolled impact or loss of essential service.",action:"Test resilience and safe shutdown",detail:"Map critical dependencies, define recovery and continuity targets, test fallback and shutdown, preserve essential service, and maintain exit options."},
+
+      {id:"owner_control",dimension:"oversight",weight:3,title:"Accountable owners, risk tolerance, and approval authority are explicit",help:"Named roles can accept, mitigate, transfer, pause, restrict, or stop the system and are accountable for the decision and ongoing outcomes.",action:"Assign accountable ownership and risk authority",detail:"Name business and risk owners, approval forums, tolerance, escalation, decision rights, evidence expectations, and review cadence."},
+      {id:"human_review",dimension:"oversight",weight:3,title:"Human oversight is competent, informed, timely, and empowered",help:"Reviewers have the time, context, interface, training, independence, authority, and fallback needed to detect error and change the outcome.",action:"Make human oversight operational",detail:"Define review triggers and sampling, show uncertainty and evidence, measure reviewer performance and burden, prevent automation bias, and grant override authority."},
+      {id:"training",dimension:"oversight",weight:2,title:"Users and reviewers are trained on purpose, limits, risks, and escalation",help:"Training is role-specific, tested, refreshed after changes or incidents, and supported by job aids, prohibited-use rules, and reporting channels.",action:"Deliver role-based AI training",detail:"Cover intended and excluded use, data handling, limitations, review, challenge, security, incidents, fallback, and practical competency checks."},
+      {id:"monitoring",dimension:"oversight",weight:3,title:"Post-deployment monitoring links metrics to decisions and intervention",help:"Quality, fairness, privacy, security, safety, complaints, appeals, overrides, incidents, cost, and benefits have thresholds, owners, and response playbooks.",action:"Implement decision-linked monitoring",detail:"Define measures, segments, thresholds, owners, frequency, dashboards, investigation, corrective action, rollback, suspension, and reassessment."},
+      {id:"change",dimension:"oversight",weight:3,title:"Material changes trigger versioned testing, review, and communication",help:"Purpose, model, data, vendor, prompts, tools, permissions, users, reach, law, incidents, and operating conditions have change gates and regression tests.",action:"Create AI change and reassessment gates",detail:"Inventory components, define material change, require versioned regression tests and approvals, communicate relevant changes, and preserve rollback."},
+      {id:"decommission",dimension:"oversight",weight:2,title:"Documentation, audit trail, exit, and decommissioning are workable",help:"The organization can export necessary records, revoke access, preserve decisions, delete data, transition service, communicate shutdown, and learn from outcomes.",action:"Plan exit and decommissioning",detail:"Define triggers, ownership, portability, access revocation, retention and deletion, user communication, continuity, evidence preservation, and post-closure review."}
+    ];
+    var evidenceItems = [
+      {id:"scope",label:"Approved scope, system boundary, purpose, and data-flow documentation"},
+      {id:"stakeholder",label:"Affected-person or representative consultation and accessibility input"},
+      {id:"privacy",label:"Applicable privacy, rights, legal, or regulatory assessment"},
+      {id:"testing",label:"Representative quality, fairness, failure, and subgroup test evidence"},
+      {id:"security",label:"Threat model, security testing, misuse testing, and incident process"},
+      {id:"vendor",label:"Vendor, model, component, subprocessor, and contract evidence"},
+      {id:"pilot",label:"Bounded pilot logs, human-review evidence, complaints, and exceptions"},
+      {id:"approval",label:"Named owners, mitigation plan, residual-risk decision, and review triggers"}
+    ];
+    var answerValues={verified:100,partial:60,planned:30,unknown:10,missing:0};
+    var answerLabels={verified:"Verified",partial:"Partial",planned:"Planned",unknown:"Unknown",missing:"Missing"};
+    var severityLabels={0:"None identified",1:"Minor",2:"Moderate",3:"Serious",4:"Critical"};
+    var likelihoodLabels={1:"Rare",2:"Possible",3:"Probable",4:"Likely / recurring"};
+    var currentStep=1,totalSteps=7,latest=null;
+    var form=document.getElementById("impactForm"),assessmentShell=document.getElementById("assessmentShell"),resultsCard=document.getElementById("resultsCard"),formError=document.getElementById("formError"),backButton=document.getElementById("backButton"),nextButton=document.getElementById("nextButton"),actionStatus=document.getElementById("actionStatus");
+
+    function escapeHtml(value){return String(value).replace(/[&<>'"]/g,function(character){return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[character];});}
+    function byDimension(key){return questions.filter(function(question){return question.dimension===key;});}
+    function renderImpact(item){return '<article class="impact-row"><div class="impact-title"><span class="impact-icon" aria-hidden="true">'+item.icon+'</span><div><strong>'+escapeHtml(item.label)+'</strong><small>'+escapeHtml(item.help)+'</small></div></div><div class="impact-selects"><label>Potential severity<select name="severity_'+item.id+'" aria-label="'+escapeHtml(item.label)+' severity"><option value="">Select severity</option><option value="0">None identified</option><option value="1">Minor</option><option value="2">Moderate</option><option value="3">Serious</option><option value="4">Critical</option></select></label><label>Reasonable likelihood<select name="likelihood_'+item.id+'" aria-label="'+escapeHtml(item.label)+' likelihood"><option value="">Select likelihood</option><option value="1">Rare</option><option value="2">Possible</option><option value="3">Probable</option><option value="4">Likely / recurring</option></select></label></div></article>';}
+    function renderQuestion(question,index){return '<article class="control-question"><div class="question-head"><span class="question-index">'+(index+1)+'</span><div class="question-copy"><strong id="label-'+question.id+'">'+escapeHtml(question.title)+'</strong><small>'+escapeHtml(question.help)+'</small></div></div><div class="answer-grid" role="radiogroup" aria-labelledby="label-'+question.id+'">'+["verified","partial","planned","unknown","missing"].map(function(answer){return '<label class="answer-label" data-answer="'+answer+'"><input type="radio" name="q_'+question.id+'" value="'+answer+'" '+(answer==="unknown"?'checked':'')+'><span>'+answerLabels[answer]+'</span></label>';}).join("")+'</div></article>';}
+    function createDynamicContent(){
+      document.getElementById("impactList").innerHTML=impactDomains.map(renderImpact).join("");
+      var steps=[{step:3,keys:["rights","data"],kicker:"Rights, people, and data",title:"Test rights and data protections",intro:"Consider impacts on people in context. A policy statement is not Verified unless the control is implemented and supported by applicable evidence."},{step:4,keys:["quality"],kicker:"Quality and fairness",title:"Test fitness, failure, and distribution",intro:"Average accuracy can conceal serious errors, unequal outcomes, review burden, or unsafe failure in the real workflow."},{step:5,keys:["safety"],kicker:"Safety, security, and resilience",title:"Test misuse, attacks, actions, and failure",intro:"Assess the complete system—including retrieval, tools, agents, integrations, people, vendors, and operating dependencies."},{step:6,keys:["oversight"],kicker:"Oversight and lifecycle",title:"Make accountability operational",intro:"Controls must survive deployment, change, incidents, expansion, and exit—not only the approval meeting."}];
+      document.getElementById("questionSteps").innerHTML=steps.map(function(item){var qs=[];item.keys.forEach(function(key){qs=qs.concat(byDimension(key));});return '<section class="form-step" data-step="'+item.step+'" hidden><span class="step-kicker">Step '+item.step+' of 7 · '+item.kicker+'</span><h2>'+item.title+'</h2><p class="step-intro">'+item.intro+'</p><div class="question-list">'+qs.map(renderQuestion).join("")+'</div></section>';}).join("");
+      document.getElementById("evidenceGrid").innerHTML=evidenceItems.map(function(item){return '<label class="check-label"><input type="checkbox" name="evidence" value="'+item.id+'"><span>'+escapeHtml(item.label)+'</span></label>';}).join("");
+    }
+    function showStep(step){currentStep=step;document.querySelectorAll(".form-step").forEach(function(section){section.hidden=Number(section.getAttribute("data-step"))!==step;});document.querySelectorAll(".step-item").forEach(function(item,index){item.classList.toggle("active",index===step-1);item.classList.toggle("complete",index<step-1);});backButton.disabled=step===1;var labels=["","Impacts","Rights & Data","Quality","Safety","Oversight","Evidence"];nextButton.textContent=step===totalSteps?"Generate Impact Brief":"Next: "+labels[step];formError.textContent="";}
+    function getAnswer(id){var input=form.querySelector('input[name="q_'+id+'"]:checked');return input?input.value:"unknown";}
+    function selectedValues(name){return Array.prototype.map.call(form.querySelectorAll('input[name="'+name+'"]:checked'),function(input){return input.value;});}
+    function getProfile(){var answers={},impacts={};questions.forEach(function(question){answers[question.id]=getAnswer(question.id);});impactDomains.forEach(function(item){var severity=form.querySelector('[name="severity_'+item.id+'"]'),likelihood=form.querySelector('[name="likelihood_'+item.id+'"]');impacts[item.id]={severity:severity.value===""?null:Number(severity.value),likelihood:likelihood.value===""?null:Number(likelihood.value)};});return {systemName:document.getElementById("systemName").value.trim(),owner:document.getElementById("owner").value.trim(),department:document.getElementById("department").value,stage:document.getElementById("stage").value,authority:document.getElementById("authority").value,reach:document.getElementById("reach").value,reversibility:document.getElementById("reversibility").value,dataSensitivity:document.getElementById("dataSensitivity").value,purpose:document.getElementById("purpose").value.trim(),affected:selectedValues("affected"),impacts:impacts,answers:answers,evidence:selectedValues("evidence"),assessmentOwner:document.getElementById("assessmentOwner").value.trim(),reviewDate:document.getElementById("reviewDate").value.trim(),notes:document.getElementById("notes").value.trim()};}
+    function validateStep(){if(currentStep===1){if(!document.getElementById("systemName").value.trim()){formError.textContent="Enter the AI system or project name to continue.";document.getElementById("systemName").focus();return false;}if(!form.querySelector('input[name="affected"]:checked')){formError.textContent="Select at least one affected group.";return false;}}if(currentStep===2){var missing=impactDomains.some(function(item){return form.querySelector('[name="severity_'+item.id+'"]').value===""||form.querySelector('[name="likelihood_'+item.id+'"]').value==="";});if(missing){formError.textContent="Rate both severity and likelihood for all eight impact domains.";return false;}}return true;}
+    function dimensionScore(key,profile){var set=byDimension(key),earned=0,possible=0;set.forEach(function(question){earned+=answerValues[profile.answers[question.id]]*question.weight;possible+=100*question.weight;});return Math.round(earned/possible*100);}
+    function labels(){return {department:{general:"General / cross-functional",support:"Customer support",hr:"Human resources",finance:"Finance",health:"Health / care",education:"Education",legal:"Legal / compliance",it:"IT / security",operations:"Operations",product:"Product / engineering",marketing:"Marketing / sales"},stage:{concept:"Concept / discovery",pilot:"Pilot preparation",limited:"Limited deployment",production:"Production / material expansion"},authority:{assist:"Draft or assist only",recommend:"Recommend to a human",decide:"Make or materially determine a decision",act:"Take actions in systems or the world"},reach:{team:"Small internal team",organization:"Broad internal use",external:"Limited external population",public:"Large-scale or public-facing"},reversibility:{easy:"Easy and timely to correct",moderate:"Correctable with effort",difficult:"Difficult, delayed, or costly",irreversible:"Potentially irreversible"},data:{public:"Public or synthetic",internal:"Internal non-personal",personal:"Personal or confidential",sensitive:"Sensitive or restricted"},affected:{workers:"Workers / applicants",customers:"Customers / service users",children:"Children / young people",vulnerable:"Vulnerable / marginalized groups",public:"Public / communities",organization:"Organization / operators"}};}
+    function calculate(profile){
+      var scores={},maturity=0;Object.keys(dimensions).forEach(function(key){scores[key]=dimensionScore(key,profile);maturity+=scores[key]*dimensions[key].weight/100;});maturity=Math.round(maturity);
+      var impactResults=impactDomains.map(function(item){var value=profile.impacts[item.id],score=value.severity*value.likelihood;return {id:item.id,label:item.label,severity:value.severity,likelihood:value.likelihood,score:score};}).sort(function(a,b){return b.score-a.score;});
+      var top=impactResults.slice(0,3),baseImpact=Math.round(top.reduce(function(sum,item){return sum+item.score;},0)/(top.length*16)*80);
+      var contextRaw={stage:{concept:0,pilot:3,limited:6,production:9}[profile.stage],authority:{assist:0,recommend:4,decide:8,act:12}[profile.authority],reach:{team:0,organization:4,external:8,public:12}[profile.reach],reversibility:{easy:0,moderate:3,difficult:7,irreversible:10}[profile.reversibility],data:{public:0,internal:2,personal:6,sensitive:10}[profile.dataSensitivity],affected:(profile.affected.indexOf("children")>-1?7:0)+(profile.affected.indexOf("vulnerable")>-1?6:0)};
+      var contextUplift=Math.min(20,Math.round(Object.keys(contextRaw).reduce(function(sum,key){return sum+contextRaw[key];},0)/3));
+      var inherent=Math.min(100,baseImpact+contextUplift),evidenceScore=Math.round(profile.evidence.length/evidenceItems.length*100),evidenceUplift=evidenceScore<25?12:evidenceScore<50?7:evidenceScore<75?3:0;
+      var residual=Math.min(100,Math.round(inherent*(1-.65*maturity/100)+evidenceUplift));
+      var flags=[];function flag(condition,severity,text){if(condition)flags.push({severity:severity,text:text});}
+      function weak(id){return profile.answers[id]==="missing"||profile.answers[id]==="unknown"||profile.answers[id]==="planned";}
+      function impact(id){return profile.impacts[id];}
+      var highAuthority=profile.authority==="decide"||profile.authority==="act",sensitive=profile.dataSensitivity==="personal"||profile.dataSensitivity==="sensitive",vulnerable=profile.affected.indexOf("children")>-1||profile.affected.indexOf("vulnerable")>-1;
+      flag(impact("safety").severity>=3&&impact("safety").likelihood>=2&&(weak("failure")||weak("resilience")),"critical","Serious or critical safety impact is plausible without established safe-failure and resilience controls.");
+      flag(highAuthority&&(weak("human_review")||weak("appeal")),"critical","The AI can determine decisions or take actions without established human authority and challenge or remedy routes.");
+      flag(sensitive&&impact("privacy").severity>=3&&weak("privacy_assessment"),"critical","Sensitive data and serious privacy impact are in scope without an established specialist privacy and rights assessment.");
+      flag(vulnerable&&impact("discrimination").severity>=2&&weak("subgroup"),"critical","Children or vulnerable groups may be affected without established subgroup performance and outcome evaluation.");
+      flag(profile.stage==="production"&&weak("monitoring"),"critical","Production or material expansion is planned without established decision-linked post-deployment monitoring.");
+      flag(impact("rights").severity>=3&&(weak("notice")||weak("appeal")),"high","Serious rights impact is plausible without established notice, explanation, challenge, and remedy.");
+      flag(profile.reversibility==="irreversible"&&weak("owner_control"),"high","Potentially irreversible outcomes lack established accountable risk and stop authority.");
+      flag(profile.reach==="public"&&weak("incident"),"high","Large-scale or public-facing use lacks established AI incident and harmful-outcome response.");
+      flag(evidenceScore<25,"high","Fewer than two evidence categories have been reviewed.");
+      questions.filter(function(question){return question.weight===3&&(profile.answers[question.id]==="missing"||profile.answers[question.id]==="unknown");}).forEach(function(question){flags.push({severity:profile.answers[question.id]==="missing"?"high":"gap",text:(profile.answers[question.id]==="missing"?"Control absent: ":"Evidence not established: ")+question.title});});
+      var unique=[];flags.forEach(function(item){if(!unique.some(function(saved){return saved.text===item.text;}))unique.push(item);});flags=unique;
+      var criticalCount=flags.filter(function(item){return item.severity==="critical";}).length,decision;
+      if(residual>=75||criticalCount>=3)decision="stop";else if(residual>=55||criticalCount>=1||evidenceScore<25)decision="pause";else if(residual>=30||evidenceScore<75)decision="controls";else decision="pilot";
+      return {scores:scores,maturity:maturity,impactResults:impactResults,baseImpact:baseImpact,context:contextRaw,contextUplift:contextUplift,inherent:inherent,evidenceScore:evidenceScore,residual:residual,flags:flags,criticalCount:criticalCount,decision:decision};
+    }
+    function decisionMeta(decision){return {pilot:{label:"Proceed to Bounded Pilot",icon:"✓",summary:"The current impact profile and evidence support a controlled pilot, subject to accountable approval, representative testing, monitoring, human authority, and rollback."},controls:{label:"Proceed with Controls",icon:"→",summary:"The system may remain in consideration, but named mitigations, evidence, owners, thresholds, and pilot limits should become explicit conditions."},pause:{label:"Pause & Redesign",icon:"!",summary:"A blocking gate, material unknown, weak evidence, or elevated residual profile requires redesign or stronger controls before proceeding."},stop:{label:"Do Not Deploy Yet",icon:"×",summary:"The current impact and control profile is unacceptable for the planned context. Narrow the use case, reduce authority, choose another design, or obtain materially stronger safeguards."}}[decision];}
+    function riskBand(score){if(score<25)return "Low residual planning risk";if(score<50)return "Moderate residual planning risk";if(score<75)return "High residual planning risk";return "Critical residual planning risk";}
+    function matrixBand(score){if(score===0)return {label:"None identified",className:""};if(score<=3)return {label:"Low",className:"low"};if(score<=7)return {label:"Moderate",className:"moderate"};if(score<=11)return {label:"High",className:"high"};return {label:"Critical",className:"critical"};}
+    function appendAction(container,index,title,copy){var card=document.createElement("article");card.className="action-card";card.innerHTML='<span class="action-number">'+index+'</span><div><h4>'+escapeHtml(title)+'</h4><p>'+escapeHtml(copy)+'</p></div>';container.appendChild(card);}
+    function buildActions(profile,result){var actions=[],seen={};function add(title,detail){if(!seen[title]){seen[title]=true;actions.push([title,detail]);}}result.flags.slice(0,4).forEach(function(flag){if(flag.text.indexOf("safety")>-1)add("Redesign safe failure and resilience","Define safe states, fallback, human escalation, shutdown, continuity, recovery tests, and evidence before the next gate.");else if(flag.text.indexOf("human")>-1||flag.text.indexOf("challenge")>-1)add("Strengthen human authority and remedy","Give competent reviewers time, evidence, override and stop authority; create accessible challenge, correction, appeal, and remedy routes.");else if(flag.text.indexOf("privacy")>-1)add("Complete privacy and rights assessment","Map data and inference, consult specialists and affected groups, minimize processing, confirm rights, mitigate harms, and record residual risk.");else if(flag.text.indexOf("subgroup")>-1)add("Evaluate affected groups and unequal outcomes","Use meaningful subgroup and outcome tests, stakeholder input, accessibility review, mitigation, scope limits, and ongoing monitoring.");else if(flag.text.indexOf("monitoring")>-1)add("Implement post-deployment monitoring","Link quality, fairness, privacy, safety, security, complaints, appeals, overrides, incidents, and benefits to thresholds and intervention.");});
+      var weakest=Object.keys(result.scores).sort(function(a,b){return result.scores[a]-result.scores[b];})[0];add("Close the weakest control dimension",dimensions[weakest].label+" is "+result.scores[weakest]+"/100. Assign owners, evidence, acceptance criteria, dates, and a decision gate for its highest-weight gaps.");
+      result.impactResults.slice(0,2).forEach(function(item){if(item.score>0)add("Mitigate "+item.label.toLowerCase(),"Document the impact pathway, affected groups, prevention, detection, response, remedy, monitoring, owner, threshold, and residual acceptance for this top domain.");});
+      if(result.evidenceScore<75)add("Strengthen the evidence record","Review current, system-specific scope, consultation, privacy, testing, security, vendor, pilot, and approval evidence. Do not treat planned work as completed evidence.");
+      if(profile.authority==="decide"||profile.authority==="act")add("Reduce and constrain AI authority","Prefer recommendation over determination where possible; use least privilege, bounded actions, human approval, rate and spend limits, logging, rollback, and a tested kill switch.");
+      add("Record the accountable decision","Capture scope, benefits, impacts, evidence, assumptions, mitigations, owners, residual risk, decision, review date, and material-change triggers.");return actions.slice(0,7);}
+    function buildMonitoring(profile,result){var items=[{title:"Quality and failure",copy:"Track fitness thresholds, serious errors, abstention, fallback, corrections, reviewer agreement, and operating-context changes."},{title:"Human oversight and remedy",copy:"Track override, escalation, review time, automation bias indicators, complaints, appeals, corrections, remedy, and unresolved cases."},{title:"Change and reassessment",copy:"Version models, prompts, data, tools, vendors, permissions, policies, and tests; trigger review after material change or incident."}];if(profile.impacts.discrimination.severity>=2||profile.affected.indexOf("vulnerable")>-1||profile.affected.indexOf("children")>-1)items.push({title:"Fairness and affected groups",copy:"Monitor relevant subgroup errors, outcomes, access, burden, accessibility, feedback, and emerging impacts with stakeholder input."});if(profile.impacts.privacy.severity>=2||profile.dataSensitivity==="personal"||profile.dataSensitivity==="sensitive")items.push({title:"Privacy and data",copy:"Monitor access, secondary use, retention, deletion, rights requests, leakage, inference, vendor handling, and privacy incidents."});if(profile.impacts.safety.severity>=2||profile.impacts.operational.severity>=2)items.push({title:"Safety, security, and resilience",copy:"Monitor abuse, injection, harmful actions, output handling, abnormal resource use, incidents, outages, fallback, recovery, and near-misses."});return items.slice(0,6);}
+    function renderResults(profile,result){
+      var meta=decisionMeta(result.decision),l=labels();document.getElementById("decisionIcon").textContent=meta.icon;var badge=document.getElementById("decisionBadge");badge.className="decision-badge "+result.decision;badge.textContent=meta.label;document.getElementById("decisionTitle").textContent=profile.systemName+": "+meta.label;document.getElementById("decisionSummary").textContent=meta.summary;document.getElementById("riskScore").textContent=result.residual;document.getElementById("riskLevel").textContent=riskBand(result.residual);document.getElementById("riskExplanation").textContent="Inherent impact "+result.inherent+"/100 · control maturity "+result.maturity+"/100 · reviewed evidence "+result.evidenceScore+"%. The score is not a probability or certification.";
+      var top=result.impactResults[0],summary=[["System scope",profile.systemName,profile.purpose||"Purpose not documented"],["Stage & function",l.stage[profile.stage],l.department[profile.department]],["Authority & reach",l.authority[profile.authority],l.reach[profile.reach]],["Data & reversibility",l.data[profile.dataSensitivity],l.reversibility[profile.reversibility]],["Inherent impact",result.inherent+" / 100","Top domain: "+top.label],["Affected groups",profile.affected.length,l.affected[profile.affected[0]]+(profile.affected.length>1?" + "+(profile.affected.length-1)+" more":"")]];document.getElementById("summaryGrid").innerHTML=summary.map(function(item){return '<article class="summary-card"><small>'+escapeHtml(item[0])+'</small><strong>'+escapeHtml(item[1])+'</strong><span>'+escapeHtml(item[2])+'</span></article>';}).join("");
+      document.getElementById("impactTableBody").innerHTML=result.impactResults.map(function(item){var band=matrixBand(item.score);return '<tr><td><strong>'+escapeHtml(item.label)+'</strong></td><td>'+severityLabels[item.severity]+'</td><td>'+likelihoodLabels[item.likelihood]+'</td><td><span class="risk-pill '+band.className+'">'+band.label+' · '+item.score+'/16</span></td></tr>';}).join("");
+      document.getElementById("dimensionGrid").innerHTML=Object.keys(dimensions).map(function(key){return '<article class="dimension-card"><div class="dimension-head"><strong>'+dimensions[key].label+'</strong><span>'+result.scores[key]+'</span></div><div class="score-track"><div class="score-fill" style="width:'+result.scores[key]+'%"></div></div><p>'+escapeHtml(dimensions[key].description)+'</p></article>';}).join("");
+      var box=document.getElementById("gateBox");if(result.flags.length){box.className="alert-box danger";box.innerHTML='<strong>'+result.flags.length+' priority flag'+(result.flags.length===1?"":"s")+' identified</strong><ul>'+result.flags.slice(0,12).map(function(flag){return '<li><strong>'+escapeHtml(flag.severity.toUpperCase())+':</strong> '+escapeHtml(flag.text)+'</li>';}).join("")+'</ul>';}else{box.className="alert-box clear";box.innerHTML='<strong>No blocking gate was triggered by the entered information.</strong><p>Continue specialist review, participation, representative testing, accountable approval, monitoring, and material-change reassessment.</p>';}
+      var actions=document.getElementById("actionGrid");actions.innerHTML="";buildActions(profile,result).forEach(function(action,index){appendAction(actions,index+1,action[0],action[1]);});
+      document.getElementById("monitorGrid").innerHTML=buildMonitoring(profile,result).map(function(item){return '<article class="monitor-card"><strong>'+escapeHtml(item.title)+'</strong><p>'+escapeHtml(item.copy)+'</p></article>';}).join("");
+      document.getElementById("reportNote").textContent="Planning interpretation only. Results depend on the entered scope, ratings, control answers, and evidence selections. Zynovix did not independently verify the system. The result does not establish compliance, safety, fairness, privacy, security, accessibility, fitness, legal permissibility, or authorization to purchase or deploy.";
+    }
+    function save(profile){try{localStorage.setItem("zynovixImpactAssessmentV1",JSON.stringify(profile));}catch(error){}}
+    function load(profile){if(!profile)return;["systemName","owner","purpose","assessmentOwner","reviewDate","notes"].forEach(function(id){if(typeof profile[id]==="string")document.getElementById(id).value=profile[id].slice(0,id==="notes"?1200:id==="purpose"?600:100);});["department","stage","authority","reach","reversibility","dataSensitivity"].forEach(function(id){if(profile[id]&&document.querySelector('#'+id+' option[value="'+profile[id]+'"]'))document.getElementById(id).value=profile[id];});if(Array.isArray(profile.affected))form.querySelectorAll('input[name="affected"]').forEach(function(input){input.checked=profile.affected.indexOf(input.value)>-1;});if(profile.impacts)impactDomains.forEach(function(item){var value=profile.impacts[item.id]||{};if(value.severity!==null&&value.severity!==undefined)form.querySelector('[name="severity_'+item.id+'"]').value=String(value.severity);if(value.likelihood!==null&&value.likelihood!==undefined)form.querySelector('[name="likelihood_'+item.id+'"]').value=String(value.likelihood);});if(profile.answers)questions.forEach(function(question){var value=profile.answers[question.id],input=form.querySelector('input[name="q_'+question.id+'"][value="'+value+'"]');if(input)input.checked=true;});if(Array.isArray(profile.evidence))form.querySelectorAll('input[name="evidence"]').forEach(function(input){input.checked=profile.evidence.indexOf(input.value)>-1;});}
+    function showResults(){var profile=getProfile(),result=calculate(profile);latest={profile:profile,result:result};save(profile);renderResults(profile,result);assessmentShell.hidden=true;resultsCard.hidden=false;document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});document.getElementById("decisionTitle").setAttribute("tabindex","-1");document.getElementById("decisionTitle").focus();}
+    function buildReport(){if(!latest)return "";var p=latest.profile,r=latest.result,l=labels(),meta=decisionMeta(r.decision),lines=["AI IMPACT ASSESSMENT — ZYNOVIX AI","System / project: "+p.systemName,"Purpose: "+(p.purpose||"Not documented"),"Business owner: "+(p.owner||"Not specified"),"Assessment owner: "+(p.assessmentOwner||"Not specified"),"Function: "+l.department[p.department],"Stage: "+l.stage[p.stage],"Authority: "+l.authority[p.authority],"Reach: "+l.reach[p.reach],"Reversibility: "+l.reversibility[p.reversibility],"Data: "+l.data[p.dataSensitivity],"Affected groups: "+p.affected.map(function(key){return l.affected[key];}).join(", "),"Decision: "+meta.label,"Residual planning risk: "+r.residual+" / 100 ("+riskBand(r.residual)+")","Inherent impact: "+r.inherent+" / 100","Control maturity: "+r.maturity+" / 100","Evidence coverage: "+r.evidenceScore+"%","","IMPACT MATRIX"];r.impactResults.forEach(function(item){lines.push(item.label+": "+severityLabels[item.severity]+" × "+likelihoodLabels[item.likelihood]+" = "+item.score+"/16 ("+matrixBand(item.score).label+")");});lines.push("","CONTROL MATURITY");Object.keys(dimensions).forEach(function(key){lines.push(dimensions[key].label+": "+r.scores[key]+" / 100");});lines.push("","DECISION GATES AND GAPS");lines.push(r.flags.length?r.flags.map(function(flag){return "- ["+flag.severity.toUpperCase()+"] "+flag.text;}).join("\n"):"- No blocking gate triggered by the entered information.");lines.push("","REQUIRED MITIGATIONS");buildActions(p,r).forEach(function(action,index){lines.push((index+1)+". "+action[0]+" — "+action[1]);});lines.push("","MONITORING AND REVIEW");buildMonitoring(p,r).forEach(function(item,index){lines.push((index+1)+". "+item.title+" — "+item.copy);});lines.push("","Next review: "+(p.reviewDate||"Not specified"),"Notes: "+(p.notes||"None recorded"),"","Planning aid only. The result does not authorize purchase or deployment.","https://zynovix.github.io/ai-impact-assessment-generator.html");return lines.join("\n");}
+    function csvEscape(value){return '"'+String(value===undefined||value===null?"":value).replace(/"/g,'""')+'"';}
+    function buildCsv(){if(!latest)return "";var p=latest.profile,r=latest.result,rows=[["Section","Item","Answer or score","Note"]];rows.push(["Decision","Recommendation",decisionMeta(r.decision).label,"Planning aid only"],["Decision","Residual planning risk",r.residual,"0–100"],["Decision","Inherent impact",r.inherent,"0–100"],["Decision","Control maturity",r.maturity,"0–100"],["Decision","Evidence coverage",r.evidenceScore,"Percent"]);r.impactResults.forEach(function(item){rows.push(["Impact",item.label,item.score+" / 16",severityLabels[item.severity]+" × "+likelihoodLabels[item.likelihood]]);});Object.keys(dimensions).forEach(function(key){rows.push(["Dimension",dimensions[key].label,r.scores[key],dimensions[key].weight+"%"]);});questions.forEach(function(question){rows.push([dimensions[question.dimension].label,question.title,answerLabels[p.answers[question.id]],"Importance "+question.weight+" of 3"]);});r.flags.forEach(function(flag){rows.push(["Flag",flag.severity.toUpperCase(),flag.text,""]);});buildActions(p,r).forEach(function(action,index){rows.push(["Action",index+1+". "+action[0],action[1],""]);});return "\uFEFF"+rows.map(function(row){return row.map(csvEscape).join(",");}).join("\r\n");}
+    function download(content,type,extension){var blob=new Blob([content],{type:type}),url=URL.createObjectURL(blob),link=document.createElement("a"),base=(latest.profile.systemName||"ai-system").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ai-system";link.href=url;link.download=base+"-impact-assessment."+extension;document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);actionStatus.textContent=extension.toUpperCase()+" assessment downloaded.";}
+    function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied;}
+    function copyReport(){var text=buildReport();if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){actionStatus.textContent="Impact brief copied.";}).catch(function(){actionStatus.textContent=fallbackCopy(text)?"Impact brief copied.":"Copy failed. Please try again.";});}else actionStatus.textContent=fallbackCopy(text)?"Impact brief copied.":"Copy failed. Please try again.";}
+    function applyQuery(){var value=new URLSearchParams(window.location.search).get("system");if(value)document.getElementById("systemName").value=value.slice(0,100);}
+
+    createDynamicContent();applyQuery();if(!document.getElementById("systemName").value){try{load(JSON.parse(localStorage.getItem("zynovixImpactAssessmentV1")));}catch(error){}}
+    form.addEventListener("submit",function(event){event.preventDefault();if(!validateStep())return;if(currentStep<totalSteps)showStep(currentStep+1);else showResults();});
+    backButton.addEventListener("click",function(){if(currentStep>1)showStep(currentStep-1);});
+    form.addEventListener("change",function(){save(getProfile());});form.addEventListener("input",function(){save(getProfile());});
+    document.getElementById("copyButton").addEventListener("click",copyReport);document.getElementById("jsonButton").addEventListener("click",function(){download(JSON.stringify(latest,null,2),"application/json;charset=utf-8","json");});document.getElementById("csvButton").addEventListener("click",function(){download(buildCsv(),"text/csv;charset=utf-8","csv");});document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("editButton").addEventListener("click",function(){resultsCard.hidden=true;assessmentShell.hidden=false;showStep(1);document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("resetButton").addEventListener("click",function(){form.reset();try{localStorage.removeItem("zynovixImpactAssessmentV1");}catch(error){}latest=null;resultsCard.hidden=true;assessmentShell.hidden=false;applyQuery();showStep(1);document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

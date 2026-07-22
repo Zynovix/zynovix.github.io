@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Evaluate an AI Vendor in 2026 | Zynovix AI</title>
+  <meta name="description" content="Evaluate an AI vendor in 2026 with a practical framework for security, privacy, AI risk, contracts, evidence, pilot testing, red flags, and due diligence.">
+  <meta name="author" content="Zynovix AI Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="How to Evaluate an AI Vendor in 2026">
+  <meta property="og:description" content="A practical due-diligence framework for AI vendor security, privacy, governance, contracts, evidence, red flags, and pilot testing.">
+  <meta property="og:url" content="https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+  <meta property="article:published_time" content="2026-07-22T23:55:00+04:00">
+  <meta property="article:modified_time" content="2026-07-22T23:55:00+04:00">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Evaluate an AI Vendor in 2026">
+  <meta name="twitter:description" content="Use an evidence-based process to review AI vendor security, privacy, governance, contract terms, and operational resilience.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --v-panel: rgba(10,17,39,.91);
+      --v-panel-2: rgba(15,25,53,.88);
+      --v-line: rgba(148,163,184,.2);
+      --v-strong: #f8fbff;
+      --v-text: #d5e0ef;
+      --v-soft: #9eabc1;
+      --v-cyan: #22d3ee;
+      --v-blue: #3b82f6;
+      --v-purple: #8b5cf6;
+      --v-green: #34d399;
+      --v-yellow: #fbbf24;
+      --v-red: #fb7185;
+      --v-shadow: 0 24px 72px rgba(0,0,0,.3);
+    }
+    html { scroll-behavior: smooth; }
+    body.vendor-guide { color: var(--v-text); overflow-x: hidden; }
+    [hidden] { display: none !important; }
+    .vendor-guide .brand img,
+    .vendor-guide .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-150%); padding: 11px 15px; border-radius: 10px; color: #04101a; background: var(--v-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+    .reading-track { position: fixed; inset: 0 0 auto; z-index: 9999; height: 4px; background: rgba(255,255,255,.05); }
+    .reading-bar { width: 0; height: 100%; background: linear-gradient(90deg,var(--v-cyan),var(--v-blue),var(--v-purple)); box-shadow: 0 0 16px rgba(34,211,238,.75); }
+
+    .article-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--v-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--v-cyan); }
+    .article-hero h1 { max-width: 1120px; margin: 18px auto; color: var(--v-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.5px; }
+    .article-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--v-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .article-lead { max-width: 920px; margin: 0 auto; color: var(--v-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.72; }
+    .article-meta,.hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .article-meta { margin-top: 22px; color: #b9c7db; font-size: 14px; }
+    .article-meta span:not(:last-child)::after { content: "•"; margin-left: 12px; color: #64748b; }
+    .hero-actions { margin-top: 27px; }
+    .hero-note { display: flex; gap: 13px; max-width: 900px; margin: 25px auto 0; padding: 16px 18px; border: 1px solid rgba(52,211,153,.25); border-radius: 18px; color: #cee8df; background: rgba(52,211,153,.065); text-align: left; line-height: 1.65; }
+    .hero-note > span { font-size: 23px; }
+
+    .article-shell { width: min(1240px,calc(100% - 28px)); margin: 0 auto 80px; }
+    .article-layout { display: block; }
+    .toc-wrap { margin-bottom: 18px; }
+    .toc { border: 1px solid var(--v-line); border-radius: 20px; background: rgba(8,15,34,.92); box-shadow: var(--v-shadow); overflow: hidden; }
+    .toc summary { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; color: var(--v-strong); cursor: pointer; font-weight: 800; list-style: none; }
+    .toc summary::-webkit-details-marker { display: none; }
+    .toc summary::after { content: "+"; color: var(--v-cyan); font-size: 22px; }
+    .toc[open] summary::after { content: "−"; }
+    .toc ol { margin: 0; padding: 0 20px 20px 42px; }
+    .toc li { margin: 7px 0; color: #8090a9; }
+    .toc a { color: var(--v-soft); font-size: 14px; line-height: 1.45; }
+    .toc a:hover,.toc a.active { color: var(--v-cyan); }
+
+    .article-content { min-width: 0; }
+    .article-section { margin-bottom: 18px; padding: clamp(22px,5vw,42px); border: 1px solid var(--v-line); border-radius: 24px; background: var(--v-panel); box-shadow: var(--v-shadow); scroll-margin-top: 104px; }
+    .article-section h2 { margin: 0 0 16px; color: var(--v-strong); font-size: clamp(28px,5vw,43px); line-height: 1.12; letter-spacing: -.8px; }
+    .article-section h3 { margin: 28px 0 10px; color: var(--v-strong); font-size: clamp(21px,4vw,29px); line-height: 1.2; }
+    .article-section h4 { margin: 0 0 8px; color: var(--v-strong); font-size: 19px; }
+    .article-section p,.article-section li { color: var(--v-text); font-size: 16px; line-height: 1.78; }
+    .article-section p { margin: 0 0 16px; }
+    .article-section ul,.article-section ol { padding-left: 21px; }
+    .article-section li { margin: 7px 0; }
+    .article-section strong { color: var(--v-strong); }
+    .article-section a:not(.btn):not(.related-card) { color: #67e8f9; text-decoration: underline; text-underline-offset: 3px; }
+    .section-intro { max-width: 870px; color: var(--v-soft) !important; font-size: 18px !important; }
+
+    .takeaway-grid,.dimension-grid,.red-grid,.decision-grid,.related-grid,.evidence-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
+    .takeaway,.dimension-card,.red-card,.decision-card,.evidence-card { padding: 20px; border: 1px solid var(--v-line); border-radius: 18px; background: rgba(255,255,255,.035); }
+    .takeaway strong,.dimension-card strong,.evidence-card strong { display: block; margin-bottom: 7px; font-size: 18px; }
+    .takeaway p,.dimension-card p,.red-card p,.decision-card p,.evidence-card p { margin: 0; color: var(--v-soft); }
+    .dimension-icon { display: grid; width: 43px; height: 43px; place-items: center; margin-bottom: 12px; border-radius: 13px; background: linear-gradient(135deg,rgba(59,130,246,.8),rgba(34,211,238,.7)); font-size: 20px; }
+    .red-card { border-top: 4px solid var(--v-red); }
+    .red-card h3,.decision-card h3 { margin: 0 0 9px; font-size: 21px; }
+    .decision-card { border-top: 4px solid var(--v-blue); }
+    .decision-card.proceed { border-top-color: var(--v-green); }
+    .decision-card.pause { border-top-color: var(--v-yellow); }
+    .decision-card.stop { border-top-color: var(--v-red); }
+    .evidence-card span { display: inline-flex; margin-bottom: 12px; padding: 6px 9px; border-radius: 999px; color: #06111d; background: var(--v-cyan); font-size: 12px; font-weight: 900; }
+    .callout { margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--v-cyan); border-radius: 0 15px 15px 0; background: rgba(34,211,238,.07); }
+    .callout p { margin: 0; }
+    .callout.warning { border-color: var(--v-yellow); background: rgba(251,191,36,.07); }
+    .callout.danger { border-color: var(--v-red); background: rgba(251,113,133,.07); }
+    .callout.success { border-color: var(--v-green); background: rgba(52,211,153,.07); }
+
+    .table-wrap { width: 100%; margin: 20px 0; border: 1px solid var(--v-line); border-radius: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .article-table { width: 100%; min-width: 790px; border-collapse: collapse; background: rgba(5,10,25,.52); }
+    .article-table th,.article-table td { padding: 14px 15px; border-bottom: 1px solid var(--v-line); text-align: left; vertical-align: top; line-height: 1.55; }
+    .article-table th { color: var(--v-strong); background: rgba(59,130,246,.12); font-size: 14px; }
+    .article-table td { color: #c8d5e7; font-size: 14px; }
+    .article-table tr:last-child td { border-bottom: 0; }
+    .status { display: inline-flex; padding: 5px 8px; border-radius: 999px; font-size: 11px; font-weight: 900; }
+    .status.verified { color: #071a13; background: var(--v-green); }
+    .status.partial { color: #261b00; background: var(--v-yellow); }
+    .status.unknown { color: #e6edf8; background: #475569; }
+    .status.no { color: #2a0610; background: var(--v-red); }
+
+    .template-box { margin: 20px 0; border: 1px solid rgba(34,211,238,.3); border-radius: 20px; background: linear-gradient(145deg,rgba(34,211,238,.065),rgba(139,92,246,.07)); overflow: hidden; }
+    .template-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px; border-bottom: 1px solid var(--v-line); }
+    .template-head h3 { margin: 0; font-size: 21px; }
+    .template-head button { border: 0; cursor: pointer; font: inherit; }
+    .copy-source { padding: 20px; color: #dce6f4; line-height: 1.75; white-space: pre-wrap; }
+    .copy-status { min-height: 22px; margin: 0; padding: 0 20px 16px; color: #7ef0c4; font-size: 14px; }
+    .flow-list { display: grid; gap: 12px; margin: 22px 0; padding: 0 !important; list-style: none; counter-reset: workflow; }
+    .flow-list li { position: relative; padding: 17px 18px 17px 63px; border: 1px solid var(--v-line); border-radius: 16px; background: var(--v-panel-2); counter-increment: workflow; }
+    .flow-list li::before { content: counter(workflow); position: absolute; top: 16px; left: 16px; display: grid; width: 32px; height: 32px; place-items: center; border-radius: 10px; color: #04101a; background: linear-gradient(135deg,var(--v-cyan),#60a5fa); font-weight: 900; }
+    .formula-list { display: grid; gap: 11px; margin: 22px 0; }
+    .formula { padding: 17px; border: 1px solid var(--v-line); border-radius: 16px; background: var(--v-panel-2); }
+    .formula strong { display: block; margin-bottom: 7px; color: var(--v-cyan); }
+    .formula code { display: block; color: #e2e8f0; white-space: normal; overflow-wrap: anywhere; line-height: 1.6; }
+
+    .faq-item { margin-bottom: 10px; border: 1px solid var(--v-line); border-radius: 16px; background: rgba(255,255,255,.03); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 19px; border: 0; color: var(--v-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-question::after { content: "+"; color: var(--v-cyan); font-size: 22px; }
+    .faq-question[aria-expanded="true"]::after { content: "−"; }
+    .faq-answer { padding: 0 19px 19px; color: var(--v-text); line-height: 1.75; }
+    .source-list li { margin-bottom: 13px; }
+    .author-box { display: flex; align-items: flex-start; gap: 17px; margin-bottom: 18px; padding: 24px; border: 1px solid var(--v-line); border-radius: 22px; background: var(--v-panel); box-shadow: var(--v-shadow); }
+    .author-avatar { display: grid; width: 54px; height: 54px; flex: 0 0 54px; place-items: center; border-radius: 16px; color: #06111d; background: linear-gradient(135deg,var(--v-cyan),#a78bfa); font-size: 25px; font-weight: 900; }
+    .author-box h2 { margin: 0 0 6px; color: var(--v-strong); font-size: 21px; }
+    .author-box p { margin: 0; color: var(--v-soft); line-height: 1.65; }
+    .related-card { display: flex; min-height: 150px; flex-direction: column; justify-content: space-between; gap: 12px; padding: 20px; border: 1px solid var(--v-line); border-radius: 18px; color: inherit; background: rgba(255,255,255,.035); transition: transform .2s ease,border-color .2s ease; }
+    .related-card:hover { transform: translateY(-3px); border-color: rgba(34,211,238,.48); }
+    .related-card small { color: var(--v-cyan); font-weight: 900; }
+    .related-card strong { font-size: 19px; line-height: 1.3; }
+    .related-card span { color: var(--v-soft); }
+    button:focus-visible,a:focus-visible { outline: 3px solid var(--v-cyan); outline-offset: 3px; }
+
+    @media (min-width: 680px) {
+      .takeaway-grid,.dimension-grid,.red-grid,.decision-grid,.related-grid,.evidence-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (min-width: 1020px) {
+      .article-hero { padding-top: 72px; }
+      .article-layout { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 22px; align-items: start; }
+      .toc-wrap { position: sticky; top: 102px; margin-bottom: 0; }
+      .toc summary { cursor: default; }
+      .toc summary::after { display: none; }
+      .toc[open] { max-height: calc(100vh - 125px); overflow-y: auto; }
+      .dimension-grid,.red-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .evidence-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+      .decision-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .vendor-guide .brand img,.vendor-guide .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .article-hero h1 { letter-spacing: -1.5px; }
+      .article-meta { flex-direction: column; }
+      .article-meta span::after { display: none; }
+      .hero-actions .btn,.template-head .btn { width: 100%; }
+      .author-box { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,.reading-track,.toc-wrap,.hero-actions,.copy-button,.footer,.noise,.orb { display: none !important; }
+      body.vendor-guide { color: #111827; background: #fff !important; }
+      .article-shell { width: 100%; }
+      .article-layout { display: block; }
+      .article-section,.author-box { border: 0; color: #111827; background: #fff !important; box-shadow: none; break-inside: avoid; }
+      .article-section h2,.article-section h3,.article-section h4,.article-section strong,.author-box h2 { color: #111827 !important; }
+      .article-section p,.article-section li,.author-box p { color: #334155 !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html#article",
+        "headline": "How to Evaluate an AI Vendor in 2026: Security, Privacy, Risk, and Due Diligence",
+        "description": "A practical guide to AI vendor security, privacy, governance, contracts, evidence, red flags, pilot testing, and accountable purchasing decisions.",
+        "datePublished": "2026-07-22T23:55:00+04:00",
+        "dateModified": "2026-07-22T23:55:00+04:00",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html"},
+        "author": {"@type": "Organization", "name": "Zynovix AI Editorial Team", "url": "https://zynovix.github.io/about.html"},
+        "publisher": {"@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/", "logo": {"@type": "ImageObject", "url": "https://zynovix.github.io/logo.png?v=20260712"}},
+        "image": "https://zynovix.github.io/logo.png?v=20260712",
+        "articleSection": ["AI Vendor Management", "AI Security", "AI Privacy", "AI Governance", "Procurement"],
+        "keywords": ["AI vendor risk assessment", "AI vendor due diligence", "AI security questionnaire", "AI procurement checklist", "evaluate AI vendor", "AI vendor privacy"],
+        "wordCount": 4000,
+        "timeRequired": "PT24M",
+        "isPartOf": {"@type": "Blog", "name": "Zynovix AI Blog", "url": "https://zynovix.github.io/blog.html"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://zynovix.github.io/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "How to Evaluate an AI Vendor in 2026", "item": "https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/how-to-evaluate-ai-vendor-2026.html#faq",
+        "mainEntity": [
+          {"@type": "Question", "name": "What should I check before buying an AI tool?", "acceptedAnswer": {"@type": "Answer", "text": "Define the exact use case, data, users, AI authority, and impact first. Then review applicable evidence across privacy, security, AI governance, contract terms, operations, and representative pilot performance."}},
+          {"@type": "Question", "name": "Is a SOC 2 report enough to approve an AI vendor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Assurance reports can support part of a security review, but scope, period, exceptions, product applicability, AI-specific threats, privacy terms, contract protections, and use-case testing still require review."}},
+          {"@type": "Question", "name": "Should an AI vendor be allowed to train on business data?", "acceptedAnswer": {"@type": "Answer", "text": "That depends on the use case, lawful basis, agreement, sensitivity, and risk tolerance. The organization should establish the exact default, opt-out or opt-in behavior, secondary uses, retention, deletion, and any human review of submitted content before use."}},
+          {"@type": "Question", "name": "How should an unknown vendor answer be scored?", "acceptedAnswer": {"@type": "Answer", "text": "Unknown should remain an evidence gap rather than being treated as a control. It may be acceptable during an early shortlist, but material unknowns should block higher-impact pilots or production use until resolved."}},
+          {"@type": "Question", "name": "What is the biggest red flag in AI vendor due diligence?", "acceptedAnswer": {"@type": "Answer", "text": "The most serious red flag is a material control that cannot be verified for the intended product, plan, deployment, region, and use case—especially when sensitive data, high-impact decisions, or autonomous actions are involved."}},
+          {"@type": "Question", "name": "Can a vendor risk score authorize production deployment?", "acceptedAnswer": {"@type": "Answer", "text": "No. A score is a planning aid. Production approval should involve accountable business, security, privacy, legal, procurement, accessibility, and risk owners as applicable, together with contract review and representative testing."}},
+          {"@type": "Question", "name": "How often should an AI vendor be reassessed?", "acceptedAnswer": {"@type": "Answer", "text": "Use a risk-based schedule and reassess after material changes such as a new model, subprocessor, data practice, integration, capability, incident, contract, region, use case, or level of AI authority."}},
+          {"@type": "Question", "name": "What evidence should an AI vendor provide?", "acceptedAnswer": {"@type": "Answer", "text": "Relevant evidence can include product-specific privacy terms, a DPA, subprocessor and data-location details, security documentation, current assurance scope, incident and continuity processes, model or system documentation, evaluation results, limitations, and applicable contract commitments."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="vendor-guide">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="reading-track" aria-hidden="true"><div class="reading-bar" id="readingBar"></div></div>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu"><a href="tools.html">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html" class="active" aria-current="page">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="article-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="blog.html">Blog</a><span aria-hidden="true">›</span><span aria-current="page">Evaluate an AI Vendor</span></nav>
+      <span class="kicker">2026 AI Vendor Due-Diligence Guide</span>
+      <h1>How to Evaluate an AI Vendor in 2026: <span>Security, Privacy, Risk &amp; Due Diligence</span></h1>
+      <p class="article-lead">A practical, evidence-based process for moving from vendor claims to an accountable shortlist, bounded pilot, contract decision, and ongoing review.</p>
+      <div class="article-meta"><span>Updated July 22, 2026</span><span>24 min read</span><span>Zynovix AI Editorial Team</span></div>
+      <div class="hero-actions"><a class="btn btn-primary" href="ai-vendor-risk-assessment.html">Open Free Risk Assessment</a><a class="btn btn-ghost" href="#questionnaire">Copy Vendor Questionnaire</a></div>
+      <aside class="hero-note" aria-label="Core due diligence principle"><span aria-hidden="true">🛡️</span><div><strong>Evaluate the deployed system, not the logo.</strong> The product, plan, region, integrations, model, data path, user group, and intended authority determine the real risk.</div></aside>
+    </section>
+
+    <div class="article-shell"><div class="article-layout">
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <details class="toc" open><summary>Table of contents</summary><ol>
+          <li><a href="#summary">Executive summary</a></li>
+          <li><a href="#scope">1. Define the decision</a></li>
+          <li><a href="#evidence">2. Build an evidence standard</a></li>
+          <li><a href="#privacy">3. Review privacy and data</a></li>
+          <li><a href="#security">4. Review security</a></li>
+          <li><a href="#ai-risk">5. Review AI-specific risk</a></li>
+          <li><a href="#contracts">6. Review contracts</a></li>
+          <li><a href="#pilot">7. Run a bounded pilot</a></li>
+          <li><a href="#score">8. Score and decide</a></li>
+          <li><a href="#red-flags">9. Red flags</a></li>
+          <li><a href="#questionnaire">10. Vendor questionnaire</a></li>
+          <li><a href="#record">11. Decision record</a></li>
+          <li><a href="#workflow">12. 30-day workflow</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ol></details>
+      </aside>
+
+      <article class="article-content">
+        <section class="article-section" id="summary">
+          <h2>Executive summary</h2>
+          <p class="section-intro">AI vendor evaluation is a decision process, not a security questionnaire sent in isolation. The review should connect the intended business outcome to the exact data flow, system behavior, evidence, contract, pilot, owners, and residual risk.</p>
+          <div class="takeaway-grid">
+            <div class="takeaway"><strong>Start with context</strong><p>A vendor can be acceptable for public-content drafting and unacceptable for restricted records or high-impact decisions.</p></div>
+            <div class="takeaway"><strong>Separate claims from evidence</strong><p>“Enterprise-grade” is a claim. An applicable agreement, scoped report, configuration test, or observed control is evidence.</p></div>
+            <div class="takeaway"><strong>Do not average away blockers</strong><p>A strong overall score cannot compensate for an unresolved critical issue such as unapproved data reuse or excessive AI authority.</p></div>
+            <div class="takeaway"><strong>Approve a bounded next step</strong><p>A favorable review normally supports a controlled pilot with conditions—not unrestricted production deployment.</p></div>
+          </div>
+          <div class="callout success"><p><strong>Fastest practical route:</strong> use the free <a href="ai-vendor-risk-assessment.html">AI Vendor Risk Assessment</a> to capture the context, answer the 28 control questions, identify evidence gaps, and generate a decision brief.</p></div>
+        </section>
+
+        <section class="article-section" id="scope">
+          <h2>1. Define the decision before reviewing the vendor</h2>
+          <p>A review without a defined use case usually produces vague answers. Before sending any questionnaire, write a one-page scope. Identify what the system will do, who will use it, what decisions it may influence, which data it can receive, what it can retrieve, and whether it can act in another system.</p>
+          <h3>Describe the complete system</h3>
+          <p>The “vendor” is rarely the whole system. A deployed AI workflow can include the vendor application, a foundation model, retrieval sources, browser extensions, plugins, APIs, orchestration tools, identity services, logging platforms, subprocessors, and human reviewers. Draw the path from input to output and action.</p>
+          <div class="dimension-grid">
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">🎯</span><strong>Outcome and users</strong><p>State the job to be done, affected users, accountable owner, prohibited uses, and success criteria.</p></div>
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">🗂️</span><strong>Data</strong><p>Classify prompts, files, retrieved content, outputs, feedback, logs, metadata, and connected-system data.</p></div>
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">⚙️</span><strong>Authority</strong><p>Distinguish drafting, recommendation, human-approved action, bounded action, and autonomous action.</p></div>
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">📍</span><strong>Deployment</strong><p>Record plan, region, hosting, tenant model, identity setup, integrations, model choices, and configurations.</p></div>
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">⚖️</span><strong>Impact</strong><p>Identify safety, rights, financial, employment, education, health, customer, operational, and reputational effects.</p></div>
+            <div class="dimension-card"><span class="dimension-icon" aria-hidden="true">👤</span><strong>Accountability</strong><p>Name the business, security, privacy, legal, procurement, technical, accessibility, and risk reviewers required.</p></div>
+          </div>
+          <h3>Assign an initial risk tier</h3>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Tier</th><th>Example context</th><th>Typical review depth</th><th>Default next step</th></tr></thead><tbody>
+            <tr><td>Low</td><td>Optional drafting with public information and meaningful human review</td><td>Basic product, data, access, terms, and quality checks</td><td>Small time-boxed trial</td></tr>
+            <tr><td>Moderate</td><td>Internal information, customer-facing drafts, or workflow recommendations</td><td>Cross-functional evidence review plus representative testing</td><td>Bounded pilot with monitoring</td></tr>
+            <tr><td>High</td><td>Personal or confidential data, material customer effects, or system actions</td><td>Specialist review, stronger contract, threat testing, fallback, and approval gates</td><td>Pause until blockers close</td></tr>
+            <tr><td>Critical</td><td>Restricted data, safety-critical use, high-impact decisions, or broad autonomous authority</td><td>Formal governance, legal analysis, deep testing, independent evidence, and senior risk acceptance</td><td>Redesign or tightly controlled evaluation</td></tr>
+          </tbody></table></div>
+          <div class="callout warning"><p><strong>Risk tier is use-case specific.</strong> Do not copy a vendor approval from one department to a different workflow without checking data, impact, integrations, region, plan, and authority again.</p></div>
+        </section>
+
+        <section class="article-section" id="evidence">
+          <h2>2. Build an evidence standard</h2>
+          <p class="section-intro">Vendor due diligence fails when every answer is treated as equally reliable. Define what “Verified” means before scoring the vendor.</p>
+          <div class="evidence-grid">
+            <div class="evidence-card"><span>Level 1</span><strong>Marketing claim</strong><p>Useful for discovery, but usually not enough for approval. Record the claim and request the underlying control or commitment.</p></div>
+            <div class="evidence-card"><span>Level 2</span><strong>Published documentation</strong><p>Product docs, trust-center content, privacy notices, system cards, limitations, and architecture descriptions.</p></div>
+            <div class="evidence-card"><span>Level 3</span><strong>Applicable commitment</strong><p>A signed DPA, order form, SLA, security schedule, data-use term, incident notice, or negotiated protection.</p></div>
+            <div class="evidence-card"><span>Level 4</span><strong>Tested or assured</strong><p>Current scoped assurance, configuration verification, technical test, pilot evidence, audit artifact, or observed behavior.</p></div>
+          </div>
+          <h3>Apply five evidence tests</h3>
+          <ol class="flow-list">
+            <li><strong>Current:</strong> Is the evidence recent enough for the vendor’s current system and control environment?</li>
+            <li><strong>Applicable:</strong> Does it cover the exact product, plan, model, region, service, and entity you will use?</li>
+            <li><strong>Specific:</strong> Does it state a testable control, scope, limitation, exception, or commitment?</li>
+            <li><strong>Independent where needed:</strong> Is material assurance produced or reviewed by a competent party separate from the sales claim?</li>
+            <li><strong>Repeatable:</strong> Can the control be monitored, tested, reported, or enforced after the purchase?</li>
+          </ol>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Status</th><th>Meaning</th><th>How to use it</th></tr></thead><tbody>
+            <tr><td><span class="status verified">VERIFIED</span></td><td>Current, applicable evidence supports the control for this decision.</td><td>Record source, scope, reviewer, date, exceptions, and next review.</td></tr>
+            <tr><td><span class="status partial">PARTIAL</span></td><td>Some evidence exists, but scope, implementation, testing, or commitment is incomplete.</td><td>Create a condition with an owner and due date.</td></tr>
+            <tr><td><span class="status unknown">UNKNOWN</span></td><td>The control has not been established.</td><td>Treat it as an evidence gap, not an assumed control.</td></tr>
+            <tr><td><span class="status no">NO</span></td><td>The control is absent, contradicted, or unacceptable for the use case.</td><td>Mitigate, redesign, negotiate, or stop.</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section class="article-section" id="privacy">
+          <h2>3. Review privacy, data use, and data protection</h2>
+          <p>Begin with a product-specific data-flow diagram. Include prompt and file content, retrieved documents, outputs, user feedback, conversation history, embeddings, account metadata, administrative logs, support access, abuse monitoring, and telemetry. Identify each organization that can receive or process the data.</p>
+          <h3>Questions that require precise answers</h3>
+          <ul>
+            <li>What data is collected at the user, account, workspace, API, connector, support, and model layers?</li>
+            <li>Is customer content used for training, fine-tuning, evaluation, human review, safety improvement, or another secondary purpose?</li>
+            <li>Is the relevant setting opt-in, opt-out, contractually disabled, or controlled only through product configuration?</li>
+            <li>What are the retention periods for prompts, files, outputs, deleted content, backups, logs, abuse records, and support cases?</li>
+            <li>Can administrators enforce retention and delete content? How is deletion propagated to copies and subprocessors?</li>
+            <li>Where is data stored and processed, and which subprocessors, model providers, or support locations are involved?</li>
+            <li>Are there plan-specific differences in training, isolation, retention, residency, support access, or controls?</li>
+            <li>How are access, correction, deletion, export, restriction, objection, and other applicable rights supported?</li>
+          </ul>
+          <h3>Confirm the complete data chain</h3>
+          <p>A “no training on your data” statement does not answer every privacy question. Content may still be retained for service delivery, logged for safety, exposed to support personnel, processed by another model provider, copied into a connector, or included in telemetry. Ask separately about purpose, access, retention, location, onward transfer, deletion, and contractual enforceability.</p>
+          <div class="callout danger"><p><strong>Blocker:</strong> sensitive or restricted data is in scope, but the organization cannot verify applicable data-use terms, retention, deletion, access, subprocessors, or the data processing agreement.</p></div>
+          <h3>Map legal and regulatory roles</h3>
+          <p>Identify the applicable jurisdictions and whether the parties act as controller, processor, provider, deployer, developer, distributor, or another regulated role. Requirements vary by use case and location. For EU-related activity, confirm the current AI Act classification and obligations on the decision date rather than relying on a static sales statement. Regulatory review should be completed by qualified counsel or the appropriate internal specialist.</p>
+        </section>
+
+        <section class="article-section" id="security">
+          <h2>4. Review conventional and AI-specific security</h2>
+          <p class="section-intro">Security evidence should cover the whole service life cycle: secure design, development, deployment, operation, change, incident handling, and exit.</p>
+          <h3>Identity, access, and tenant control</h3>
+          <ul>
+            <li>Require appropriate SSO, MFA, role-based access, least privilege, user lifecycle controls, service-account governance, and periodic access review.</li>
+            <li>Verify administrator capabilities, support access, privileged activity logging, export restrictions, sharing defaults, and workspace discovery.</li>
+            <li>Test tenant separation and authorization for files, conversations, agents, connectors, knowledge stores, APIs, and administrative functions.</li>
+          </ul>
+          <h3>Encryption, secrets, and infrastructure</h3>
+          <ul>
+            <li>Confirm encryption in transit and at rest, key-management responsibilities, backup protection, and any customer-managed key option required by policy.</li>
+            <li>Check how API keys, OAuth tokens, connector credentials, system prompts, model endpoints, and service secrets are stored, rotated, scoped, and revoked.</li>
+            <li>Understand hosting boundaries, production access, environment separation, asset inventories, vulnerability management, patching, and secure configuration.</li>
+          </ul>
+          <h3>Secure development and supply chain</h3>
+          <p>Ask how the vendor inventories code, models, datasets, prompts, components, plugins, and dependencies. Review secure development practices, code and dependency scanning, change controls, testing, provenance, vulnerability disclosure, penetration testing, remediation, and supply-chain risk. A conventional assurance report may support this review, but verify its product scope, time period, exceptions, complementary user controls, and relevance to the AI service.</p>
+          <h3>Detection, response, and resilience</h3>
+          <ul>
+            <li>What events are logged, who can access them, how long they are retained, and can customers export them?</li>
+            <li>How does the vendor detect abuse, data leakage, unauthorized access, harmful outputs, model or prompt changes, and abnormal consumption?</li>
+            <li>What incident-notification trigger, content, channel, and timeline apply under the signed agreement?</li>
+            <li>What are the recovery objectives, tested continuity procedures, dependency risks, status communications, and customer fallback options?</li>
+          </ul>
+          <div class="callout"><p>The NCSC secure AI guidance organizes work across <strong>secure design, secure development, secure deployment, and secure operation and maintenance</strong>. Use those stages to find gaps that a point-in-time questionnaire can miss.</p></div>
+        </section>
+
+        <section class="article-section" id="ai-risk">
+          <h2>5. Review AI-specific behavior and governance</h2>
+          <p>AI systems introduce uncertainty and attack paths beyond conventional SaaS. Review the complete application, not only the base model. Retrieval, tools, memory, system prompts, plugins, agent loops, and human workflow can create or reduce risk.</p>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Risk area</th><th>What to ask</th><th>What to test</th><th>Common control</th></tr></thead><tbody>
+            <tr><td>Prompt injection</td><td>How are untrusted instructions separated from trusted policy and tools?</td><td>Direct and indirect injection through files, web content, email, RAG, and connectors</td><td>Input boundaries, least privilege, tool allowlists, approval gates, monitoring</td></tr>
+            <tr><td>Sensitive disclosure</td><td>How are secrets, personal data, tenant data, prompts, memory, and retrieved content protected?</td><td>Cross-user access, extraction attempts, memorization, logs, exports, support paths</td><td>Data minimization, access control, isolation, filtering, redaction, testing</td></tr>
+            <tr><td>Improper output handling</td><td>Can model output reach code, queries, browsers, messages, or business systems?</td><td>Injection, unsafe rendering, command generation, invalid structured output</td><td>Validation, sanitization, typed schemas, sandboxing, human approval</td></tr>
+            <tr><td>Excessive agency</td><td>What actions, resources, permissions, spend, and duration can the AI control?</td><td>Chained actions, privilege escalation, goal drift, loops, unexpected side effects</td><td>Minimum permissions, bounded tasks, rate and spend limits, kill switch</td></tr>
+            <tr><td>Misinformation</td><td>What limitations, grounding, confidence, citations, and evaluation evidence exist?</td><td>Representative facts, edge cases, conflicts, freshness, adversarial examples</td><td>Grounding, source display, abstention, human review, fallback</td></tr>
+            <tr><td>Supply chain and change</td><td>Which models, data, libraries, endpoints, and subprocessors can change?</td><td>Version changes, degraded outputs, new permissions, dependency failure</td><td>Inventory, version pinning where possible, change notice, regression tests</td></tr>
+            <tr><td>Unbounded consumption</td><td>How are tokens, calls, jobs, retries, storage, and tool actions constrained?</td><td>Large input, recursion, retry storms, denial of wallet, resource exhaustion</td><td>Quotas, timeouts, circuit breakers, budgets, anomaly alerts</td></tr>
+          </tbody></table></div>
+          <h3>Demand meaningful system documentation</h3>
+          <p>Request intended use, excluded use, architecture, model and component inventory, data sources where appropriate, evaluation methods, known limitations, failure modes, safety controls, monitoring, change practices, and escalation routes. Documentation should help your team predict behavior and operate the system—not merely describe its benefits.</p>
+          <h3>Evaluate with your data and workflow</h3>
+          <p>Generic benchmarks cannot prove fitness for your use case. Build representative test sets that include normal work, difficult cases, sensitive inputs, multilingual content where relevant, adversarial instructions, incomplete data, retrieval conflicts, and operational failures. Measure the consequence of errors, not only average output quality.</p>
+          <div class="callout warning"><p><strong>Human review is a designed control only when it is realistic.</strong> Reviewers need the time, information, authority, training, interface, escalation path, and fallback required to detect and correct the expected failures.</p></div>
+        </section>
+
+        <section class="article-section" id="contracts">
+          <h2>6. Convert important controls into contract terms</h2>
+          <p>Product features can change. Contract review determines which promises apply to your plan and what happens when a control, model, subprocessor, price, or service changes. Coordinate the technical review with qualified legal and procurement specialists.</p>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Contract area</th><th>Questions to resolve</th><th>Why it matters</th></tr></thead><tbody>
+            <tr><td>Scope and order of precedence</td><td>Which service, plan, region, features, policies, URLs, and documents form the agreement?</td><td>Prevents a favorable document from being overridden or excluded.</td></tr>
+            <tr><td>Data use and DPA</td><td>What processing instructions, purposes, roles, retention, deletion, transfers, and subprocessors apply?</td><td>Turns data expectations into applicable commitments.</td></tr>
+            <tr><td>Security schedule</td><td>Which controls, assurance, testing, remediation, access, encryption, and continuity duties are binding?</td><td>Aligns the promised security baseline with the actual use case.</td></tr>
+            <tr><td>Incident notice</td><td>What triggers notice, how quickly, with what content, updates, cooperation, and evidence?</td><td>Supports your own response and notification duties.</td></tr>
+            <tr><td>AI-specific change</td><td>Can models, capabilities, data practices, limitations, or safety controls change? What notice and options exist?</td><td>Prevents material risk from changing silently.</td></tr>
+            <tr><td>IP and content</td><td>Who owns inputs, outputs, customizations, prompts, feedback, and derived artifacts? What claims or restrictions apply?</td><td>Clarifies permitted business use and dispute handling.</td></tr>
+            <tr><td>Audit and information</td><td>What reports, evidence, testing summaries, questionnaires, audit rights, or regulator cooperation are available?</td><td>Keeps verification possible after signing.</td></tr>
+            <tr><td>SLA and support</td><td>What availability, support, performance, change, remedy, and escalation commitments apply?</td><td>Connects operational dependency to enforceable service expectations.</td></tr>
+            <tr><td>Liability and indemnity</td><td>How are confidentiality, security, privacy, IP, regulatory, and AI-related losses allocated?</td><td>Aligns risk allocation with the likely impact and bargaining context.</td></tr>
+            <tr><td>Exit and portability</td><td>Can you export data, configuration, logs, prompts, and knowledge? What is deleted and when?</td><td>Reduces lock-in and enables a safe transition or shutdown.</td></tr>
+          </tbody></table></div>
+          <div class="callout danger"><p><strong>Do not rely on a screenshot of a public policy.</strong> Record the version reviewed and confirm whether the signed agreement incorporates it, allows unilateral change, gives notice, and provides an acceptable remedy or exit.</p></div>
+        </section>
+
+        <section class="article-section" id="pilot">
+          <h2>7. Run a bounded, representative pilot</h2>
+          <p>A document review tells you what should happen. A pilot shows what happens in your environment. Keep the scope small enough to stop, observe, and reverse.</p>
+          <ol class="flow-list">
+            <li><strong>Define the baseline:</strong> measure the current process, quality, effort, delay, cost, error, exception, and incident rates before introducing AI.</li>
+            <li><strong>Choose representative cases:</strong> include routine, difficult, incomplete, sensitive, multilingual, adversarial, and failure scenarios in realistic proportions.</li>
+            <li><strong>Constrain access and authority:</strong> use the minimum data, users, connectors, permissions, actions, time, and spending required to test the hypothesis.</li>
+            <li><strong>Define review and fallback:</strong> state who checks outputs, what evidence they see, when they can override, and how work continues if the AI fails.</li>
+            <li><strong>Set thresholds before results:</strong> establish minimum quality, maximum serious error, review effort, cost, reliability, and safety conditions in advance.</li>
+            <li><strong>Log cases and exceptions:</strong> capture inputs by category, outputs, corrections, review time, failures, incidents, escalation, fallback, and outcome.</li>
+            <li><strong>Test abuse and change:</strong> probe injection, disclosure, unsafe output, excessive permissions, model change, outage, connector failure, and spend limits.</li>
+            <li><strong>Make an accountable decision:</strong> approve, condition, pause, or reject with named owners, unresolved risks, evidence, and a review date.</li>
+          </ol>
+          <p>For a detailed measurement framework, use <a href="how-to-measure-ai-automation-pilot-2026.html">How to Measure an AI Automation Pilot in 2026</a> with the <a href="ai-automation-pilot-tracker.html">AI Automation Pilot Tracker</a> and <a href="ai-automation-pilot-scorecard.html">Pilot Scorecard</a>.</p>
+        </section>
+
+        <section class="article-section" id="score">
+          <h2>8. Score the evidence—and keep decision gates</h2>
+          <p>A useful scoring model makes uncertainty visible. Score privacy and data, security, AI governance, contract and accountability, and operational resilience separately. Weight them for your organization, but never let the weighted average erase a critical blocker.</p>
+          <div class="formula-list">
+            <div class="formula"><strong>Control maturity</strong><code>Weighted maturity = Σ(answer value × question importance) ÷ Σ(maximum value × question importance)</code></div>
+            <div class="formula"><strong>Example answer values</strong><code>Verified = 100 · Partial = 55 · Unknown = 15 · No = 0</code></div>
+            <div class="formula"><strong>Planning risk</strong><code>Residual planning risk = 100 − control maturity + context uplift + weak-evidence uplift</code></div>
+          </div>
+          <p>The numbers create consistency; they do not create certainty. A score is not a probability of breach, a compliance determination, an independent certification, or permission to deploy.</p>
+          <div class="decision-grid">
+            <div class="decision-card proceed"><h3>Proceed to bounded pilot</h3><p>Applicable evidence is strong, no blocker is open, and representative testing can occur within defined limits.</p></div>
+            <div class="decision-card"><h3>Proceed with controls</h3><p>Gaps are manageable through explicit conditions, owners, dates, monitoring, and pilot limits.</p></div>
+            <div class="decision-card pause"><h3>Pause and investigate</h3><p>Material unknowns, weak evidence, or a critical gate require resolution before the next step.</p></div>
+            <div class="decision-card stop"><h3>Do not approve yet</h3><p>The use case or control set is unacceptable. Redesign, choose another vendor, or obtain materially stronger protection.</p></div>
+          </div>
+          <div class="hero-actions"><a class="btn btn-primary" href="ai-vendor-risk-assessment.html">Generate Your Risk Brief</a></div>
+        </section>
+
+        <section class="article-section" id="red-flags">
+          <h2>9. AI vendor red flags</h2>
+          <p class="section-intro">A red flag is not always an automatic rejection. It is a signal that the current evidence or design cannot support the intended decision.</p>
+          <div class="red-grid">
+            <div class="red-card"><h3>Scope ambiguity</h3><p>The vendor cannot confirm which product, model, plan, region, entity, or subprocessor the evidence covers.</p></div>
+            <div class="red-card"><h3>Data-use ambiguity</h3><p>Training, evaluation, human review, retention, deletion, or secondary-use answers are vague or contradictory.</p></div>
+            <div class="red-card"><h3>No meaningful limitations</h3><p>Documentation describes benefits but not failure modes, excluded uses, evaluation limits, or safe operating conditions.</p></div>
+            <div class="red-card"><h3>Excessive default access</h3><p>The service requests broad connectors, persistent credentials, actions, sharing, or data access beyond the use case.</p></div>
+            <div class="red-card"><h3>Weak change control</h3><p>Models, terms, data practices, subprocessors, controls, or capabilities can change without useful notice or recourse.</p></div>
+            <div class="red-card"><h3>No workable exit</h3><p>The organization cannot export required artifacts, revoke access, transition service, confirm deletion, or preserve evidence.</p></div>
+            <div class="red-card"><h3>Marketing as evidence</h3><p>“Secure,” “private,” “compliant,” or “responsible” claims are not supported by applicable documents or tests.</p></div>
+            <div class="red-card"><h3>Incident opacity</h3><p>Notification triggers, timing, communication, investigation support, or past-event explanations are inadequate.</p></div>
+            <div class="red-card"><h3>Unrealistic human oversight</h3><p>The workflow says “human in the loop,” but reviewers lack time, authority, information, training, or fallback.</p></div>
+          </div>
+        </section>
+
+        <section class="article-section" id="questionnaire">
+          <h2>10. Copy-ready AI vendor questionnaire</h2>
+          <p>Send the questionnaire with a short scope statement describing your planned product, plan, region, data, integrations, authority, and decision stage. Ask the vendor to link evidence and mark anything that does not apply.</p>
+          <div class="template-box">
+            <div class="template-head"><h3>AI vendor due-diligence request</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="vendorQuestionnaire">Copy Questionnaire</button></div>
+            <div class="copy-source" id="vendorQuestionnaire">AI VENDOR DUE-DILIGENCE REQUEST
+
+Scope
+1. Confirm the legal entity, product, plan, deployment model, region, model(s), and service components covered by your answers.
+2. List material subprocessors, model providers, hosting providers, data locations, and support locations applicable to this service.
+3. Describe the intended uses, excluded uses, known limitations, and material failure modes.
+
+Data and privacy
+4. Describe every category of customer content, metadata, telemetry, log, feedback, and support data collected or generated.
+5. State whether customer content is used for training, fine-tuning, evaluation, human review, safety improvement, or another secondary purpose. Explain defaults and controls.
+6. Provide retention and deletion periods for content, history, files, outputs, embeddings, logs, backups, abuse records, and support cases.
+7. Explain data residency, cross-border processing, subprocessor changes, and customer notice or objection options.
+8. Provide the applicable privacy notice, DPA, transfer mechanism, and process for supporting data-subject requests.
+
+Security
+9. Describe SSO, MFA, role-based access, user lifecycle, privileged access, support access, and audit logging.
+10. Describe tenant isolation, encryption, key management, secrets handling, vulnerability management, penetration testing, and remediation.
+11. Identify current assurance evidence and its product, location, control, and time-period scope. Include material exceptions and complementary customer controls.
+12. Describe secure development, supply-chain controls, asset inventories, change management, and vulnerability disclosure.
+13. Describe incident detection, customer notification triggers and timing, investigation support, continuity, recovery objectives, and tested fallback.
+
+AI governance and behavior
+14. Provide model or system documentation covering architecture, versions, evaluations, limitations, safety controls, monitoring, and change practices.
+15. Explain controls and tests for prompt injection, sensitive information disclosure, improper output handling, excessive agency, misinformation, poisoning, and unbounded consumption.
+16. Describe grounding, citations, abstention, confidence, human review, override, rollback, and kill-switch capabilities.
+17. Explain how connectors, tools, memory, retrieval sources, actions, rate limits, spend limits, and permissions are controlled and logged.
+18. State how customers are notified of material model, capability, safety, data-practice, or performance changes.
+
+Contract and operations
+19. Identify the documents that form the agreement and their order of precedence. Explain which online terms may change unilaterally.
+20. Describe contractual commitments for data use, confidentiality, security, incidents, availability, support, audit information, deletion, and exit.
+21. Explain input, output, feedback, prompt, customization, and generated-content ownership and any IP restrictions, warranties, or protections.
+22. Provide service dependency, continuity, portability, export, termination-assistance, and verified-deletion details.
+
+For each answer, provide a current evidence link or attachment, applicable scope, document date/version, material exception, and named contact for follow-up.</div>
+            <p class="copy-status" aria-live="polite"></p>
+          </div>
+          <div class="callout"><p><strong>Procurement tip:</strong> ask the vendor to keep the original numbering. That makes gaps, follow-ups, evidence, contract changes, and reassessment easier to trace.</p></div>
+        </section>
+
+        <section class="article-section" id="record">
+          <h2>11. Create an accountable decision record</h2>
+          <p>The final output should be short enough to review and specific enough to defend. Preserve the scope and evidence that existed at the time of the decision.</p>
+          <div class="template-box">
+            <div class="template-head"><h3>Minimum decision record</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="decisionRecord">Copy Decision Record</button></div>
+            <div class="copy-source" id="decisionRecord">AI VENDOR DECISION RECORD
+
+Vendor / product / plan:
+Legal entity and region:
+Business owner:
+Assessment owner:
+Decision date and review date:
+
+Approved use case:
+Excluded uses:
+Users and affected parties:
+Data categories and sensitivity:
+Integrations and AI authority:
+Initial risk tier:
+
+Evidence reviewed (document, scope, version/date, reviewer):
+Privacy and data conclusion:
+Security conclusion:
+AI governance and testing conclusion:
+Contract conclusion:
+Operational resilience and exit conclusion:
+
+Representative pilot results:
+Critical gates and red flags:
+Unresolved risks and assumptions:
+Required controls / contract conditions:
+Owners and due dates:
+Fallback, stop, rollback, and incident process:
+
+Decision: Proceed to bounded pilot / Proceed with controls / Pause / Do not approve yet
+Accountable approvers:
+Reassessment triggers:</div>
+            <p class="copy-status" aria-live="polite"></p>
+          </div>
+          <h3>Set reassessment triggers</h3>
+          <p>Reassess after a material model, feature, agent, connector, subprocessor, hosting, region, data-use, contract, security, ownership, or pricing change; after a significant incident or unexplained degradation; before expanding data sensitivity, user population, business impact, or AI authority; and at a risk-based recurring interval.</p>
+        </section>
+
+        <section class="article-section" id="workflow">
+          <h2>12. A practical 30-day review workflow</h2>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Period</th><th>Work</th><th>Primary output</th><th>Decision gate</th></tr></thead><tbody>
+            <tr><td>Days 1–3</td><td>Define use case, system boundary, data, authority, impact, owners, prohibited use, and initial tier.</td><td>One-page scope and data flow</td><td>Is the use case suitable for review?</td></tr>
+            <tr><td>Days 4–10</td><td>Collect privacy, security, AI, contract, architecture, assurance, subprocessor, and continuity evidence.</td><td>Evidence register and open questions</td><td>Are any blockers already visible?</td></tr>
+            <tr><td>Days 11–15</td><td>Run specialist reviews, vendor follow-up, architecture threat review, and contract issue identification.</td><td>Dimension findings and conditions</td><td>Can a bounded pilot be designed safely?</td></tr>
+            <tr><td>Days 16–25</td><td>Run representative functional, quality, security, abuse, failure, review, and fallback tests.</td><td>Case log and pilot evidence</td><td>Were thresholds and stop conditions met?</td></tr>
+            <tr><td>Days 26–30</td><td>Close material gaps, finalize contract conditions, record residual risk, owners, monitoring, and reassessment.</td><td>Decision brief and approval record</td><td>Proceed, condition, pause, or reject?</td></tr>
+          </tbody></table></div>
+          <h3>Common evaluation mistakes</h3>
+          <ul>
+            <li>Beginning with a generic questionnaire instead of a defined use case and data flow.</li>
+            <li>Treating a certification, assurance report, trust page, or benchmark as complete approval.</li>
+            <li>Reviewing the foundation model while ignoring the application, retrieval, tools, agents, and human workflow.</li>
+            <li>Marking unanswered questions as acceptable because the vendor is well known.</li>
+            <li>Testing only successful demos instead of difficult, adversarial, sensitive, and failure cases.</li>
+            <li>Approving “human review” without measuring whether reviewers can detect and correct errors.</li>
+            <li>Negotiating the contract after the technical team has already committed to the vendor.</li>
+            <li>Failing to document conditions, owners, due dates, monitoring, change triggers, and exit.</li>
+          </ul>
+        </section>
+
+        <section class="article-section" id="faq">
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1">What should I check before buying an AI tool?</button><div class="faq-answer" id="faq1" hidden>Define the exact use case, data, users, AI authority, and impact first. Then review applicable evidence across privacy, security, AI governance, contract terms, operations, and representative pilot performance.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2">Is a SOC 2 report enough to approve an AI vendor?</button><div class="faq-answer" id="faq2" hidden>No. It can support part of a security review, but its scope, period, exceptions, product applicability, complementary customer controls, AI-specific risks, privacy terms, contract protections, and your use-case testing still matter.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3">Should an AI vendor be allowed to train on business data?</button><div class="faq-answer" id="faq3" hidden>That depends on the use case, lawful basis, agreement, sensitivity, and risk tolerance. Establish the exact default, opt-in or opt-out behavior, secondary uses, retention, deletion, human review, and applicable contractual commitment before use.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4">How should an unknown vendor answer be scored?</button><div class="faq-answer" id="faq4" hidden>Unknown should remain an evidence gap. It may be acceptable during an early shortlist, but material unknowns should block higher-impact pilots or production use until resolved.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5">What is the biggest red flag in AI vendor due diligence?</button><div class="faq-answer" id="faq5" hidden>A material control that cannot be verified for the intended product, plan, deployment, region, and use case—especially when sensitive data, high-impact decisions, or autonomous actions are involved.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq6">Can a vendor risk score authorize production deployment?</button><div class="faq-answer" id="faq6" hidden>No. A score is a planning aid. Accountable business, security, privacy, legal, procurement, accessibility, and risk owners should review the decision as applicable, together with representative test and contract evidence.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq7">How often should an AI vendor be reassessed?</button><div class="faq-answer" id="faq7" hidden>Use a risk-based schedule and reassess after material changes such as a new model, subprocessor, data practice, integration, capability, incident, contract, region, use case, or level of AI authority.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq8">What evidence should an AI vendor provide?</button><div class="faq-answer" id="faq8" hidden>Relevant evidence can include product-specific privacy terms, a DPA, subprocessor and data-location details, security documentation, current assurance scope, incident and continuity processes, model or system documentation, evaluations, limitations, and applicable contract commitments.</div></div>
+        </section>
+
+        <section class="article-section" id="sources">
+          <h2>Methodology and primary sources</h2>
+          <p>This guide synthesizes practical vendor review steps from established risk, security, and AI governance resources. Standards and laws evolve; verify the current version and applicability when making a decision.</p>
+          <ul class="source-list">
+            <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI Risk Management Framework</a> — the Govern, Map, Measure, and Manage functions and trustworthy AI characteristics.</li>
+            <li><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer">NIST Generative AI Profile</a> — a cross-sector companion to the AI RMF for generative AI risks.</li>
+            <li><a href="https://airc.nist.gov/airmf-resources/playbook/" target="_blank" rel="noopener noreferrer">NIST AI RMF Playbook</a> — suggested actions for operationalizing framework outcomes.</li>
+            <li><a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development" target="_blank" rel="noopener noreferrer">NCSC Guidelines for Secure AI System Development</a> — secure design, development, deployment, operation, and maintenance.</li>
+            <li><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer">OWASP Top 10 for LLM and GenAI Applications</a> — prompt injection, sensitive disclosure, supply chain, improper output handling, excessive agency, and related risks.</li>
+            <li><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener noreferrer">European Commission AI Act overview</a> — current official information on roles, obligations, implementation, and supporting guidance.</li>
+          </ul>
+          <div class="callout warning"><p><strong>Important:</strong> this article is general educational material. It is not legal advice, a compliance determination, an independent vendor certification, or authorization to purchase or deploy an AI system.</p></div>
+        </section>
+
+        <aside class="author-box" aria-labelledby="authorTitle"><div class="author-avatar" aria-hidden="true">Z</div><div><h2 id="authorTitle">Zynovix AI Editorial Team</h2><p>Zynovix AI creates practical guides and free browser-based tools that help teams compare AI products, evaluate vendors, design bounded workflows, record evidence, and make transparent implementation decisions.</p></div></aside>
+
+        <section class="article-section" aria-labelledby="relatedTitle"><h2 id="relatedTitle">Continue your AI vendor evaluation</h2><div class="related-grid">
+          <a class="related-card" href="ai-vendor-risk-assessment.html"><small>Free assessment</small><strong>AI Vendor Risk Assessment</strong><span>Score 28 controls, identify red flags, and generate a transparent decision brief.</span></a>
+          <a class="related-card" href="ai-tool-comparison-stack-builder.html"><small>Shortlist builder</small><strong>AI Tool Comparison &amp; Stack Builder</strong><span>Compare leading products by use case, budget, ecosystem, data approach, and requirements.</span></a>
+          <a class="related-card" href="ai-policy-generator.html"><small>Governance tool</small><strong>AI Policy Generator</strong><span>Create workplace rules for approved tools, data, oversight, security, incidents, and training.</span></a>
+          <a class="related-card" href="how-to-measure-ai-automation-pilot-2026.html"><small>Pilot guide</small><strong>How to Measure an AI Automation Pilot</strong><span>Turn a promising vendor into measurable evidence before a scale decision.</span></a>
+        </div></section>
+      </article>
+    </div></div>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><span>© 2026 Zynovix AI. All rights reserved.</span></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var readingBar = document.getElementById("readingBar");
+    var ticking = false;
+    function updateProgress() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - window.innerHeight;
+      readingBar.style.width = (height > 0 ? Math.min(100, Math.max(0, scrollTop / height * 100)) : 0) + "%";
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+    }, {passive: true});
+    updateProgress();
+
+    function fallbackCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+      document.body.appendChild(area); area.select();
+      var copied = false; try { copied = document.execCommand("copy"); } catch (error) { copied = false; }
+      document.body.removeChild(area); return copied;
+    }
+    document.querySelectorAll("[data-copy-target]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var source = document.getElementById(button.getAttribute("data-copy-target"));
+        var status = button.closest(".template-box").querySelector(".copy-status");
+        var text = source.textContent.trim();
+        function done(ok) { status.textContent = ok ? "Copied to clipboard." : "Copy failed. Select the text and copy it manually."; }
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { done(true); }).catch(function () { done(fallbackCopy(text)); });
+        else done(fallbackCopy(text));
+      });
+    });
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var expanded = button.getAttribute("aria-expanded") === "true";
+        var answer = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", expanded ? "false" : "true");
+        answer.hidden = expanded;
+      });
+    });
+
+    var tocLinks = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+    var sections = tocLinks.map(function (link) { return document.querySelector(link.getAttribute("href")); }).filter(Boolean);
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(function (link) { link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id); });
+          }
+        });
+      }, {rootMargin: "-22% 0px -68% 0px"});
+      sections.forEach(function (section) { observer.observe(section); });
+    }
+  }());
+  </script>
+</body>
+</html>

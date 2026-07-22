@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Risk Register Generator | Zynovix AI</title>
+  <meta name="description" content="Build a practical AI risk register with owners, inherent and residual ratings, treatments, deadlines, controls, evidence, filters, and CSV or JSON exports.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-risk-register-generator.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Risk Register Generator">
+  <meta property="og:description" content="Track AI risks, owners, controls, response plans, due dates, evidence, and residual exposure in one browser-based register.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-risk-register-generator.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Risk Register Generator">
+  <meta name="twitter:description" content="Create, prioritize, treat, monitor, and export a practical AI risk register.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --rr-panel: rgba(9,16,37,.93);
+      --rr-panel-2: rgba(14,25,52,.9);
+      --rr-line: rgba(148,163,184,.2);
+      --rr-strong: #f8fbff;
+      --rr-text: #d7e2f0;
+      --rr-soft: #9eabc1;
+      --rr-cyan: #22d3ee;
+      --rr-blue: #3b82f6;
+      --rr-purple: #8b5cf6;
+      --rr-green: #34d399;
+      --rr-yellow: #fbbf24;
+      --rr-orange: #fb923c;
+      --rr-red: #fb7185;
+      --rr-shadow: 0 25px 78px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body.risk-register-page { color: var(--rr-text); overflow-x: hidden; }
+    [hidden] { display: none !important; }
+    .risk-register-page .brand img,.risk-register-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; padding: 2px !important; border-radius: 8px !important; background: #fff !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-160%); padding: 11px 15px; border-radius: 10px; color: #041018; background: var(--rr-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .rr-hero { padding: 58px 0 42px; text-align: center; }
+    .rr-hero h1 { max-width: 1120px; margin: 18px auto; color: var(--rr-strong); font-size: clamp(42px,8vw,78px); line-height: 1; letter-spacing: -2.8px; }
+    .rr-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--rr-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .rr-lead { max-width: 930px; margin: 0 auto; color: var(--rr-soft); font-size: clamp(18px,3.8vw,22px); line-height: 1.72; }
+    .hero-actions,.register-actions,.filter-actions,.form-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .hero-actions { justify-content: center; margin-top: 27px; }
+    .privacy-note { display: flex; gap: 13px; max-width: 850px; margin: 25px auto 0; padding: 16px 18px; border: 1px solid rgba(52,211,153,.27); border-radius: 18px; color: #d8f8ec; background: rgba(52,211,153,.065); text-align: left; line-height: 1.65; }
+    .privacy-note > span { font-size: 23px; }
+
+    .rr-section { padding: 0 0 24px; scroll-margin-top: 100px; }
+    .rr-card { padding: clamp(22px,4vw,38px); border: 1px solid var(--rr-line); border-radius: 27px; background: var(--rr-panel); box-shadow: var(--rr-shadow); }
+    .rr-card + .rr-card { margin-top: 20px; }
+    .rr-card h2 { margin: 0; color: var(--rr-strong); font-size: clamp(28px,5vw,43px); line-height: 1.12; letter-spacing: -.7px; }
+    .rr-card h3 { color: var(--rr-strong); }
+    .rr-card p { color: var(--rr-soft); line-height: 1.72; }
+    .card-head { display: flex; flex-direction: column; gap: 15px; margin-bottom: 24px; }
+    .card-head p { max-width: 820px; margin: 7px 0 0; }
+    .eyebrow { color: var(--rr-cyan); font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .save-state { min-height: 22px; margin: 10px 0 0; color: var(--rr-soft); font-size: 14px; }
+    .save-state.success { color: #86efac; }
+    .save-state.error { color: #fda4af; }
+
+    .profile-grid,.field-grid,.metrics-grid,.insight-grid,.method-grid,.related-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .field { min-width: 0; }
+    .field.wide { grid-column: 1 / -1; }
+    .field label,.field > span { display: block; margin-bottom: 8px; color: #d8e3f2; font-size: 14px; font-weight: 800; }
+    .field small { display: block; margin-top: 7px; color: #7f8da5; line-height: 1.45; }
+    .field input,.field select,.field textarea,.filter-bar input,.filter-bar select { width: 100%; min-height: 51px; padding: 12px 14px; border: 1px solid var(--rr-line); border-radius: 14px; outline: none; color: var(--rr-strong); background: rgba(255,255,255,.045); font: inherit; transition: border-color .2s ease,box-shadow .2s ease,background .2s ease; }
+    .field textarea { min-height: 112px; resize: vertical; line-height: 1.55; }
+    .field input:focus,.field select:focus,.field textarea:focus,.filter-bar input:focus,.filter-bar select:focus { border-color: rgba(34,211,238,.72); box-shadow: 0 0 0 3px rgba(34,211,238,.1); background: rgba(34,211,238,.055); }
+    .field select option,.filter-bar select option { color: #111827; background: #fff; }
+    .required { color: var(--rr-red); }
+    .field-divider { grid-column: 1 / -1; margin: 11px 0 1px; padding-top: 20px; border-top: 1px solid var(--rr-line); }
+    .field-divider h3 { margin: 0 0 4px; font-size: 21px; }
+    .field-divider p { margin: 0; font-size: 14px; }
+
+    .metrics-grid { margin: 20px 0; grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .metric { min-height: 118px; padding: 18px; border: 1px solid var(--rr-line); border-radius: 19px; background: rgba(255,255,255,.035); }
+    .metric span { color: var(--rr-soft); font-size: 13px; font-weight: 700; }
+    .metric strong { display: block; margin-top: 8px; color: var(--rr-strong); font-size: clamp(27px,5vw,38px); line-height: 1; }
+    .metric small { display: block; margin-top: 8px; color: #7f8da5; line-height: 1.35; }
+    .metric.danger { border-color: rgba(251,113,133,.28); background: rgba(251,113,133,.055); }
+    .metric.warning { border-color: rgba(251,191,36,.25); background: rgba(251,191,36,.045); }
+    .metric.good { border-color: rgba(52,211,153,.25); background: rgba(52,211,153,.045); }
+
+    .insight-grid { margin-top: 17px; }
+    .insight-panel { padding: 20px; border: 1px solid var(--rr-line); border-radius: 19px; background: rgba(255,255,255,.027); }
+    .insight-panel h3 { margin: 0 0 15px; font-size: 20px; }
+    .category-row { display: grid; grid-template-columns: minmax(110px,1fr) 2fr auto; gap: 10px; align-items: center; margin: 10px 0; color: #bfccde; font-size: 13px; }
+    .category-track { height: 9px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.08); }
+    .category-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--rr-blue),var(--rr-cyan)); }
+    .matrix-wrap { overflow-x: auto; }
+    .risk-matrix { width: 100%; min-width: 500px; border-collapse: separate; border-spacing: 5px; table-layout: fixed; }
+    .risk-matrix th { padding: 6px; color: #93a4bc; font-size: 11px; font-weight: 800; }
+    .risk-matrix td { height: 55px; padding: 5px; border-radius: 10px; color: #061018; text-align: center; font-weight: 900; }
+    .risk-matrix td span { display: block; font-size: 17px; }
+    .risk-matrix td small { font-size: 10px; opacity: .72; }
+    .m-low { background: #6ee7b7; }
+    .m-moderate { background: #fde68a; }
+    .m-high { background: #fdba74; }
+    .m-very-high { background: #fda4af; }
+    .m-critical { background: #c084fc; }
+
+    .filter-bar { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 20px 0 15px; }
+    .filter-actions { margin-top: 12px; }
+    .register-actions { margin-top: 17px; }
+    .btn.danger-btn { border-color: rgba(251,113,133,.35); color: #fecdd3; background: rgba(251,113,133,.07); }
+    .btn.danger-btn:hover { border-color: var(--rr-red); background: rgba(251,113,133,.13); }
+
+    .table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--rr-line); border-radius: 19px; }
+    .register-table { width: 100%; min-width: 1120px; border-collapse: collapse; }
+    .register-table th,.register-table td { padding: 15px 13px; border-bottom: 1px solid var(--rr-line); text-align: left; vertical-align: top; }
+    .register-table th { position: sticky; top: 0; z-index: 1; color: #aebbd0; background: #0d1730; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; }
+    .register-table tbody tr:last-child td { border-bottom: 0; }
+    .register-table tbody tr:hover { background: rgba(34,211,238,.025); }
+    .risk-title { display: block; color: var(--rr-strong); font-size: 16px; line-height: 1.35; }
+    .risk-id { display: inline-block; margin-bottom: 6px; color: var(--rr-cyan); font-size: 12px; font-weight: 900; }
+    .cell-note { display: block; max-width: 320px; margin-top: 5px; color: #8190a7; font-size: 12px; line-height: 1.42; }
+    .score-badge,.status-badge,.category-badge,.due-badge,.tolerance-badge { display: inline-flex; align-items: center; justify-content: center; padding: 6px 9px; border-radius: 999px; font-size: 11px; font-weight: 900; white-space: nowrap; }
+    .score-badge { min-width: 45px; color: #061018; }
+    .band-low { background: #6ee7b7; }
+    .band-moderate { background: #fde68a; }
+    .band-high { background: #fdba74; }
+    .band-very-high { background: #fda4af; }
+    .band-critical { color: #fff; background: #9333ea; }
+    .status-badge,.category-badge,.tolerance-badge { color: #cbd7e8; border: 1px solid var(--rr-line); background: rgba(255,255,255,.045); }
+    .tolerance-badge { margin-top: 6px; color: #fecdd3; border-color: rgba(251,113,133,.32); background: rgba(251,113,133,.08); }
+    .due-badge { color: #cbd7e8; background: rgba(148,163,184,.13); }
+    .due-badge.overdue { color: #fecdd3; background: rgba(251,113,133,.13); }
+    .due-badge.soon { color: #fde68a; background: rgba(251,191,36,.12); }
+    .row-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+    .row-action { padding: 7px 9px; border: 1px solid var(--rr-line); border-radius: 9px; color: #d9e4f2; background: rgba(255,255,255,.035); cursor: pointer; font: inherit; font-size: 12px; font-weight: 800; }
+    .row-action:hover { border-color: var(--rr-cyan); color: #fff; }
+    .row-action.delete:hover { border-color: var(--rr-red); color: #fecdd3; }
+    .empty-state { padding: 46px 20px; border: 1px dashed rgba(148,163,184,.3); border-radius: 20px; text-align: center; background: rgba(255,255,255,.02); }
+    .empty-state span { font-size: 42px; }
+    .empty-state h3 { margin: 12px 0 6px; }
+    .empty-state p { margin: 0 auto 18px; max-width: 600px; }
+
+    .risk-form-card { border-color: rgba(34,211,238,.25); }
+    .form-score-preview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 4px 0 20px; }
+    .score-preview { padding: 15px; border: 1px solid var(--rr-line); border-radius: 15px; background: rgba(255,255,255,.03); }
+    .score-preview span { color: var(--rr-soft); font-size: 12px; }
+    .score-preview strong { display: block; margin-top: 5px; color: var(--rr-strong); font-size: 24px; }
+    .form-actions { margin-top: 22px; }
+
+    .method-section,.faq-section,.related-section { padding: 42px 0; }
+    .method-card,.related-card { padding: 21px; border: 1px solid var(--rr-line); border-radius: 19px; background: rgba(255,255,255,.03); }
+    .method-card span { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; border-radius: 12px; color: #061018; background: linear-gradient(135deg,var(--rr-cyan),#60a5fa); font-weight: 900; }
+    .method-card h3 { margin: 14px 0 8px; }
+    .method-card p { margin: 0; }
+    .source-box { margin-top: 20px; padding: 20px; border: 1px solid var(--rr-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .source-box p { margin: 0 0 13px; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .source-links a { padding: 9px 11px; border: 1px solid var(--rr-line); border-radius: 10px; color: #c8f7ff; background: rgba(34,211,238,.05); font-size: 13px; font-weight: 800; }
+
+    .faq-list { display: grid; gap: 12px; margin-top: 23px; }
+    .faq-item { border: 1px solid var(--rr-line); border-radius: 17px; background: rgba(255,255,255,.027); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 19px; border: 0; color: var(--rr-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--rr-cyan); font-size: 22px; }
+    .faq-answer { padding: 0 19px 19px; color: var(--rr-soft); line-height: 1.65; }
+    .related-card { display: flex; min-height: 166px; flex-direction: column; justify-content: space-between; gap: 12px; color: inherit; transition: transform .2s ease,border-color .2s ease; }
+    .related-card:hover { transform: translateY(-3px); border-color: rgba(34,211,238,.5); }
+    .related-card small { color: var(--rr-cyan); font-weight: 900; }
+    .related-card strong { color: var(--rr-strong); font-size: 19px; line-height: 1.3; }
+    .related-card span { color: var(--rr-soft); line-height: 1.5; }
+    .disclaimer { margin-top: 19px; padding: 16px 18px; border-left: 3px solid var(--rr-yellow); border-radius: 0 14px 14px 0; color: #e9ddbd; background: rgba(251,191,36,.07); line-height: 1.65; }
+
+    @media (min-width: 700px) {
+      .profile-grid,.field-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .metrics-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .insight-grid,.related-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .filter-bar { grid-template-columns: minmax(220px,1.5fr) repeat(3,minmax(150px,.75fr)); }
+      .card-head { flex-direction: row; align-items: flex-start; justify-content: space-between; }
+    }
+    @media (min-width: 1080px) {
+      .profile-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+      .field-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .metrics-grid { grid-template-columns: repeat(6,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+      .related-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    }
+    @media (max-width: 699px) {
+      .risk-register-page .reveal { opacity: 1 !important; transform: none !important; }
+      .rr-hero { padding-top: 42px; }
+      .rr-card { border-radius: 22px; }
+      .hero-actions .btn,.form-actions .btn,.register-actions .btn { width: 100%; }
+      .form-actions { flex-direction: column; }
+      .table-wrap { overflow: visible; border: 0; }
+      .register-table { min-width: 0; }
+      .register-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .register-table,.register-table tbody,.register-table tr,.register-table td { display: block; width: 100%; }
+      .register-table tr { margin-bottom: 14px; padding: 7px 15px; border: 1px solid var(--rr-line); border-radius: 17px; background: rgba(255,255,255,.025); }
+      .register-table td { display: grid; grid-template-columns: 105px minmax(0,1fr); gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--rr-line); }
+      .register-table td::before { content: attr(data-label); color: #8291a8; font-size: 11px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+      .register-table td:last-child { border-bottom: 0; }
+      .row-actions { align-items: flex-start; }
+      .category-row { grid-template-columns: 100px 1fr auto; }
+    }
+    @media print {
+      @page { size: landscape; margin: 12mm; }
+      body.risk-register-page { color: #111827; background: #fff !important; }
+      .header,.rr-hero,.profile-card,.risk-form-card,.filter-bar,.register-actions,.method-section,.faq-section,.related-section,.footer,.noise,.orb,.row-actions,.no-print { display: none !important; }
+      .rr-section { padding: 0; }
+      .rr-card { padding: 0; border: 0; color: #111827; background: #fff !important; box-shadow: none; }
+      .rr-card h2,.rr-card h3,.metric strong,.risk-title { color: #111827 !important; }
+      .rr-card p,.cell-note { color: #475569 !important; }
+      .metric,.insight-panel,.table-wrap { border-color: #cbd5e1; background: #fff !important; }
+      .register-table { min-width: 0; font-size: 10px; }
+      .register-table th { position: static; color: #111827; background: #e2e8f0 !important; }
+      .register-table th,.register-table td { padding: 7px; border-color: #cbd5e1; }
+    }
+  </style>
+
+  <noscript><style>.risk-register-page .reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://zynovix.github.io/ai-risk-register-generator.html#application",
+        "name": "AI Risk Register Generator",
+        "url": "https://zynovix.github.io/ai-risk-register-generator.html",
+        "description": "A free browser-based tool for recording, prioritizing, treating, monitoring, filtering, and exporting AI risks.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any modern web browser",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-risk-register-generator.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html"},
+          {"@type": "ListItem", "position": 3, "name": "AI Risk Register Generator", "item": "https://zynovix.github.io/ai-risk-register-generator.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-risk-register-generator.html#faq",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is an AI risk register?", "acceptedAnswer": {"@type": "Answer", "text": "An AI risk register is a living record of identified AI risks, their causes and consequences, owners, inherent and residual ratings, controls, response plans, deadlines, evidence, status, and review decisions."}},
+          {"@type": "Question", "name": "How is AI risk scored in this tool?", "acceptedAnswer": {"@type": "Answer", "text": "The tool multiplies a 1–5 severity rating by a 1–5 likelihood rating to produce a 1–25 prioritization score. Inherent risk is rated before relying on controls; residual risk is rated after current controls and planned treatment are considered."}},
+          {"@type": "Question", "name": "Does the tool certify AI compliance?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a planning and documentation aid, not a compliance certificate, legal opinion, audit, safety determination, or authorization to deploy an AI system."}},
+          {"@type": "Question", "name": "Where is register data stored?", "acceptedAnswer": {"@type": "Answer", "text": "Register data is stored in the current browser using local storage. It is not sent to Zynovix AI. Users should export backups and avoid entering sensitive or regulated information."}},
+          {"@type": "Question", "name": "When should an AI risk register be updated?", "acceptedAnswer": {"@type": "Answer", "text": "Update it when new risks or evidence appear, controls change, actions are completed, incidents occur, deadlines pass, monitoring thresholds are breached, or the AI system, vendor, data, purpose, users, authority, or operating context changes."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="risk-register-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="noise"></div><div class="orb orb-a"></div><div class="orb orb-b"></div>
+
+  <header class="header"><nav class="nav shell" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+    <div class="nav-menu" id="navMenu"><a href="tools.html" class="active" aria-current="page">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+  </nav></header>
+
+  <main id="main-content">
+    <section class="rr-hero shell">
+      <span class="kicker">Free AI Governance Tool</span>
+      <h1>AI Risk Register <span>Generator</span></h1>
+      <p class="rr-lead">Turn AI risk findings into an owned, prioritized, and reviewable action register. Track inherent exposure, controls, treatment, residual risk, deadlines, evidence, and decisions—without sending data to a server.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#register">Open Risk Register</a><button class="btn btn-ghost" type="button" id="heroSamplesButton">Load Example Risks</button></div>
+      <aside class="privacy-note"><span aria-hidden="true">🔒</span><div><strong>Private by design:</strong> entries stay in this browser through local storage. Export regular backups and do not enter personal, confidential, classified, regulated, or security-sensitive details.</div></aside>
+    </section>
+
+    <section class="rr-section shell" id="register">
+      <div class="rr-card profile-card reveal">
+        <div class="card-head"><div><span class="eyebrow">Register context</span><h2>Define the register</h2><p>Connect each risk to a project, accountable owner, review cadence, and a stated escalation threshold.</p></div><span class="status-badge">Auto-saved locally</span></div>
+        <div class="profile-grid" id="profileForm">
+          <div class="field"><label for="registerName">Register name</label><input id="registerName" type="text" maxlength="100" placeholder="Enterprise AI Risk Register"></div>
+          <div class="field"><label for="organization">Organization or team</label><input id="organization" type="text" maxlength="100" placeholder="Responsible AI Office"></div>
+          <div class="field"><label for="projectName">AI system or portfolio</label><input id="projectName" type="text" maxlength="120" placeholder="Customer Support Copilot"></div>
+          <div class="field"><label for="registerOwner">Register owner</label><input id="registerOwner" type="text" maxlength="100" placeholder="AI Governance Lead"></div>
+          <div class="field"><label for="riskTolerance">Escalation threshold</label><select id="riskTolerance"><option value="10">10 — High or above</option><option value="15" selected>15 — Very High or above</option><option value="20">20 — Critical only</option></select></div>
+          <div class="field"><label for="reviewCadence">Review cadence</label><select id="reviewCadence"><option value="weekly">Weekly</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="event-driven">Event-driven</option></select></div>
+          <div class="field"><label for="nextPortfolioReview">Next portfolio review</label><input id="nextPortfolioReview" type="date"></div>
+          <div class="field"><label for="riskAppetiteNote">Risk appetite note</label><input id="riskAppetiteNote" type="text" maxlength="180" placeholder="No unresolved critical rights or safety risk"></div>
+        </div>
+        <p class="save-state" id="profileStatus" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="rr-card reveal" id="dashboardCard">
+        <div class="card-head"><div><span class="eyebrow">Portfolio view</span><h2>Risk dashboard</h2><p>Use the dashboard to identify exposure that is above tolerance, overdue, unowned, or still missing treatment evidence.</p></div><button class="btn btn-primary" type="button" id="addRiskTopButton">+ Add Risk</button></div>
+        <div class="metrics-grid" aria-live="polite">
+          <div class="metric"><span>Total risks</span><strong id="metricTotal">0</strong><small>All register entries</small></div>
+          <div class="metric danger"><span>Above threshold</span><strong id="metricAbove">0</strong><small>Residual score needs escalation</small></div>
+          <div class="metric warning"><span>Overdue</span><strong id="metricOverdue">0</strong><small>Open items past target date</small></div>
+          <div class="metric warning"><span>Unowned</span><strong id="metricUnowned">0</strong><small>Missing accountable owner</small></div>
+          <div class="metric"><span>Average residual</span><strong id="metricAverage">0</strong><small>Mean score out of 25</small></div>
+          <div class="metric good"><span>Exposure reduction</span><strong id="metricReduction">0%</strong><small>Inherent to residual score</small></div>
+        </div>
+        <div class="insight-grid">
+          <section class="insight-panel" aria-labelledby="categoryTitle"><h3 id="categoryTitle">Risks by category</h3><div id="categorySummary"></div></section>
+          <section class="insight-panel" aria-labelledby="matrixTitle"><h3 id="matrixTitle">Residual risk matrix</h3><div class="matrix-wrap"><table class="risk-matrix" id="riskMatrix"><caption class="sr-only">Residual risk count by likelihood and severity</caption></table></div></section>
+        </div>
+      </div>
+
+      <div class="rr-card risk-form-card reveal" id="riskEditor">
+        <div class="card-head"><div><span class="eyebrow">Risk detail record</span><h2 id="riskFormTitle">Add an AI risk</h2><p>Write a specific risk scenario, assign an owner, separate inherent from residual exposure, and document what happens next.</p></div><span class="status-badge" id="editingBadge">New record</span></div>
+        <form id="riskForm" novalidate>
+          <input type="hidden" id="editingRiskId">
+          <div class="field-grid">
+            <div class="field"><label for="riskTitle">Risk title <span class="required">*</span></label><input id="riskTitle" type="text" maxlength="140" required placeholder="Sensitive data is disclosed through model output"></div>
+            <div class="field"><label for="riskCategory">Category <span class="required">*</span></label><select id="riskCategory" required><option value="people-rights">People &amp; rights</option><option value="privacy-data">Privacy &amp; data</option><option value="quality-fairness">Quality &amp; fairness</option><option value="safety-security">Safety &amp; security</option><option value="operations-reliability">Operations &amp; reliability</option><option value="legal-compliance">Legal &amp; compliance</option><option value="vendor-supply">Vendor &amp; supply chain</option><option value="financial-reputation">Financial &amp; reputation</option></select></div>
+            <div class="field"><label for="riskOwner">Risk owner</label><input id="riskOwner" type="text" maxlength="100" placeholder="Privacy Lead"></div>
+            <div class="field"><label for="riskSource">Source</label><select id="riskSource"><option value="impact-assessment">Impact assessment</option><option value="vendor-review">Vendor review</option><option value="threat-model">Threat model</option><option value="testing">Testing or validation</option><option value="monitoring">Monitoring or complaint</option><option value="incident">Incident or near miss</option><option value="audit">Audit or assurance</option><option value="other">Other</option></select></div>
+            <div class="field wide"><label for="riskStatement">Risk statement <span class="required">*</span></label><textarea id="riskStatement" required maxlength="900" placeholder="Because [cause], [uncertain event] may occur, resulting in [impact on people, operations, rights, safety, or objectives]."></textarea><small>Avoid vague labels. Describe the cause, uncertain event, and consequence in the actual operating context.</small></div>
+            <div class="field wide"><label for="affectedScope">Affected people, assets, or objectives</label><textarea id="affectedScope" maxlength="600" placeholder="Customers using the service, support agents, sensitive account data, response quality, and trust."></textarea></div>
+
+            <div class="field-divider"><h3>Inherent risk</h3><p>Rate the plausible risk before relying on controls or planned treatment.</p></div>
+            <div class="field"><label for="inherentSeverity">Severity (1–5)</label><select id="inherentSeverity"><option value="1">1 — Negligible</option><option value="2">2 — Minor</option><option value="3" selected>3 — Moderate</option><option value="4">4 — Serious</option><option value="5">5 — Critical</option></select></div>
+            <div class="field"><label for="inherentLikelihood">Likelihood (1–5)</label><select id="inherentLikelihood"><option value="1">1 — Rare</option><option value="2">2 — Unlikely</option><option value="3" selected>3 — Possible</option><option value="4">4 — Likely</option><option value="5">5 — Almost certain</option></select></div>
+            <div class="field"><label for="priorityRationale">Rating rationale</label><textarea id="priorityRationale" maxlength="500" placeholder="Explain evidence, uncertainty, scale, exposure, reversibility, and affected groups."></textarea></div>
+
+            <div class="field-divider"><h3>Controls and response</h3><p>Record controls that exist now separately from future actions.</p></div>
+            <div class="field wide"><label for="existingControls">Existing controls</label><textarea id="existingControls" maxlength="900" placeholder="Data minimization, access controls, output filtering, human review, logging, incident response."></textarea></div>
+            <div class="field"><label for="riskTreatment">Response strategy</label><select id="riskTreatment"><option value="mitigate">Mitigate</option><option value="avoid">Avoid</option><option value="transfer">Transfer / share</option><option value="accept">Accept</option></select></div>
+            <div class="field"><label for="riskStatus">Status</label><select id="riskStatus"><option value="open">Open</option><option value="planned">Treatment planned</option><option value="in-progress">In progress</option><option value="monitoring">Monitoring</option><option value="accepted">Accepted</option><option value="closed">Closed</option></select></div>
+            <div class="field"><label for="targetDate">Target date</label><input id="targetDate" type="date"></div>
+            <div class="field wide"><label for="responsePlan">Response plan and success criteria</label><textarea id="responsePlan" maxlength="900" placeholder="Action, accountable person, resources, evidence required, completion condition, fallback, and escalation trigger."></textarea></div>
+            <div class="field"><label for="responseCost">Estimated response cost</label><input id="responseCost" type="text" maxlength="80" placeholder="$5,000 or 10 person-days"></div>
+            <div class="field"><label for="evidenceReference">Evidence or reference</label><input id="evidenceReference" type="text" maxlength="240" placeholder="Test report, ticket, policy, contract clause, monitoring dashboard"></div>
+
+            <div class="field-divider"><h3>Residual risk and review</h3><p>Rate remaining exposure based on controls that are currently implemented and evidenced.</p></div>
+            <div class="field"><label for="residualSeverity">Residual severity (1–5)</label><select id="residualSeverity"><option value="1">1 — Negligible</option><option value="2">2 — Minor</option><option value="3" selected>3 — Moderate</option><option value="4">4 — Serious</option><option value="5">5 — Critical</option></select></div>
+            <div class="field"><label for="residualLikelihood">Residual likelihood (1–5)</label><select id="residualLikelihood"><option value="1">1 — Rare</option><option value="2" selected>2 — Unlikely</option><option value="3">3 — Possible</option><option value="4">4 — Likely</option><option value="5">5 — Almost certain</option></select></div>
+            <div class="field"><label for="lastReviewed">Last reviewed</label><input id="lastReviewed" type="date"></div>
+            <div class="field"><label for="nextRiskReview">Next risk review</label><input id="nextRiskReview" type="date"></div>
+            <div class="field wide"><label for="riskNotes">Decision, acceptance, or monitoring notes</label><textarea id="riskNotes" maxlength="800" placeholder="Decision authority, acceptance expiry, monitoring thresholds, review triggers, dependencies, and unresolved uncertainty."></textarea></div>
+          </div>
+          <div class="form-score-preview" aria-live="polite"><div class="score-preview"><span>Inherent score</span><strong id="inherentPreview">9 / 25 — Moderate</strong></div><div class="score-preview"><span>Residual score</span><strong id="residualPreview">6 / 25 — Moderate</strong></div></div>
+          <div class="form-actions"><button class="btn btn-primary" type="submit" id="saveRiskButton">Save Risk</button><button class="btn btn-ghost" type="button" id="cancelEditButton" hidden>Cancel Edit</button><button class="btn btn-ghost" type="button" id="clearFormButton">Clear Form</button></div>
+          <p class="save-state" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="rr-card reveal" id="riskListCard">
+        <div class="card-head"><div><span class="eyebrow">Living register</span><h2>Prioritize and monitor risks</h2><p id="resultCount">0 risks shown</p></div><button class="btn btn-primary" type="button" id="addRiskListButton">+ Add Risk</button></div>
+        <div class="filter-bar no-print" aria-label="Risk register filters">
+          <input id="searchRisks" type="search" placeholder="Search ID, title, owner, statement, or evidence…" aria-label="Search risks">
+          <select id="filterCategory" aria-label="Filter by category"><option value="">All categories</option><option value="people-rights">People &amp; rights</option><option value="privacy-data">Privacy &amp; data</option><option value="quality-fairness">Quality &amp; fairness</option><option value="safety-security">Safety &amp; security</option><option value="operations-reliability">Operations &amp; reliability</option><option value="legal-compliance">Legal &amp; compliance</option><option value="vendor-supply">Vendor &amp; supply chain</option><option value="financial-reputation">Financial &amp; reputation</option></select>
+          <select id="filterStatus" aria-label="Filter by status"><option value="">All statuses</option><option value="open">Open</option><option value="planned">Treatment planned</option><option value="in-progress">In progress</option><option value="monitoring">Monitoring</option><option value="accepted">Accepted</option><option value="closed">Closed</option></select>
+          <select id="filterBand" aria-label="Filter by residual risk"><option value="">All residual bands</option><option value="above">Above threshold</option><option value="critical">Critical</option><option value="very-high">Very High</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="overdue">Overdue</option><option value="unowned">Unowned</option></select>
+        </div>
+        <div class="filter-actions no-print"><label class="field" style="min-width:220px"><span>Sort register</span><select id="sortRisks"><option value="residual-desc">Residual score: high to low</option><option value="inherent-desc">Inherent score: high to low</option><option value="due-asc">Target date: earliest first</option><option value="updated-desc">Last updated: newest first</option><option value="id-asc">Risk ID</option></select></label><button class="btn btn-ghost" type="button" id="resetFiltersButton">Reset Filters</button></div>
+        <div class="table-wrap" id="riskTableWrap"><table class="register-table"><thead><tr><th>Risk</th><th>Owner &amp; status</th><th>Inherent</th><th>Response</th><th>Residual</th><th>Target &amp; review</th><th class="no-print">Actions</th></tr></thead><tbody id="riskTableBody"></tbody></table></div>
+        <div class="empty-state" id="emptyState"><span aria-hidden="true">🗂️</span><h3>No risks in the current view</h3><p>Add a risk, load the examples, or reset the filters to begin building an accountable register.</p><button class="btn btn-primary" type="button" id="emptyAddButton">Add Your First Risk</button></div>
+        <div class="register-actions no-print"><button class="btn btn-primary" type="button" id="copySummaryButton">Copy Executive Summary</button><button class="btn btn-ghost" type="button" id="exportCsvButton">Download CSV</button><button class="btn btn-ghost" type="button" id="exportJsonButton">Download JSON</button><button class="btn btn-ghost" type="button" id="importJsonButton">Import JSON</button><button class="btn btn-ghost" type="button" id="printButton">Print / Save PDF</button><button class="btn btn-ghost" type="button" id="loadSamplesButton">Load Examples</button><button class="btn danger-btn" type="button" id="clearRegisterButton">Clear Register</button><input id="jsonFileInput" type="file" accept="application/json,.json" hidden></div>
+        <p class="save-state" id="actionStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="method-section shell reveal" aria-labelledby="methodTitle">
+      <div class="rr-card"><div class="card-head"><div><span class="eyebrow">Transparent methodology</span><h2 id="methodTitle">From identification to monitored response</h2><p>A useful register is not a static list. It connects a specific risk scenario to ownership, prioritization, response, evidence, monitoring, review, and an accountable decision.</p></div></div>
+        <div class="method-grid">
+          <article class="method-card"><span>01</span><h3>Describe</h3><p>Record the cause, uncertain event, consequence, affected people or objectives, source, and operating context.</p></article>
+          <article class="method-card"><span>02</span><h3>Prioritize</h3><p>Rate severity and likelihood before controls. Escalate critical rights, safety, privacy, security, or legal gates independently.</p></article>
+          <article class="method-card"><span>03</span><h3>Respond</h3><p>Choose mitigation, avoidance, transfer or sharing, or acceptance. Assign resources, an owner, deadline, and success evidence.</p></article>
+          <article class="method-card"><span>04</span><h3>Monitor</h3><p>Re-rate residual exposure, track treatment, monitor thresholds, review changes, record decisions, and retain evidence.</p></article>
+        </div>
+        <div class="source-box"><p><strong>Scoring:</strong> severity (1–5) × likelihood (1–5) creates a 1–25 prioritization score. This simple matrix should be calibrated to organizational risk criteria. It is not a probability estimate, compliance result, or substitute for domain-specific assessment.</p><nav class="source-links" aria-label="Methodology sources"><a href="https://airc.nist.gov/airmf-resources/playbook/manage/" target="_blank" rel="noopener noreferrer">NIST AI RMF Manage ↗</a><a href="https://airc.nist.gov/airmf-resources/playbook/govern/" target="_blank" rel="noopener noreferrer">NIST AI RMF Govern ↗</a><a href="https://csrc.nist.gov/pubs/ir/8286/a/r1/final" target="_blank" rel="noopener noreferrer">NIST IR 8286A Rev. 1 ↗</a><a href="https://csrc.nist.gov/pubs/ir/8286/b/upd1/final" target="_blank" rel="noopener noreferrer">NIST IR 8286B ↗</a></nav></div>
+        <div class="disclaimer"><strong>Important:</strong> this free tool is general educational material. It does not establish compliance, satisfy a legally required risk process, certify safety, replace specialist review, or authorize purchase or deployment. Adapt categories, thresholds, approval rights, evidence, retention, and response requirements to your organization and jurisdiction.</div>
+      </div>
+    </section>
+
+    <section class="faq-section shell reveal" aria-labelledby="faqTitle"><div class="rr-card"><span class="eyebrow">FAQ</span><h2 id="faqTitle">AI risk register questions</h2><div class="faq-list">
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1">What is an AI risk register?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq1" hidden>An AI risk register is a living record of identified AI risks, their causes and consequences, owners, inherent and residual ratings, controls, response plans, deadlines, evidence, status, and review decisions.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2">How is AI risk scored in this tool?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq2" hidden>The tool multiplies a 1–5 severity rating by a 1–5 likelihood rating to produce a 1–25 prioritization score. Inherent risk is rated before relying on controls; residual risk is rated after current controls and planned treatment are considered.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3">Does the tool certify AI compliance?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq3" hidden>No. It is a planning and documentation aid, not a compliance certificate, legal opinion, audit, safety determination, or authorization to deploy an AI system.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4">Where is register data stored?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq4" hidden>Register data is stored in the current browser using local storage. It is not sent to Zynovix AI. Export backups regularly and avoid entering sensitive or regulated information.</div></article>
+      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5">When should an AI risk register be updated?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq5" hidden>Update it when new risks or evidence appear, controls change, actions are completed, incidents occur, deadlines pass, monitoring thresholds are breached, or the AI system, vendor, data, purpose, users, authority, or operating context changes.</div></article>
+    </div></div></section>
+
+    <section class="related-section shell reveal" aria-labelledby="relatedTitle"><div class="rr-card"><span class="eyebrow">Connected workflow</span><h2 id="relatedTitle">Build the evidence chain</h2><div class="related-grid">
+      <a class="related-card" href="ai-impact-assessment-generator.html"><small>Identify impacts</small><strong>AI Impact Assessment Generator</strong><span>Map affected people, impact domains, controls, mitigations, and decision gates.</span></a>
+      <a class="related-card" href="ai-vendor-risk-assessment.html"><small>Review third parties</small><strong>AI Vendor Risk Assessment</strong><span>Evaluate privacy, security, AI governance, contracts, evidence, and resilience.</span></a>
+      <a class="related-card" href="ai-policy-generator.html"><small>Set rules</small><strong>AI Policy Generator</strong><span>Turn risk boundaries into practical requirements for tools, data, oversight, and incidents.</span></a>
+      <a class="related-card" href="ai-automation-pilot-scorecard.html"><small>Measure controls</small><strong>AI Automation Pilot Scorecard</strong><span>Use observed pilot evidence to update likelihood, impact, controls, and the scale decision.</span></a>
+    </div></div></section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><span>© 2026 Zynovix AI. All rights reserved.</span></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var STORAGE_KEY="zynovix_ai_risk_register_v1";
+    var categories={
+      "people-rights":"People & rights","privacy-data":"Privacy & data","quality-fairness":"Quality & fairness","safety-security":"Safety & security","operations-reliability":"Operations & reliability","legal-compliance":"Legal & compliance","vendor-supply":"Vendor & supply chain","financial-reputation":"Financial & reputation"
+    };
+    var statuses={open:"Open",planned:"Treatment planned","in-progress":"In progress",monitoring:"Monitoring",accepted:"Accepted",closed:"Closed"};
+    var treatments={mitigate:"Mitigate",avoid:"Avoid",transfer:"Transfer / share",accept:"Accept"};
+    var sources={"impact-assessment":"Impact assessment","vendor-review":"Vendor review","threat-model":"Threat model",testing:"Testing or validation",monitoring:"Monitoring or complaint",incident:"Incident or near miss",audit:"Audit or assurance",other:"Other"};
+    var profileIds=["registerName","organization","projectName","registerOwner","riskTolerance","reviewCadence","nextPortfolioReview","riskAppetiteNote"];
+    var riskFieldIds=["riskTitle","riskCategory","riskOwner","riskSource","riskStatement","affectedScope","inherentSeverity","inherentLikelihood","priorityRationale","existingControls","riskTreatment","riskStatus","targetDate","responsePlan","responseCost","evidenceReference","residualSeverity","residualLikelihood","lastReviewed","nextRiskReview","riskNotes"];
+    var state={profile:{registerName:"AI Risk Register",organization:"",projectName:"",registerOwner:"",riskTolerance:"15",reviewCadence:"monthly",nextPortfolioReview:"",riskAppetiteNote:""},risks:[]};
+    var $=function(id){return document.getElementById(id);};
+    var today=function(){return new Date().toISOString().slice(0,10);};
+    function dateOffset(days){var d=new Date();d.setDate(d.getDate()+days);return d.toISOString().slice(0,10);}
+    function escapeHtml(value){var div=document.createElement("div");div.textContent=String(value==null?"":value);return div.innerHTML;}
+    function safeNumber(value,fallback){var n=parseInt(value,10);return n>=1&&n<=5?n:fallback;}
+    function score(severity,likelihood){return safeNumber(severity,1)*safeNumber(likelihood,1);}
+    function band(value){if(value>=20)return {key:"critical",label:"Critical"};if(value>=15)return {key:"very-high",label:"Very High"};if(value>=10)return {key:"high",label:"High"};if(value>=5)return {key:"moderate",label:"Moderate"};return {key:"low",label:"Low"};}
+    function isClosed(risk){return risk.status==="closed";}
+    function isOverdue(risk){return Boolean(risk.targetDate&&!isClosed(risk)&&risk.targetDate<today());}
+    function dueState(risk){if(!risk.targetDate)return {className:"",label:"No date"};if(isOverdue(risk))return {className:"overdue",label:"Overdue"};var days=Math.ceil((new Date(risk.targetDate+"T00:00:00")-new Date(today()+"T00:00:00"))/86400000);if(!isClosed(risk)&&days<=30)return {className:"soon",label:days===0?"Due today":"Due in "+days+"d"};return {className:"",label:risk.targetDate};}
+    function setStatus(id,message,type){var el=$(id);el.textContent=message||"";el.className="save-state"+(type?" "+type:"");}
+    function normalizeRisk(raw){var now=new Date().toISOString();return {
+      id:String(raw.id||""),title:String(raw.title||"Untitled risk"),category:categories[raw.category]?raw.category:"operations-reliability",owner:String(raw.owner||""),source:sources[raw.source]?raw.source:"other",statement:String(raw.statement||""),affectedScope:String(raw.affectedScope||""),inherentSeverity:safeNumber(raw.inherentSeverity,3),inherentLikelihood:safeNumber(raw.inherentLikelihood,3),priorityRationale:String(raw.priorityRationale||""),existingControls:String(raw.existingControls||""),treatment:treatments[raw.treatment]?raw.treatment:"mitigate",status:statuses[raw.status]?raw.status:"open",targetDate:String(raw.targetDate||""),responsePlan:String(raw.responsePlan||""),responseCost:String(raw.responseCost||""),evidenceReference:String(raw.evidenceReference||""),residualSeverity:safeNumber(raw.residualSeverity,3),residualLikelihood:safeNumber(raw.residualLikelihood,2),lastReviewed:String(raw.lastReviewed||today()),nextRiskReview:String(raw.nextRiskReview||""),notes:String(raw.notes||""),createdAt:String(raw.createdAt||now),updatedAt:String(raw.updatedAt||now)
+    };}
+    function loadState(){try{var stored=localStorage.getItem(STORAGE_KEY);if(stored){var parsed=JSON.parse(stored);if(parsed&&parsed.profile&&Array.isArray(parsed.risks)){state.profile=Object.assign(state.profile,parsed.profile);state.risks=parsed.risks.map(normalizeRisk);}}}catch(error){setStatus("profileStatus","Saved data could not be read in this browser.","error");}}
+    function saveState(message){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));if(message)setStatus("actionStatus",message,"success");return true;}catch(error){setStatus("actionStatus","Local save failed. Export a JSON backup before leaving the page.","error");return false;}}
+    function syncProfileToInputs(){profileIds.forEach(function(id){$(id).value=state.profile[id]||"";});}
+    function syncInputsToProfile(){profileIds.forEach(function(id){state.profile[id]=$(id).value.trim();});saveState();setStatus("profileStatus","Saved in this browser.","success");renderAll();}
+    function nextRiskId(){var max=state.risks.reduce(function(current,risk){var match=String(risk.id).match(/(\d+)$/);return match?Math.max(current,parseInt(match[1],10)):current;},0);return "AIR-"+String(max+1).padStart(3,"0");}
+    function updateFormScores(){var inherent=score($("inherentSeverity").value,$("inherentLikelihood").value),residual=score($("residualSeverity").value,$("residualLikelihood").value);$("inherentPreview").textContent=inherent+" / 25 — "+band(inherent).label;$("residualPreview").textContent=residual+" / 25 — "+band(residual).label;}
+    function clearForm(keepMessage){$("riskForm").reset();$("editingRiskId").value="";$("inherentSeverity").value="3";$("inherentLikelihood").value="3";$("residualSeverity").value="3";$("residualLikelihood").value="2";$("lastReviewed").value=today();$("nextRiskReview").value=dateOffset(30);$("riskFormTitle").textContent="Add an AI risk";$("editingBadge").textContent="New record";$("saveRiskButton").textContent="Save Risk";$("cancelEditButton").hidden=true;if(!keepMessage)setStatus("formStatus","");updateFormScores();}
+    function formRisk(){var editingId=$("editingRiskId").value,existing=state.risks.find(function(risk){return risk.id===editingId;});var now=new Date().toISOString();return normalizeRisk({
+      id:editingId||nextRiskId(),title:$("riskTitle").value.trim(),category:$("riskCategory").value,owner:$("riskOwner").value.trim(),source:$("riskSource").value,statement:$("riskStatement").value.trim(),affectedScope:$("affectedScope").value.trim(),inherentSeverity:$("inherentSeverity").value,inherentLikelihood:$("inherentLikelihood").value,priorityRationale:$("priorityRationale").value.trim(),existingControls:$("existingControls").value.trim(),treatment:$("riskTreatment").value,status:$("riskStatus").value,targetDate:$("targetDate").value,responsePlan:$("responsePlan").value.trim(),responseCost:$("responseCost").value.trim(),evidenceReference:$("evidenceReference").value.trim(),residualSeverity:$("residualSeverity").value,residualLikelihood:$("residualLikelihood").value,lastReviewed:$("lastReviewed").value,nextRiskReview:$("nextRiskReview").value,notes:$("riskNotes").value.trim(),createdAt:existing?existing.createdAt:now,updatedAt:now
+    });}
+    function fillForm(risk){$("editingRiskId").value=risk.id;var map={riskTitle:"title",riskCategory:"category",riskOwner:"owner",riskSource:"source",riskStatement:"statement",affectedScope:"affectedScope",inherentSeverity:"inherentSeverity",inherentLikelihood:"inherentLikelihood",priorityRationale:"priorityRationale",existingControls:"existingControls",riskTreatment:"treatment",riskStatus:"status",targetDate:"targetDate",responsePlan:"responsePlan",responseCost:"responseCost",evidenceReference:"evidenceReference",residualSeverity:"residualSeverity",residualLikelihood:"residualLikelihood",lastReviewed:"lastReviewed",nextRiskReview:"nextRiskReview",riskNotes:"notes"};Object.keys(map).forEach(function(id){$(id).value=risk[map[id]]||"";});$("riskFormTitle").textContent="Edit "+risk.id;$("editingBadge").textContent="Editing record";$("saveRiskButton").textContent="Update Risk";$("cancelEditButton").hidden=false;setStatus("formStatus","Editing "+risk.id+". Save to keep your changes.");updateFormScores();$("riskEditor").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){$("riskTitle").focus();},350);}
+    function createSamples(){var created=new Date().toISOString();return [
+      {title:"Sensitive information appears in generated output",category:"privacy-data",owner:"Privacy Lead",source:"impact-assessment",statement:"Because sensitive content may enter prompts or retrieval sources, the model may reproduce personal or confidential information, causing rights, contractual, security, and trust impacts.",affectedScope:"Customers, employees, confidential records, regulatory obligations, and organizational trust.",inherentSeverity:5,inherentLikelihood:4,priorityRationale:"Broad user access and uncertain prompt content create material exposure.",existingControls:"Approved data sources, role-based access, prompt warnings, output filters, logging, and human review.",treatment:"mitigate",status:"in-progress",targetDate:dateOffset(21),responsePlan:"Complete red-team tests, verify retrieval permissions, define retention, monitor leakage indicators, and block production if critical cases remain.",responseCost:"12 person-days",evidenceReference:"Privacy test plan and access-control review",residualSeverity:4,residualLikelihood:2,lastReviewed:today(),nextRiskReview:dateOffset(30),notes:"Escalate any confirmed disclosure immediately."},
+      {title:"Applicant ranking creates unequal outcomes",category:"quality-fairness",owner:"People Analytics Lead",source:"impact-assessment",statement:"Because training and evaluation data may not represent qualified applicants, automated ranking may disadvantage relevant groups, affecting access, fairness, legal exposure, and hiring quality.",affectedScope:"Applicants, recruiting teams, equal-opportunity objectives, and employment decisions.",inherentSeverity:5,inherentLikelihood:3,priorityRationale:"Consequential employment context and potential group-level effects.",existingControls:"Human decision authority, job-related features, subgroup testing, documented override, and appeal route.",treatment:"mitigate",status:"planned",targetDate:dateOffset(35),responsePlan:"Run representative subgroup and intersectional testing, validate job relevance, document limitations, and require accountable review before use.",responseCost:"External validation budget pending",evidenceReference:"Fairness validation protocol",residualSeverity:4,residualLikelihood:2,lastReviewed:today(),nextRiskReview:dateOffset(30),notes:"Do not deploy until validation and legal review are complete."},
+      {title:"Prompt injection triggers an unauthorized action",category:"safety-security",owner:"Security Engineering",source:"threat-model",statement:"Because untrusted content can reach an AI agent, an attacker may manipulate instructions or tool calls, causing unauthorized access, disclosure, transactions, or service disruption.",affectedScope:"Connected systems, customer data, transaction integrity, availability, and security posture.",inherentSeverity:5,inherentLikelihood:4,priorityRationale:"Agent has tool access and processes untrusted text.",existingControls:"Least privilege, allowlisted tools, parameter validation, approval gates, sandboxing, logging, and rate limits.",treatment:"mitigate",status:"in-progress",targetDate:dateOffset(14),responsePlan:"Complete adversarial testing, isolate untrusted content, enforce deterministic authorization outside the model, and verify kill switch.",responseCost:"3 engineering sprints",evidenceReference:"AI agent threat model and red-team report",residualSeverity:4,residualLikelihood:2,lastReviewed:today(),nextRiskReview:dateOffset(14),notes:"Any privilege-bypass finding blocks launch."},
+      {title:"Operators over-rely on confident but incorrect output",category:"people-rights",owner:"Operations Director",source:"testing",statement:"Because AI output may appear authoritative, operators may accept an incorrect recommendation without adequate review, causing customer harm, inconsistent decisions, or loss of human accountability.",affectedScope:"Customers, frontline operators, review quality, complaint handling, and decision accountability.",inherentSeverity:4,inherentLikelihood:4,priorityRationale:"Time pressure and interface design can amplify automation bias.",existingControls:"Mandatory review, confidence limitations, source display, training, sampling, override logging, and escalation.",treatment:"mitigate",status:"monitoring",targetDate:dateOffset(28),responsePlan:"Test reviewer comprehension, measure correction and override behavior, redesign warnings, and set a stop threshold for missed critical errors.",responseCost:"8 person-days",evidenceReference:"Human factors pilot dashboard",residualSeverity:3,residualLikelihood:3,lastReviewed:today(),nextRiskReview:dateOffset(21),notes:"Review weekly during pilot."},
+      {title:"Vendor model change invalidates prior testing",category:"vendor-supply",owner:"Vendor Manager",source:"vendor-review",statement:"Because the vendor may update models, safeguards, or subprocessors, system behavior may change without adequate notice, invalidating validation evidence and increasing operational or compliance risk.",affectedScope:"Product quality, controls, contracts, audit evidence, continuity, and affected users.",inherentSeverity:4,inherentLikelihood:4,priorityRationale:"Dependency on externally controlled model and release process.",existingControls:"Change-notice clause, version pinning where available, regression suite, release review, fallback provider, and exit plan.",treatment:"transfer",status:"planned",targetDate:dateOffset(45),responsePlan:"Negotiate material-change notice, define regression gates, require incident cooperation, and test export and fallback procedures.",responseCost:"Contract and engineering review",evidenceReference:"Vendor contract schedule and regression suite",residualSeverity:3,residualLikelihood:2,lastReviewed:today(),nextRiskReview:dateOffset(30),notes:"Reassess after any material vendor change."},
+      {title:"Model quality drifts after workflow or data change",category:"operations-reliability",owner:"Model Operations",source:"monitoring",statement:"Because input patterns, knowledge sources, prompts, or workflows change, model quality may degrade without detection, causing rework, missed cases, unreliable service, and incorrect decisions.",affectedScope:"Service quality, users, operational cost, SLA performance, and downstream decisions.",inherentSeverity:4,inherentLikelihood:3,priorityRationale:"Production context changes faster than the original validation set.",existingControls:"Case sampling, quality thresholds, drift indicators, rollback, version control, incident route, and periodic revalidation.",treatment:"mitigate",status:"monitoring",targetDate:dateOffset(30),responsePlan:"Define segment-level KRIs, assign alert ownership, validate fallback, and require reassessment after material data or workflow change.",responseCost:"Monitoring already funded",evidenceReference:"Quality and drift dashboard",residualSeverity:3,residualLikelihood:2,lastReviewed:today(),nextRiskReview:dateOffset(14),notes:"Pause affected workflow if the critical-error threshold is exceeded."}
+    ].map(function(risk,index){risk.id="AIR-"+String(index+1).padStart(3,"0");risk.createdAt=created;risk.updatedAt=created;return normalizeRisk(risk);});}
+    function loadSamples(){if(state.risks.length&&!window.confirm("Add six example risks to the current register? Existing entries will be kept."))return;var used=new Set(state.risks.map(function(r){return r.id;}));createSamples().forEach(function(sample){sample.id=nextRiskId();while(used.has(sample.id)){var number=parseInt(sample.id.match(/\d+$/)[0],10)+1;sample.id="AIR-"+String(number).padStart(3,"0");}used.add(sample.id);state.risks.push(sample);});saveState("Six example risks were added.");renderAll();$("riskListCard").scrollIntoView({behavior:"smooth",block:"start"});}
+    function renderMetrics(){var risks=state.risks,threshold=parseInt(state.profile.riskTolerance||"15",10),inherentTotal=0,residualTotal=0;risks.forEach(function(r){inherentTotal+=score(r.inherentSeverity,r.inherentLikelihood);residualTotal+=score(r.residualSeverity,r.residualLikelihood);});$("metricTotal").textContent=risks.length;$("metricAbove").textContent=risks.filter(function(r){return score(r.residualSeverity,r.residualLikelihood)>=threshold&&!isClosed(r);}).length;$("metricOverdue").textContent=risks.filter(isOverdue).length;$("metricUnowned").textContent=risks.filter(function(r){return !r.owner.trim()&&!isClosed(r);}).length;$("metricAverage").textContent=risks.length?(residualTotal/risks.length).toFixed(1):"0";$("metricReduction").textContent=inherentTotal?Math.max(0,Math.round((1-residualTotal/inherentTotal)*100))+"%":"0%";}
+    function renderCategories(){var counts={};Object.keys(categories).forEach(function(key){counts[key]=0;});state.risks.forEach(function(r){counts[r.category]=(counts[r.category]||0)+1;});var max=Math.max.apply(null,Object.values(counts).concat([1]));var html=Object.keys(categories).filter(function(key){return counts[key]>0;}).sort(function(a,b){return counts[b]-counts[a];}).map(function(key){return '<div class="category-row"><span>'+escapeHtml(categories[key])+'</span><div class="category-track"><div class="category-fill" style="width:'+Math.round(counts[key]/max*100)+'%"></div></div><strong>'+counts[key]+'</strong></div>';}).join("");$("categorySummary").innerHTML=html||'<p>No category data yet.</p>';}
+    function renderMatrix(){var counts={};state.risks.forEach(function(r){var key=r.residualLikelihood+"-"+r.residualSeverity;counts[key]=(counts[key]||0)+1;});var html='<thead><tr><th>Likelihood ↓ / Severity →</th>';for(var s=1;s<=5;s++)html+='<th>'+s+'</th>';html+='</tr></thead><tbody>';for(var l=5;l>=1;l--){html+='<tr><th>'+l+'</th>';for(var severity=1;severity<=5;severity++){var value=l*severity,b=band(value),count=counts[l+"-"+severity]||0;html+='<td class="m-'+b.key+'"><span>'+count+'</span><small>score '+value+'</small></td>';}html+='</tr>';}html+='</tbody>';$("riskMatrix").innerHTML=html;}
+    function filteredRisks(){var query=$("searchRisks").value.trim().toLowerCase(),category=$("filterCategory").value,status=$("filterStatus").value,bandFilter=$("filterBand").value,threshold=parseInt(state.profile.riskTolerance||"15",10),sort=$("sortRisks").value;var list=state.risks.filter(function(risk){var residual=score(risk.residualSeverity,risk.residualLikelihood),haystack=[risk.id,risk.title,risk.owner,risk.statement,risk.affectedScope,risk.existingControls,risk.responsePlan,risk.evidenceReference,risk.notes].join(" ").toLowerCase();if(query&&!haystack.includes(query))return false;if(category&&risk.category!==category)return false;if(status&&risk.status!==status)return false;if(bandFilter==="above"&&!(residual>=threshold&&!isClosed(risk)))return false;if(bandFilter==="overdue"&&!isOverdue(risk))return false;if(bandFilter==="unowned"&&(risk.owner.trim()||isClosed(risk)))return false;if(["critical","very-high","high","moderate","low"].includes(bandFilter)&&band(residual).key!==bandFilter)return false;return true;});list.sort(function(a,b){if(sort==="inherent-desc")return score(b.inherentSeverity,b.inherentLikelihood)-score(a.inherentSeverity,a.inherentLikelihood);if(sort==="due-asc")return (a.targetDate||"9999-12-31").localeCompare(b.targetDate||"9999-12-31");if(sort==="updated-desc")return b.updatedAt.localeCompare(a.updatedAt);if(sort==="id-asc")return a.id.localeCompare(b.id,undefined,{numeric:true});return score(b.residualSeverity,b.residualLikelihood)-score(a.residualSeverity,a.residualLikelihood)||score(b.inherentSeverity,b.inherentLikelihood)-score(a.inherentSeverity,a.inherentLikelihood);});return list;}
+    function renderTable(){var list=filteredRisks(),threshold=parseInt(state.profile.riskTolerance||"15",10);$("resultCount").textContent=list.length+" of "+state.risks.length+" risks shown";$("riskTableWrap").hidden=list.length===0;$("emptyState").hidden=list.length!==0;$("riskTableBody").innerHTML=list.map(function(risk){var inherent=score(risk.inherentSeverity,risk.inherentLikelihood),residual=score(risk.residualSeverity,risk.residualLikelihood),ib=band(inherent),rb=band(residual),due=dueState(risk),above=residual>=threshold&&!isClosed(risk);return '<tr data-risk-id="'+escapeHtml(risk.id)+'"><td data-label="Risk"><span class="risk-id">'+escapeHtml(risk.id)+'</span><strong class="risk-title">'+escapeHtml(risk.title)+'</strong><span class="category-badge">'+escapeHtml(categories[risk.category])+'</span><span class="cell-note">'+escapeHtml(risk.statement)+'</span></td><td data-label="Owner & status"><strong>'+escapeHtml(risk.owner||"Unassigned")+'</strong><span class="cell-note"><span class="status-badge">'+escapeHtml(statuses[risk.status])+'</span></span></td><td data-label="Inherent"><span class="score-badge band-'+ib.key+'">'+inherent+'</span><span class="cell-note">'+ib.label+' · S'+risk.inherentSeverity+' × L'+risk.inherentLikelihood+'</span></td><td data-label="Response"><strong>'+escapeHtml(treatments[risk.treatment])+'</strong><span class="cell-note">'+escapeHtml(risk.responsePlan||"No response plan recorded")+'</span></td><td data-label="Residual"><span class="score-badge band-'+rb.key+'">'+residual+'</span><span class="cell-note">'+rb.label+' · S'+risk.residualSeverity+' × L'+risk.residualLikelihood+'</span>'+(above?'<span class="tolerance-badge">Above threshold</span>':'')+'</td><td data-label="Target & review"><span class="due-badge '+due.className+'">'+escapeHtml(due.label)+'</span><span class="cell-note">Next review: '+escapeHtml(risk.nextRiskReview||"Not set")+'</span></td><td class="no-print" data-label="Actions"><div class="row-actions"><button class="row-action" type="button" data-action="edit">Edit</button><button class="row-action" type="button" data-action="duplicate">Duplicate</button><button class="row-action delete" type="button" data-action="delete">Delete</button></div></td></tr>';}).join("");}
+    function renderAll(){renderMetrics();renderCategories();renderMatrix();renderTable();}
+    function executiveSummary(){var risks=state.risks,threshold=parseInt(state.profile.riskTolerance||"15",10),active=risks.filter(function(r){return !isClosed(r);}),above=active.filter(function(r){return score(r.residualSeverity,r.residualLikelihood)>=threshold;}),overdue=active.filter(isOverdue),unowned=active.filter(function(r){return !r.owner.trim();}),top=active.slice().sort(function(a,b){return score(b.residualSeverity,b.residualLikelihood)-score(a.residualSeverity,a.residualLikelihood);}).slice(0,5);var lines=["AI RISK REGISTER — EXECUTIVE SUMMARY","Register: "+(state.profile.registerName||"AI Risk Register"),"Organization / team: "+(state.profile.organization||"Not specified"),"AI system / portfolio: "+(state.profile.projectName||"Not specified"),"Register owner: "+(state.profile.registerOwner||"Not specified"),"Escalation threshold: "+threshold+" / 25","Review cadence: "+(state.profile.reviewCadence||"Not specified"),"Next portfolio review: "+(state.profile.nextPortfolioReview||"Not set"),"Risk appetite note: "+(state.profile.riskAppetiteNote||"Not recorded"),"","PORTFOLIO STATUS","Total risks: "+risks.length,"Active risks: "+active.length,"Above threshold: "+above.length,"Overdue: "+overdue.length,"Unowned: "+unowned.length,"","TOP ACTIVE RESIDUAL RISKS"];if(top.length)top.forEach(function(r,index){var value=score(r.residualSeverity,r.residualLikelihood);lines.push((index+1)+". "+r.id+" — "+r.title+" | "+value+"/25 "+band(value).label+" | Owner: "+(r.owner||"Unassigned")+" | Status: "+statuses[r.status]+" | Target: "+(r.targetDate||"Not set"));});else lines.push("No active risks recorded.");lines.push("","Generated: "+new Date().toISOString(),"Planning aid only — not a compliance, legal, audit, or deployment decision.","https://zynovix.github.io/ai-risk-register-generator.html");return lines.join("\n");}
+    function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied;}
+    function copyText(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text).then(function(){return true;}).catch(function(){return fallbackCopy(text);});return Promise.resolve(fallbackCopy(text));}
+    function download(name,content,type){var blob=new Blob([content],{type:type}),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download=name;document.body.appendChild(link);link.click();document.body.removeChild(link);setTimeout(function(){URL.revokeObjectURL(url);},500);}
+    function fileBase(){return (state.profile.projectName||state.profile.registerName||"ai-risk-register").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ai-risk-register";}
+    function exportJson(){var payload={schema:"zynovix-ai-risk-register",version:1,generatedAt:new Date().toISOString(),profile:state.profile,risks:state.risks};download(fileBase()+".json",JSON.stringify(payload,null,2),"application/json");setStatus("actionStatus","JSON backup downloaded.","success");}
+    function csvEscape(value){var text=String(value==null?"":value);return /[",\n]/.test(text)?'"'+text.replace(/"/g,'""')+'"':text;}
+    function exportCsv(){var headers=["Risk ID","Title","Category","Owner","Source","Risk statement","Affected scope","Inherent severity","Inherent likelihood","Inherent score","Rating rationale","Existing controls","Treatment","Status","Target date","Response plan","Response cost","Evidence","Residual severity","Residual likelihood","Residual score","Residual band","Above threshold","Last reviewed","Next review","Notes","Created at","Updated at"],threshold=parseInt(state.profile.riskTolerance||"15",10);var rows=state.risks.map(function(r){var residual=score(r.residualSeverity,r.residualLikelihood);return [r.id,r.title,categories[r.category],r.owner,sources[r.source],r.statement,r.affectedScope,r.inherentSeverity,r.inherentLikelihood,score(r.inherentSeverity,r.inherentLikelihood),r.priorityRationale,r.existingControls,treatments[r.treatment],statuses[r.status],r.targetDate,r.responsePlan,r.responseCost,r.evidenceReference,r.residualSeverity,r.residualLikelihood,residual,band(residual).label,residual>=threshold&&!isClosed(r)?"Yes":"No",r.lastReviewed,r.nextRiskReview,r.notes,r.createdAt,r.updatedAt];});var csv=[headers].concat(rows).map(function(row){return row.map(csvEscape).join(",");}).join("\n");download(fileBase()+".csv","\ufeff"+csv,"text/csv;charset=utf-8");setStatus("actionStatus","CSV register downloaded.","success");}
+    function importJson(file){var reader=new FileReader();reader.onload=function(){try{var parsed=JSON.parse(reader.result);if(!parsed||!Array.isArray(parsed.risks))throw new Error("No risks array");if(state.risks.length&&!window.confirm("Replace the current register with the imported JSON file?"))return;state.profile=Object.assign({registerName:"AI Risk Register",organization:"",projectName:"",registerOwner:"",riskTolerance:"15",reviewCadence:"monthly",nextPortfolioReview:"",riskAppetiteNote:""},parsed.profile||{});state.risks=parsed.risks.map(normalizeRisk);saveState("JSON register imported successfully.");syncProfileToInputs();renderAll();clearForm(true);}catch(error){setStatus("actionStatus","Import failed. Select a valid Zynovix AI risk register JSON file.","error");}};reader.onerror=function(){setStatus("actionStatus","The selected file could not be read.","error");};reader.readAsText(file);}
+    profileIds.forEach(function(id){$(id).addEventListener("change",syncInputsToProfile);$(id).addEventListener("input",function(){clearTimeout(window.__rrProfileTimer);window.__rrProfileTimer=setTimeout(syncInputsToProfile,450);});});
+    ["inherentSeverity","inherentLikelihood","residualSeverity","residualLikelihood"].forEach(function(id){$(id).addEventListener("change",updateFormScores);});
+    $("riskForm").addEventListener("submit",function(event){event.preventDefault();if(!$("riskTitle").value.trim()||!$("riskStatement").value.trim()){setStatus("formStatus","Add a risk title and a specific risk statement.","error");(!$("riskTitle").value.trim()?$("riskTitle"):$("riskStatement")).focus();return;}var risk=formRisk(),index=state.risks.findIndex(function(item){return item.id===risk.id;});if(index>=0)state.risks[index]=risk;else state.risks.push(risk);saveState();renderAll();clearForm(true);setStatus("formStatus",risk.id+" was saved in this browser.","success");$("riskListCard").scrollIntoView({behavior:"smooth",block:"start"});});
+    $("riskTableBody").addEventListener("click",function(event){var button=event.target.closest("button[data-action]");if(!button)return;var row=button.closest("tr"),id=row.getAttribute("data-risk-id"),risk=state.risks.find(function(item){return item.id===id;});if(!risk)return;if(button.dataset.action==="edit")fillForm(risk);if(button.dataset.action==="duplicate"){var copy=normalizeRisk(Object.assign({},risk,{id:nextRiskId(),title:"Copy of "+risk.title,status:"open",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}));state.risks.push(copy);saveState(copy.id+" was created as a duplicate.");renderAll();}if(button.dataset.action==="delete"&&window.confirm("Delete "+id+" from this browser register?")){state.risks=state.risks.filter(function(item){return item.id!==id;});saveState(id+" was deleted.");renderAll();if($("editingRiskId").value===id)clearForm();}});
+    ["searchRisks","filterCategory","filterStatus","filterBand","sortRisks"].forEach(function(id){$(id).addEventListener(id==="searchRisks"?"input":"change",renderTable);});
+    $("resetFiltersButton").addEventListener("click",function(){$("searchRisks").value="";$("filterCategory").value="";$("filterStatus").value="";$("filterBand").value="";$("sortRisks").value="residual-desc";renderTable();});
+    function goToForm(){clearForm();$("riskEditor").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){$("riskTitle").focus();},350);}
+    ["addRiskTopButton","addRiskListButton","emptyAddButton"].forEach(function(id){$(id).addEventListener("click",goToForm);});
+    $("clearFormButton").addEventListener("click",function(){clearForm();setStatus("formStatus","Form cleared.");});$("cancelEditButton").addEventListener("click",clearForm);
+    ["heroSamplesButton","loadSamplesButton"].forEach(function(id){$(id).addEventListener("click",loadSamples);});
+    $("copySummaryButton").addEventListener("click",function(){copyText(executiveSummary()).then(function(ok){setStatus("actionStatus",ok?"Executive summary copied.":"Copy failed. Use a downloaded export instead.",ok?"success":"error");});});
+    $("exportCsvButton").addEventListener("click",exportCsv);$("exportJsonButton").addEventListener("click",exportJson);$("importJsonButton").addEventListener("click",function(){$("jsonFileInput").click();});$("jsonFileInput").addEventListener("change",function(){if(this.files&&this.files[0])importJson(this.files[0]);this.value="";});$("printButton").addEventListener("click",function(){window.print();});
+    $("clearRegisterButton").addEventListener("click",function(){if(!state.risks.length){setStatus("actionStatus","The register is already empty.");return;}if(window.confirm("Clear every risk from this browser register? Export a backup first if needed.")){state.risks=[];saveState("The register was cleared.");renderAll();clearForm();}});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=$(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;button.querySelector(".faq-icon").textContent=expanded?"+":"−";});});
+    loadState();syncProfileToInputs();clearForm();renderAll();
+  }());
+  </script>
+</body>
+</html>

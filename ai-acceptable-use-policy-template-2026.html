@@ -100,8 +100,7 @@
       color: #0369a1;
     }
 
-    html[data-theme="light"] .menu-btn,
-    html[data-theme="light"] .theme-toggle {
+    html[data-theme="light"] .menu-btn {
       color: #0f172a;
       background: rgba(15, 23, 42, .05);
     }
@@ -158,32 +157,6 @@
       height: 100%;
       background: linear-gradient(90deg, #2563eb, #22d3ee, #7c3aed);
       box-shadow: 0 0 12px rgba(34, 211, 238, .55);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .theme-toggle {
-      width: 44px;
-      height: 44px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--article-line);
-      border-radius: 13px;
-      background: rgba(255, 255, 255, .06);
-      color: #fff;
-      cursor: pointer;
-      font: inherit;
-      font-size: 19px;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: translateY(-2px);
-      border-color: rgba(34, 211, 238, .7);
     }
 
     .article-hero {
@@ -859,10 +832,6 @@
     }
 
     @media (max-width: 720px) {
-      .nav-actions .nav-cta {
-        display: none;
-      }
-
       html[data-theme="light"] .nav-menu {
         background: rgba(248, 250, 252, .98);
       }
@@ -1089,25 +1058,22 @@
   <div class="orb orb-b" aria-hidden="true"></div>
 
   <header class="header">
-    <div class="nav shell">
+    <nav class="nav shell" aria-label="Primary navigation">
       <a class="brand" href="index.html" aria-label="Zynovix AI home">
         <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
         <span>Zynovix AI</span>
       </a>
 
-      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+
+      <div class="nav-menu" id="navMenu">
         <a href="tools.html">AI Tools</a>
         <a href="learn.html">Learn</a>
         <a href="blog.html" aria-current="page">Blog</a>
         <a href="about.html">About</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch color theme">☀️</button>
         <a href="contact.html" class="nav-cta">Contact</a>
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main id="main-content">
@@ -1812,36 +1778,6 @@
       document.querySelectorAll(".article-section[id]").forEach(function (section) {
         observer.observe(section);
       });
-    }
-
-    var themeToggle = document.getElementById("themeToggle");
-
-    function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-      themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#050816" : "#f8fafc");
-    }
-
-    themeToggle.addEventListener("click", function () {
-      var nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      applyTheme(nextTheme);
-      try {
-        localStorage.setItem("zynovix-theme", nextTheme);
-      } catch (error) {
-        return;
-      }
-    });
-
-    try {
-      var savedTheme = localStorage.getItem("zynovix-theme");
-      if (savedTheme === "light" || savedTheme === "dark") {
-        applyTheme(savedTheme);
-      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-        applyTheme("light");
-      }
-    } catch (error) {
-      applyTheme("dark");
     }
 
     updateReadingProgress();

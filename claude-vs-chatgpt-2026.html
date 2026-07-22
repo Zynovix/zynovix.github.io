@@ -35,15 +35,6 @@
   <meta name="twitter:description" content="Which AI assistant is better in 2026? Compare Claude and ChatGPT across the tasks that actually matter.">
   <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('zynovix-theme');
-        document.documentElement.dataset.theme = saved || 'dark';
-      } catch (e) {}
-    }());
-  </script>
-
   <style>
     :root {
       color-scheme: light;
@@ -293,25 +284,6 @@
       line-height: 1;
       cursor: pointer;
     }
-
-    .theme-toggle {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      flex: 0 0 auto;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--surface-2);
-      cursor: pointer;
-      transition: border-color .2s ease, transform .2s ease, background .2s ease;
-    }
-
-    .theme-toggle:hover { border-color: var(--brand); transform: translateY(-1px); }
-    .theme-toggle svg { width: 19px; height: 19px; }
-    .theme-toggle .moon { display: none; }
-    html[data-theme="dark"] .theme-toggle .sun { display: none; }
-    html[data-theme="dark"] .theme-toggle .moon { display: block; }
 
     .breadcrumb {
       padding-block: 18px 8px;
@@ -1043,7 +1015,7 @@
     }
 
     @media print {
-      .site-header, .progress-track, .toc-wrap, .theme-toggle, .back-to-top, .site-footer, .copy-button { display: none !important; }
+      .site-header, .progress-track, .toc-wrap, .back-to-top, .site-footer, .copy-button { display: none !important; }
       body { background: #fff; color: #111; }
       .container { width: 100%; max-width: none; }
       .hero { padding: 20px 0; }
@@ -1211,15 +1183,6 @@
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Change color theme">
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-          </svg>
-          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-          </svg>
-        </button>
         <button class="menu-btn" id="menu-button" type="button" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -2026,8 +1989,6 @@ Then implement only the approved scope. Preserve existing conventions, do not re
     (function () {
       'use strict';
 
-      var root = document.documentElement;
-      var themeButton = document.getElementById('theme-toggle');
       var progressBar = document.getElementById('reading-progress');
       var backToTop = document.getElementById('back-to-top');
       var article = document.getElementById('article-content');
@@ -2035,20 +1996,6 @@ Then implement only the approved scope. Preserve existing conventions, do not re
       var navMenu = document.getElementById('nav-menu');
       var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
       var observedSections = Array.prototype.slice.call(document.querySelectorAll('.article-section[id]'));
-
-      function updateThemeLabel() {
-        var isDark = root.dataset.theme === 'dark';
-        themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      }
-
-      themeButton.addEventListener('click', function () {
-        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = next;
-        try { localStorage.setItem('zynovix-theme', next); } catch (e) {}
-        updateThemeLabel();
-      });
-
-      updateThemeLabel();
 
       function closeMenu() {
         navMenu.classList.remove('active');

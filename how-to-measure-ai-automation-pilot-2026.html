@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Measure an AI Automation Pilot in 2026</title>
+  <meta name="description" content="Learn how to measure an AI automation pilot in 2026. Includes KPIs, formulas, a case log template, stop criteria, a worked example, and a Scale or Stop decision framework.">
+  <meta name="author" content="Zynovix AI Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="How to Measure an AI Automation Pilot in 2026">
+  <meta property="og:description" content="A practical measurement framework with AI pilot metrics, formulas, evidence logs, human-review checks, stop criteria, and a worked example.">
+  <meta property="og:url" content="https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+  <meta property="article:published_time" content="2026-07-22T23:45:00+04:00">
+  <meta property="article:modified_time" content="2026-07-22T23:45:00+04:00">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Measure an AI Automation Pilot in 2026">
+  <meta name="twitter:description" content="Measure AI pilot value, quality, reliability, human review, risk, and evidence before deciding whether to scale.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --m-panel: rgba(10,17,39,.9);
+      --m-panel-2: rgba(15,25,53,.88);
+      --m-line: rgba(148,163,184,.2);
+      --m-strong: #f8fbff;
+      --m-text: #d5e0ef;
+      --m-soft: #9eabc1;
+      --m-cyan: #22d3ee;
+      --m-blue: #3b82f6;
+      --m-purple: #8b5cf6;
+      --m-green: #34d399;
+      --m-yellow: #fbbf24;
+      --m-red: #fb7185;
+      --m-shadow: 0 24px 72px rgba(0,0,0,.3);
+    }
+    html { scroll-behavior: smooth; }
+    body.measure-guide { color: var(--m-text); overflow-x: hidden; }
+    .measure-guide .brand img,
+    .measure-guide .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-150%); padding: 11px 15px; border-radius: 10px; color: #04101a; background: var(--m-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+    .reading-track { position: fixed; inset: 0 0 auto; z-index: 9999; height: 4px; background: rgba(255,255,255,.05); }
+    .reading-bar { width: 0; height: 100%; background: linear-gradient(90deg,var(--m-cyan),var(--m-blue),var(--m-purple)); box-shadow: 0 0 16px rgba(34,211,238,.75); }
+
+    .article-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--m-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--m-cyan); }
+    .article-hero h1 { max-width: 1080px; margin: 18px auto; color: var(--m-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.5px; }
+    .article-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--m-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .article-lead { max-width: 900px; margin: 0 auto; color: var(--m-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.72; }
+    .article-meta,.hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .article-meta { margin-top: 22px; color: #b9c7db; font-size: 14px; }
+    .article-meta span:not(:last-child)::after { content: "•"; margin-left: 12px; color: #64748b; }
+    .hero-actions { margin-top: 27px; }
+    .hero-note { display: flex; gap: 13px; max-width: 880px; margin: 25px auto 0; padding: 16px 18px; border: 1px solid rgba(34,211,238,.24); border-radius: 18px; color: #c9d9e9; background: rgba(34,211,238,.07); text-align: left; line-height: 1.65; }
+    .hero-note > span { font-size: 23px; }
+
+    .article-shell { width: min(1240px,calc(100% - 28px)); margin: 0 auto 80px; }
+    .article-layout { display: block; }
+    .toc-wrap { margin-bottom: 18px; }
+    .toc { border: 1px solid var(--m-line); border-radius: 20px; background: rgba(8,15,34,.9); box-shadow: var(--m-shadow); overflow: hidden; }
+    .toc summary { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; color: var(--m-strong); cursor: pointer; font-weight: 800; list-style: none; }
+    .toc summary::-webkit-details-marker { display: none; }
+    .toc summary::after { content: "+"; color: var(--m-cyan); font-size: 22px; }
+    .toc[open] summary::after { content: "−"; }
+    .toc ol { margin: 0; padding: 0 20px 20px 42px; }
+    .toc li { margin: 7px 0; color: #8090a9; }
+    .toc a { color: var(--m-soft); font-size: 14px; line-height: 1.45; }
+    .toc a:hover,.toc a.active { color: var(--m-cyan); }
+
+    .article-content { min-width: 0; }
+    .article-section { margin-bottom: 18px; padding: clamp(22px,5vw,42px); border: 1px solid var(--m-line); border-radius: 24px; background: var(--m-panel); box-shadow: var(--m-shadow); scroll-margin-top: 104px; }
+    .article-section h2 { margin: 0 0 16px; color: var(--m-strong); font-size: clamp(28px,5vw,43px); line-height: 1.12; letter-spacing: -.8px; }
+    .article-section h3 { margin: 28px 0 10px; color: var(--m-strong); font-size: clamp(21px,4vw,29px); line-height: 1.2; }
+    .article-section h4 { margin: 0 0 8px; color: var(--m-strong); font-size: 19px; }
+    .article-section p,.article-section li { color: var(--m-text); font-size: 16px; line-height: 1.78; }
+    .article-section p { margin: 0 0 16px; }
+    .article-section ul,.article-section ol { padding-left: 21px; }
+    .article-section li { margin: 7px 0; }
+    .article-section strong { color: var(--m-strong); }
+    .article-section a:not(.btn):not(.related-card) { color: #67e8f9; text-decoration: underline; text-underline-offset: 3px; }
+    .section-intro { max-width: 850px; color: var(--m-soft) !important; font-size: 18px !important; }
+
+    .takeaway-grid,.metric-grid,.test-grid,.decision-grid,.related-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
+    .takeaway,.metric-card,.test-card,.decision-card { padding: 20px; border: 1px solid var(--m-line); border-radius: 18px; background: rgba(255,255,255,.035); }
+    .takeaway strong,.metric-card strong { display: block; margin-bottom: 7px; font-size: 18px; }
+    .takeaway p,.metric-card p,.test-card p,.decision-card p { margin: 0; color: var(--m-soft); }
+    .metric-icon { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 12px; border-radius: 13px; background: linear-gradient(135deg,rgba(59,130,246,.75),rgba(34,211,238,.7)); font-size: 20px; }
+    .callout { margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--m-cyan); border-radius: 0 15px 15px 0; background: rgba(34,211,238,.07); }
+    .callout p { margin: 0; }
+    .callout.warning { border-color: var(--m-yellow); background: rgba(251,191,36,.07); }
+    .callout.danger { border-color: var(--m-red); background: rgba(251,113,133,.07); }
+
+    .template-box { margin: 20px 0; border: 1px solid rgba(34,211,238,.3); border-radius: 20px; background: linear-gradient(145deg,rgba(34,211,238,.065),rgba(139,92,246,.07)); overflow: hidden; }
+    .template-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px; border-bottom: 1px solid var(--m-line); }
+    .template-head h3 { margin: 0; font-size: 21px; }
+    .template-head button { border: 0; cursor: pointer; font: inherit; }
+    .copy-source { padding: 20px; color: #dce6f4; line-height: 1.75; white-space: pre-wrap; }
+    .copy-status { min-height: 22px; margin: 0; padding: 0 20px 16px; color: #7ef0c4; font-size: 14px; }
+
+    .table-wrap { width: 100%; margin: 20px 0; border: 1px solid var(--m-line); border-radius: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .article-table { width: 100%; min-width: 790px; border-collapse: collapse; background: rgba(5,10,25,.52); }
+    .article-table th,.article-table td { padding: 14px 15px; border-bottom: 1px solid var(--m-line); text-align: left; vertical-align: top; line-height: 1.5; }
+    .article-table th { color: var(--m-strong); background: rgba(59,130,246,.12); font-size: 14px; }
+    .article-table td { color: #c8d5e7; font-size: 14px; }
+    .article-table tr:last-child td { border-bottom: 0; }
+    .formula-list { display: grid; gap: 11px; margin: 22px 0; }
+    .formula { padding: 17px; border: 1px solid var(--m-line); border-radius: 16px; background: var(--m-panel-2); }
+    .formula strong { display: block; margin-bottom: 7px; color: var(--m-cyan); }
+    .formula code { display: block; color: #e2e8f0; white-space: normal; overflow-wrap: anywhere; line-height: 1.6; }
+    .test-number { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 13px; border-radius: 13px; color: #04101a; background: linear-gradient(135deg,var(--m-cyan),#60a5fa); font-weight: 900; }
+    .test-card h3 { margin: 0 0 9px; font-size: 21px; }
+    .decision-card { border-top: 4px solid var(--m-blue); }
+    .decision-card.scale { border-top-color: var(--m-green); }
+    .decision-card.pause { border-top-color: var(--m-yellow); }
+    .decision-card.stop { border-top-color: var(--m-red); }
+    .decision-card h3 { margin: 0 0 8px; font-size: 21px; }
+    .example-grid { display: grid; grid-template-columns: 1fr; gap: 11px; margin: 20px 0; }
+    .calculation-card { padding: 17px; border: 1px solid var(--m-line); border-radius: 16px; background: rgba(255,255,255,.028); }
+    .calculation-card small { display: block; margin-bottom: 5px; color: var(--m-cyan); font-weight: 900; text-transform: uppercase; }
+    .calculation-card strong { display: block; font-size: 24px; }
+    .calculation-card span { display: block; margin-top: 5px; color: var(--m-soft); font-size: 13px; line-height: 1.45; }
+
+    .faq-item { margin-bottom: 10px; border: 1px solid var(--m-line); border-radius: 16px; background: rgba(255,255,255,.03); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 19px; border: 0; color: var(--m-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-question::after { content: "+"; color: var(--m-cyan); font-size: 22px; }
+    .faq-question[aria-expanded="true"]::after { content: "−"; }
+    .faq-answer { padding: 0 19px 19px; color: var(--m-text); line-height: 1.75; }
+    .faq-answer[hidden] { display: none; }
+    .source-list li { margin-bottom: 13px; }
+    .author-box { display: flex; align-items: flex-start; gap: 17px; margin-bottom: 18px; padding: 24px; border: 1px solid var(--m-line); border-radius: 22px; background: var(--m-panel); box-shadow: var(--m-shadow); }
+    .author-avatar { display: grid; width: 54px; height: 54px; flex: 0 0 54px; place-items: center; border-radius: 16px; color: #06111d; background: linear-gradient(135deg,var(--m-cyan),#a78bfa); font-size: 25px; font-weight: 900; }
+    .author-box h2 { margin: 0 0 6px; color: var(--m-strong); font-size: 21px; }
+    .author-box p { margin: 0; color: var(--m-soft); line-height: 1.65; }
+    .related-card { display: flex; min-height: 150px; flex-direction: column; justify-content: space-between; gap: 12px; padding: 20px; border: 1px solid var(--m-line); border-radius: 18px; color: inherit; background: rgba(255,255,255,.035); transition: transform .2s ease,border-color .2s ease; }
+    .related-card:hover { transform: translateY(-3px); border-color: rgba(34,211,238,.48); }
+    .related-card small { color: var(--m-cyan); font-weight: 900; }
+    .related-card strong { font-size: 19px; line-height: 1.3; }
+    .related-card span { color: var(--m-soft); }
+    button:focus-visible,a:focus-visible { outline: 3px solid var(--m-cyan); outline-offset: 3px; }
+
+    @media (min-width: 680px) {
+      .takeaway-grid,.metric-grid,.test-grid,.decision-grid,.related-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .example-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (min-width: 1020px) {
+      .article-hero { padding-top: 72px; }
+      .article-layout { display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 22px; align-items: start; }
+      .toc-wrap { position: sticky; top: 102px; margin-bottom: 0; }
+      .toc summary { cursor: default; }
+      .toc summary::after { display: none; }
+      .toc[open] { max-height: calc(100vh - 125px); overflow-y: auto; }
+      .metric-grid,.test-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .decision-grid,.example-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .measure-guide .brand img,.measure-guide .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .article-hero h1 { letter-spacing: -1.5px; }
+      .article-meta { flex-direction: column; }
+      .article-meta span::after { display: none; }
+      .hero-actions .btn,.template-head .btn { width: 100%; }
+      .author-box { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,.reading-track,.toc-wrap,.hero-actions,.copy-button,.footer,.noise,.orb { display: none !important; }
+      body.measure-guide { color: #111827; background: #fff !important; }
+      .article-shell { width: 100%; }
+      .article-layout { display: block; }
+      .article-section,.author-box { border: 0; color: #111827; background: #fff !important; box-shadow: none; break-inside: avoid; }
+      .article-section h2,.article-section h3,.article-section h4,.article-section strong,.author-box h2 { color: #111827 !important; }
+      .article-section p,.article-section li,.author-box p { color: #334155 !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html#article",
+        "headline": "How to Measure an AI Automation Pilot in 2026",
+        "description": "A practical guide to AI pilot metrics, baseline design, case-level evidence, human review, stop criteria, formulas, and Scale, Improve, Pause, or Stop decisions.",
+        "datePublished": "2026-07-22T23:45:00+04:00",
+        "dateModified": "2026-07-22T23:45:00+04:00",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html"},
+        "author": {"@type": "Organization", "name": "Zynovix AI Editorial Team", "url": "https://zynovix.github.io/about.html"},
+        "publisher": {"@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/", "logo": {"@type": "ImageObject", "url": "https://zynovix.github.io/logo.png?v=20260712"}},
+        "image": "https://zynovix.github.io/logo.png?v=20260712",
+        "articleSection": ["AI Automation", "AI Pilot Measurement", "AI Governance", "Business AI"],
+        "keywords": ["AI automation pilot", "AI pilot metrics", "AI pilot measurement", "AI workflow KPI", "measure AI automation", "AI pilot evaluation"],
+        "wordCount": 3500,
+        "timeRequired": "PT18M",
+        "isPartOf": {"@type": "Blog", "name": "Zynovix AI Blog", "url": "https://zynovix.github.io/blog.html"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://zynovix.github.io/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "How to Measure an AI Automation Pilot in 2026", "item": "https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/how-to-measure-ai-automation-pilot-2026.html#faq-schema",
+        "mainEntity": [
+          {"@type": "Question", "name": "What should an AI automation pilot measure?", "acceptedAnswer": {"@type": "Answer", "text": "Measure business value, output quality, human review effort, reliability, exceptions, fallback, incidents, adoption, full cost, and evidence quality against a comparable baseline."}},
+          {"@type": "Question", "name": "How long should an AI automation pilot run?", "acceptedAnswer": {"@type": "Answer", "text": "There is no universal duration. Run long enough to observe representative normal, edge, failure, user, and operating conditions for the specific decision and risk context."}},
+          {"@type": "Question", "name": "How many cases should an AI pilot include?", "acceptedAnswer": {"@type": "Answer", "text": "There is no universal sample size. It depends on prevalence, variability, segmentation, acceptable uncertainty, failure rarity, risk, and the decision being made."}},
+          {"@type": "Question", "name": "What is a good AI pilot success rate?", "acceptedAnswer": {"@type": "Answer", "text": "A good rate meets pre-approved context-specific thresholds for quality, risk, reliability, human effort, and value. One generic accuracy target is not sufficient."}},
+          {"@type": "Question", "name": "How do you calculate time saved by AI automation?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract measured pilot human minutes, including review and rework, from comparable baseline human minutes, then multiply positive savings by effective assisted case volume."}},
+          {"@type": "Question", "name": "When should an AI pilot stop?", "acceptedAnswer": {"@type": "Answer", "text": "Stop or contain the pilot when an approved stop condition occurs, such as an unresolved material incident, unauthorized data or action, harmful output, failed critical control, or loss of safe fallback."}},
+          {"@type": "Question", "name": "Does a successful pilot authorize full deployment?", "acceptedAnswer": {"@type": "Answer", "text": "No. A pilot supplies evidence. Accountable owners and required specialist reviewers must authorize any staged expansion."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="measure-guide">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-track" aria-hidden="true"><div class="reading-bar" id="readingBar"></div></div>
+  <div class="noise" aria-hidden="true"></div><div class="orb orb-a" aria-hidden="true"></div><div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header"><nav class="nav shell" aria-label="Main navigation"><a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a><button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button><div class="nav-menu" id="navMenu"><a href="tools.html">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html" aria-current="page">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div></nav></header>
+
+  <main id="main-content">
+    <section class="article-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="blog.html">Blog</a><span aria-hidden="true">›</span><span aria-current="page">Measure an AI Automation Pilot</span></nav>
+      <span class="kicker">2026 Measurement Guide</span>
+      <h1>How to Measure an <span>AI Automation Pilot</span> in 2026</h1>
+      <p class="article-lead">A practical framework for comparing baseline and pilot performance across value, quality, reliability, human oversight, risk, cost, and evidence—before deciding whether to Scale, Improve, Pause, or Stop.</p>
+      <div class="article-meta"><span>Updated July 22, 2026</span><span>18 min read</span><span>Zynovix AI Editorial Team</span></div>
+      <div class="hero-actions"><a class="btn btn-primary" href="ai-automation-pilot-tracker.html">Open Free Pilot Tracker</a><a class="btn btn-ghost" href="ai-automation-pilot-scorecard.html">Score Your Pilot</a></div>
+      <aside class="hero-note" aria-label="Measurement principle"><span aria-hidden="true">📏</span><div><strong>Measurement is a decision system, not dashboard decoration.</strong> Define the decision, scope, baseline, thresholds, evidence, stop conditions, and accountable reviewers before reading the result.</div></aside>
+    </section>
+
+    <div class="article-shell"><div class="article-layout">
+      <aside class="toc-wrap" aria-label="Article table of contents"><details class="toc" open><summary>Table of contents</summary><ol>
+        <li><a href="#overview">What a pilot must prove</a></li>
+        <li><a href="#decision">Define the decision</a></li>
+        <li><a href="#scope">Freeze scope</a></li>
+        <li><a href="#baseline">Build a baseline</a></li>
+        <li><a href="#metrics">Choose pilot metrics</a></li>
+        <li><a href="#case-log">Log every case</a></li>
+        <li><a href="#formulas">Use transparent formulas</a></li>
+        <li><a href="#sample">Sample and duration</a></li>
+        <li><a href="#testing">Test three layers</a></li>
+        <li><a href="#human-review">Measure human review</a></li>
+        <li><a href="#stop">Set stop criteria</a></li>
+        <li><a href="#decision-framework">Make the decision</a></li>
+        <li><a href="#example">Worked example</a></li>
+        <li><a href="#plan">30-day plan</a></li>
+        <li><a href="#mistakes">Common mistakes</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#sources">Official sources</a></li>
+      </ol></details></aside>
+
+      <article class="article-content">
+        <section class="article-section" id="overview">
+          <h2>What should an AI automation pilot prove?</h2>
+          <p class="section-intro">A useful pilot does not ask whether an AI model can produce one impressive example. It asks whether a bounded workflow performs acceptably under real operating conditions, with the people, systems, controls, costs, and failure paths that deployment would require.</p>
+          <div class="takeaway-grid">
+            <div class="takeaway"><strong>Business value</strong><p>Does the workflow improve handling time, cycle time, capacity, quality, experience, or another defined outcome after all review and rework?</p></div>
+            <div class="takeaway"><strong>Output quality</strong><p>How often is output accepted, edited, corrected, rejected, or still wrong after review?</p></div>
+            <div class="takeaway"><strong>Operational reliability</strong><p>How often do integrations, models, inputs, permissions, or exception routes fail?</p></div>
+            <div class="takeaway"><strong>Human oversight</strong><p>Can qualified reviewers understand, challenge, correct, override, escalate, and stop the workflow?</p></div>
+            <div class="takeaway"><strong>Risk and control</strong><p>Are sensitive data, consequential actions, security, fairness, harm, incidents, fallback, and recovery controlled?</p></div>
+            <div class="takeaway"><strong>Decision evidence</strong><p>Are the baseline, denominators, cases, definitions, costs, edits, failures, and changes complete enough to support the decision?</p></div>
+          </div>
+          <p>NIST's AI Risk Management Framework describes measurement as quantitative, qualitative, or mixed-method analysis that creates a traceable basis for management decisions. It emphasizes documented, repeatable testing, evaluation, verification, and validation—not one generic score.</p>
+          <div class="callout warning"><p><strong>Do not start with “Did accuracy exceed 90%?”</strong> Start with “What decision will this pilot support, what could go wrong, and what evidence would justify that decision?”</p></div>
+        </section>
+
+        <section class="article-section" id="decision">
+          <h2>1. Define the decision before choosing metrics</h2>
+          <p>Write the decision brief before the first pilot case. This prevents teams from changing the success definition after seeing favorable or unfavorable results.</p>
+          <div class="template-box"><div class="template-head"><h3>Copy-ready AI pilot decision brief</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="decisionTemplate" data-status-target="decisionStatus">Copy Decision Brief</button></div><div class="copy-source" id="decisionTemplate">AI AUTOMATION PILOT DECISION BRIEF
+
+Workflow:
+Business owner:
+Qualified reviewer:
+Pilot start and end dates:
+Eligible population and exclusions:
+Exact AI service, account, model, connectors, and data:
+Bounded AI task:
+Human review and approval point:
+Safe fallback:
+
+PRIMARY DECISION
+□ Scale gradually
+□ Improve and retest
+□ Pause pending remediation
+□ Stop and investigate
+
+PRIMARY BUSINESS OUTCOME:
+BASELINE DEFINITION:
+MEASUREMENT UNIT:
+TARGETS AND TOLERANCES:
+MATERIAL RISKS:
+STOP CONDITIONS:
+REQUIRED APPROVERS:
+EVIDENCE REQUIRED FOR DECISION:
+SCOPE OR SYSTEM CHANGES THAT INVALIDATE COMPARISON:</div><p class="copy-status" id="decisionStatus" role="status" aria-live="polite"></p></div>
+          <p>The decision should name an accountable owner, not merely a project team. It should also state who can suspend the pilot and who can authorize a restart or staged expansion.</p>
+        </section>
+
+        <section class="article-section" id="scope">
+          <h2>2. Freeze the workflow boundary and unit of analysis</h2>
+          <p>Choose one repeated process and one measurement unit. For ticket drafting, the unit might be one eligible ticket. For invoice extraction, it might be one invoice. For recurring reports, it might be one complete report cycle.</p>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Boundary</th><th>Define before pilot</th><th>Why it matters</th></tr></thead><tbody>
+            <tr><td>Start and end</td><td>Exact trigger and accepted outcome</td><td>Prevents review, waiting, or rework from disappearing.</td></tr>
+            <tr><td>Eligible cases</td><td>Inclusions, exclusions, segments, and edge cases</td><td>Creates valid coverage and adoption denominators.</td></tr>
+            <tr><td>AI task</td><td>Extract, classify, summarize, retrieve, compare, or draft</td><td>Keeps expected behavior and authority testable.</td></tr>
+            <tr><td>Human task</td><td>Review, correct, reject, approve, escalate, or act</td><td>Makes oversight effort and responsibility visible.</td></tr>
+            <tr><td>Systems and data</td><td>Sources, destinations, connectors, permissions, retention</td><td>Captures integration and data risk, not only model output.</td></tr>
+            <tr><td>Version boundary</td><td>Service, model, prompts, rules, knowledge, workflow</td><td>Material changes can invalidate comparison.</td></tr>
+          </tbody></table></div>
+          <p>Do not expand from internal drafting to automatic external sending during the same measurement period. The new action changes impact, error consequences, review needs, and the meaning of the evidence.</p>
+        </section>
+
+        <section class="article-section" id="baseline">
+          <h2>3. Build a comparable baseline</h2>
+          <p>A pilot has no credible improvement claim without a baseline measured with the same definitions. Use recent representative cases from the existing process and record the entire workload—not only the visible task AI may shorten.</p>
+          <h3>Minimum baseline measures</h3>
+          <ul>
+            <li><strong>Eligible volume:</strong> cases per week or month using the same eligibility rule.</li>
+            <li><strong>Human handling time:</strong> active work, review, correction, handoffs, escalation, and rework.</li>
+            <li><strong>Cycle time:</strong> elapsed time from trigger to accepted outcome, including queues and waiting.</li>
+            <li><strong>Verified quality or error:</strong> one clearly defined outcome-relevant measure applied consistently.</li>
+            <li><strong>Exceptions and fallback:</strong> cases leaving the normal path, requiring escalation, or failing.</li>
+            <li><strong>Incidents and near misses:</strong> classified with the same rules planned for the pilot.</li>
+            <li><strong>Full cost:</strong> labor, software, integration, implementation, training, review, monitoring, and maintenance.</li>
+          </ul>
+          <div class="callout"><p><strong>Keep two time measures.</strong> Human handling time estimates capacity impact. End-to-end cycle time shows whether customers, employees, or downstream teams receive an outcome sooner.</p></div>
+        </section>
+
+        <section class="article-section" id="metrics">
+          <h2>4. Use a balanced AI pilot measurement system</h2>
+          <p class="section-intro">The right measures depend on the workflow and its risks. A balanced system combines business, quality, reliability, human, risk, and evidence metrics.</p>
+          <div class="metric-grid">
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">⏱</span><strong>Value</strong><p>Handling time, cycle time, throughput, backlog, adoption, cost, and payback.</p></div>
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">✓</span><strong>Quality</strong><p>No-change, minor edit, major correction, rejection, and final verified error.</p></div>
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">⚙</span><strong>Reliability</strong><p>Timeout, invalid output, integration failure, exception, duplicate action, and fallback.</p></div>
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">👤</span><strong>Human review</strong><p>Review minutes, override reasons, disagreement, caseload, escalation, and authority.</p></div>
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">🛡</span><strong>Risk</strong><p>Exposure, unauthorized action, unsafe or unfair output, incident, near miss, and stop event.</p></div>
+            <div class="metric-card"><span class="metric-icon" aria-hidden="true">🔎</span><strong>Evidence</strong><p>Baseline, denominators, representative cases, version history, test coverage, and full cost.</p></div>
+          </div>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Metric</th><th>Numerator / denominator</th><th>Interpretation</th><th>Common trap</th></tr></thead><tbody>
+            <tr><td>Coverage</td><td>Cases offered AI ÷ eligible observed cases</td><td>How broadly the workflow was available</td><td>Using total volume instead of eligible cases</td></tr>
+            <tr><td>Adoption</td><td>AI-assisted cases ÷ cases offered AI</td><td>Actual use when available</td><td>Calling availability “adoption”</td></tr>
+            <tr><td>No-change acceptance</td><td>Accepted unchanged ÷ reviewed AI outputs</td><td>Immediate usability</td><td>Treating acceptance as verified correctness</td></tr>
+            <tr><td>Major correction / rejection</td><td>Major fixes and rejected outputs ÷ reviewed outputs</td><td>Serious review burden</td><td>Dropping rejected cases from the denominator</td></tr>
+            <tr><td>Post-review error</td><td>Verified remaining errors ÷ completed cases</td><td>Quality of the final accepted outcome</td><td>Assuming review removes every error</td></tr>
+            <tr><td>Exception / fallback</td><td>Cases using exception or fallback ÷ assisted cases</td><td>Operational fit and resilience</td><td>Counting fallback as automation success</td></tr>
+            <tr><td>Technical failure</td><td>Cases with technical failure ÷ attempted assisted cases</td><td>End-to-end reliability</td><td>Measuring model uptime only</td></tr>
+            <tr><td>Incident / near miss</td><td>Count and rate by severity and type</td><td>Realized or narrowly avoided harm</td><td>Averaging material incidents into a score</td></tr>
+          </tbody></table></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="ai-automation-pilot-tracker.html">Track These Metrics Free</a></div>
+        </section>
+
+        <section class="article-section" id="case-log">
+          <h2>5. Instrument every included case</h2>
+          <p>Aggregates are easier to trust when they can be traced to consistently recorded observations. Log all included cases—not only impressive examples or failures.</p>
+          <div class="template-box"><div class="template-head"><h3>Copy-ready case-level pilot log</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="caseLogTemplate" data-status-target="caseLogStatus">Copy Case Log</button></div><div class="copy-source" id="caseLogTemplate">AI AUTOMATION PILOT — CASE LOG
+
+Observation date:
+Anonymous case reference:
+Workflow and version:
+Eligibility confirmed: Yes / No
+AI workflow offered: Yes / No
+AI workflow used: Yes / No
+
+Baseline human minutes:
+Pilot human minutes including review and rework:
+End-to-end cycle hours:
+
+REVIEW OUTCOME
+□ Accepted without change
+□ Accepted after minor edit
+□ Major correction required
+□ Rejected or unusable
+
+Verified error remained after review: Yes / No
+Exception path used: Yes / No
+Manual fallback used: Yes / No
+Technical failure occurred: Yes / No
+
+INCIDENT STATUS
+□ None
+□ Near miss
+□ Material incident — resolved
+□ Material incident — unresolved
+
+Non-sensitive correction or failure category:
+Reviewer role:
+Escalation or follow-up:
+
+Do not copy source documents, personal data, credentials, secrets, payment data, health data, or other unnecessary sensitive content into the log.</div><p class="copy-status" id="caseLogStatus" role="status" aria-live="polite"></p></div>
+          <p>Use controlled categories for outcomes and failure types. Free-text notes help reveal patterns, but structured fields make rates reproducible and reduce inconsistent interpretation.</p>
+        </section>
+
+        <section class="article-section" id="formulas">
+          <h2>6. Calculate AI pilot metrics transparently</h2>
+          <p>Publish the formula, denominator, exclusions, data window, and version beside every headline number. Round only after the underlying calculation.</p>
+          <div class="formula-list">
+            <div class="formula"><strong>Coverage</strong><code>cases offered the AI workflow ÷ eligible cases observed × 100</code></div>
+            <div class="formula"><strong>Actual adoption</strong><code>AI-assisted cases completed ÷ cases offered the AI workflow × 100</code></div>
+            <div class="formula"><strong>Handling-time improvement</strong><code>(baseline human minutes − pilot human minutes including review/rework) ÷ baseline human minutes × 100</code></div>
+            <div class="formula"><strong>Cycle-time improvement</strong><code>(baseline cycle hours − pilot cycle hours) ÷ baseline cycle hours × 100</code></div>
+            <div class="formula"><strong>No-change acceptance</strong><code>outputs accepted without change ÷ reviewed AI outputs × 100</code></div>
+            <div class="formula"><strong>Draft usability</strong><code>no-change acceptance % + (minor-edit acceptance % × 0.5)</code></div>
+            <div class="formula"><strong>Exception or fallback rate</strong><code>assisted cases using exception or manual fallback ÷ assisted cases × 100</code></div>
+            <div class="formula"><strong>Gross monthly labor capacity value</strong><code>positive saved minutes ÷ 60 × effective assisted cases per month × loaded hourly cost</code></div>
+            <div class="formula"><strong>Net monthly value</strong><code>gross monthly value − recurring monthly cost</code></div>
+            <div class="formula"><strong>Simple payback</strong><code>one-time setup cost ÷ positive net monthly value</code></div>
+          </div>
+          <div class="callout warning"><p><strong>Time saved is not automatically cash saved.</strong> State whether recovered capacity avoids hiring, reduces backlog, increases output, improves service, lowers overtime, or creates another measurable outcome. Use the <a href="automation-roi-calculator.html">Automation ROI Calculator</a> for scenario analysis—not as proof of realized value.</p></div>
+        </section>
+
+        <section class="article-section" id="sample">
+          <h2>7. Choose sample size and duration for the decision context</h2>
+          <p>There is no universal rule such as “30 days” or “100 cases” that makes every AI pilot valid. Sufficiency depends on the population, outcome prevalence, variability, segments, acceptable uncertainty, failure rarity, seasonality, workflow impact, and decision.</p>
+          <h3>Ask these questions</h3>
+          <ul>
+            <li>Did the pilot observe normal, busy, sparse, delayed, incomplete, multilingual, ambiguous, conflicting, and edge conditions relevant to use?</li>
+            <li>Are important user groups, case types, channels, locations, and shifts represented?</li>
+            <li>Could a rare but severe failure remain invisible in the observed sample?</li>
+            <li>Were changes to prompts, models, policies, data, users, or integrations separated or versioned?</li>
+            <li>Is the estimate precise enough for this decision, or merely directional?</li>
+          </ul>
+          <p>If statistical inference matters, define the estimand, acceptable uncertainty, comparison design, segments, expected prevalence, multiple testing, and missing-data handling with a qualified statistician or methodologist. A progress bar is not a power calculation.</p>
+          <div class="callout"><p><strong>Record denominators explicitly:</strong> eligible cases observed, cases offered AI, attempted assisted cases, completed assisted cases, reviewed outputs, and verified final outcomes answer different questions.</p></div>
+        </section>
+
+        <section class="article-section" id="testing">
+          <h2>8. Test the model, the attack surface, and the field workflow</h2>
+          <p>NIST's 2025 ARIA pilot evaluation used three levels—model testing, red teaming, and field testing. A business pilot can use the same separation as a design pattern without claiming equivalence to NIST's evaluation.</p>
+          <div class="test-grid">
+            <article class="test-card"><span class="test-number">1</span><h3>Task and model tests</h3><p>Test extraction, classification, grounded facts, required fields, calculations, format, citations, abstention, and uncertainty behavior against reference cases.</p></article>
+            <article class="test-card"><span class="test-number">2</span><h3>Adversarial and misuse tests</h3><p>Test relevant prompt injection, malicious content, permission bypass, leakage, unsafe tool use, out-of-scope requests, and attempts to circumvent review.</p></article>
+            <article class="test-card"><span class="test-number">3</span><h3>Field workflow tests</h3><p>Observe real users, queues, systems, handoffs, latency, adoption, review burden, exceptions, fallback, incidents, and downstream outcomes.</p></article>
+          </div>
+          <p>Also test missing inputs, stale knowledge, conflicting sources, malformed files, timeouts, duplicate events, partial integration success, reviewer absence, system outage, and rollback. A workflow that works only when every dependency behaves perfectly is not operationally reliable.</p>
+        </section>
+
+        <section class="article-section" id="human-review">
+          <h2>9. Measure whether human review is meaningful</h2>
+          <p>“Human in the loop” is not a binary checkbox. A reviewer needs relevant knowledge, sufficient time, understandable evidence, authority to change the outcome, independence to challenge automation, and a workable fallback.</p>
+          <ul>
+            <li>Measure the distribution of review minutes per case—not only the average.</li>
+            <li>Track no-change, minor edit, major correction, rejection, override, and escalation rates.</li>
+            <li>Record override reasons and recurring error categories.</li>
+            <li>Check reviewer disagreement and calibration on the same cases.</li>
+            <li>Monitor queue length, caseload, fatigue indicators, missed reviews, and time pressure.</li>
+            <li>Verify that reviewers inspect evidence rather than merely approve fluent output.</li>
+            <li>Confirm that reviewers can pause processing and route to a safe manual path.</li>
+          </ul>
+          <p>The UK ICO's human-review audit guidance says reviewers should have appropriate knowledge, experience, authority, and independence. It also recommends a structured test plan, documented tolerances, override logs, manageable caseloads, and fallback options. Applicable duties depend on the actual processing and jurisdiction.</p>
+        </section>
+
+        <section class="article-section" id="stop">
+          <h2>10. Define Pause and Stop conditions in advance</h2>
+          <p>Targets describe desired performance. Stop conditions protect people, systems, data, and the organization when averages are no longer the right decision tool.</p>
+          <div class="table-wrap"><table class="article-table"><thead><tr><th>Trigger</th><th>Immediate action</th><th>Restart requirement</th></tr></thead><tbody>
+            <tr><td>Unresolved material incident or ongoing harm</td><td>Stop affected processing, contain impact, preserve evidence, notify owners</td><td>Root-cause analysis, remediation, verification, and explicit authorization</td></tr>
+            <tr><td>Unauthorized data, tool, connector, user, or external action</td><td>Pause or stop the affected path and revoke inappropriate access</td><td>Approval, access correction, testing, accountable review</td></tr>
+            <tr><td>Critical control, reviewer, or fallback unavailable</td><td>Return to the safe established process</td><td>Control restored and tested</td></tr>
+            <tr><td>Quality, exception, or technical rate crosses tolerance</td><td>Pause expansion and inspect the failure pattern</td><td>Design change, representative retest, restored tolerance</td></tr>
+            <tr><td>Material scope or system change</td><td>Freeze comparison and version the pilot</td><td>New risk review and measurement plan</td></tr>
+          </tbody></table></div>
+          <div class="callout danger"><p><strong>Do not average away a material incident.</strong> A high time-saving score does not compensate for an unresolved serious exposure, harmful action, safety event, or failed critical control.</p></div>
+          <p>The OECD AI Principle on robustness, security, and safety calls for continuous risk assessment and mechanisms to override, repair, or safely decommission systems when necessary.</p>
+        </section>
+
+        <section class="article-section" id="decision-framework">
+          <h2>11. Make a Scale, Improve, Pause, or Stop decision</h2>
+          <p>Use the evidence in a documented review with the business owner, qualified reviewers, operators, and any required security, privacy, legal, compliance, technical, worker, accessibility, procurement, or sector specialists.</p>
+          <div class="decision-grid">
+            <article class="decision-card scale"><h3>Scale gradually</h3><p>Value, quality, reliability, controls, evidence, and targets pass; no blocking incident exists; accountable reviewers approve a staged expansion.</p></article>
+            <article class="decision-card"><h3>Improve and retest</h3><p>No blocking safety or governance gate exists, but performance, evidence, user, or design conditions need a bounded change and retest.</p></article>
+            <article class="decision-card pause"><h3>Pause</h3><p>A control, approval, evidence, reviewer, reliability, or resolved-incident issue blocks expansion until remediation and review.</p></article>
+            <article class="decision-card stop"><h3>Stop and investigate</h3><p>An unresolved material incident, ongoing harm, unsafe state, or failed critical control requires containment and investigation.</p></article>
+          </div>
+          <div class="hero-actions"><a class="btn btn-primary" href="ai-automation-pilot-scorecard.html">Generate a Transparent Pilot Decision</a></div>
+          <p>NIST's AI RMF effectiveness guidance explicitly identifies go/no-go commissioning and deployment decisions as a desired process outcome. The decision should be traceable to evidence, assumptions, tolerances, open issues, residual risk, and named authority.</p>
+        </section>
+
+        <section class="article-section" id="example">
+          <h2>12. Worked AI automation pilot example</h2>
+          <p>Consider a supervised support-response drafting workflow. AI prepares a draft from approved knowledge; a qualified agent reviews evidence, edits or rejects the draft, and sends the final response.</p>
+          <ul>
+            <li>1,000 eligible cases per month</li>
+            <li>20 baseline human minutes and 24-hour baseline cycle time</li>
+            <li>8% baseline verified error rate</li>
+            <li>300 observed pilot cases; 80% coverage; 90% adoption</li>
+            <li>12 pilot human minutes including review and rework; 12-hour cycle time</li>
+            <li>65% no-change, 25% minor edit, 10% major correction/rejection</li>
+            <li>4% verified post-review error; 12% exception/fallback; 2% technical failure; no material incident</li>
+          </ul>
+          <div class="example-grid">
+            <div class="calculation-card"><small>Time improvement</small><strong>40%</strong><span>(20 − 12) ÷ 20</span></div>
+            <div class="calculation-card"><small>Cycle improvement</small><strong>50%</strong><span>(24 − 12) ÷ 24</span></div>
+            <div class="calculation-card"><small>Draft usability</small><strong>77.5%</strong><span>65% + half of 25%</span></div>
+            <div class="calculation-card"><small>Effective assisted volume</small><strong>720/month</strong><span>1,000 × 80% × 90%</span></div>
+          </div>
+          <p>At a loaded labor cost of $35 per hour, positive capacity value implied by saved human time is approximately <strong>$3,360 per month</strong>: eight saved minutes × 720 cases ÷ 60 × $35. If recurring cost is $500, simple net monthly value is about $2,860 before other omitted costs or benefits.</p>
+          <div class="callout warning"><p>This example does not prove cash savings, statistical significance, safety, compliance, fairness, or approval. Inspect distributions, segments, severe failures, reviewer capacity, costs, evidence quality, and applicable requirements.</p></div>
+        </section>
+
+        <section class="article-section" id="plan">
+          <h2>13. A 30-day AI pilot measurement plan</h2>
+          <div class="template-box"><div class="template-head"><h3>Copy-ready measurement checklist</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="planTemplate" data-status-target="planStatus">Copy 30-Day Plan</button></div><div class="copy-source" id="planTemplate">DAYS 1–7 — DEFINE AND BASELINE
+□ Name the decision, owner, reviewers, approvers, and stop authority.
+□ Freeze scope, eligibility, unit, versions, data, systems, and exclusions.
+□ Measure baseline volume, time, quality, exceptions, incidents, and full cost.
+□ Approve metrics, denominators, thresholds, sample approach, and stop conditions.
+
+DAYS 8–14 — INSTRUMENT AND TEST
+□ Configure a case-level evidence log and version record.
+□ Prepare normal, edge, missing, conflicting, failure, and misuse tests.
+□ Test review, override, escalation, fallback, recovery, and rollback.
+□ Confirm service, data, connectors, permissions, retention, and approvals.
+
+DAYS 15–21 — RUN SUPERVISED
+□ Keep the safe existing process available.
+□ Log every included case with the same definitions.
+□ Record review time, edits, rejection, errors, exceptions, failure, fallback, incidents, and cost.
+□ Pause immediately when a stop condition occurs.
+
+DAYS 22–30 — ANALYZE AND DECIDE
+□ Verify denominators, missing data, exclusions, versions, and baseline comparability.
+□ Review distributions, segments, edge cases, severe failures, workload, adoption, and cost.
+□ Document limitations, residual risk, remediation, open issues, and uncertainty.
+□ Decide Scale Gradually, Improve and Retest, Pause, or Stop and Investigate.
+□ Require new review for any material change or expanded authority.</div><p class="copy-status" id="planStatus" role="status" aria-live="polite"></p></div>
+        </section>
+
+        <section class="article-section" id="mistakes">
+          <h2>Common AI pilot measurement mistakes</h2>
+          <ul>
+            <li><strong>Measuring only model accuracy:</strong> the workflow also includes users, data, prompts, retrieval, integrations, review, actions, exceptions, and fallback.</li>
+            <li><strong>Using a demo as the baseline:</strong> compare with the real existing process under comparable conditions.</li>
+            <li><strong>Excluding review and correction time:</strong> AI processing time is not human capacity saved.</li>
+            <li><strong>Dropping failures from the denominator:</strong> rejected, timed-out, fallback, and incomplete cases are part of performance.</li>
+            <li><strong>Changing prompts or models without versioning:</strong> mixed versions make aggregates hard to interpret.</li>
+            <li><strong>Using averages without distributions:</strong> medians, tails, segments, and severe events may tell a different story.</li>
+            <li><strong>Calling availability adoption:</strong> distinguish eligible, offered, attempted, completed, reviewed, and accepted cases.</li>
+            <li><strong>Treating acceptance as truth:</strong> reviewers can miss polished errors or approve through automation bias.</li>
+            <li><strong>Choosing sample size from a universal rule:</strong> sufficiency depends on the question, uncertainty, prevalence, variability, segments, and risk.</li>
+            <li><strong>Scaling after a composite score:</strong> unresolved material incidents and failed critical controls require separate gates.</li>
+          </ul>
+        </section>
+
+        <section class="article-section" id="faq">
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer1">What should an AI automation pilot measure?</button><div class="faq-answer" id="faqAnswer1" hidden>Measure business value, output quality, human review effort, reliability, exceptions, fallback, incidents, adoption, full cost, and evidence quality against a comparable baseline.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer2">How long should an AI automation pilot run?</button><div class="faq-answer" id="faqAnswer2" hidden>There is no universal duration. Run long enough to observe representative normal, edge, failure, user, and operating conditions for the decision and risk context.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer3">How many cases should an AI pilot include?</button><div class="faq-answer" id="faqAnswer3" hidden>There is no universal sample size. It depends on prevalence, variability, segments, acceptable uncertainty, failure rarity, risk, and the decision. Seek statistical expertise when inference matters.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer4">What is a good AI pilot success rate?</button><div class="faq-answer" id="faqAnswer4" hidden>A good rate meets pre-approved context-specific thresholds for quality, risk, reliability, human effort, and value. One generic accuracy target is not sufficient.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer5">How do you calculate time saved?</button><div class="faq-answer" id="faqAnswer5" hidden>Subtract measured pilot human minutes, including review and rework, from comparable baseline human minutes, then multiply positive savings by effective assisted case volume.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer6">When should an AI pilot stop?</button><div class="faq-answer" id="faqAnswer6" hidden>Stop or contain the pilot when an approved stop condition occurs, such as an unresolved material incident, unauthorized data or action, harmful output, failed critical control, or loss of safe fallback.</div></div>
+            <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer7">Does a successful pilot authorize full deployment?</button><div class="faq-answer" id="faqAnswer7" hidden>No. A pilot supplies evidence. Accountable owners and required specialist reviewers must authorize any staged expansion.</div></div>
+          </div>
+        </section>
+
+        <section class="article-section" id="sources">
+          <h2>Official frameworks and sources</h2>
+          <p>This guide is educational and does not replace legal, statistical, financial, security, privacy, compliance, safety, sector, or professional advice. Use current requirements appropriate to the organization, jurisdiction, workflow, people, and data.</p>
+          <ul class="source-list">
+            <li><a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener noreferrer">NIST AI RMF Core</a> — context, metrics, TEVV, monitoring, incidents, and deployment decisions.</li>
+            <li><a href="https://airc.nist.gov/airmf-resources/playbook/measure/" target="_blank" rel="noopener noreferrer">NIST AI RMF Measure Playbook</a> — measurement, documentation, testing, domain input, and feedback actions.</li>
+            <li><a href="https://airc.nist.gov/metrology/" target="_blank" rel="noopener noreferrer">NIST AI Metrology Center</a> — context-appropriate AI metrics, methodologies, and tools.</li>
+            <li><a href="https://www.nist.gov/publications/assessing-risks-and-impacts-ai-aria-pilot-evaluation-report" target="_blank" rel="noopener noreferrer">NIST ARIA Pilot Evaluation Report</a> — model testing, red teaming, field testing, annotations, questionnaires, and measurement trees.</li>
+            <li><a href="https://airc.nist.gov/airmf-resources/airmf/4-effectiveness/" target="_blank" rel="noopener noreferrer">NIST AI RMF Effectiveness</a> — periodic evaluation, documented outcomes, and go/no-go processes.</li>
+            <li><a href="https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/" target="_blank" rel="noopener noreferrer">UK ICO Human Review</a> — structured test plans, tolerances, override logs, reviewer qualifications, caseload, and fallback. The ICO notes the guidance is under review following legislative changes.</li>
+            <li><a href="https://oecd.ai/en/dashboards/ai-principles/P8" target="_blank" rel="noopener noreferrer">OECD AI Principle on Robustness, Security and Safety</a> — lifecycle risk management, traceability, override, repair, and safe decommissioning.</li>
+          </ul>
+        </section>
+
+        <aside class="author-box" aria-labelledby="authorTitle"><div class="author-avatar" aria-hidden="true">Z</div><div><h2 id="authorTitle">Zynovix AI Editorial Team</h2><p>Zynovix AI publishes practical guides and free browser-based tools that help teams find AI opportunities, design bounded workflows, record pilot evidence, assess outcomes, and make transparent implementation decisions.</p></div></aside>
+
+        <section class="article-section" aria-labelledby="relatedTitle"><h2 id="relatedTitle">Continue your AI automation pilot</h2><div class="related-grid">
+          <a class="related-card" href="ai-automation-pilot-tracker.html"><small>Free evidence tool</small><strong>AI Automation Pilot Tracker</strong><span>Log case-level quality, review time, exceptions, failures, fallback, and incidents.</span></a>
+          <a class="related-card" href="ai-automation-pilot-scorecard.html"><small>Decision tool</small><strong>AI Automation Pilot Scorecard</strong><span>Generate a transparent Scale, Improve, Pause, or Stop report.</span></a>
+          <a class="related-card" href="ai-workflow-blueprint-generator.html"><small>Workflow design</small><strong>AI Workflow Blueprint Generator</strong><span>Define triggers, inputs, review, controls, exceptions, KPIs, and a pilot.</span></a>
+          <a class="related-card" href="how-to-build-ai-workflow-automation-2026.html"><small>Seven-step guide</small><strong>How to Build an AI Workflow Automation</strong><span>Design the bounded workflow before measuring it.</span></a>
+        </div></section>
+      </article>
+    </div></div>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><p>© 2026 Zynovix AI. All rights reserved.</p></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var readingBar=document.getElementById("readingBar"),sections=Array.prototype.slice.call(document.querySelectorAll(".article-section[id]")),tocLinks=Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+    function updateProgress(){var root=document.documentElement,max=root.scrollHeight-root.clientHeight,progress=max>0?root.scrollTop/max*100:0;readingBar.style.width=Math.min(100,Math.max(0,progress))+"%";}
+    window.addEventListener("scroll",updateProgress,{passive:true});window.addEventListener("resize",updateProgress);updateProgress();
+    if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id);});}});},{rootMargin:"-20% 0px -68% 0px",threshold:0});sections.forEach(function(section){observer.observe(section);});}
+    function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied;}
+    document.querySelectorAll(".copy-button").forEach(function(button){button.addEventListener("click",function(){var source=document.getElementById(button.getAttribute("data-copy-target")),status=document.getElementById(button.getAttribute("data-status-target")),text=source.textContent.trim();function done(ok){status.textContent=ok?"Copied to your clipboard.":"Copy failed. Select the template and copy it manually.";}if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(text).then(function(){done(true);}).catch(function(){done(fallbackCopy(text));});else done(fallbackCopy(text));});});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+  }());
+  </script>
+</body>
+</html>

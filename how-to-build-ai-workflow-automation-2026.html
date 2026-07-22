@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build an AI Workflow Automation (2026 Guide)</title>
+  <meta name="description" content="Build a safer AI workflow automation in seven steps. Includes a copy-ready template, three business examples, human-review controls, KPIs, and a 30-day plan.">
+  <meta name="author" content="Zynovix AI Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+
+  <link rel="canonical" href="https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="How to Build an AI Workflow Automation (2026 Guide)">
+  <meta property="og:description" content="A seven-step framework, copy-ready template, real examples, controls, KPIs, and a 30-day AI workflow pilot plan.">
+  <meta property="og:url" content="https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+  <meta property="article:published_time" content="2026-07-22T18:00:00+04:00">
+  <meta property="article:modified_time" content="2026-07-22T18:00:00+04:00">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build an AI Workflow Automation (2026 Guide)">
+  <meta name="twitter:description" content="Design an AI workflow with clear inputs, controls, human review, exceptions, KPIs, and a measurable pilot.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --guide-panel: rgba(10, 17, 39, .88);
+      --guide-panel-2: rgba(15, 25, 53, .88);
+      --guide-line: rgba(148, 163, 184, .2);
+      --guide-strong: #f8fbff;
+      --guide-text: #d5e0ef;
+      --guide-soft: #9eabc1;
+      --guide-cyan: #22d3ee;
+      --guide-blue: #3b82f6;
+      --guide-purple: #8b5cf6;
+      --guide-green: #34d399;
+      --guide-yellow: #fbbf24;
+      --guide-red: #fb7185;
+      --guide-shadow: 0 24px 72px rgba(0, 0, 0, .3);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.workflow-guide { color: var(--guide-text); overflow-x: hidden; }
+
+    .workflow-guide .brand img,
+    .workflow-guide .logo img {
+      width: 52px !important;
+      height: 52px !important;
+      display: block !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      flex: 0 0 52px !important;
+    }
+
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-150%); padding: 11px 15px; border-radius: 10px; color: #04101a; background: var(--guide-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .reading-track { position: fixed; inset: 0 0 auto; z-index: 9999; height: 4px; background: rgba(255,255,255,.05); }
+    .reading-bar { width: 0; height: 100%; background: linear-gradient(90deg, var(--guide-cyan), var(--guide-blue), var(--guide-purple)); box-shadow: 0 0 16px rgba(34,211,238,.75); }
+
+    .article-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--guide-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--guide-cyan); }
+    .article-hero h1 { max-width: 1060px; margin: 18px auto; color: var(--guide-strong); font-size: clamp(40px, 8vw, 76px); line-height: 1; letter-spacing: -2.5px; }
+    .article-hero h1 span { color: transparent; background: linear-gradient(90deg, var(--guide-cyan), #60a5fa, #a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .article-lead { max-width: 860px; margin: 0 auto; color: var(--guide-soft); font-size: clamp(18px, 3.7vw, 22px); line-height: 1.72; }
+    .article-meta,
+    .hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .article-meta { margin-top: 22px; color: #b9c7db; font-size: 14px; }
+    .article-meta span:not(:last-child)::after { content: "•"; margin-left: 12px; color: #64748b; }
+    .hero-actions { margin-top: 27px; }
+    .hero-note { display: flex; gap: 13px; max-width: 850px; margin: 25px auto 0; padding: 16px 18px; border: 1px solid rgba(34,211,238,.24); border-radius: 18px; color: #c9d9e9; background: rgba(34,211,238,.07); text-align: left; line-height: 1.65; }
+    .hero-note > span { font-size: 23px; }
+
+    .article-shell { width: min(1240px, calc(100% - 28px)); margin: 0 auto 80px; }
+    .article-layout { display: block; }
+    .toc-wrap { margin-bottom: 18px; }
+    .toc { border: 1px solid var(--guide-line); border-radius: 20px; background: rgba(8,15,34,.86); box-shadow: var(--guide-shadow); overflow: hidden; }
+    .toc summary { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; color: var(--guide-strong); cursor: pointer; font-weight: 800; list-style: none; }
+    .toc summary::-webkit-details-marker { display: none; }
+    .toc summary::after { content: "+"; color: var(--guide-cyan); font-size: 22px; }
+    .toc[open] summary::after { content: "−"; }
+    .toc ol { margin: 0; padding: 0 20px 20px 42px; }
+    .toc li { margin: 7px 0; color: #8090a9; }
+    .toc a { color: var(--guide-soft); font-size: 14px; line-height: 1.45; }
+    .toc a:hover,
+    .toc a.active { color: var(--guide-cyan); }
+
+    .article-content { min-width: 0; }
+    .article-section { margin-bottom: 18px; padding: clamp(22px,5vw,42px); border: 1px solid var(--guide-line); border-radius: 24px; background: var(--guide-panel); box-shadow: var(--guide-shadow); scroll-margin-top: 104px; }
+    .article-section h2 { margin: 0 0 16px; color: var(--guide-strong); font-size: clamp(28px,5vw,43px); line-height: 1.12; letter-spacing: -.8px; }
+    .article-section h3 { margin: 28px 0 10px; color: var(--guide-strong); font-size: clamp(21px,4vw,29px); line-height: 1.2; }
+    .article-section h4 { margin: 0 0 8px; color: var(--guide-strong); font-size: 19px; }
+    .article-section p,
+    .article-section li { color: var(--guide-text); font-size: 16px; line-height: 1.78; }
+    .article-section p { margin: 0 0 16px; }
+    .article-section ul,
+    .article-section ol { padding-left: 21px; }
+    .article-section li { margin: 7px 0; }
+    .article-section strong { color: var(--guide-strong); }
+    .article-section a:not(.btn):not(.related-card) { color: #67e8f9; text-decoration: underline; text-underline-offset: 3px; }
+    .section-intro { max-width: 830px; color: var(--guide-soft) !important; font-size: 18px !important; }
+
+    .takeaway-grid,
+    .step-grid,
+    .example-grid,
+    .control-grid,
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
+    .takeaway,
+    .step-card,
+    .control-card { padding: 20px; border: 1px solid var(--guide-line); border-radius: 18px; background: rgba(255,255,255,.035); }
+    .takeaway strong { display: block; margin-bottom: 7px; font-size: 18px; }
+    .takeaway p,
+    .step-card p,
+    .control-card p { margin: 0; color: var(--guide-soft); }
+    .step-number { display: grid; width: 40px; height: 40px; place-items: center; margin-bottom: 13px; border-radius: 13px; color: #04101a; background: linear-gradient(135deg,var(--guide-cyan),#60a5fa); font-weight: 900; }
+    .step-card h3 { margin: 0 0 9px; font-size: 21px; }
+
+    .workflow-map { display: grid; grid-template-columns: 1fr; gap: 26px; margin: 22px 0; }
+    .flow-node { position: relative; min-height: 130px; padding: 18px; border: 1px solid var(--guide-line); border-radius: 17px; background: var(--guide-panel-2); }
+    .flow-node:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); color: var(--guide-cyan); font-size: 20px; font-weight: 900; }
+    .flow-node span { display: grid; width: 39px; height: 39px; place-items: center; margin-bottom: 10px; border-radius: 12px; background: rgba(59,130,246,.16); font-size: 20px; }
+    .flow-node small { display: block; margin-bottom: 5px; color: var(--guide-cyan); font-weight: 900; text-transform: uppercase; }
+    .flow-node p { margin: 0; color: var(--guide-soft); font-size: 14px; line-height: 1.55; }
+
+    .callout { margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--guide-cyan); border-radius: 0 15px 15px 0; background: rgba(34,211,238,.07); }
+    .callout p { margin: 0; }
+    .callout.warning { border-color: var(--guide-yellow); background: rgba(251,191,36,.07); }
+    .callout.danger { border-color: var(--guide-red); background: rgba(251,113,133,.07); }
+
+    .template-box { margin: 20px 0; border: 1px solid rgba(34,211,238,.3); border-radius: 20px; background: linear-gradient(145deg,rgba(34,211,238,.065),rgba(139,92,246,.07)); overflow: hidden; }
+    .template-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px; border-bottom: 1px solid var(--guide-line); }
+    .template-head h3 { margin: 0; font-size: 21px; }
+    .template-head button { border: 0; cursor: pointer; font: inherit; }
+    .copy-source { padding: 20px; color: #dce6f4; line-height: 1.75; white-space: pre-wrap; }
+    .copy-status { min-height: 22px; margin: 0; padding: 0 20px 16px; color: #7ef0c4; font-size: 14px; }
+
+    .table-wrap { width: 100%; margin: 20px 0; border: 1px solid var(--guide-line); border-radius: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .article-table { width: 100%; min-width: 780px; border-collapse: collapse; background: rgba(5,10,25,.52); }
+    .article-table th,
+    .article-table td { padding: 14px 15px; border-bottom: 1px solid var(--guide-line); text-align: left; vertical-align: top; line-height: 1.5; }
+    .article-table th { color: var(--guide-strong); background: rgba(59,130,246,.12); font-size: 14px; }
+    .article-table td { color: #c8d5e7; font-size: 14px; }
+    .article-table tr:last-child td { border-bottom: 0; }
+    .level { display: inline-block; min-width: 80px; padding: 4px 9px; border-radius: 999px; text-align: center; font-size: 12px; font-weight: 900; }
+    .level.low { color: #071a13; background: var(--guide-green); }
+    .level.mid { color: #281a00; background: var(--guide-yellow); }
+    .level.high { color: #300811; background: var(--guide-red); }
+
+    .example-card { padding: 22px; border: 1px solid var(--guide-line); border-radius: 19px; background: var(--guide-panel-2); }
+    .example-label { display: inline-flex; gap: 7px; margin-bottom: 12px; color: var(--guide-cyan); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+    .example-card h3 { margin: 0 0 12px; }
+    .example-card dl { display: grid; gap: 9px; margin: 0; }
+    .example-card dl > div { padding-top: 9px; border-top: 1px solid var(--guide-line); }
+    .example-card dt { color: var(--guide-soft); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .example-card dd { margin: 3px 0 0; color: #d5e0ef; line-height: 1.55; }
+    .example-card .btn { margin-top: 17px; }
+
+    .control-card { display: flex; align-items: flex-start; gap: 11px; }
+    .control-mark { display: grid; width: 31px; height: 31px; flex: 0 0 31px; place-items: center; border-radius: 9px; color: #06160f; background: var(--guide-green); font-weight: 900; }
+    .control-card.warning .control-mark { color: #281a00; background: var(--guide-yellow); }
+    .control-card h4 { margin-bottom: 5px; }
+
+    .faq-list { margin-top: 20px; }
+    .faq-item { margin-bottom: 10px; border: 1px solid var(--guide-line); border-radius: 16px; background: rgba(255,255,255,.03); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 19px; border: 0; color: var(--guide-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-question::after { content: "+"; color: var(--guide-cyan); font-size: 22px; }
+    .faq-question[aria-expanded="true"]::after { content: "−"; }
+    .faq-answer { padding: 0 19px 19px; color: var(--guide-text); line-height: 1.75; }
+    .faq-answer[hidden] { display: none; }
+
+    .author-box { display: flex; align-items: flex-start; gap: 17px; margin-bottom: 18px; padding: 24px; border: 1px solid var(--guide-line); border-radius: 22px; background: var(--guide-panel); box-shadow: var(--guide-shadow); }
+    .author-avatar { display: grid; width: 54px; height: 54px; flex: 0 0 54px; place-items: center; border-radius: 16px; color: #06111d; background: linear-gradient(135deg,var(--guide-cyan),#a78bfa); font-size: 25px; font-weight: 900; }
+    .author-box h2 { margin: 0 0 6px; color: var(--guide-strong); font-size: 21px; }
+    .author-box p { margin: 0; color: var(--guide-soft); line-height: 1.65; }
+    .related-card { display: flex; min-height: 150px; flex-direction: column; justify-content: space-between; gap: 12px; padding: 20px; border: 1px solid var(--guide-line); border-radius: 18px; color: inherit; background: rgba(255,255,255,.035); transition: transform .2s ease,border-color .2s ease; }
+    .related-card:hover { transform: translateY(-3px); border-color: rgba(34,211,238,.48); }
+    .related-card small { color: var(--guide-cyan); font-weight: 900; }
+    .related-card strong { font-size: 19px; line-height: 1.3; }
+    .related-card span { color: var(--guide-soft); }
+    .source-list li { margin-bottom: 13px; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--guide-cyan); outline-offset: 3px; }
+
+    @media (min-width: 680px) {
+      .takeaway-grid,
+      .step-grid,
+      .control-grid,
+      .related-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+
+    @media (min-width: 1020px) {
+      .article-hero { padding-top: 72px; }
+      .article-layout { display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 22px; align-items: start; }
+      .toc-wrap { position: sticky; top: 102px; margin-bottom: 0; }
+      .toc summary { cursor: default; }
+      .toc summary::after { display: none; }
+      .toc[open] { max-height: calc(100vh - 125px); overflow-y: auto; }
+      .workflow-map { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 14px; }
+      .flow-node:not(:last-child)::after { content: "→"; left: auto; right: -16px; bottom: auto; top: 50%; transform: translateY(-50%); z-index: 2; }
+      .example-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .workflow-guide .brand img,
+      .workflow-guide .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .article-hero h1 { letter-spacing: -1.5px; }
+      .article-meta { flex-direction: column; }
+      .article-meta span::after { display: none; }
+      .hero-actions .btn { width: 100%; }
+      .author-box { flex-direction: column; }
+      .template-head .btn { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      .header,.reading-track,.toc-wrap,.hero-actions,.copy-button,.footer,.noise,.orb { display: none !important; }
+      body.workflow-guide { color: #111827; background: #fff !important; }
+      .article-shell { width: 100%; }
+      .article-layout { display: block; }
+      .article-section,.author-box { border-color: #cbd5e1; color: #111827; background: #fff !important; box-shadow: none; }
+      .article-section h2,.article-section h3,.article-section h4,.article-section strong { color: #111827 !important; }
+      .article-section p,.article-section li,.article-table td { color: #334155 !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html#article",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html" },
+        "headline": "How to Build an AI Workflow Automation: 7-Step Framework + Templates (2026)",
+        "description": "A practical seven-step guide to designing an AI workflow with authorized inputs, bounded AI tasks, human review, controls, exception handling, KPIs, and a 30-day pilot.",
+        "image": "https://zynovix.github.io/logo.png?v=20260712",
+        "datePublished": "2026-07-22T18:00:00+04:00",
+        "dateModified": "2026-07-22T18:00:00+04:00",
+        "author": { "@type": "Organization", "name": "Zynovix AI Editorial Team", "url": "https://zynovix.github.io/" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/", "logo": { "@type": "ImageObject", "url": "https://zynovix.github.io/logo.png?v=20260712" } },
+        "articleSection": "AI Automation",
+        "keywords": ["AI workflow automation","AI workflow template","AI automation workflow","human in the loop AI","AI workflow examples","business process automation"],
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://zynovix.github.io/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "Build an AI Workflow Automation", "item": "https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/how-to-build-ai-workflow-automation-2026.html#faq-schema",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is an AI workflow automation?", "acceptedAnswer": { "@type": "Answer", "text": "An AI workflow automation is a defined business process in which AI performs a bounded task such as extraction, classification, summarization, retrieval, comparison, or drafting, while rules, systems, controls, and responsible people manage validation, approval, exceptions, and final actions." } },
+          { "@type": "Question", "name": "How do you build an AI workflow?", "acceptedAnswer": { "@type": "Answer", "text": "Choose one bounded process, map its trigger and outcome, authorize the minimum inputs, define the AI task and output, add validation and human review, design integrations and exception paths, then run a measured pilot before scaling." } },
+          { "@type": "Question", "name": "What is a human-in-the-loop AI workflow?", "acceptedAnswer": { "@type": "Answer", "text": "A human-in-the-loop workflow gives a qualified person a meaningful point to inspect evidence, correct or reject AI output, handle exceptions, authorize important actions, and stop the process." } },
+          { "@type": "Question", "name": "Which AI workflow should a business build first?", "acceptedAnswer": { "@type": "Answer", "text": "A strong first workflow is frequent, measurable, narrow, reversible, supported by authorized data, and easy for a qualified reviewer to verify. Report drafting, meeting summaries, low-risk document extraction, and support triage are common examples." } },
+          { "@type": "Question", "name": "How do you measure AI workflow success?", "acceptedAnswer": { "@type": "Answer", "text": "Compare pilot results with a baseline using cycle time, handling time, throughput, acceptance, corrections, review effort, exceptions, incidents, reliability, adoption, and full operating cost." } },
+          { "@type": "Question", "name": "Should an AI workflow be fully autonomous?", "acceptedAnswer": { "@type": "Answer", "text": "Not by default. Autonomy should be limited by data sensitivity, impact, reversibility, error detectability, approval requirements, and demonstrated performance. High-impact or sensitive actions generally require stronger human control." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="workflow-guide">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-track" aria-hidden="true"><div class="reading-bar" id="readingProgress"></div></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu"><a href="tools.html">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html" aria-current="page">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <header class="article-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="blog.html">Blog</a><span aria-hidden="true">›</span><span aria-current="page">Build an AI Workflow Automation</span></nav>
+      <span class="kicker">AI Workflow Implementation Guide</span>
+      <h1>How to Build an <span>AI Workflow Automation</span> (2026)</h1>
+      <p class="article-lead">A practical seven-step framework for turning one business process into a controlled AI workflow—with a copy-ready template, three examples, human review, exception paths, KPIs, and a 30-day pilot.</p>
+      <div class="article-meta"><span>By Zynovix AI Editorial Team</span><span>Published July 22, 2026</span><span>Approximately 20 minutes</span></div>
+      <div class="hero-actions"><a href="ai-workflow-blueprint-generator.html" class="btn btn-primary">Build Your Workflow Blueprint</a><a href="#workflow-template" class="btn btn-ghost">Copy the Template</a></div>
+      <aside class="hero-note" aria-label="Implementation note"><span aria-hidden="true">🧩</span><div><strong>A prompt is not a workflow.</strong> A production-ready design also needs authorized inputs, validation, human authority, system boundaries, exception handling, monitoring, records, fallback, and measurable business ownership.</div></aside>
+    </header>
+
+    <div class="article-shell">
+      <div class="article-layout">
+        <aside class="toc-wrap" aria-label="Article navigation">
+          <details class="toc" open><summary>Table of contents</summary><ol>
+            <li><a href="#key-takeaways">Key takeaways</a></li>
+            <li><a href="#what-is-workflow">What an AI workflow is</a></li>
+            <li><a href="#seven-steps">Seven-step framework</a></li>
+            <li><a href="#workflow-template">Copy-ready template</a></li>
+            <li><a href="#automation-levels">Choose automation level</a></li>
+            <li><a href="#examples">Three workflow examples</a></li>
+            <li><a href="#controls">Security and governance controls</a></li>
+            <li><a href="#pilot">30-day implementation plan</a></li>
+            <li><a href="#mistakes">Common mistakes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources">Official sources</a></li>
+          </ol></details>
+        </aside>
+
+        <article class="article-content">
+          <section class="article-section" id="key-takeaways">
+            <h2>Key takeaways</h2>
+            <p class="section-intro">A useful AI workflow is narrow enough to test, explicit enough to govern, and measurable enough to stop when it does not work.</p>
+            <div class="takeaway-grid">
+              <div class="takeaway"><strong>Start with one process</strong><p>Define one trigger, one bounded AI task, one accountable owner, and one approved destination.</p></div>
+              <div class="takeaway"><strong>Use minimum authorized data</strong><p>Approve the exact source, service, account, connector, access, retention, and purpose before real data enters the workflow.</p></div>
+              <div class="takeaway"><strong>Separate assistance from authority</strong><p>AI can prepare, classify, retrieve, or recommend without receiving permission to make the final consequential decision.</p></div>
+              <div class="takeaway"><strong>Design review around risk</strong><p>Review every high-impact or sensitive output; consider exception or sample review only after evidence supports it.</p></div>
+              <div class="takeaway"><strong>Make failure visible</strong><p>Missing inputs, low confidence, conflicting evidence, integration failure, and unsafe content need explicit routes.</p></div>
+              <div class="takeaway"><strong>Measure full workflow value</strong><p>Include review, rework, exceptions, maintenance, incidents, adoption, and operating cost—not only model speed.</p></div>
+            </div>
+          </section>
+
+          <section class="article-section" id="what-is-workflow">
+            <h2>What is an AI workflow automation?</h2>
+            <p>An AI workflow automation is a defined business process in which an AI system performs a bounded information task while conventional software, validation rules, access controls, and responsible people manage the rest. Typical AI tasks include extracting fields, classifying requests, summarizing records, retrieving approved knowledge, comparing content, and drafting an output.</p>
+            <p>The workflow begins before the model receives a prompt and continues after it produces an answer. It includes the trigger, authorized input, data preparation, prompt or instruction, model, grounding, deterministic validation, human review, destination, records, exceptions, monitoring, and fallback.</p>
+
+            <div class="workflow-map" role="group" aria-label="AI workflow sequence">
+              <div class="flow-node"><span aria-hidden="true">⚡</span><small>Trigger</small><p>A schedule, new request, document, event, or status change starts the process.</p></div>
+              <div class="flow-node"><span aria-hidden="true">📥</span><small>Inputs</small><p>Minimum authorized information arrives from approved sources and identities.</p></div>
+              <div class="flow-node"><span aria-hidden="true">🤖</span><small>AI task</small><p>The model performs one bounded extraction, classification, summary, retrieval, comparison, or draft.</p></div>
+              <div class="flow-node"><span aria-hidden="true">✅</span><small>Validation</small><p>Rules check required fields, formats, sources, calculations, permissions, and confidence.</p></div>
+              <div class="flow-node"><span aria-hidden="true">👤</span><small>Review</small><p>A qualified person handles judgment, evidence, exceptions, corrections, and approval.</p></div>
+              <div class="flow-node"><span aria-hidden="true">📤</span><small>Destination</small><p>The approved result enters the system of record with appropriate logs and ownership.</p></div>
+            </div>
+
+            <div class="callout"><p><strong>Good boundary:</strong> “Draft a weekly operations narrative from verified figures and flag unexplained changes for the report owner.” <strong>Weak boundary:</strong> “Run operations automatically.”</p></div>
+          </section>
+
+          <section class="article-section" id="seven-steps">
+            <h2>Build an AI workflow in seven steps</h2>
+            <p class="section-intro">Complete the steps in order. Tool selection comes after the process boundary, data, review, and measures are understood.</p>
+
+            <div class="step-grid">
+              <article class="step-card"><span class="step-number">1</span><h3>Choose one bounded process</h3><p>Name the current workflow, owner, frequency, volume, handling time, delay, quality problems, and business outcome. Avoid department-wide goals. A good candidate is repeated, measurable, supported by digital information, and easy to review.</p></article>
+              <article class="step-card"><span class="step-number">2</span><h3>Map trigger and outcome</h3><p>Write the exact event that starts the workflow and the approved state that ends it. Include every handoff, system, queue, approval, exception, record, and external action between those points.</p></article>
+              <article class="step-card"><span class="step-number">3</span><h3>Authorize the inputs</h3><p>List sources, owners, formats, sensitivity, access, purpose, retention, quality, and known gaps. Use the minimum data needed. Do not place credentials, private keys, payment details, or unapproved sensitive information in ordinary prompts.</p></article>
+              <article class="step-card"><span class="step-number">4</span><h3>Define the AI task and output</h3><p>Select the smallest capability required: extract, classify, summarize, retrieve, compare, or draft. Specify the output schema, required evidence, prohibited behavior, uncertainty handling, and fields that deterministic rules should validate.</p></article>
+              <article class="step-card"><span class="step-number">5</span><h3>Add human review and authority</h3><p>Name the reviewer role, evidence they receive, decisions they can make, and when review occurs. The person needs competence, context, authority, time, and a practical way to correct, reject, override, escalate, and stop the process.</p></article>
+              <article class="step-card"><span class="step-number">6</span><h3>Design integrations and exceptions</h3><p>Use scoped permissions and approved destinations. Route missing inputs, conflicting evidence, low confidence, sensitive content, high-impact cases, outages, duplicates, and failed writes. Preserve a tested manual fallback.</p></article>
+              <article class="step-card"><span class="step-number">7</span><h3>Baseline, pilot, and monitor</h3><p>Record current time, quality, cost, backlog, volume, and incidents. Test representative normal, edge, and adversarial cases. During a supervised pilot, measure review effort, corrections, exceptions, reliability, adoption, risk, and full cost.</p></article>
+            </div>
+
+            <div class="callout warning"><p><strong>Do not skip process mapping.</strong> If experienced employees cannot agree on the trigger, inputs, rules, owner, exceptions, or successful outcome, adding AI usually hides the ambiguity instead of fixing it.</p></div>
+          </section>
+
+          <section class="article-section" id="workflow-template">
+            <h2>Copy-ready AI workflow template</h2>
+            <p>Complete this template with the process owner and required technical, data, security, privacy, legal, compliance, worker, or specialist reviewers. Keep answers specific and testable.</p>
+
+            <div class="template-box">
+              <div class="template-head"><h3>AI workflow blueprint template</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="workflowTemplate" data-status-target="templateStatus">Copy Template</button></div>
+              <div class="copy-source" id="workflowTemplate">WORKFLOW NAME:
+
+BUSINESS OWNER:
+QUALIFIED REVIEWER:
+PRIMARY GOAL:
+
+1. CURRENT PROCESS
+Trigger:
+Frequency and monthly volume:
+Current minutes per case:
+Current systems and handoffs:
+Baseline metrics:
+
+2. AUTHORIZED INPUTS
+Approved sources:
+Input formats:
+Highest data sensitivity:
+Access and identity rules:
+Retention and deletion:
+Known data gaps:
+
+3. BOUNDED AI TASK
+AI may:
+AI must not:
+Expected output and format:
+Required sources or evidence:
+Deterministic validation rules:
+
+4. HUMAN REVIEW
+Reviewer role:
+Review every output, exceptions, or sample:
+Evidence shown to reviewer:
+Approval required before:
+Correction, override, and stop authority:
+
+5. DESTINATION AND RECORDS
+Approved destination:
+System of record:
+Required logs and versions:
+
+6. EXCEPTIONS AND FAILURE
+Missing or conflicting input:
+Low confidence or unsupported claim:
+Sensitive or unauthorized data:
+High-impact case:
+Integration or service outage:
+Manual fallback and rollback:
+Stop conditions and incident contact:
+
+7. PILOT AND MEASUREMENT
+Representative test set:
+Primary KPI:
+Quality KPI:
+Review-effort KPI:
+Risk and reliability KPI:
+Full operating cost:
+Pilot volume and dates:
+Decision: stop, redesign, continue, or expand.</div>
+              <p class="copy-status" id="templateStatus" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="hero-actions"><a href="ai-workflow-blueprint-generator.html" class="btn btn-primary">Generate a Custom Blueprint</a><a href="ai-automation-opportunity-finder.html" class="btn btn-ghost">Find an Opportunity First</a></div>
+          </section>
+
+          <section class="article-section" id="automation-levels">
+            <h2>Choose the right level of automation</h2>
+            <p>Use the least autonomous level that delivers value. Increase autonomy only after real evidence shows that inputs, controls, monitoring, review, reliability, and exception handling work at the intended volume.</p>
+
+            <div class="table-wrap"><table class="article-table"><thead><tr><th>Level</th><th>AI role</th><th>Human role</th><th>Good fit</th><th>Key condition</th></tr></thead><tbody>
+              <tr><td><span class="level low">Level 0</span></td><td>No AI; current manual or rules-based process</td><td>Performs and approves work</td><td>Unclear, rare, sensitive, or not measurable</td><td>Map and improve the process first</td></tr>
+              <tr><td><span class="level low">Level 1</span></td><td>Suggests, retrieves, or summarizes</td><td>Performs the action</td><td>Research, knowledge, meeting, and analysis assistance</td><td>Sources and limits are visible</td></tr>
+              <tr><td><span class="level mid">Level 2</span></td><td>Produces a complete draft</td><td>Reviews every output before use</td><td>Reports, replies, content, documents, code</td><td>Reviewer can verify and correct</td></tr>
+              <tr><td><span class="level mid">Level 3</span></td><td>Processes routine cases</td><td>Reviews exceptions and monitors samples</td><td>Stable classification or extraction workflows</td><td>Low-confidence and high-impact cases route safely</td></tr>
+              <tr><td><span class="level high">Level 4</span></td><td>Takes limited predefined actions</td><td>Monitors, audits, and intervenes</td><td>Low-impact, reversible, well-tested actions</td><td>Scoped authority, rollback, monitoring, and strong evidence</td></tr>
+            </tbody></table></div>
+
+            <p>High-impact, sensitive, external, safety-related, employment, healthcare, legal, financial, access, or other consequential workflows may require meaningful human review regardless of technical performance. Applicable requirements depend on the actual jurisdiction, sector, role, and use.</p>
+          </section>
+
+          <section class="article-section" id="examples">
+            <h2>Three AI workflow examples</h2>
+            <p class="section-intro">Each example limits the AI task, preserves accountable review, and makes exceptions visible. Adapt the pattern to approved systems and policies.</p>
+
+            <div class="example-grid">
+              <article class="example-card"><span class="example-label">🎧 Customer support</span><h3>Support ticket triage</h3><dl>
+                <div><dt>Trigger</dt><dd>A new request enters the approved help-desk queue.</dd></div>
+                <div><dt>Inputs</dt><dd>Ticket text, safe account context, taxonomy, priority and escalation rules.</dd></div>
+                <div><dt>AI task</dt><dd>Suggest category, queue, urgency, concise summary, and missing questions.</dd></div>
+                <div><dt>Validation</dt><dd>Rules override routing for security, legal, vulnerable-customer, safety, fraud, or priority cases.</dd></div>
+                <div><dt>Human review</dt><dd>Queue owner handles low-confidence and high-impact exceptions; agents can change routing.</dd></div>
+                <div><dt>KPI</dt><dd>Time to assignment, reroute rate, missed escalations, and queue age.</dd></div>
+              </dl><a class="btn btn-ghost" href="ai-workflow-blueprint-generator.html?workflow=Support%20ticket%20triage&amp;department=support&amp;goal=speed">Build This Blueprint</a></article>
+
+              <article class="example-card"><span class="example-label">🧾 Finance</span><h3>Invoice data capture</h3><dl>
+                <div><dt>Trigger</dt><dd>An invoice arrives through an approved accounts-payable channel.</dd></div>
+                <div><dt>Inputs</dt><dd>Invoice, vendor master, purchase order, and deterministic accounting checks.</dd></div>
+                <div><dt>AI task</dt><dd>Extract required fields and describe apparent mismatches.</dd></div>
+                <div><dt>Validation</dt><dd>Check totals, duplicate identifiers, vendor, currency, purchase order, and required fields.</dd></div>
+                <div><dt>Human review</dt><dd>Accounts payable reviews exceptions; existing approval and payment controls remain authoritative.</dd></div>
+                <div><dt>KPI</dt><dd>Extraction accuracy, cost per invoice, exception age, and unauthorized-action count.</dd></div>
+              </dl><a class="btn btn-ghost" href="ai-workflow-blueprint-generator.html?workflow=Invoice%20data%20capture&amp;department=finance&amp;goal=time">Build This Blueprint</a></article>
+
+              <article class="example-card"><span class="example-label">📣 Marketing</span><h3>Content repurposing</h3><dl>
+                <div><dt>Trigger</dt><dd>An approved source asset is marked ready for repurposing.</dd></div>
+                <div><dt>Inputs</dt><dd>Source asset, brand guide, approved claims, audience, channel, and templates.</dd></div>
+                <div><dt>AI task</dt><dd>Draft channel-specific variants with source references.</dd></div>
+                <div><dt>Validation</dt><dd>Check required links, format, source support, prohibited claims, and content rights.</dd></div>
+                <div><dt>Human review</dt><dd>An editor verifies facts, brand, audience suitability, originality, rights, and disclosure.</dd></div>
+                <div><dt>KPI</dt><dd>Draft time, edit rate, usable variants, publishing velocity, and corrections.</dd></div>
+              </dl><a class="btn btn-ghost" href="ai-workflow-blueprint-generator.html?workflow=Marketing%20content%20repurposing&amp;department=marketing&amp;goal=capacity">Build This Blueprint</a></article>
+            </div>
+          </section>
+
+          <section class="article-section" id="controls">
+            <h2>Security, data, and governance controls</h2>
+            <p>Controls should match the workflow's data sensitivity, impact, users, integrations, external reach, and error consequences. A low-risk internal draft does not need the same controls as a workflow that can affect accounts, payments, employees, customers, or regulated services.</p>
+
+            <div class="control-grid">
+              <article class="control-card warning"><span class="control-mark">!</span><div><h4>Approved service and purpose</h4><p>Confirm the exact tool, account, model, connector, settings, contract, training use, retention, region, data type, and workflow purpose.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Minimum data</h4><p>Use only information needed for the task. Remove identifiers where practical and inspect uploads, links, metadata, and connected sources.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Least privilege</h4><p>Give the workflow and its operators the minimum read, write, action, and destination access required. Keep secrets in approved secure stores.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Grounding and validation</h4><p>Use approved sources, structured output, deterministic rules, citations, required fields, confidence thresholds, and independent calculation checks.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Prompt and content safety</h4><p>Treat external documents and messages as untrusted input. Prevent their instructions from overriding system rules, tool permissions, or data boundaries.</p></div></article>
+              <article class="control-card warning"><span class="control-mark">!</span><div><h4>Human authority</h4><p>Ensure reviewers can inspect evidence, correct or reject output, consider other information, handle exceptions, override recommendations, and stop the workflow.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Testing and change control</h4><p>Test normal, edge, adversarial, missing, conflicting, multilingual, and high-impact cases. Re-test material changes to models, prompts, sources, integrations, and policies.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Records and monitoring</h4><p>Log appropriate versions, inputs, outputs, sources, approvals, corrections, exceptions, incidents, costs, latency, and performance without creating unnecessary sensitive records.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Fallback and incident response</h4><p>Maintain rollback, manual processing, service-outage behavior, named escalation contacts, stop conditions, and procedures for suspected exposure or harm.</p></div></article>
+              <article class="control-card"><span class="control-mark">✓</span><div><h4>Continuous evaluation</h4><p>Monitor drift, adoption, review effort, correction patterns, complaints, fairness, reliability, and full cost. Reassess when the workflow or context changes.</p></div></article>
+            </div>
+
+            <div class="callout danger"><p><strong>Credentials and payment data:</strong> do not place passwords, private keys, authentication tokens, full payment-card information, or other secrets into ordinary AI prompts. Redesign the workflow so secrets remain in approved secure systems and tools receive only scoped actions.</p></div>
+          </section>
+
+          <section class="article-section" id="pilot">
+            <h2>A 30-day AI workflow implementation plan</h2>
+            <p>A pilot should answer whether the workflow is valuable, reviewable, reliable, governable, and affordable. Preserve the existing safe process while testing.</p>
+
+            <div class="template-box">
+              <div class="template-head"><h3>Copy-ready pilot checklist</h3><button class="btn btn-primary copy-button" type="button" data-copy-target="pilotChecklist" data-status-target="pilotStatus">Copy Checklist</button></div>
+              <div class="copy-source" id="pilotChecklist">DAYS 1–7 — DEFINE AND BASELINE
+□ Name the business owner and qualified reviewer.
+□ Map trigger, inputs, handoffs, exceptions, destination, and current controls.
+□ Record volume, handling time, cycle time, quality, backlog, incidents, and full cost.
+□ Select one bounded AI task and write stop conditions.
+
+DAYS 8–14 — APPROVE AND PREPARE
+□ Confirm approved service, account, model, connectors, access, retention, and data.
+□ Build representative normal, edge, missing, conflicting, and adversarial test cases.
+□ Define output schema, validation, evidence, human review, exception routes, logs, and fallback.
+□ Complete required security, privacy, legal, compliance, procurement, accessibility, and worker review.
+
+DAYS 15–21 — RUN SUPERVISED
+□ Use a small volume alongside the current process.
+□ Record every output, review minute, correction, rejection, exception, failure, incident, and cost.
+□ Do not expand scope during the measurement period.
+□ Pause immediately when a stop condition occurs.
+
+DAYS 22–30 — DECIDE WITH EVIDENCE
+□ Compare pilot results with the same baseline definition.
+□ Review quality, safety, adoption, reliability, review load, latency, and full cost.
+□ Document failure patterns and required design changes.
+□ Decide to stop, redesign, continue, or expand gradually with new approval.</div>
+              <p class="copy-status" id="pilotStatus" role="status" aria-live="polite"></p>
+            </div>
+
+            <p>Before scaling, calculate whether observed capacity, throughput, quality, or contribution outweighs subscriptions, implementation, integrations, training, review, monitoring, maintenance, controls, and expected failure costs. Time saved is not automatically cash saved; state how the recovered time creates real value.</p>
+            <div class="hero-actions"><a href="automation-roi-calculator.html" class="btn btn-primary">Calculate Workflow ROI</a><a href="ai-readiness-assessment.html" class="btn btn-ghost">Check AI Readiness</a></div>
+          </section>
+
+          <section class="article-section" id="mistakes">
+            <h2>Common AI workflow mistakes</h2>
+            <ul>
+              <li><strong>Choosing a tool before defining the process:</strong> capabilities do not determine authority, data permission, review, exceptions, or business ownership.</li>
+              <li><strong>Automating an unclear workflow:</strong> inconsistent rules and hidden exceptions become harder to see when wrapped in a model.</li>
+              <li><strong>Giving AI an outcome instead of a bounded task:</strong> “handle support” or “manage finance” is not a testable automation boundary.</li>
+              <li><strong>Trusting fluent output:</strong> polished language can still contain unsupported facts, wrong fields, unsafe instructions, biased judgments, or invented citations.</li>
+              <li><strong>Using sample review too early:</strong> review exceptions or samples only after evidence shows the workflow can detect important failures and route them reliably.</li>
+              <li><strong>Ignoring integration permissions:</strong> writing to a CRM, sending a message, changing an account, or calling another tool can create more risk than generating text.</li>
+              <li><strong>Measuring only speed:</strong> include corrections, review, incidents, maintenance, adoption, reliability, cost, and actual business value.</li>
+              <li><strong>Scaling before failure modes are understood:</strong> volume multiplies both value and harm. Expand gradually with monitoring and renewed approval.</li>
+            </ul>
+          </section>
+
+          <section class="article-section" id="faq">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer1">What is an AI workflow automation?</button><div class="faq-answer" id="faqAnswer1" hidden>It is a defined business process in which AI performs a bounded task such as extraction, classification, summarization, retrieval, comparison, or drafting while rules, systems, controls, and responsible people manage validation, approval, exceptions, and final actions.</div></div>
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer2">How do you build an AI workflow?</button><div class="faq-answer" id="faqAnswer2" hidden>Choose one bounded process, map its trigger and outcome, authorize the minimum inputs, define the AI task and output, add validation and human review, design integrations and exception paths, then run a measured pilot before scaling.</div></div>
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer3">What is a human-in-the-loop AI workflow?</button><div class="faq-answer" id="faqAnswer3" hidden>It gives a qualified person a meaningful point to inspect evidence, correct or reject AI output, handle exceptions, authorize important actions, override recommendations, and stop the process.</div></div>
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer4">Which AI workflow should a business build first?</button><div class="faq-answer" id="faqAnswer4" hidden>Choose a frequent, measurable, narrow, reversible workflow supported by authorized data and easy for a qualified reviewer to verify. Report drafting, meeting summaries, low-risk extraction, and support triage are common candidates.</div></div>
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer5">How do you measure AI workflow success?</button><div class="faq-answer" id="faqAnswer5" hidden>Compare pilot results with a baseline using cycle time, handling time, throughput, acceptance, corrections, review effort, exceptions, incidents, reliability, adoption, and full operating cost.</div></div>
+              <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer6">Should an AI workflow be fully autonomous?</button><div class="faq-answer" id="faqAnswer6" hidden>Not by default. Autonomy should be limited by sensitivity, impact, reversibility, error detectability, approval requirements, and demonstrated performance. High-impact or sensitive actions generally need stronger human control.</div></div>
+            </div>
+          </section>
+
+          <section class="article-section" id="sources">
+            <h2>Official frameworks and sources</h2>
+            <p>Use current requirements and professional advice appropriate to your organization, jurisdiction, sector, data, and deployment. These primary resources provide useful starting points.</p>
+            <ul class="source-list">
+              <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI Risk Management Framework</a> — voluntary framework for managing AI risk across governance, mapping, measurement, and management.</li>
+              <li><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer">NIST AI 600-1: Generative AI Profile</a> — cross-sector guidance on risks and actions specific to generative AI.</li>
+              <li><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer">OWASP Top 10 for LLM Applications</a> — security risks relevant to prompt injection, sensitive information, excessive agency, output handling, and related controls.</li>
+              <li><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/" target="_blank" rel="noopener noreferrer">UK ICO AI and data protection risk toolkit</a> — practical support for reducing risks to individuals' rights and freedoms.</li>
+              <li><a href="https://oecd.ai/en/dashboards/ai-principles/P6" target="_blank" rel="noopener noreferrer">OECD AI Principle on human-centred values and fairness</a> — safeguards for privacy, fairness, human agency, and oversight.</li>
+              <li><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener noreferrer">European Commission AI Act overview</a> — official information about the EU risk-based regulatory framework and application timeline.</li>
+            </ul>
+          </section>
+
+          <aside class="author-box" aria-labelledby="authorTitle"><div class="author-avatar" aria-hidden="true">Z</div><div><h2 id="authorTitle">Zynovix AI Editorial Team</h2><p>Zynovix AI publishes practical guides and free tools that help professionals and businesses find AI opportunities, design safer workflows, measure outcomes, and make evidence-based implementation decisions.</p></div></aside>
+
+          <section class="article-section" aria-labelledby="relatedTitle">
+            <h2 id="relatedTitle">Continue your automation plan</h2>
+            <div class="related-grid">
+              <a class="related-card" href="ai-workflow-blueprint-generator.html"><small>Free planning tool</small><strong>AI Workflow Blueprint Generator</strong><span>Create a customized flow with owners, controls, exceptions, KPIs, and a 30-day pilot.</span></a>
+              <a class="related-card" href="ai-automation-opportunity-finder.html"><small>Opportunity discovery</small><strong>AI Automation Opportunity Finder</strong><span>Prioritize your top five business automation candidates.</span></a>
+              <a class="related-card" href="ai-automation-opportunities-for-business-2026.html"><small>25-use-case guide</small><strong>AI Automation Opportunities for Business</strong><span>Explore practical workflows across operations, support, finance, HR, marketing, and IT.</span></a>
+              <a class="related-card" href="automation-roi-calculator.html"><small>Business calculator</small><strong>Automation ROI Calculator</strong><span>Estimate capacity value, cost, payback, and three-year return.</span></a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav>
+      <p>© 2026 Zynovix AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var progressBar=document.getElementById("readingProgress"),ticking=false;
+
+    function updateProgress(){var root=document.documentElement,scrollable=root.scrollHeight-root.clientHeight,progress=scrollable>0?(root.scrollTop/scrollable)*100:0;progressBar.style.width=Math.max(0,Math.min(100,progress))+"%";ticking=false;}
+    window.addEventListener("scroll",function(){if(!ticking){window.requestAnimationFrame(updateProgress);ticking=true;}},{passive:true});
+
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+
+    function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied;}
+
+    document.querySelectorAll(".copy-button").forEach(function(button){button.addEventListener("click",function(){var source=document.getElementById(button.dataset.copyTarget),status=document.getElementById(button.dataset.statusTarget),text=source.textContent.trim();function success(){status.textContent="Copied to your clipboard.";}function failure(){status.textContent=fallbackCopy(text)?"Copied to your clipboard.":"Copy failed. Please select the text manually.";}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(success).catch(failure);}else failure();});});
+
+    if("IntersectionObserver" in window){var tocLinks=Array.prototype.slice.call(document.querySelectorAll(".toc a")),sectionMap={};tocLinks.forEach(function(link){sectionMap[link.getAttribute("href").slice(1)]=link;});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;tocLinks.forEach(function(link){link.classList.remove("active");});if(sectionMap[entry.target.id])sectionMap[entry.target.id].classList.add("active");});},{rootMargin:"-20% 0px -70% 0px",threshold:0});document.querySelectorAll(".article-section[id]").forEach(function(section){observer.observe(section);});}
+
+    updateProgress();
+  }());
+  </script>
+</body>
+</html>

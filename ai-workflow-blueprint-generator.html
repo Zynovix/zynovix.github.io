@@ -523,6 +523,7 @@
         </div>
         <div class="result-actions">
           <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Blueprint</button>
+          <a class="btn btn-primary" id="trackerButton" href="ai-automation-pilot-tracker.html">Start Pilot Tracker</a>
           <a class="btn btn-primary" id="scorecardButton" href="ai-automation-pilot-scorecard.html">Score Your Pilot</a>
           <a class="btn btn-primary" href="automation-roi-calculator.html">Calculate ROI</a>
           <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
@@ -829,6 +830,7 @@
       var profile=getProfile(),assessment=assess(profile); latest={profile:profile,assessment:assessment};
       renderSummary(profile,assessment); renderFlow(profile); renderRoles(profile,assessment); renderControls(profile); renderExceptions(profile); renderKpis(profile,assessment); renderPilot(profile); renderRisk(profile,assessment);
       var scorecardParams=new URLSearchParams({workflow:profile.workflowName,department:profile.department,goal:profile.primaryGoal});
+      document.getElementById("trackerButton").href="ai-automation-pilot-tracker.html?"+scorecardParams.toString();
       document.getElementById("scorecardButton").href="ai-automation-pilot-scorecard.html?"+scorecardParams.toString();
       generatorCard.hidden=true; resultsCard.hidden=false; actionStatus.textContent=""; document.getElementById("generator").scrollIntoView({behavior:"smooth",block:"start"}); document.querySelector(".results-header h2").setAttribute("tabindex","-1"); document.querySelector(".results-header h2").focus();
     }

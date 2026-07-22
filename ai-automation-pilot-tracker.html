@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Automation Pilot Tracker | Zynovix AI</title>
+  <meta name="description" content="Track AI automation pilot cases, review effort, corrections, exceptions, failures, incidents, and costs. Export evidence and send measured results to the Pilot Scorecard.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-automation-pilot-tracker.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Automation Pilot Tracker">
+  <meta property="og:description" content="Create a structured evidence log for an AI workflow pilot, monitor outcomes, and transfer measured results to a transparent decision scorecard.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-automation-pilot-tracker.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Automation Pilot Tracker">
+  <meta name="twitter:description" content="Log observed AI pilot evidence, monitor quality and reliability, and export a decision-ready report.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --pt-bg: #050816;
+      --pt-surface: rgba(11,18,41,.92);
+      --pt-surface-2: rgba(15,25,53,.88);
+      --pt-line: rgba(148,163,184,.2);
+      --pt-strong: #f8fbff;
+      --pt-text: #d6e0ef;
+      --pt-soft: #9eabc1;
+      --pt-cyan: #22d3ee;
+      --pt-blue: #3b82f6;
+      --pt-purple: #8b5cf6;
+      --pt-green: #34d399;
+      --pt-yellow: #fbbf24;
+      --pt-red: #fb7185;
+      --pt-shadow: 0 26px 80px rgba(0,0,0,.34);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.pilot-tracker-page { color: var(--pt-text); overflow-x: hidden; }
+    .pilot-tracker-page .brand img,
+    .pilot-tracker-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    [hidden] { display: none !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-150%); padding: 11px 15px; border-radius: 10px; color: #04101a; background: var(--pt-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .tracker-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--pt-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--pt-cyan); }
+    .tracker-hero h1 { max-width: 1080px; margin: 18px auto; color: var(--pt-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.5px; }
+    .tracker-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--pt-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .tracker-hero > p { max-width: 870px; margin: 0 auto; color: var(--pt-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.72; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--pt-line); border-radius: 999px; color: #c7d5e7; background: rgba(255,255,255,.035); font-size: 13px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 920px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
+
+    .tracker-section { padding: 16px 0 82px; }
+    .setup-card,
+    .workspace-card { border: 1px solid var(--pt-line); border-radius: 26px; background: var(--pt-surface); box-shadow: var(--pt-shadow); overflow: hidden; }
+    .setup-head,
+    .workspace-head { padding: 25px; border-bottom: 1px solid var(--pt-line); background: rgba(255,255,255,.018); }
+    .setup-head h2,
+    .workspace-head h2 { margin: 0 0 7px; color: var(--pt-strong); font-size: clamp(27px,5vw,39px); }
+    .setup-head p,
+    .workspace-head p { margin: 0; color: var(--pt-soft); line-height: 1.55; }
+    .setup-form { padding: 24px; }
+    .form-group { margin-bottom: 29px; }
+    .form-group h3 { margin: 0 0 6px; color: var(--pt-strong); font-size: 21px; }
+    .form-group > p { margin: 0 0 16px; color: var(--pt-soft); font-size: 14px; line-height: 1.55; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1/-1; }
+    .field label { display: block; margin-bottom: 7px; color: var(--pt-strong); font-size: 14px; font-weight: 800; }
+    .field input,
+    .field select,
+    .field textarea { width: 100%; min-height: 49px; padding: 11px 13px; border: 1px solid var(--pt-line); border-radius: 14px; outline: none; color: var(--pt-strong); background: #091127; font: inherit; color-scheme: dark; transition: border-color .2s ease,box-shadow .2s ease; }
+    .field textarea { min-height: 82px; resize: vertical; line-height: 1.5; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: rgba(34,211,238,.75); box-shadow: 0 0 0 4px rgba(34,211,238,.09); }
+    .field-help { display: block; margin-top: 6px; color: #7888a0; font-size: 12px; line-height: 1.4; }
+    .form-error { min-height: 24px; margin: 13px 0; color: #ff9daf; font-weight: 700; }
+    .setup-actions,
+    .entry-actions,
+    .workspace-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .setup-actions button,
+    .entry-actions button,
+    .workspace-actions button { border: 0; cursor: pointer; font: inherit; }
+    .danger-button { color: #ffd3db !important; border-color: rgba(251,113,133,.35) !important; background: rgba(251,113,133,.07) !important; }
+
+    .workspace-head { display: grid; gap: 18px; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+    .project-meta span { padding: 7px 10px; border: 1px solid var(--pt-line); border-radius: 999px; color: #c3d1e3; background: rgba(255,255,255,.025); font-size: 12px; }
+    .save-status { min-height: 20px; color: #7ee8c2; font-size: 13px; }
+    .workspace-body { padding: 24px; }
+    .workspace-section { margin-bottom: 40px; scroll-margin-top: 95px; }
+    .section-title-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 16px; }
+    .section-title-row h3 { margin: 0; color: var(--pt-strong); font-size: clamp(23px,4vw,31px); }
+    .section-title-row p { max-width: 710px; margin: 4px 0 0; color: var(--pt-soft); line-height: 1.55; }
+    .progress-card { padding: 18px; border: 1px solid var(--pt-line); border-radius: 18px; background: rgba(255,255,255,.027); }
+    .progress-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 11px; }
+    .progress-head strong { color: var(--pt-strong); }
+    .progress-head span { color: var(--pt-cyan); font-weight: 900; }
+    .progress-track { height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .progress-fill { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg,var(--pt-blue),var(--pt-cyan)); transition: width .25s ease; }
+    .metric-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; margin-top: 13px; }
+    .metric-card { min-width: 0; padding: 15px; border: 1px solid var(--pt-line); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .metric-card small { display: block; margin-bottom: 4px; color: var(--pt-soft); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+    .metric-card strong { display: block; color: var(--pt-strong); font-size: clamp(20px,4vw,27px); line-height: 1.15; overflow-wrap: anywhere; }
+    .metric-card span { display: block; margin-top: 5px; color: #7f91aa; font-size: 11px; line-height: 1.35; }
+    .metric-card.good { border-color: rgba(52,211,153,.25); }
+    .metric-card.warn { border-color: rgba(251,191,36,.3); }
+    .metric-card.bad { border-color: rgba(251,113,133,.35); }
+
+    .dashboard-split { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+    .panel { padding: 18px; border: 1px solid var(--pt-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .panel h4 { margin: 0 0 14px; color: var(--pt-strong); font-size: 18px; }
+    .bar-list { display: grid; gap: 13px; }
+    .bar-row-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 6px; color: #c8d4e5; font-size: 13px; }
+    .bar-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--pt-purple),var(--pt-cyan)); }
+    .signal-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .signal-list li { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 9px; align-items: start; padding: 11px; border: 1px solid var(--pt-line); border-radius: 13px; color: #c9d6e6; background: rgba(255,255,255,.018); font-size: 13px; line-height: 1.45; }
+    .signal-icon { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 9px; color: #071611; background: var(--pt-green); font-weight: 900; }
+    .signal-list li.warn .signal-icon { color: #2c1d00; background: var(--pt-yellow); }
+    .signal-list li.bad .signal-icon { color: #320811; background: var(--pt-red); }
+
+    .entry-card { padding: 20px; border: 1px solid rgba(34,211,238,.25); border-radius: 20px; background: linear-gradient(180deg,rgba(34,211,238,.045),rgba(255,255,255,.02)); }
+    .flag-grid { display: grid; grid-template-columns: 1fr; gap: 9px; margin-top: 16px; }
+    .flag-label { position: relative; cursor: pointer; }
+    .flag-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .flag-content { display: flex; min-height: 55px; align-items: center; gap: 9px; padding: 11px 12px; border: 1px solid var(--pt-line); border-radius: 14px; color: #bdc9da; background: rgba(255,255,255,.025); font-size: 13px; line-height: 1.35; }
+    .flag-mark { display: grid; width: 25px; height: 25px; flex: 0 0 25px; place-items: center; border: 1px solid var(--pt-line); border-radius: 8px; color: transparent; background: #091127; font-weight: 900; }
+    .flag-label input:checked + .flag-content { border-color: rgba(34,211,238,.6); color: var(--pt-strong); background: rgba(34,211,238,.07); }
+    .flag-label input:checked + .flag-content .flag-mark { border-color: var(--pt-green); color: #06160f; background: var(--pt-green); }
+    .flag-label input:focus-visible + .flag-content { outline: 3px solid var(--pt-cyan); outline-offset: 2px; }
+    .entry-status { min-height: 22px; margin-top: 10px; color: #7ee8c2; font-size: 13px; }
+
+    .filters { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 14px; }
+    .filters input,
+    .filters select { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--pt-line); border-radius: 13px; outline: none; color: var(--pt-strong); background: #091127; font: inherit; color-scheme: dark; }
+    .record-table-wrap { overflow-x: auto; border: 1px solid var(--pt-line); border-radius: 18px; }
+    .record-table { width: 100%; min-width: 1040px; border-collapse: collapse; }
+    .record-table th,
+    .record-table td { padding: 12px; border-bottom: 1px solid var(--pt-line); text-align: left; vertical-align: top; }
+    .record-table th { color: var(--pt-strong); background: rgba(255,255,255,.04); font-size: 12px; white-space: nowrap; }
+    .record-table td { color: #c9d5e5; font-size: 13px; line-height: 1.4; }
+    .record-table tr:last-child td { border-bottom: 0; }
+    .record-table .notes-cell { max-width: 250px; overflow-wrap: anywhere; color: var(--pt-soft); }
+    .row-actions { display: flex; gap: 6px; }
+    .row-action { padding: 6px 8px; border: 1px solid var(--pt-line); border-radius: 9px; color: #dce8f6; background: rgba(255,255,255,.035); cursor: pointer; font: inherit; font-size: 12px; }
+    .row-action:hover { border-color: var(--pt-cyan); }
+    .row-action.delete:hover { border-color: var(--pt-red); color: #ffc6d0; }
+    .status-pill { display: inline-flex; padding: 4px 7px; border: 1px solid var(--pt-line); border-radius: 999px; font-size: 11px; white-space: nowrap; }
+    .status-pill.good { color: #8ff1ce; border-color: rgba(52,211,153,.28); background: rgba(52,211,153,.06); }
+    .status-pill.warn { color: #ffe09a; border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.06); }
+    .status-pill.bad { color: #ffc0cb; border-color: rgba(251,113,133,.32); background: rgba(251,113,133,.07); }
+    .empty-state { padding: 34px 20px; color: var(--pt-soft); text-align: center; }
+    .empty-state strong { display: block; margin-bottom: 5px; color: var(--pt-strong); font-size: 18px; }
+    .record-count { color: var(--pt-soft); font-size: 13px; }
+    .scorecard-link[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+    .handoff-note { margin-top: 12px; padding: 14px 16px; border: 1px solid rgba(34,211,238,.21); border-radius: 15px; color: #bedce6; background: rgba(34,211,238,.05); font-size: 13px; line-height: 1.55; }
+    .import-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+    .method-section { padding: 78px 0; }
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .method-card { min-height: 0; padding: 22px; }
+    .method-icon { display: grid; width: 50px; height: 50px; place-items: center; margin-bottom: 14px; border-radius: 15px; background: linear-gradient(135deg,rgba(59,130,246,.85),rgba(34,211,238,.8)); font-size: 24px; }
+    .method-card h3 { margin-bottom: 8px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 15px; }
+    .method-note { max-width: 940px; margin: 20px auto 0; padding: 17px; border-left: 4px solid var(--pt-cyan); border-radius: 0 15px 15px 0; color: #c9d7e7; background: rgba(34,211,238,.055); line-height: 1.6; }
+    .method-note a { color: #7ee8f2; text-decoration: underline; text-underline-offset: 3px; }
+    .faq-section { padding: 0 0 90px; }
+    .faq-list { display: grid; gap: 11px; max-width: 920px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--pt-line); border-radius: 17px; background: var(--pt-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--pt-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--pt-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--pt-soft); line-height: 1.65; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--pt-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .flag-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .metric-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .filters { grid-template-columns: minmax(230px,1.5fr) repeat(2,minmax(155px,.75fr)); }
+      .method-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (min-width: 920px) {
+      .tracker-hero { padding-top: 72px; }
+      .setup-form,
+      .workspace-body { padding: 32px; }
+      .workspace-head { grid-template-columns: minmax(0,1fr) auto; align-items: center; }
+      .metric-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .dashboard-split { grid-template-columns: 1fr 1fr; }
+      .flag-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    }
+    @media (max-width: 700px) {
+      .pilot-tracker-page .brand img,
+      .pilot-tracker-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .tracker-hero h1 { letter-spacing: -1.5px; }
+      .setup-actions .btn,
+      .entry-actions .btn,
+      .workspace-actions .btn,
+      .workspace-actions .scorecard-link { width: 100%; }
+      .record-table-wrap { border: 0; overflow: visible; }
+      .record-table { min-width: 0; border: 0; }
+      .record-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      .record-table,
+      .record-table tbody,
+      .record-table tr,
+      .record-table td { display: block; width: 100%; }
+      .record-table tbody { display: grid; gap: 13px; }
+      .record-table tr { padding: 10px 14px; border: 1px solid var(--pt-line); border-radius: 17px; background: rgba(255,255,255,.025); }
+      .record-table td { display: grid; grid-template-columns: minmax(92px,.7fr) minmax(0,1.3fr); gap: 10px; padding: 8px 0; border: 0; }
+      .record-table td::before { content: attr(data-label); color: #8394aa; font-size: 11px; font-weight: 900; text-transform: uppercase; }
+      .record-table .notes-cell { max-width: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,
+      .tracker-hero,
+      .setup-card,
+      .workspace-actions,
+      .entry-card,
+      .filters,
+      .row-actions,
+      .method-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb { display: none !important; }
+      body.pilot-tracker-page { color: #111827; background: #fff !important; }
+      .tracker-section { padding: 0; }
+      .workspace-card { border: 0; background: #fff !important; box-shadow: none; }
+      .workspace-head,
+      .workspace-body { padding: 14px 0; }
+      .workspace-head h2,
+      .section-title-row h3,
+      .metric-card strong,
+      .panel h4 { color: #111827 !important; }
+      .metric-card,
+      .panel,
+      .progress-card,
+      .record-table-wrap { border-color: #cbd5e1; background: #fff !important; break-inside: avoid; }
+      .record-table th,
+      .record-table td { color: #334155 !important; border-color: #cbd5e1; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-tracker.html#application",
+        "name": "AI Automation Pilot Tracker",
+        "url": "https://zynovix.github.io/ai-automation-pilot-tracker.html",
+        "description": "A free local-first tool for logging AI automation pilot cases, review effort, quality outcomes, exceptions, technical failures, fallback, incidents, and decision evidence.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and local storage",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-tracker.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Automation Pilot Tracker", "item": "https://zynovix.github.io/ai-automation-pilot-tracker.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-tracker.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What should I record for each AI pilot case?", "acceptedAnswer": { "@type": "Answer", "text": "Record human handling and review time, cycle time, the acceptance or correction outcome, verified post-review errors, exceptions, fallback, technical failures, incidents, and a short non-sensitive note when useful." } },
+          { "@type": "Question", "name": "Does the Pilot Tracker upload or share my data?", "acceptedAnswer": { "@type": "Answer", "text": "No. The tracker runs locally and saves the active pilot in browser local storage. Users can export JSON backups and CSV reports themselves." } },
+          { "@type": "Question", "name": "Can I continue the tracker later?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when local storage remains available in the same browser and site origin. Export a JSON backup because browser data can be cleared, blocked, or lost." } },
+          { "@type": "Question", "name": "How does the tracker connect to the Pilot Scorecard?", "acceptedAnswer": { "@type": "Answer", "text": "The tracker aggregates the current entries and opens the Pilot Scorecard with baseline, pilot, quality, reliability, cost, coverage, adoption, and incident fields prefilled. Users must still verify all values and confirm controls and evidence." } },
+          { "@type": "Question", "name": "Does reaching the planned sample prove statistical significance?", "acceptedAnswer": { "@type": "Answer", "text": "No. The progress target is operational only. Sample sufficiency and statistical methods depend on the workflow, population, variability, risks, decision, and study design." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="pilot-tracker-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu"><a href="tools.html" aria-current="page">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="tracker-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="tools.html">AI Tools</a><span aria-hidden="true">›</span><span aria-current="page">Pilot Tracker</span></nav>
+      <span class="kicker">Free Local-First Evidence Tool</span>
+      <h1>AI Automation <span>Pilot Tracker</span></h1>
+      <p>Log each observed case, monitor review effort and failure signals, preserve a structured evidence trail, and transfer measured results directly to the Pilot Scorecard.</p>
+      <ul class="hero-facts"><li>📝 Case-level log</li><li>📊 Live evidence dashboard</li><li>💾 Local autosave</li><li>📥 CSV and JSON export</li><li>↗ Scorecard handoff</li></ul>
+      <aside class="privacy-note" aria-label="Privacy and limitation notice"><span aria-hidden="true">🔒</span><div><strong>Local-first:</strong> the active tracker is stored in this browser and is not submitted to a server by this page. Do not enter names, customer content, credentials, secrets, payment data, health details, or other unnecessary sensitive information. Export a JSON backup because browser storage can be cleared.</div></aside>
+    </section>
+
+    <section class="tracker-section shell" id="tracker" aria-label="AI automation pilot tracker">
+      <section class="setup-card" id="setupCard" aria-labelledby="setupTitle">
+        <header class="setup-head"><span class="kicker">Pilot Setup</span><h2 id="setupTitle">Define one measurable pilot</h2><p>Set the workflow boundary, baseline, observation denominators, costs, and operating thresholds before logging cases.</p></header>
+        <form class="setup-form" id="setupForm" novalidate>
+          <div class="form-group"><h3>Identity and boundary</h3><p>Use a role or team for ownership and a non-sensitive workflow title.</p><div class="field-grid">
+            <div class="field full"><label for="workflowName">Workflow name</label><input id="workflowName" name="workflowName" type="text" maxlength="100" placeholder="Example: Support response drafting" required></div>
+            <div class="field"><label for="department">Department or function</label><select id="department" name="department" required><option value="">Select a function</option><option value="operations">Operations</option><option value="marketing">Marketing</option><option value="sales">Sales</option><option value="support">Customer Support</option><option value="finance">Finance &amp; Administration</option><option value="hr">People &amp; HR</option><option value="technology">Technology &amp; IT</option><option value="risk">Risk &amp; Compliance</option><option value="general">Cross-functional</option></select></div>
+            <div class="field"><label for="pilotOwner">Accountable pilot owner</label><input id="pilotOwner" name="pilotOwner" type="text" maxlength="80" placeholder="Role or team" required></div>
+            <div class="field"><label for="primaryGoal">Primary goal</label><select id="primaryGoal" name="primaryGoal"><option value="time">Reduce handling time</option><option value="cycle">Reduce cycle time</option><option value="quality">Improve quality or consistency</option><option value="capacity">Increase capacity</option><option value="cost">Reduce operating cost</option><option value="experience">Improve user experience</option></select></div>
+            <div class="field"><label for="startDate">Pilot start date</label><input id="startDate" name="startDate" type="date" required></div>
+            <div class="field"><label for="observationDays">Planned observation period (days)</label><input id="observationDays" name="observationDays" type="number" min="1" max="365" value="30" required></div>
+            <div class="field"><label for="plannedCases">Planned logged cases</label><input id="plannedCases" name="plannedCases" type="number" min="1" max="1000000" value="100" required><small class="field-help">An operational target only; it does not establish statistical sufficiency.</small></div>
+          </div></div>
+
+          <div class="form-group"><h3>Baseline and cost boundary</h3><p>Use comparable pre-pilot definitions and include review and rework in human time.</p><div class="field-grid">
+            <div class="field"><label for="eligibleMonthly">Eligible cases per month</label><input id="eligibleMonthly" name="eligibleMonthly" type="number" min="1" max="100000000" value="1000" required></div>
+            <div class="field"><label for="baselineMinutes">Baseline human minutes per case</label><input id="baselineMinutes" name="baselineMinutes" type="number" min="0.01" max="100000" step="0.01" value="20" required></div>
+            <div class="field"><label for="baselineCycle">Baseline cycle time (hours)</label><input id="baselineCycle" name="baselineCycle" type="number" min="0.01" max="100000" step="0.01" value="24" required></div>
+            <div class="field"><label for="baselineError">Baseline verified error rate (%)</label><input id="baselineError" name="baselineError" type="number" min="0" max="100" step="0.01" value="8" required></div>
+            <div class="field"><label for="hourlyCost">Loaded labor cost per hour (USD)</label><input id="hourlyCost" name="hourlyCost" type="number" min="0" max="1000000" step="0.01" value="35" required></div>
+            <div class="field"><label for="setupCost">One-time setup cost (USD)</label><input id="setupCost" name="setupCost" type="number" min="0" max="1000000000" step="0.01" value="3000" required></div>
+            <div class="field"><label for="recurringCost">Recurring monthly cost (USD)</label><input id="recurringCost" name="recurringCost" type="number" min="0" max="1000000000" step="0.01" value="500" required></div>
+          </div></div>
+
+          <div class="form-group"><h3>Observation denominators</h3><p>These denominators turn logged case counts into coverage and adoption estimates.</p><div class="field-grid">
+            <div class="field"><label for="eligibleObserved">Eligible cases encountered during observation</label><input id="eligibleObserved" name="eligibleObserved" type="number" min="1" max="100000000" value="120" required></div>
+            <div class="field"><label for="offeredCases">Eligible cases offered the AI workflow</label><input id="offeredCases" name="offeredCases" type="number" min="1" max="100000000" value="100" required><small class="field-help">Must not exceed eligible cases encountered.</small></div>
+          </div></div>
+
+          <div class="form-group"><h3>Editable operational thresholds</h3><p>Set these before reading the dashboard. They are planning defaults, not universal standards.</p><div class="field-grid">
+            <div class="field"><label for="targetEfficiency">Target handling-time improvement (%)</label><input id="targetEfficiency" name="targetEfficiency" type="number" min="0.01" max="100" step="0.01" value="20" required></div>
+            <div class="field"><label for="minAcceptance">Minimum no-change acceptance (%)</label><input id="minAcceptance" name="minAcceptance" type="number" min="0" max="100" step="0.01" value="60" required></div>
+            <div class="field"><label for="maxMajor">Maximum major correction/rejection (%)</label><input id="maxMajor" name="maxMajor" type="number" min="0" max="100" step="0.01" value="10" required></div>
+            <div class="field"><label for="maxException">Maximum exception/fallback (%)</label><input id="maxException" name="maxException" type="number" min="0" max="100" step="0.01" value="20" required></div>
+            <div class="field"><label for="maxTechnical">Maximum technical failure (%)</label><input id="maxTechnical" name="maxTechnical" type="number" min="0" max="100" step="0.01" value="5" required></div>
+          </div></div>
+          <div class="form-error" id="setupError" role="alert" aria-live="polite"></div>
+          <div class="setup-actions"><button class="btn btn-primary" type="submit">Save Setup &amp; Open Tracker</button><button class="btn btn-ghost" id="cancelSetupButton" type="button" hidden>Cancel Editing</button></div>
+        </form>
+      </section>
+
+      <section class="workspace-card" id="workspaceCard" aria-labelledby="workspaceTitle" hidden>
+        <header class="workspace-head"><div><span class="kicker">Active Pilot</span><h2 id="workspaceTitle">Pilot evidence workspace</h2><p id="projectSubtitle"></p><div class="project-meta" id="projectMeta"></div></div><div><div class="workspace-actions"><button class="btn btn-ghost" id="editSetupButton" type="button">⚙ Edit Setup</button><button class="btn btn-ghost" id="printButton" type="button">🖨 Print Report</button><button class="btn btn-ghost danger-button" id="newPilotButton" type="button">Start New Pilot</button></div><div class="save-status" id="saveStatus" role="status" aria-live="polite"></div></div></header>
+        <div class="workspace-body">
+          <section class="workspace-section" aria-labelledby="dashboardTitle"><div class="section-title-row"><div><h3 id="dashboardTitle">Live evidence dashboard</h3><p>Descriptive aggregates from the records currently saved in this browser.</p></div></div>
+            <div class="progress-card"><div class="progress-head"><strong>Operational logging progress</strong><span id="progressText">0 of 0</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+            <div class="metric-grid" id="metricGrid"></div>
+            <div class="dashboard-split"><article class="panel"><h4>Outcome distribution</h4><div class="bar-list" id="outcomeBars"></div></article><article class="panel"><h4>Evidence and risk signals</h4><ul class="signal-list" id="signalList"></ul></article></div>
+          </section>
+
+          <section class="workspace-section" id="entrySection" aria-labelledby="entryTitle"><div class="section-title-row"><div><h3 id="entryTitle">Log an observed case</h3><p>Enter measured case-level data. A short anonymous reference is optional.</p></div></div>
+            <form class="entry-card" id="entryForm" novalidate>
+              <div class="field-grid">
+                <div class="field"><label for="entryDate">Observation date</label><input id="entryDate" name="entryDate" type="date" required></div>
+                <div class="field"><label for="caseReference">Anonymous case reference</label><input id="caseReference" name="caseReference" type="text" maxlength="60" placeholder="Example: CASE-017"><small class="field-help">Do not enter names, email addresses, ticket content, or sensitive identifiers.</small></div>
+                <div class="field"><label for="outcome">Review outcome</label><select id="outcome" name="outcome" required><option value="no-change">Accepted without change</option><option value="minor">Accepted after minor edit</option><option value="major">Major correction required</option><option value="rejected">Rejected or unusable</option></select></div>
+                <div class="field"><label for="humanMinutes">Human minutes including review/rework</label><input id="humanMinutes" name="humanMinutes" type="number" min="0" max="100000" step="0.01" required></div>
+                <div class="field"><label for="cycleHours">End-to-end cycle time (hours)</label><input id="cycleHours" name="cycleHours" type="number" min="0" max="100000" step="0.01" required></div>
+                <div class="field"><label for="incidentStatus">Incident status</label><select id="incidentStatus" name="incidentStatus"><option value="none">No incident</option><option value="near-miss">Near miss</option><option value="resolved-material">Material incident — resolved</option><option value="unresolved-material">Material incident — unresolved</option></select></div>
+                <div class="field full"><label for="reviewerNotes">Optional non-sensitive reviewer note</label><textarea id="reviewerNotes" name="reviewerNotes" maxlength="300" placeholder="Describe the correction or failure pattern without copying source content or personal data."></textarea></div>
+              </div>
+              <div class="flag-grid">
+                <label class="flag-label"><input id="postReviewError" name="postReviewError" type="checkbox"><span class="flag-content"><span class="flag-mark">✓</span><span>Verified error remained after review</span></span></label>
+                <label class="flag-label"><input id="exception" name="exception" type="checkbox"><span class="flag-content"><span class="flag-mark">✓</span><span>Exception path was used</span></span></label>
+                <label class="flag-label"><input id="manualFallback" name="manualFallback" type="checkbox"><span class="flag-content"><span class="flag-mark">✓</span><span>Manual fallback was used</span></span></label>
+                <label class="flag-label"><input id="technicalFailure" name="technicalFailure" type="checkbox"><span class="flag-content"><span class="flag-mark">✓</span><span>Technical failure occurred</span></span></label>
+              </div>
+              <div class="form-error" id="entryError" role="alert" aria-live="polite"></div>
+              <div class="entry-actions"><button class="btn btn-primary" id="saveEntryButton" type="submit">Add Case to Tracker</button><button class="btn btn-ghost" id="cancelEditButton" type="button" hidden>Cancel Edit</button></div>
+              <div class="entry-status" id="entryStatus" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <section class="workspace-section" aria-labelledby="recordsTitle"><div class="section-title-row"><div><h3 id="recordsTitle">Pilot evidence log</h3><p>Search and filter the local record. Edit or delete individual rows when a correction is required.</p></div><span class="record-count" id="recordCount">0 records</span></div>
+            <div class="filters"><input id="recordSearch" type="search" placeholder="Search reference or note" aria-label="Search pilot records"><select id="outcomeFilter" aria-label="Filter by outcome"><option value="all">All outcomes</option><option value="no-change">Accepted without change</option><option value="minor">Minor edit</option><option value="major">Major correction</option><option value="rejected">Rejected</option></select><select id="incidentFilter" aria-label="Filter by incident"><option value="all">All incident statuses</option><option value="none">No incident</option><option value="near-miss">Near miss</option><option value="resolved-material">Resolved material</option><option value="unresolved-material">Unresolved material</option></select></div>
+            <div class="record-table-wrap" id="recordTableWrap"><table class="record-table"><thead><tr><th>Date</th><th>Reference</th><th>Outcome</th><th>Human time</th><th>Cycle</th><th>Signals</th><th>Incident</th><th>Notes</th><th>Actions</th></tr></thead><tbody id="recordBody"></tbody></table><div class="empty-state" id="emptyState"><strong>No cases logged yet</strong>Add the first observed pilot case above.</div></div>
+          </section>
+
+          <section class="workspace-section" aria-labelledby="exportTitle"><div class="section-title-row"><div><h3 id="exportTitle">Back up and use the evidence</h3><p>JSON preserves the editable tracker. CSV provides a portable evidence report. Scorecard handoff sends calculated aggregates through the URL without uploading the case log.</p></div></div>
+            <div class="workspace-actions"><button class="btn btn-primary" id="exportCsvButton" type="button">⬇ Export CSV</button><button class="btn btn-ghost" id="exportJsonButton" type="button">⬇ Backup JSON</button><button class="btn btn-ghost" id="importJsonButton" type="button">⬆ Import JSON</button><a class="btn btn-primary scorecard-link" id="scorecardLink" href="ai-automation-pilot-scorecard.html" aria-disabled="true">Open Pilot Scorecard →</a></div>
+            <input class="import-input" id="importFile" type="file" accept="application/json,.json" tabindex="-1">
+            <p class="handoff-note"><strong>Before using the Scorecard:</strong> verify denominators, baseline comparability, review records, full costs, incident status, and sample suitability. The handoff does not mark any Scorecard control or evidence checkbox.</p>
+          </section>
+        </div>
+      </section>
+    </section>
+
+    <section class="method-section shell" aria-labelledby="methodTitle"><div class="section-head"><span class="kicker">Measurement Workflow</span><h2 id="methodTitle">Turn pilot activity into reviewable evidence</h2><p>The tracker separates observations from interpretation and keeps operational targets distinct from claims about statistical validity or deployment approval.</p></div><div class="method-grid">
+      <article class="card method-card"><div class="method-icon" aria-hidden="true">1</div><h3>Define</h3><p>Freeze the bounded workflow, baseline, denominators, costs, planned period, and thresholds.</p></article>
+      <article class="card method-card"><div class="method-icon" aria-hidden="true">2</div><h3>Observe</h3><p>Record every included case with the same outcome and failure definitions.</p></article>
+      <article class="card method-card"><div class="method-icon" aria-hidden="true">3</div><h3>Review</h3><p>Inspect corrections, residual errors, exceptions, fallback, failures, incidents, and reviewer notes.</p></article>
+      <article class="card method-card"><div class="method-icon" aria-hidden="true">4</div><h3>Decide</h3><p>Export the evidence and use the Scorecard for a transparent Scale, Improve, Pause, or Stop review.</p></article>
+    </div><p class="method-note">NIST describes measurement as a traceable basis for management decisions and emphasizes documented testing, evaluation, validation, and verification processes. Choose metrics and methods appropriate to the actual context. See the <a href="https://airc.nist.gov/metrology/" target="_blank" rel="noopener noreferrer">NIST AI Metrology Center</a> and <a href="https://airc.nist.gov/airmf-resources/playbook/measure/" target="_blank" rel="noopener noreferrer">AI RMF Measure Playbook</a>.</p></section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle"><div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">Pilot Tracker questions</h2></div><div class="faq-list">
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>What should I record for each case?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-1" hidden>Record human handling and review time, cycle time, the acceptance or correction outcome, verified post-review errors, exceptions, fallback, technical failures, incidents, and a short non-sensitive note when useful.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Does this tracker upload my data?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-2" hidden>No. The active pilot is stored in local browser storage and is not submitted to a server by this page. Export a JSON backup because browser data can be cleared, blocked, or lost.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>Can I continue the tracker later?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-3" hidden>Yes, when local storage remains available for the same browser and site origin. Use JSON export and import to create a portable backup.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>How does the Scorecard handoff work?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-4" hidden>The tracker aggregates the current entries and opens the Pilot Scorecard with baseline, pilot, quality, reliability, cost, coverage, adoption, and incident fields prefilled. Verify all values and confirm controls and evidence yourself.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Does reaching the planned sample prove significance?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-5" hidden>No. The planned case count is an operational logging target only. Sample sufficiency and statistical methods depend on the workflow, population, variability, risk, decision, and study design.</div></div>
+    </div></section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><p>© 2026 Zynovix AI. All rights reserved.</p></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var STORAGE_KEY="zynovix-ai-pilot-tracker-v1";
+    var state={project:null,entries:[]};
+    var editingId=null;
+    var setupForm=document.getElementById("setupForm");
+    var entryForm=document.getElementById("entryForm");
+    var setupCard=document.getElementById("setupCard");
+    var workspaceCard=document.getElementById("workspaceCard");
+    var setupError=document.getElementById("setupError");
+    var entryError=document.getElementById("entryError");
+    var entryStatus=document.getElementById("entryStatus");
+    var saveStatus=document.getElementById("saveStatus");
+
+    var departmentLabels={operations:"Operations",marketing:"Marketing",sales:"Sales",support:"Customer Support",finance:"Finance & Administration",hr:"People & HR",technology:"Technology & IT",risk:"Risk & Compliance",general:"Cross-functional"};
+    var goalLabels={time:"Reduce handling time",cycle:"Reduce cycle time",quality:"Improve quality or consistency",capacity:"Increase capacity",cost:"Reduce operating cost",experience:"Improve user experience"};
+    var outcomeLabels={"no-change":"Accepted without change",minor:"Minor edit",major:"Major correction",rejected:"Rejected"};
+    var incidentLabels={none:"No incident","near-miss":"Near miss","resolved-material":"Material — resolved","unresolved-material":"Material — unresolved"};
+
+    function clamp(value,min,max){return Math.min(max,Math.max(min,value));}
+    function round(value,digits){var power=Math.pow(10,digits||0);return Math.round((value+Number.EPSILON)*power)/power;}
+    function percent(value){return round(value,1)+"%";}
+    function numberValue(id){return Number(document.getElementById(id).value);}
+    function today(){return new Date().toISOString().slice(0,10);}
+    function average(values){return values.length?values.reduce(function(sum,value){return sum+value;},0)/values.length:0;}
+    function countWhere(entries,test){return entries.filter(test).length;}
+    function safeFileName(value){return value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ai-pilot";}
+
+    function storageAvailable(){try{var key="__zynovix_test__";localStorage.setItem(key,key);localStorage.removeItem(key);return true;}catch(error){return false;}}
+    function saveState(){
+      if(!storageAvailable()){saveStatus.textContent="Local saving is unavailable. Export JSON after each update.";return false;}
+      try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));saveStatus.textContent="Saved locally at "+new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})+".";return true;}catch(error){saveStatus.textContent="Local save failed. Export a JSON backup.";return false;}
+    }
+    function validImportedState(value){return value&&typeof value==="object"&&value.project&&typeof value.project==="object"&&Array.isArray(value.entries)&&value.entries.length<=50000&&typeof value.project.workflowName==="string";}
+    function loadState(){
+      if(!storageAvailable())return false;
+      try{var saved=localStorage.getItem(STORAGE_KEY);if(!saved)return false;var parsed=JSON.parse(saved);if(!validImportedState(parsed))return false;state=parsed;return true;}catch(error){return false;}
+    }
+
+    function setTodayDefaults(){if(!document.getElementById("startDate").value)document.getElementById("startDate").value=today();document.getElementById("entryDate").value=today();}
+    function firstInvalid(form){var fields=form.querySelectorAll("input[required],select[required],textarea[required]");for(var i=0;i<fields.length;i+=1){if(!fields[i].checkValidity())return fields[i];}return null;}
+    function getProject(){return {
+      workflowName:document.getElementById("workflowName").value.trim(),department:document.getElementById("department").value,pilotOwner:document.getElementById("pilotOwner").value.trim(),primaryGoal:document.getElementById("primaryGoal").value,startDate:document.getElementById("startDate").value,observationDays:numberValue("observationDays"),plannedCases:numberValue("plannedCases"),eligibleMonthly:numberValue("eligibleMonthly"),baselineMinutes:numberValue("baselineMinutes"),baselineCycle:numberValue("baselineCycle"),baselineError:numberValue("baselineError"),hourlyCost:numberValue("hourlyCost"),setupCost:numberValue("setupCost"),recurringCost:numberValue("recurringCost"),eligibleObserved:numberValue("eligibleObserved"),offeredCases:numberValue("offeredCases"),targetEfficiency:numberValue("targetEfficiency"),minAcceptance:numberValue("minAcceptance"),maxMajor:numberValue("maxMajor"),maxException:numberValue("maxException"),maxTechnical:numberValue("maxTechnical")
+    };}
+    function populateProject(project){Object.keys(project).forEach(function(key){var field=document.getElementById(key);if(field)field.value=project[key];});}
+
+    function validateSetup(){
+      var invalid=firstInvalid(setupForm);if(invalid){setupError.textContent="Complete the highlighted setup field with a valid value.";invalid.reportValidity();invalid.focus();return false;}
+      if(numberValue("offeredCases")>numberValue("eligibleObserved")){setupError.textContent="Cases offered the AI workflow cannot exceed eligible cases encountered.";document.getElementById("offeredCases").focus();return false;}
+      if(state.entries.length&&numberValue("offeredCases")<state.entries.length){setupError.textContent="Offered cases cannot be lower than the "+state.entries.length+" cases already logged.";document.getElementById("offeredCases").focus();return false;}
+      return true;
+    }
+
+    function openWorkspace(){setupCard.hidden=true;workspaceCard.hidden=false;renderAll();document.getElementById("tracker").scrollIntoView({behavior:"smooth",block:"start"});}
+    function openSetup(){populateProject(state.project);setupCard.hidden=false;workspaceCard.hidden=true;document.getElementById("cancelSetupButton").hidden=false;document.getElementById("setupTitle").textContent="Edit pilot setup";document.getElementById("tracker").scrollIntoView({behavior:"smooth",block:"start"});}
+
+    function getEntry(){return {id:editingId||("case-"+Date.now()+"-"+Math.random().toString(36).slice(2,8)),date:document.getElementById("entryDate").value,reference:document.getElementById("caseReference").value.trim(),outcome:document.getElementById("outcome").value,humanMinutes:numberValue("humanMinutes"),cycleHours:numberValue("cycleHours"),incidentStatus:document.getElementById("incidentStatus").value,postReviewError:document.getElementById("postReviewError").checked,exception:document.getElementById("exception").checked,manualFallback:document.getElementById("manualFallback").checked,technicalFailure:document.getElementById("technicalFailure").checked,notes:document.getElementById("reviewerNotes").value.trim()};}
+    function resetEntryForm(){entryForm.reset();editingId=null;document.getElementById("entryDate").value=today();document.getElementById("saveEntryButton").textContent="Add Case to Tracker";document.getElementById("cancelEditButton").hidden=true;entryError.textContent="";}
+    function populateEntry(entry){editingId=entry.id;document.getElementById("entryDate").value=entry.date;document.getElementById("caseReference").value=entry.reference||"";document.getElementById("outcome").value=entry.outcome;document.getElementById("humanMinutes").value=entry.humanMinutes;document.getElementById("cycleHours").value=entry.cycleHours;document.getElementById("incidentStatus").value=entry.incidentStatus;document.getElementById("postReviewError").checked=Boolean(entry.postReviewError);document.getElementById("exception").checked=Boolean(entry.exception);document.getElementById("manualFallback").checked=Boolean(entry.manualFallback);document.getElementById("technicalFailure").checked=Boolean(entry.technicalFailure);document.getElementById("reviewerNotes").value=entry.notes||"";document.getElementById("saveEntryButton").textContent="Save Case Changes";document.getElementById("cancelEditButton").hidden=false;document.getElementById("entrySection").scrollIntoView({behavior:"smooth",block:"start"});document.getElementById("humanMinutes").focus();}
+
+    function calculate(){
+      var entries=state.entries,n=entries.length,noChange=countWhere(entries,function(e){return e.outcome==="no-change";}),minor=countWhere(entries,function(e){return e.outcome==="minor";}),major=countWhere(entries,function(e){return e.outcome==="major";}),rejected=countWhere(entries,function(e){return e.outcome==="rejected";}),errors=countWhere(entries,function(e){return e.postReviewError;}),exceptions=countWhere(entries,function(e){return e.exception||e.manualFallback;}),technical=countWhere(entries,function(e){return e.technicalFailure;}),nearMiss=countWhere(entries,function(e){return e.incidentStatus==="near-miss";}),material=countWhere(entries,function(e){return e.incidentStatus==="resolved-material"||e.incidentStatus==="unresolved-material";}),unresolved=countWhere(entries,function(e){return e.incidentStatus==="unresolved-material";});
+      var avgMinutes=average(entries.map(function(e){return Number(e.humanMinutes)||0;})),avgCycle=average(entries.map(function(e){return Number(e.cycleHours)||0;})),ratio=function(count){return n?count/n*100:0;};
+      return {n:n,noChange:noChange,minor:minor,major:major,rejected:rejected,errors:errors,exceptions:exceptions,technical:technical,nearMiss:nearMiss,material:material,unresolved:unresolved,avgMinutes:avgMinutes,avgCycle:avgCycle,noChangeRate:ratio(noChange),minorRate:ratio(minor),majorRate:ratio(major+rejected),errorRate:ratio(errors),exceptionRate:ratio(exceptions),technicalRate:ratio(technical),coverage:state.project?clamp(state.project.offeredCases/state.project.eligibleObserved*100,0,100):0,adoption:state.project?clamp(n/state.project.offeredCases*100,0,100):0,efficiency:state.project&&state.project.baselineMinutes?(state.project.baselineMinutes-avgMinutes)/state.project.baselineMinutes*100:0,cycleChange:state.project&&state.project.baselineCycle?(state.project.baselineCycle-avgCycle)/state.project.baselineCycle*100:0};
+    }
+
+    function addMeta(container,text){var span=document.createElement("span");span.textContent=text;container.appendChild(span);}
+    function renderProject(){var p=state.project;document.getElementById("workspaceTitle").textContent=p.workflowName;document.getElementById("projectSubtitle").textContent=goalLabels[p.primaryGoal]+" · Owned by "+p.pilotOwner;var meta=document.getElementById("projectMeta");meta.innerHTML="";addMeta(meta,departmentLabels[p.department]);addMeta(meta,"Started "+p.startDate);addMeta(meta,p.observationDays+" planned days");addMeta(meta,p.plannedCases+" planned records");}
+    function metricCard(label,value,note,status){var card=document.createElement("article");card.className="metric-card"+(status?" "+status:"");var small=document.createElement("small"),strong=document.createElement("strong"),span=document.createElement("span");small.textContent=label;strong.textContent=value;span.textContent=note;card.appendChild(small);card.appendChild(strong);card.appendChild(span);return card;}
+    function thresholdClass(passed,hasData){return !hasData?"":passed?"good":"warn";}
+
+    function renderDashboard(summary){
+      var p=state.project,progress=p.plannedCases?clamp(summary.n/p.plannedCases*100,0,100):0;document.getElementById("progressText").textContent=summary.n+" of "+p.plannedCases+" cases ("+percent(progress)+")";document.getElementById("progressFill").style.width=progress+"%";
+      var grid=document.getElementById("metricGrid");grid.innerHTML="";
+      grid.appendChild(metricCard("Observations",String(summary.n),p.plannedCases+" planned",thresholdClass(summary.n>=p.plannedCases,summary.n>0)));
+      grid.appendChild(metricCard("Average human time",summary.n?round(summary.avgMinutes,1)+" min":"—",p.baselineMinutes+" min baseline",thresholdClass(summary.efficiency>=p.targetEfficiency,summary.n>0)));
+      grid.appendChild(metricCard("Time improvement",summary.n?percent(summary.efficiency):"—","Target ≥ "+percent(p.targetEfficiency),thresholdClass(summary.efficiency>=p.targetEfficiency,summary.n>0)));
+      grid.appendChild(metricCard("No-change acceptance",summary.n?percent(summary.noChangeRate):"—","Target ≥ "+percent(p.minAcceptance),thresholdClass(summary.noChangeRate>=p.minAcceptance,summary.n>0)));
+      grid.appendChild(metricCard("Major/rejected",summary.n?percent(summary.majorRate):"—","Maximum "+percent(p.maxMajor),thresholdClass(summary.majorRate<=p.maxMajor,summary.n>0)));
+      grid.appendChild(metricCard("Verified final error",summary.n?percent(summary.errorRate):"—",percent(p.baselineError)+" baseline",thresholdClass(summary.errorRate<=p.baselineError,summary.n>0)));
+      grid.appendChild(metricCard("Exception/fallback",summary.n?percent(summary.exceptionRate):"—","Maximum "+percent(p.maxException),thresholdClass(summary.exceptionRate<=p.maxException,summary.n>0)));
+      grid.appendChild(metricCard("Technical failure",summary.n?percent(summary.technicalRate):"—","Maximum "+percent(p.maxTechnical),thresholdClass(summary.technicalRate<=p.maxTechnical,summary.n>0)));
+      grid.appendChild(metricCard("Coverage",percent(summary.coverage),p.offeredCases+" of "+p.eligibleObserved+" eligible cases",""));
+      grid.appendChild(metricCard("Actual adoption",summary.n?percent(summary.adoption):"0%",summary.n+" logged of "+p.offeredCases+" offered",summary.adoption>100?"bad":""));
+
+      var bars=document.getElementById("outcomeBars");bars.innerHTML="";[["Accepted without change",summary.noChangeRate],["Minor edit",summary.minorRate],["Major correction / rejected",summary.majorRate]].forEach(function(item){var row=document.createElement("div");row.innerHTML='<div class="bar-row-head"><span></span><strong></strong></div><div class="bar-track"><div class="bar-fill"></div></div>';row.querySelector("span").textContent=item[0];row.querySelector("strong").textContent=percent(item[1]);row.querySelector(".bar-fill").style.width=item[1]+"%";bars.appendChild(row);});
+
+      var signals=document.getElementById("signalList");signals.innerHTML="";
+      appendSignal(signals,summary.n?"Logged records use a complete outcome split of 100%.":"No evidence has been logged yet.",summary.n?"good":"warn");
+      appendSignal(signals,summary.n>=p.plannedCases?"Operational logging target reached. Contextual sample sufficiency still requires judgment.":(p.plannedCases-summary.n)+" more logged cases remain in the operational target.",summary.n>=p.plannedCases?"good":"warn");
+      appendSignal(signals,"Coverage denominator: "+p.offeredCases+" of "+p.eligibleObserved+" eligible observed cases were offered the workflow.","good");
+      if(summary.unresolved)appendSignal(signals,summary.unresolved+" unresolved material incident(s): stop affected processing and investigate.","bad");
+      else if(summary.material)appendSignal(signals,summary.material+" resolved material incident(s): pause expansion pending accountable review.","warn");
+      else if(summary.nearMiss)appendSignal(signals,summary.nearMiss+" near miss(es) require review and trend monitoring.","warn");
+      else appendSignal(signals,"No incident or near miss is recorded in the current log.","good");
+      if(summary.n&&summary.technicalRate>p.maxTechnical)appendSignal(signals,"Technical failure exceeds the configured maximum.","warn");
+      if(summary.n&&summary.exceptionRate>p.maxException)appendSignal(signals,"Exception/fallback use exceeds the configured maximum.","warn");
+    }
+    function appendSignal(list,text,status){var li=document.createElement("li");li.className=status==="good"?"":status;var icon=document.createElement("span");icon.className="signal-icon";icon.textContent=status==="bad"?"!":status==="warn"?"!":"✓";var copy=document.createElement("span");copy.textContent=text;li.appendChild(icon);li.appendChild(copy);list.appendChild(li);}
+
+    function statusPill(text,status){var span=document.createElement("span");span.className="status-pill "+status;span.textContent=text;return span;}
+    function tableCell(row,label,text,className){var td=document.createElement("td");td.setAttribute("data-label",label);td.textContent=text;if(className)td.className=className;row.appendChild(td);return td;}
+    function renderTable(){
+      var search=document.getElementById("recordSearch").value.trim().toLowerCase(),outcomeFilter=document.getElementById("outcomeFilter").value,incidentFilter=document.getElementById("incidentFilter").value;
+      var filtered=state.entries.filter(function(entry){var matchesText=!search||(entry.reference||"").toLowerCase().includes(search)||(entry.notes||"").toLowerCase().includes(search);return matchesText&&(outcomeFilter==="all"||entry.outcome===outcomeFilter)&&(incidentFilter==="all"||entry.incidentStatus===incidentFilter);});
+      var body=document.getElementById("recordBody");body.innerHTML="";filtered.slice().sort(function(a,b){return b.date.localeCompare(a.date);}).forEach(function(entry){var row=document.createElement("tr");tableCell(row,"Date",entry.date);tableCell(row,"Reference",entry.reference||"—");var outcomeCell=tableCell(row,"Outcome","");outcomeCell.appendChild(statusPill(outcomeLabels[entry.outcome],entry.outcome==="no-change"?"good":entry.outcome==="minor"?"warn":"bad"));tableCell(row,"Human time",round(entry.humanMinutes,1)+" min");tableCell(row,"Cycle",round(entry.cycleHours,1)+" h");var signals=[];if(entry.postReviewError)signals.push("Final error");if(entry.exception)signals.push("Exception");if(entry.manualFallback)signals.push("Fallback");if(entry.technicalFailure)signals.push("Tech fail");tableCell(row,"Signals",signals.length?signals.join(", "):"None");var incidentCell=tableCell(row,"Incident","");incidentCell.appendChild(statusPill(incidentLabels[entry.incidentStatus],entry.incidentStatus==="none"?"good":entry.incidentStatus==="near-miss"?"warn":"bad"));tableCell(row,"Notes",entry.notes||"—","notes-cell");var actionCell=tableCell(row,"Actions","");var actionWrap=document.createElement("div");actionWrap.className="row-actions";var edit=document.createElement("button");edit.type="button";edit.className="row-action";edit.textContent="Edit";edit.setAttribute("data-edit-id",entry.id);var remove=document.createElement("button");remove.type="button";remove.className="row-action delete";remove.textContent="Delete";remove.setAttribute("data-delete-id",entry.id);actionWrap.appendChild(edit);actionWrap.appendChild(remove);actionCell.appendChild(actionWrap);body.appendChild(row);});
+      document.getElementById("emptyState").hidden=filtered.length>0;document.querySelector(".record-table").hidden=filtered.length===0;document.getElementById("recordCount").textContent=filtered.length+" shown · "+state.entries.length+" total";
+    }
+
+    function buildScorecardUrl(summary){
+      if(!summary.n)return "ai-automation-pilot-scorecard.html";var p=state.project,params=new URLSearchParams({workflow:p.workflowName,department:p.department,goal:p.primaryGoal,pilotDays:String(p.observationDays),eligibleCases:String(p.eligibleMonthly),baselineMinutes:String(p.baselineMinutes),baselineCycle:String(p.baselineCycle),baselineError:String(p.baselineError),hourlyCost:String(p.hourlyCost),pilotCases:String(summary.n),coverage:String(round(summary.coverage,2)),adoption:String(round(summary.adoption,2)),pilotMinutes:String(round(summary.avgMinutes,2)),pilotCycle:String(round(summary.avgCycle,2)),noChange:String(round(summary.noChangeRate,2)),minorEdit:String(round(summary.minorRate,2)),majorCorrection:String(round(summary.majorRate,2)),pilotError:String(round(summary.errorRate,2)),exceptionRate:String(round(summary.exceptionRate,2)),technicalFailure:String(round(summary.technicalRate,2)),setupCost:String(p.setupCost),recurringCost:String(p.recurringCost),materialIncidents:String(summary.material),unresolvedIncident:summary.unresolved?"yes":"no",targetEfficiency:String(p.targetEfficiency),minAcceptance:String(p.minAcceptance),maxMajor:String(p.maxMajor),maxTechnical:String(p.maxTechnical),maxException:String(p.maxException)});return "ai-automation-pilot-scorecard.html?"+params.toString();
+    }
+    function renderHandoff(summary){var link=document.getElementById("scorecardLink");link.href=buildScorecardUrl(summary);link.setAttribute("aria-disabled",summary.n?"false":"true");}
+    function renderAll(){if(!state.project)return;var summary=calculate();renderProject();renderDashboard(summary);renderTable();renderHandoff(summary);}
+
+    function csvEscape(value){return '"'+String(value===undefined||value===null?"":value).replace(/"/g,'""')+'"';}
+    function buildCsv(){var p=state.project,s=calculate(),rows=[["AI Automation Pilot Tracker — Zynovix AI"],["Workflow",p.workflowName],["Department",departmentLabels[p.department]],["Pilot owner",p.pilotOwner],["Start date",p.startDate],["Planned observation days",p.observationDays],["Logged cases",s.n],["Coverage (%)",round(s.coverage,2)],["Adoption (%)",round(s.adoption,2)],["Average human minutes",round(s.avgMinutes,2)],["Average cycle hours",round(s.avgCycle,2)],["No-change acceptance (%)",round(s.noChangeRate,2)],["Minor edit (%)",round(s.minorRate,2)],["Major correction/rejected (%)",round(s.majorRate,2)],["Verified post-review error (%)",round(s.errorRate,2)],["Exception/fallback (%)",round(s.exceptionRate,2)],["Technical failure (%)",round(s.technicalRate,2)],["Material incidents",s.material],["Unresolved material incidents",s.unresolved],[],["Date","Reference","Outcome","Human Minutes","Cycle Hours","Post-review Error","Exception","Manual Fallback","Technical Failure","Incident","Notes"]];state.entries.forEach(function(e){rows.push([e.date,e.reference,outcomeLabels[e.outcome],e.humanMinutes,e.cycleHours,e.postReviewError?"Yes":"No",e.exception?"Yes":"No",e.manualFallback?"Yes":"No",e.technicalFailure?"Yes":"No",incidentLabels[e.incidentStatus],e.notes]);});return "\uFEFF"+rows.map(function(row){return row.map(csvEscape).join(",");}).join("\r\n");}
+    function download(content,type,filename){var blob=new Blob([content],{type:type}),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download=filename;document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);saveStatus.textContent=filename+" downloaded.";}
+    function exportCsv(){download(buildCsv(),"text/csv;charset=utf-8",safeFileName(state.project.workflowName)+"-pilot-evidence.csv");}
+    function exportJson(){var packageData={format:"zynovix-ai-pilot-tracker",version:1,exportedAt:new Date().toISOString(),project:state.project,entries:state.entries};download(JSON.stringify(packageData,null,2),"application/json;charset=utf-8",safeFileName(state.project.workflowName)+"-pilot-backup.json");}
+    function importJson(file){if(!file)return;var reader=new FileReader();reader.onload=function(){try{var parsed=JSON.parse(String(reader.result));if(!validImportedState(parsed)||parsed.format&&parsed.format!=="zynovix-ai-pilot-tracker")throw new Error("Invalid format");if(state.project&&!window.confirm("Replace the active local pilot with this JSON backup?"))return;state={project:parsed.project,entries:parsed.entries};editingId=null;saveState();resetEntryForm();openWorkspace();saveStatus.textContent="JSON backup imported and saved locally.";}catch(error){saveStatus.textContent="Import failed. Choose a valid Zynovix Pilot Tracker JSON backup.";}finally{document.getElementById("importFile").value="";}};reader.readAsText(file);}
+
+    setupForm.addEventListener("submit",function(event){event.preventDefault();if(!validateSetup())return;state.project=getProject();setupError.textContent="";saveState();document.getElementById("setupTitle").textContent="Define one measurable pilot";document.getElementById("cancelSetupButton").hidden=true;openWorkspace();});
+    entryForm.addEventListener("submit",function(event){event.preventDefault();var invalid=firstInvalid(entryForm);if(invalid){entryError.textContent="Complete the highlighted case field with a valid value.";invalid.reportValidity();invalid.focus();return;}if(!editingId&&state.entries.length>=state.project.offeredCases){entryError.textContent="Logged cases cannot exceed offered cases. Update the observation denominator before adding another case.";return;}var entry=getEntry();if(editingId){var index=state.entries.findIndex(function(item){return item.id===editingId;});if(index!==-1)state.entries[index]=entry;entryStatus.textContent="Case changes saved.";}else{state.entries.push(entry);entryStatus.textContent="Case added to the local tracker.";}saveState();resetEntryForm();renderAll();});
+    document.getElementById("editSetupButton").addEventListener("click",openSetup);
+    document.getElementById("cancelSetupButton").addEventListener("click",function(){setupCard.hidden=true;workspaceCard.hidden=false;setupError.textContent="";});
+    document.getElementById("cancelEditButton").addEventListener("click",function(){resetEntryForm();entryStatus.textContent="Edit cancelled.";});
+    document.getElementById("recordBody").addEventListener("click",function(event){var editId=event.target.getAttribute("data-edit-id"),deleteId=event.target.getAttribute("data-delete-id");if(editId){var entry=state.entries.find(function(item){return item.id===editId;});if(entry)populateEntry(entry);}if(deleteId&&window.confirm("Delete this local pilot record?")){state.entries=state.entries.filter(function(item){return item.id!==deleteId;});if(editingId===deleteId)resetEntryForm();saveState();renderAll();saveStatus.textContent="Record deleted from this browser.";}});
+    ["recordSearch","outcomeFilter","incidentFilter"].forEach(function(id){document.getElementById(id).addEventListener(id==="recordSearch"?"input":"change",renderTable);});
+    document.getElementById("exportCsvButton").addEventListener("click",exportCsv);
+    document.getElementById("exportJsonButton").addEventListener("click",exportJson);
+    document.getElementById("importJsonButton").addEventListener("click",function(){document.getElementById("importFile").click();});
+    document.getElementById("importFile").addEventListener("change",function(){importJson(this.files[0]);});
+    document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("newPilotButton").addEventListener("click",function(){if(!window.confirm("Start a new pilot? Export JSON first if you need this local data."))return;state={project:null,entries:[]};editingId=null;if(storageAvailable())localStorage.removeItem(STORAGE_KEY);setupForm.reset();resetEntryForm();setTodayDefaults();workspaceCard.hidden=true;setupCard.hidden=false;document.getElementById("cancelSetupButton").hidden=true;document.getElementById("setupTitle").textContent="Define one measurable pilot";document.getElementById("tracker").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("scorecardLink").addEventListener("click",function(event){if(!state.entries.length)event.preventDefault();});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+
+    var params=new URLSearchParams(window.location.search),queryWorkflow=params.get("workflow"),queryDepartment=params.get("department"),queryGoal=params.get("goal");
+    setTodayDefaults();
+    if(loadState()){openWorkspace();}
+    else {if(queryWorkflow)document.getElementById("workflowName").value=queryWorkflow.slice(0,100);if(queryDepartment&&departmentLabels[queryDepartment])document.getElementById("department").value=queryDepartment;if(queryGoal&&goalLabels[queryGoal])document.getElementById("primaryGoal").value=queryGoal;setupCard.hidden=false;workspaceCard.hidden=true;}
+  }());
+  </script>
+</body>
+</html>

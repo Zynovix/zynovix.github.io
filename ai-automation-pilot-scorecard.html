@@ -62,6 +62,7 @@
     .scorecard-hero > p { max-width: 860px; margin: 0 auto; color: var(--ps-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.72; }
     .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 24px auto 0; padding: 0; list-style: none; }
     .hero-facts li { padding: 8px 12px; border: 1px solid var(--ps-line); border-radius: 999px; color: #c7d5e7; background: rgba(255,255,255,.035); font-size: 13px; }
+    .tracker-hero-action { margin-top: 20px; }
     .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 900px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
 
     .scorecard-section { padding: 16px 0 78px; }
@@ -330,6 +331,7 @@
         <li>📊 Baseline vs pilot</li>
         <li>📥 Copy, CSV, and PDF</li>
       </ul>
+      <div class="tracker-hero-action"><a class="btn btn-ghost" href="ai-automation-pilot-tracker.html">Need structured pilot data? Open the Pilot Tracker</a></div>
       <aside class="privacy-note" aria-label="Privacy and limitation notice"><span aria-hidden="true">🔒</span><div><strong>Private planning aid:</strong> calculations run in your browser and are not submitted to a server. Do not enter confidential identifiers or secrets. This tool does not provide legal, financial, security, compliance, statistical, or deployment approval.</div></aside>
     </section>
 
@@ -926,6 +928,9 @@
       if(workflow)document.getElementById("workflowName").value=workflow.slice(0,100);
       if(department&&departmentLabels[department])document.getElementById("department").value=department;
       if(goal&&goalLabels[goal])document.getElementById("primaryGoal").value=goal;
+      var numericMap={pilotDays:"pilotDuration",eligibleCases:"eligibleCases",baselineMinutes:"baselineMinutes",baselineCycle:"baselineCycle",baselineError:"baselineError",hourlyCost:"hourlyCost",pilotCases:"pilotCases",coverage:"coverage",adoption:"adoption",pilotMinutes:"pilotMinutes",pilotCycle:"pilotCycle",noChange:"noChange",minorEdit:"minorEdit",majorCorrection:"majorCorrection",pilotError:"pilotError",exceptionRate:"exceptionRate",technicalFailure:"technicalFailure",setupCost:"setupCost",recurringCost:"recurringCost",materialIncidents:"materialIncidents",targetEfficiency:"targetEfficiency",minAcceptance:"minAcceptance",maxMajor:"maxMajor",maxTechnical:"maxTechnical",maxException:"maxException"};
+      Object.keys(numericMap).forEach(function(parameter){var value=params.get(parameter),number=Number(value);if(value!==null&&isFinite(number))document.getElementById(numericMap[parameter]).value=number;});
+      if(params.get("unresolvedIncident")==="yes"||params.get("unresolvedIncident")==="no")document.getElementById("unresolvedIncident").value=params.get("unresolvedIncident");
     }
 
     function updateBaselinePreview() {

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Tool Comparison &amp; Stack Builder (2026) | Zynovix AI</title>
+  <meta name="description" content="Compare 18 leading AI tools by use case, budget, team size, ecosystem, data approach, and technical requirements. Build a practical AI stack with transparent fit scores.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-tool-comparison-stack-builder.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Tool Comparison &amp; Stack Builder">
+  <meta property="og:description" content="Turn your goals, budget, team context, and requirements into a transparent AI tool shortlist and practical three-layer stack.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-tool-comparison-stack-builder.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Tool Comparison &amp; Stack Builder">
+  <meta name="twitter:description" content="Compare leading AI tools and build a practical shortlist with transparent fit scores.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --sb-bg: #050816;
+      --sb-surface: rgba(10,17,39,.94);
+      --sb-surface-2: rgba(15,24,51,.9);
+      --sb-line: rgba(148,163,184,.2);
+      --sb-strong: #f8fbff;
+      --sb-text: #d6e0ef;
+      --sb-soft: #96a5bc;
+      --sb-cyan: #22d3ee;
+      --sb-blue: #3b82f6;
+      --sb-purple: #8b5cf6;
+      --sb-green: #34d399;
+      --sb-yellow: #fbbf24;
+      --sb-red: #fb7185;
+      --sb-shadow: 0 28px 85px rgba(0,0,0,.36);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.stack-builder-page { color: var(--sb-text); overflow-x: hidden; }
+    [hidden] { display: none !important; }
+    .stack-builder-page .brand img,
+    .stack-builder-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-160%); padding: 11px 15px; border-radius: 10px; color: #041018; background: var(--sb-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .builder-hero { padding: 54px 0 40px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; color: var(--sb-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--sb-cyan); }
+    .builder-hero h1 { max-width: 1080px; margin: 18px auto; color: var(--sb-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.6px; }
+    .builder-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--sb-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .builder-hero > p { max-width: 875px; margin: 0 auto; color: var(--sb-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.7; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--sb-line); border-radius: 999px; color: #c8d6e8; background: rgba(255,255,255,.035); font-size: 13px; }
+    .hero-action { margin-top: 25px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 930px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
+    .privacy-note svg { width: 21px; height: 21px; flex: 0 0 21px; margin-top: 2px; color: var(--sb-green); }
+
+    .builder-section { padding: 18px 0 86px; scroll-margin-top: 96px; }
+    .builder-shell { border: 1px solid var(--sb-line); border-radius: 28px; background: var(--sb-surface); box-shadow: var(--sb-shadow); overflow: hidden; }
+    .builder-intro { padding: 25px; border-bottom: 1px solid var(--sb-line); background: linear-gradient(135deg,rgba(59,130,246,.09),rgba(139,92,246,.07)); }
+    .builder-intro span { color: var(--sb-cyan); font-size: 12px; font-weight: 900; letter-spacing: .55px; text-transform: uppercase; }
+    .builder-intro h2 { margin: 7px 0 8px; color: var(--sb-strong); font-size: clamp(29px,5vw,43px); line-height: 1.1; }
+    .builder-intro p { max-width: 850px; margin: 0; color: var(--sb-soft); line-height: 1.65; }
+    .builder-form { padding: 24px; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 17px; }
+    .field { min-width: 0; }
+    .field label,
+    fieldset legend { display: block; margin-bottom: 8px; color: var(--sb-strong); font-size: 14px; font-weight: 800; }
+    .field select { width: 100%; min-height: 52px; padding: 12px 42px 12px 14px; border: 1px solid var(--sb-line); border-radius: 14px; outline: none; color: var(--sb-strong); background: #091127; font: inherit; color-scheme: dark; transition: border-color .2s ease,box-shadow .2s ease; }
+    .field select:focus { border-color: rgba(34,211,238,.75); box-shadow: 0 0 0 4px rgba(34,211,238,.09); }
+    .field-help { display: block; margin-top: 6px; color: #77879f; font-size: 12px; line-height: 1.45; }
+    fieldset { min-width: 0; margin: 25px 0 0; padding: 0; border: 0; }
+    .requirement-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .requirement-label { position: relative; cursor: pointer; }
+    .requirement-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .requirement-content { display: grid; grid-template-columns: 32px minmax(0,1fr); align-items: center; gap: 11px; min-height: 68px; padding: 12px; border: 1px solid var(--sb-line); border-radius: 15px; color: #becada; background: rgba(255,255,255,.025); line-height: 1.35; transition: border-color .2s ease,background .2s ease,transform .2s ease; }
+    .requirement-mark { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--sb-line); border-radius: 10px; color: transparent; background: #091127; font-weight: 900; }
+    .requirement-content strong { display: block; color: var(--sb-strong); font-size: 14px; }
+    .requirement-content small { display: block; margin-top: 2px; color: var(--sb-soft); font-size: 12px; }
+    .requirement-label input:checked + .requirement-content { border-color: rgba(34,211,238,.65); background: rgba(34,211,238,.075); }
+    .requirement-label input:checked + .requirement-content .requirement-mark { border-color: var(--sb-green); color: #06160f; background: var(--sb-green); }
+    .requirement-label input:focus-visible + .requirement-content { outline: 3px solid var(--sb-cyan); outline-offset: 2px; }
+    .requirement-label:hover .requirement-content { transform: translateY(-1px); }
+    .form-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
+    .form-actions button { border: 0; cursor: pointer; font: inherit; }
+    .form-note { margin: 16px 0 0; color: #7e8da5; font-size: 13px; line-height: 1.55; }
+
+    .results-section { padding: 0 0 92px; scroll-margin-top: 96px; }
+    .results-head { display: grid; gap: 18px; align-items: end; margin-bottom: 25px; }
+    .results-head .section-head { margin: 0; text-align: left; }
+    .results-head .section-head p { margin-left: 0; }
+    .results-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .results-actions button { border: 0; cursor: pointer; font: inherit; }
+    .result-summary { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 22px; }
+    .summary-card { padding: 18px; border: 1px solid var(--sb-line); border-radius: 18px; background: rgba(255,255,255,.028); }
+    .summary-card span { display: block; color: var(--sb-soft); font-size: 12px; font-weight: 800; letter-spacing: .35px; text-transform: uppercase; }
+    .summary-card strong { display: block; margin-top: 5px; color: var(--sb-strong); font-size: 20px; line-height: 1.25; }
+    .summary-card small { display: block; margin-top: 5px; color: var(--sb-soft); line-height: 1.45; }
+
+    .stack-panel { margin-bottom: 28px; padding: 22px; border: 1px solid rgba(34,211,238,.25); border-radius: 22px; background: linear-gradient(135deg,rgba(59,130,246,.085),rgba(139,92,246,.065)); }
+    .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+    .panel-heading h3 { margin: 0 0 4px; color: var(--sb-strong); font-size: clamp(23px,4vw,31px); }
+    .panel-heading p { margin: 0; color: var(--sb-soft); line-height: 1.55; }
+    .stack-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .stack-layer { position: relative; padding: 18px; border: 1px solid var(--sb-line); border-radius: 17px; background: rgba(5,8,22,.56); }
+    .layer-number { display: grid; width: 36px; height: 36px; place-items: center; margin-bottom: 12px; border-radius: 11px; color: #06131c; background: linear-gradient(135deg,var(--sb-cyan),#60a5fa); font-weight: 900; }
+    .stack-layer small { color: var(--sb-cyan); font-size: 11px; font-weight: 900; letter-spacing: .4px; text-transform: uppercase; }
+    .stack-layer h4 { margin: 5px 0 7px; color: var(--sb-strong); font-size: 20px; }
+    .stack-layer p { margin: 0; color: var(--sb-soft); font-size: 13px; line-height: 1.5; }
+
+    .tool-results { display: grid; grid-template-columns: 1fr; gap: 15px; }
+    .match-card { position: relative; display: flex; min-width: 0; flex-direction: column; padding: 20px; border: 1px solid var(--sb-line); border-radius: 20px; background: var(--sb-surface-2); overflow: hidden; }
+    .match-card:first-child { border-color: rgba(34,211,238,.5); box-shadow: inset 0 0 0 1px rgba(34,211,238,.08); }
+    .match-card::after { position: absolute; inset: auto -40px -70px auto; width: 140px; height: 140px; border-radius: 50%; background: var(--tool-accent,rgba(59,130,246,.22)); filter: blur(45px); content: ""; pointer-events: none; }
+    .tool-head { display: grid; grid-template-columns: 48px minmax(0,1fr) auto; align-items: center; gap: 12px; }
+    .tool-mark { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(255,255,255,.14); border-radius: 15px; color: #fff; background: var(--tool-color,#2563eb); font-size: 14px; font-weight: 900; letter-spacing: -.25px; box-shadow: 0 12px 28px rgba(0,0,0,.23); }
+    .tool-title { min-width: 0; }
+    .tool-title h3 { margin: 0; color: var(--sb-strong); font-size: 21px; line-height: 1.15; }
+    .tool-title span { display: block; margin-top: 3px; color: var(--sb-soft); font-size: 12px; }
+    .fit-score { display: grid; width: 54px; height: 54px; place-items: center; border: 5px solid rgba(34,211,238,.24); border-radius: 50%; color: var(--sb-strong); background: #091127; font-size: 15px; font-weight: 900; }
+    .match-reason { min-height: 68px; margin: 16px 0 13px; color: #becbdd; font-size: 14px; line-height: 1.55; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 14px; padding: 0; list-style: none; }
+    .tag-list li { padding: 6px 9px; border: 1px solid var(--sb-line); border-radius: 999px; color: #bcd0e4; background: rgba(255,255,255,.028); font-size: 11px; }
+    .tool-caution { margin: auto 0 0; padding: 11px 12px; border-left: 3px solid var(--sb-yellow); border-radius: 0 10px 10px 0; color: #d8cda9; background: rgba(251,191,36,.055); font-size: 12px; line-height: 1.45; }
+    .card-actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 15px; position: relative; z-index: 1; }
+    .compare-choice { position: relative; }
+    .compare-choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .compare-choice span { display: flex; min-height: 43px; align-items: center; justify-content: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--sb-line); border-radius: 12px; color: var(--sb-strong); background: rgba(255,255,255,.035); cursor: pointer; font-size: 13px; font-weight: 800; transition: border-color .2s ease,background .2s ease; }
+    .compare-choice span::before { content: "+"; color: var(--sb-cyan); font-size: 18px; line-height: 1; }
+    .compare-choice input:checked + span { border-color: rgba(52,211,153,.6); color: #bff4df; background: rgba(52,211,153,.08); }
+    .compare-choice input:checked + span::before { content: "✓"; color: var(--sb-green); }
+    .compare-choice input:focus-visible + span { outline: 3px solid var(--sb-cyan); outline-offset: 2px; }
+    .official-link { display: flex; min-height: 43px; align-items: center; justify-content: center; padding: 9px 12px; border: 1px solid var(--sb-line); border-radius: 12px; color: #c5d9ec; background: rgba(255,255,255,.025); font-size: 13px; font-weight: 800; }
+    .official-link:hover { border-color: var(--sb-cyan); color: #fff; }
+
+    .comparison-panel { margin-top: 30px; scroll-margin-top: 96px; }
+    .comparison-toolbar { display: grid; gap: 14px; align-items: end; margin-bottom: 14px; }
+    .comparison-toolbar h3 { margin: 0 0 4px; color: var(--sb-strong); font-size: clamp(25px,4vw,34px); }
+    .comparison-toolbar p { margin: 0; color: var(--sb-soft); line-height: 1.5; }
+    .comparison-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    .comparison-buttons button { border: 0; cursor: pointer; font: inherit; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--sb-line); border-radius: 19px; background: var(--sb-surface); box-shadow: 0 20px 55px rgba(0,0,0,.23); }
+    .compare-table { width: 100%; min-width: 780px; border-collapse: collapse; }
+    .compare-table th,
+    .compare-table td { padding: 14px; border-right: 1px solid var(--sb-line); border-bottom: 1px solid var(--sb-line); text-align: left; vertical-align: top; }
+    .compare-table tr:last-child th,
+    .compare-table tr:last-child td { border-bottom: 0; }
+    .compare-table th:last-child,
+    .compare-table td:last-child { border-right: 0; }
+    .compare-table thead th { min-width: 180px; color: var(--sb-strong); background: rgba(255,255,255,.05); }
+    .compare-table thead th:first-child { min-width: 150px; }
+    .compare-table tbody th { color: #c6d3e4; background: rgba(255,255,255,.025); font-size: 13px; }
+    .compare-table tbody td { color: #b7c5d8; font-size: 13px; line-height: 1.5; }
+    .table-score { color: var(--sb-cyan); font-size: 19px; font-weight: 900; }
+    .empty-compare { padding: 28px; border: 1px dashed rgba(148,163,184,.28); border-radius: 18px; color: var(--sb-soft); background: rgba(255,255,255,.02); text-align: center; }
+    .action-status { min-height: 23px; margin-top: 13px; color: #83edc8; font-size: 14px; font-weight: 700; }
+
+    .method-section { padding: 82px 0; }
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .method-card { min-height: 0; padding: 21px; }
+    .method-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 14px; border-radius: 15px; color: #fff; background: linear-gradient(135deg,rgba(59,130,246,.88),rgba(34,211,238,.8)); }
+    .method-icon svg { width: 24px; height: 24px; }
+    .method-card h3 { margin-bottom: 7px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 14px; line-height: 1.55; }
+    .formula-box { margin-top: 22px; padding: 20px; border: 1px solid var(--sb-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .formula-box h3 { margin: 0 0 12px; color: var(--sb-strong); }
+    .formula-list { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--sb-soft); line-height: 1.55; }
+    .formula-list strong { color: #dce9f7; }
+    .source-note { margin-top: 18px; padding: 16px 18px; border-left: 4px solid var(--sb-cyan); border-radius: 0 14px 14px 0; color: #c7d5e7; background: rgba(34,211,238,.055); line-height: 1.6; }
+
+    .next-step-section { padding: 0 0 86px; }
+    .next-step-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .next-card { display: flex; min-height: 100%; flex-direction: column; padding: 22px; }
+    .next-card span { color: var(--sb-cyan); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .next-card h3 { margin: 7px 0; }
+    .next-card p { margin: 0 0 17px; }
+    .next-card .btn { margin-top: auto; align-self: flex-start; }
+
+    .faq-section { padding: 0 0 92px; }
+    .faq-list { display: grid; gap: 11px; max-width: 930px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--sb-line); border-radius: 17px; background: var(--sb-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--sb-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--sb-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--sb-soft); line-height: 1.65; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--sb-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid,
+      .result-summary,
+      .requirement-grid,
+      .method-grid,
+      .next-step-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .card-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .form-actions { flex-direction: row; }
+    }
+    @media (min-width: 820px) {
+      .tool-results { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .stack-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .comparison-toolbar,
+      .results-head { grid-template-columns: minmax(0,1fr) auto; }
+    }
+    @media (min-width: 1040px) {
+      .builder-hero { padding-top: 72px; }
+      .builder-form { padding: 32px; }
+      .field-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .requirement-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .tool-results { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .next-step-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .stack-builder-page .brand img,
+      .stack-builder-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .builder-hero h1 { letter-spacing: -1.5px; }
+      .results-actions .btn,
+      .comparison-buttons .btn,
+      .form-actions .btn { width: 100%; }
+      .panel-heading { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,
+      .builder-hero,
+      .builder-section,
+      .results-actions,
+      .comparison-buttons,
+      .match-card .card-actions,
+      .method-section,
+      .next-step-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb { display: none !important; }
+      body.stack-builder-page { color: #111827; background: #fff !important; }
+      .results-section { padding: 0; }
+      .results-head .section-head h2,
+      .summary-card strong,
+      .stack-layer h4,
+      .tool-title h3,
+      .comparison-toolbar h3,
+      .compare-table thead th { color: #111827 !important; }
+      .summary-card,
+      .stack-panel,
+      .stack-layer,
+      .match-card,
+      .table-wrap { break-inside: avoid; border-color: #cbd5e1; color: #111827; background: #fff !important; box-shadow: none; }
+      .match-reason,
+      .tool-caution,
+      .stack-layer p,
+      .summary-card small,
+      .compare-table tbody td { color: #334155 !important; }
+    }
+  </style>
+
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-tool-comparison-stack-builder.html#application",
+        "name": "AI Tool Comparison & Stack Builder",
+        "url": "https://zynovix.github.io/ai-tool-comparison-stack-builder.html",
+        "description": "A free browser-based decision tool that compares AI products by use case, budget, team size, ecosystem, data approach, and functional requirements.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-tool-comparison-stack-builder.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Tool Comparison & Stack Builder", "item": "https://zynovix.github.io/ai-tool-comparison-stack-builder.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-tool-comparison-stack-builder.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "How does the AI tool fit score work?", "acceptedAnswer": { "@type": "Answer", "text": "The score weights use-case fit, budget fit, team fit, ecosystem alignment, data approach, and selected functional requirements. It is a transparent planning aid, not an independent product certification." } },
+          { "@type": "Question", "name": "Does Zynovix use affiliate commissions to rank tools?", "acceptedAnswer": { "@type": "Answer", "text": "No. The current ranking is calculated from the selections entered in the builder and the published matching method. Commercial relationships must not change the fit formula." } },
+          { "@type": "Question", "name": "Are the prices shown exact?", "acceptedAnswer": { "@type": "Answer", "text": "The builder uses broad pricing models and budget fit rather than promising an exact invoice. Users should verify current plan limits, usage charges, regional taxes, and contract terms on each vendor's official pricing page." } },
+          { "@type": "Question", "name": "Can the recommended stack be used without a pilot?", "acceptedAnswer": { "@type": "Answer", "text": "A shortlist should be validated through a bounded pilot using representative work, defined success metrics, human review, security checks, and a rollback path before broader deployment." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="stack-builder-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html" class="active" aria-current="page">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="builder-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a><span aria-hidden="true">›</span>
+        <span>Stack Builder</span>
+      </nav>
+      <div class="pill">Free decision tool · 2026 edition</div>
+      <h1>Build an AI stack that <span>fits your work</span></h1>
+      <p>Compare 18 leading AI products using your goal, budget, team size, existing ecosystem, data approach, and must-have capabilities—then create a defensible shortlist.</p>
+      <ul class="hero-facts" aria-label="Tool features">
+        <li>Transparent fit score</li>
+        <li>Up to 4 tools side by side</li>
+        <li>Shareable selection</li>
+        <li>Print or save as PDF</li>
+        <li>No signup required</li>
+      </ul>
+      <div class="hero-action"><a class="btn btn-primary" href="#builder">Build My AI Stack</a></div>
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Your selections are evaluated in this browser. They are not uploaded by this static page. Results are a planning shortlist, not security, compliance, legal, procurement, or performance certification.</span>
+      </div>
+    </section>
+
+    <section class="builder-section shell" id="builder" aria-labelledby="builderTitle">
+      <div class="builder-shell">
+        <div class="builder-intro">
+          <span>Decision profile</span>
+          <h2 id="builderTitle">Tell us what the stack must do</h2>
+          <p>Start broad, then add only requirements that truly affect the purchase. Selecting every capability can hide the clearest fit.</p>
+        </div>
+        <form class="builder-form" id="builderForm">
+          <div class="field-grid">
+            <div class="field">
+              <label for="goal">Primary use case</label>
+              <select id="goal" name="goal">
+                <option value="general">General productivity</option>
+                <option value="marketing">Marketing &amp; content</option>
+                <option value="support">Customer support</option>
+                <option value="research">Research &amp; knowledge</option>
+                <option value="development">Software development</option>
+                <option value="automation">Workflow automation</option>
+              </select>
+              <small class="field-help">The job that should drive the ranking.</small>
+            </div>
+            <div class="field">
+              <label for="team">Team size</label>
+              <select id="team" name="team">
+                <option value="solo">Solo</option>
+                <option value="small" selected>2–10 people</option>
+                <option value="medium">11–50 people</option>
+                <option value="large">51+ people</option>
+              </select>
+              <small class="field-help">Used to assess collaboration and admin fit.</small>
+            </div>
+            <div class="field">
+              <label for="budget">Budget comfort</label>
+              <select id="budget" name="budget">
+                <option value="0">Free-first</option>
+                <option value="1" selected>Lean paid plans</option>
+                <option value="2">Team software budget</option>
+                <option value="3">Flexible / enterprise</option>
+              </select>
+              <small class="field-help">Broad fit only; contracts and usage vary.</small>
+            </div>
+            <div class="field">
+              <label for="ecosystem">Existing ecosystem</label>
+              <select id="ecosystem" name="ecosystem">
+                <option value="neutral" selected>No strong preference</option>
+                <option value="microsoft">Microsoft 365 / Azure</option>
+                <option value="google">Google Workspace / Cloud</option>
+                <option value="creative">Creative / marketing stack</option>
+                <option value="developer">Developer / GitHub stack</option>
+              </select>
+              <small class="field-help">Existing tools can reduce adoption friction.</small>
+            </div>
+            <div class="field">
+              <label for="dataApproach">Data approach</label>
+              <select id="dataApproach" name="dataApproach">
+                <option value="standard" selected>Standard cloud use</option>
+                <option value="business">Business workspace controls</option>
+                <option value="enterprise">Enterprise administration</option>
+                <option value="selfhost">Self-hosting preference</option>
+              </select>
+              <small class="field-help">A fit signal—not a completed security review.</small>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Must-have capabilities <span style="color:var(--sb-soft);font-weight:500">(optional)</span></legend>
+            <div class="requirement-grid">
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="api">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>API or developer access</strong><small>Connect custom systems or code.</small></span></span>
+              </label>
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="integrations">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>Business integrations</strong><small>Work across existing apps and data.</small></span></span>
+              </label>
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="nocode">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>No-code friendly</strong><small>Useful without software development.</small></span></span>
+              </label>
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="collaboration">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>Team collaboration</strong><small>Shared workspaces, projects, or assets.</small></span></span>
+              </label>
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="governance">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>Administration &amp; governance</strong><small>Central controls on eligible plans.</small></span></span>
+              </label>
+              <label class="requirement-label">
+                <input type="checkbox" name="requirement" value="selfhost">
+                <span class="requirement-content"><span class="requirement-mark">✓</span><span><strong>Self-hosting option</strong><small>Operate eligible software in your environment.</small></span></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Build My Shortlist</button>
+            <button class="btn btn-ghost" type="button" id="resetButton">Reset Selections</button>
+          </div>
+          <p class="form-note">Tool information and official links reviewed July 22, 2026. Product features, availability, plan names, limits, prices, and terms can change; verify them with the vendor before purchase.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="results-section shell" id="results" aria-labelledby="resultsTitle">
+      <div class="results-head">
+        <div class="section-head">
+          <span class="kicker">Your decision brief</span>
+          <h2 id="resultsTitle">Recommended AI shortlist</h2>
+          <p id="resultsIntro">A starting shortlist ranked against your current profile.</p>
+        </div>
+        <div class="results-actions">
+          <button class="btn btn-ghost" type="button" id="shareButton">Share Selection</button>
+          <button class="btn btn-ghost" type="button" id="copyButton">Copy Brief</button>
+          <button class="btn btn-ghost" type="button" id="printButton">Print / PDF</button>
+        </div>
+      </div>
+
+      <div class="result-summary" id="resultSummary"></div>
+
+      <section class="stack-panel" aria-labelledby="stackTitle">
+        <div class="panel-heading">
+          <div><h3 id="stackTitle">Suggested three-layer stack</h3><p>Roles are deliberately separated so one product does not have to solve every problem.</p></div>
+        </div>
+        <div class="stack-grid" id="stackGrid"></div>
+      </section>
+
+      <div class="tool-results" id="toolResults" aria-live="polite"></div>
+
+      <section class="comparison-panel" id="comparison" aria-labelledby="comparisonTitle">
+        <div class="comparison-toolbar">
+          <div><h3 id="comparisonTitle">Side-by-side comparison</h3><p>Select up to four shortlisted products. Three are preselected so the table is useful immediately.</p></div>
+          <div class="comparison-buttons">
+            <button class="btn btn-ghost" type="button" id="csvButton">Download CSV</button>
+            <button class="btn btn-ghost" type="button" id="clearCompareButton">Clear Table</button>
+          </div>
+        </div>
+        <div id="comparisonContent"></div>
+        <p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section class="method-section shell reveal" aria-labelledby="methodTitle">
+      <div class="section-head">
+        <span class="kicker">Transparent methodology</span>
+        <h2 id="methodTitle">What the score means</h2>
+        <p>The score organizes a shortlist. It does not replace hands-on testing, procurement review, security due diligence, accessibility review, or contract analysis.</p>
+      </div>
+      <div class="cards method-grid">
+        <article class="card method-card">
+          <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="7"/></svg></div>
+          <h3>Use case · 36%</h3>
+          <p>How directly the product supports the primary job selected.</p>
+        </article>
+        <article class="card method-card">
+          <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h2"/></svg></div>
+          <h3>Budget · 18%</h3>
+          <p>Whether a product's broad entry model matches budget comfort.</p>
+        </article>
+        <article class="card method-card">
+          <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Team · 14%</h3>
+          <p>Fit for solo use, small teams, larger teams, or enterprise rollout.</p>
+        </article>
+        <article class="card method-card">
+          <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Context · 20%</h3>
+          <p>Existing ecosystem alignment plus the requested data-control approach.</p>
+        </article>
+        <article class="card method-card">
+          <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Requirements · 12%</h3>
+          <p>The share of selected must-have capabilities represented in the profile.</p>
+        </article>
+      </div>
+      <div class="formula-box">
+        <h3>Important interpretation rules</h3>
+        <ul class="formula-list">
+          <li><strong>Fit is contextual:</strong> a lower-ranked product can be better after a real data, integration, legal, or usability review.</li>
+          <li><strong>Features are plan-dependent:</strong> API, administration, governance, support, and data options may require different subscriptions or contracts.</li>
+          <li><strong>Pricing is deliberately broad:</strong> the builder does not estimate taxes, usage, implementation, training, integration, support, or switching costs.</li>
+          <li><strong>No paid ranking:</strong> the calculation uses only the visible profile and the fixed matching method.</li>
+        </ul>
+        <div class="source-note">Each result links to an official vendor product or pricing page. Recheck that source, security documentation, privacy terms, data-processing terms, accessibility information, and current contract before making a decision.</div>
+      </div>
+    </section>
+
+    <section class="next-step-section shell reveal" aria-labelledby="nextTitle">
+      <div class="section-head">
+        <span class="kicker">Turn a shortlist into evidence</span>
+        <h2 id="nextTitle">What to do after choosing tools</h2>
+        <p>A good shortlist is the beginning of the decision, not the end.</p>
+      </div>
+      <div class="cards next-step-grid">
+        <article class="card next-card"><span>Step 1</span><h3>Check organizational readiness</h3><p>Identify the strategy, people, data, technology, and governance gaps that could block adoption.</p><a class="btn btn-ghost" href="ai-readiness-assessment.html">Assess Readiness</a></article>
+        <article class="card next-card"><span>Step 2</span><h3>Design a bounded workflow</h3><p>Define inputs, AI tasks, human review, exception paths, controls, metrics, and a 30-day pilot.</p><a class="btn btn-ghost" href="ai-workflow-blueprint-generator.html">Build a Workflow</a></article>
+        <article class="card next-card"><span>Step 3</span><h3>Measure the pilot</h3><p>Record case-level evidence and decide whether to scale, improve, pause, or stop.</p><a class="btn btn-ghost" href="ai-automation-pilot-tracker.html">Track a Pilot</a></article>
+      </div>
+    </section>
+
+    <section class="faq-section shell reveal" aria-labelledby="faqTitle">
+      <div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">AI stack builder questions</h2></div>
+      <div class="faq-list">
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1">How does the AI tool fit score work?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq1" hidden>The score weights use-case fit, budget fit, team fit, ecosystem alignment, data approach, and selected requirements. It is a planning aid, not an independent product certification.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2">Does Zynovix use affiliate commissions to rank tools?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq2" hidden>No. The ranking on this page is generated from the selections entered and the published fit method. Commercial relationships must not change the formula.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3">Are the prices shown exact?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq3" hidden>No. The tool uses broad price models so it does not promise an exact invoice. Verify plan limits, usage charges, regional pricing, taxes, implementation costs, support, and contract terms on the official vendor page.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4">Can I deploy the recommended stack immediately?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq4" hidden>A shortlist should first pass security, privacy, legal, procurement, accessibility, integration, and user testing. Run a bounded pilot with representative work, defined success metrics, human review, and a rollback path before broader deployment.</div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav>
+      <span>© 2026 Zynovix AI. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var labels = {
+      goals: {general:"General productivity",marketing:"Marketing & content",support:"Customer support",research:"Research & knowledge",development:"Software development",automation:"Workflow automation"},
+      teams: {solo:"Solo",small:"2–10 people",medium:"11–50 people",large:"51+ people"},
+      budgets: ["Free-first","Lean paid plans","Team software budget","Flexible / enterprise"],
+      ecosystems: {neutral:"No strong preference",microsoft:"Microsoft ecosystem",google:"Google ecosystem",creative:"Creative / marketing stack",developer:"Developer / GitHub stack"},
+      data: {standard:"Standard cloud use",business:"Business workspace controls",enterprise:"Enterprise administration",selfhost:"Self-hosting preference"},
+      features: {api:"API / developer access",integrations:"Business integrations",nocode:"No-code friendly",collaboration:"Team collaboration",governance:"Administration & governance",selfhost:"Self-hosting option"}
+    };
+
+    var tools = [
+      {id:"chatgpt",name:"ChatGPT",mark:"GPT",color:"#10a37f",kind:"assistant",role:"General AI workspace",goals:["general","marketing","research","development","support"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["neutral","microsoft","google","developer"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free, individual, business, and enterprise options",bestFor:"Broad multimodal work, analysis, writing, coding, research, and team workflows",strengths:["Broad capability","Multimodal work","Business connectors"],caution:"Confirm the exact plan, connector permissions, retention, and administration needed for your use case.",official:"https://openai.com/business/pricing/",accent:"rgba(16,163,127,.25)"},
+      {id:"claude",name:"Claude",mark:"CL",color:"#b56a4a",kind:"assistant",role:"Reasoning & document workspace",goals:["general","research","marketing","development","support"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["neutral","developer"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free, individual, team, and enterprise options",bestFor:"Long documents, careful writing, analysis, coding, and knowledge-heavy work",strengths:["Document workflows","Writing quality","Developer access"],caution:"Test required integrations, plan limits, and administration features with representative work.",official:"https://claude.com/pricing",accent:"rgba(181,106,74,.25)"},
+      {id:"gemini",name:"Google Gemini",mark:"G",color:"#4f7cff",kind:"assistant",role:"Google-connected AI workspace",goals:["general","research","marketing","development","support"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["google","neutral","developer"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free, individual, Workspace, and enterprise options",bestFor:"Teams already using Google Workspace or Google Cloud",strengths:["Google ecosystem","Multimodal work","Workspace context"],caution:"Availability and controls can differ across consumer, Workspace, Cloud, and regional offerings.",official:"https://one.google.com/about/google-ai-plans/",accent:"rgba(79,124,255,.25)"},
+      {id:"m365copilot",name:"Microsoft 365 Copilot",mark:"M365",color:"#6b57d9",kind:"assistant",role:"Microsoft work assistant",goals:["general","research","marketing","support","automation"],minBudget:2,teams:["small","medium","large"],ecosystems:["microsoft"],data:["business","enterprise"],features:["integrations","nocode","collaboration","governance"],priceModel:"Business and enterprise licensing",bestFor:"Organizations centered on Microsoft 365, Teams, SharePoint, and Microsoft administration",strengths:["Microsoft 365 context","Enterprise administration","Collaboration"],caution:"Value depends heavily on Microsoft licensing, data hygiene, permissions, adoption, and eligible workloads.",official:"https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise",accent:"rgba(107,87,217,.27)"},
+      {id:"perplexity",name:"Perplexity",mark:"P",color:"#1f8c8b",kind:"research",role:"Research & answer engine",goals:["research","general","marketing","support"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["neutral"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free, professional, and enterprise options",bestFor:"Web research, source discovery, cited answers, and fast competitive scanning",strengths:["Source discovery","Citations","Research speed"],caution:"Citations still require source-level verification; do not treat generated synthesis as validated fact.",official:"https://www.perplexity.ai/enterprise",accent:"rgba(31,140,139,.25)"},
+      {id:"notionai",name:"Notion AI",mark:"N",color:"#374151",kind:"knowledge",role:"Knowledge & project workspace",goals:["general","research","marketing","support"],minBudget:1,teams:["solo","small","medium","large"],ecosystems:["neutral","creative"],data:["standard","business","enterprise"],features:["integrations","nocode","collaboration","governance"],priceModel:"Workspace plans with AI capabilities",bestFor:"Teams that want AI inside documents, projects, search, and shared knowledge",strengths:["Knowledge workspace","Collaboration","Connected planning"],caution:"The fit is strongest when Notion is already the team's maintained source of knowledge and work.",official:"https://www.notion.com/product/ai",accent:"rgba(148,163,184,.2)"},
+      {id:"zapier",name:"Zapier",mark:"Z",color:"#ff4f00",kind:"automation",role:"No-code automation layer",goals:["automation","marketing","support","general"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["neutral","google","microsoft","creative"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free and tiered automation plans",bestFor:"Fast no-code connections across a broad business app ecosystem",strengths:["App ecosystem","Quick setup","No-code workflows"],caution:"Model task volume, premium connectors, branching, retries, error handling, and ownership before scaling.",official:"https://zapier.com/pricing",accent:"rgba(255,79,0,.24)"},
+      {id:"make",name:"Make",mark:"MK",color:"#7d2ae8",kind:"automation",role:"Visual automation layer",goals:["automation","marketing","support","general"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["neutral","google","microsoft","creative"],data:["standard","business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Free and tiered operation-based plans",bestFor:"Visual multi-step scenarios that need mapping, branching, and orchestration",strengths:["Visual scenarios","Flexible mapping","Multi-step flows"],caution:"Estimate operation consumption and design monitoring, retry, ownership, and fallback behavior.",official:"https://www.make.com/en/pricing",accent:"rgba(125,42,232,.25)"},
+      {id:"n8n",name:"n8n",mark:"n8n",color:"#ea4b71",kind:"automation",role:"Technical automation layer",goals:["automation","development","support","general"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["developer","neutral"],data:["standard","business","enterprise","selfhost"],features:["api","integrations","nocode","collaboration","governance","selfhost"],priceModel:"Self-hosted and managed plans",bestFor:"Technical teams that want flexible workflows, code options, and self-hosting capability",strengths:["Self-host option","Technical flexibility","AI workflows"],caution:"Self-hosting transfers security, operations, upgrades, observability, backup, and availability duties to your team.",official:"https://n8n.io/pricing/",accent:"rgba(234,75,113,.24)"},
+      {id:"powerautomate",name:"Power Automate",mark:"PA",color:"#2563eb",kind:"automation",role:"Microsoft automation layer",goals:["automation","general","support"],minBudget:1,teams:["small","medium","large"],ecosystems:["microsoft"],data:["business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Per-user, process, and enterprise options",bestFor:"Microsoft-centered organizations automating cloud, desktop, and business processes",strengths:["Microsoft integration","Admin controls","Desktop automation"],caution:"Licensing, premium connectors, environments, governance, and process ownership can materially change total cost.",official:"https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing",accent:"rgba(37,99,235,.25)"},
+      {id:"githubcopilot",name:"GitHub Copilot",mark:"GH",color:"#24292f",kind:"coding",role:"Developer assistant",goals:["development","general"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["developer","microsoft","neutral"],data:["standard","business","enterprise"],features:["integrations","collaboration","governance"],priceModel:"Free, individual, business, and enterprise options",bestFor:"Developers and organizations already centered on GitHub and supported development environments",strengths:["GitHub workflow","IDE support","Team plans"],caution:"Measure accepted output, review effort, security findings, repository context, and total developer workflow impact.",official:"https://github.com/features/copilot/plans",accent:"rgba(148,163,184,.2)"},
+      {id:"cursor",name:"Cursor",mark:"CU",color:"#111827",kind:"coding",role:"AI-first code editor",goals:["development"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["developer","neutral"],data:["standard","business","enterprise"],features:["api","integrations","collaboration","governance"],priceModel:"Free, individual, team, and enterprise options",bestFor:"Developers who want agentic editing and repository-aware assistance in an AI-first editor",strengths:["Repository context","Agentic editing","Developer workflow"],caution:"Evaluate editor migration, model usage limits, code review, data controls, and team administration.",official:"https://cursor.com/pricing",accent:"rgba(99,102,241,.22)"},
+      {id:"tabnine",name:"Tabnine",mark:"T9",color:"#6d4aff",kind:"coding",role:"Controlled coding assistant",goals:["development"],minBudget:2,teams:["small","medium","large"],ecosystems:["developer","neutral"],data:["business","enterprise","selfhost"],features:["integrations","collaboration","governance","selfhost"],priceModel:"Enterprise-oriented plans and deployment choices",bestFor:"Development organizations prioritizing control, private deployment options, and policy management",strengths:["Deployment options","Enterprise control","Code assistance"],caution:"Validate language, IDE, deployment, model, infrastructure, security, and support requirements directly.",official:"https://www.tabnine.com/pricing/",accent:"rgba(109,74,255,.25)"},
+      {id:"jasper",name:"Jasper",mark:"J",color:"#8b5cf6",kind:"marketing",role:"Marketing content platform",goals:["marketing","general"],minBudget:2,teams:["small","medium","large"],ecosystems:["creative","neutral"],data:["business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Business and enterprise marketing plans",bestFor:"Marketing teams managing brand voice, campaigns, content operations, and repeatable workflows",strengths:["Brand workflows","Marketing focus","Team collaboration"],caution:"Compare output quality, approval workflow, brand governance, channel fit, and utilization against general assistants.",official:"https://www.jasper.ai/pricing",accent:"rgba(139,92,246,.25)"},
+      {id:"copyai",name:"Copy.ai",mark:"CA",color:"#2563eb",kind:"marketing",role:"Go-to-market workflow platform",goals:["marketing","support","automation"],minBudget:2,teams:["small","medium","large"],ecosystems:["creative","neutral"],data:["business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Business and enterprise go-to-market plans",bestFor:"Sales and marketing teams building repeatable go-to-market content and workflow processes",strengths:["GTM workflows","Content operations","Team use"],caution:"Verify workflow credits, source-data quality, approval controls, integration depth, and measurable conversion impact.",official:"https://www.copy.ai/prices",accent:"rgba(37,99,235,.24)"},
+      {id:"canva",name:"Canva AI",mark:"C",color:"#7d2ae8",kind:"creative",role:"Creative production workspace",goals:["marketing","general"],minBudget:0,teams:["solo","small","medium","large"],ecosystems:["creative","neutral"],data:["standard","business","enterprise"],features:["integrations","nocode","collaboration","governance"],priceModel:"Free, professional, team, and enterprise options",bestFor:"Fast visual content, presentations, social assets, and collaborative creative production",strengths:["Easy visual creation","Templates","Collaboration"],caution:"Check asset licensing, brand controls, export needs, AI feature limits, and human review for public materials.",official:"https://www.canva.com/pricing/",accent:"rgba(125,42,232,.25)"},
+      {id:"intercom",name:"Intercom Fin",mark:"FIN",color:"#1f6fff",kind:"support",role:"AI customer support agent",goals:["support","automation"],minBudget:2,teams:["small","medium","large"],ecosystems:["neutral"],data:["business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Seat, platform, and AI outcome-based components",bestFor:"Customer support teams using Intercom's service platform and knowledge workflows",strengths:["Support specialization","Knowledge answers","Human handoff"],caution:"Model resolution definitions, per-outcome charges, escalation quality, knowledge maintenance, and unsupported cases.",official:"https://www.intercom.com/pricing",accent:"rgba(31,111,255,.25)"},
+      {id:"zendesk",name:"Zendesk AI",mark:"ZD",color:"#17494d",kind:"support",role:"Service management AI layer",goals:["support","automation"],minBudget:2,teams:["small","medium","large"],ecosystems:["neutral"],data:["business","enterprise"],features:["api","integrations","nocode","collaboration","governance"],priceModel:"Service plans plus eligible AI capabilities",bestFor:"Support organizations already operating on Zendesk tickets, knowledge, routing, and workforce processes",strengths:["Service workflows","Ticket operations","Enterprise support context"],caution:"Confirm which AI capabilities, usage units, channels, administration, and add-ons are included in the chosen plan.",official:"https://www.zendesk.com/pricing/",accent:"rgba(23,73,77,.3)"}
+    ];
+
+    var builderForm = document.getElementById("builderForm");
+    var toolResults = document.getElementById("toolResults");
+    var resultSummary = document.getElementById("resultSummary");
+    var stackGrid = document.getElementById("stackGrid");
+    var comparisonContent = document.getElementById("comparisonContent");
+    var actionStatus = document.getElementById("actionStatus");
+    var latest = null;
+    var selectedIds = [];
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g,function(character){return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[character];});
+    }
+
+    function getProfile() {
+      return {
+        goal: document.getElementById("goal").value,
+        team: document.getElementById("team").value,
+        budget: Number(document.getElementById("budget").value),
+        ecosystem: document.getElementById("ecosystem").value,
+        dataApproach: document.getElementById("dataApproach").value,
+        requirements: Array.prototype.map.call(document.querySelectorAll('input[name="requirement"]:checked'),function(input){return input.value;})
+      };
+    }
+
+    function calculateFit(tool,profile) {
+      var goalIndex=tool.goals.indexOf(profile.goal);
+      var goalScore=goalIndex===0?36:goalIndex>0?Math.max(8,26-(goalIndex*6)):3;
+      var budgetDifference=profile.budget-tool.minBudget;
+      var budgetScore=budgetDifference>=0?Math.max(12,18-(budgetDifference*2)):Math.max(0,7-(Math.abs(budgetDifference)*5));
+      var teamScore=tool.teams.indexOf(profile.team)>-1?14:(profile.team==="solo"&&tool.teams.indexOf("small")>-1?7:3);
+      var ecosystemScore=profile.ecosystem==="neutral"?8:(tool.ecosystems.indexOf(profile.ecosystem)>-1?10:3);
+      var dataScore=tool.data.indexOf(profile.dataApproach)>-1?10:(profile.dataApproach==="standard"?7:1);
+      var matched=profile.requirements.filter(function(feature){return tool.features.indexOf(feature)>-1;});
+      var requirementScore=profile.requirements.length?Math.round((matched.length/profile.requirements.length)*12):9;
+      var score=Math.min(96,goalScore+budgetScore+teamScore+ecosystemScore+dataScore+requirementScore);
+      return {tool:tool,score:score,matched:matched,goalScore:goalScore,budgetScore:budgetScore,teamScore:teamScore,ecosystemScore:ecosystemScore,dataScore:dataScore,requirementScore:requirementScore};
+    }
+
+    function resultReason(result,profile) {
+      var parts=[];
+      if(result.goalScore>=30)parts.push("strong "+labels.goals[profile.goal].toLowerCase()+" fit");
+      if(result.ecosystemScore>=10)parts.push("aligned with your existing ecosystem");
+      if(result.dataScore>=10)parts.push("profiled for the selected data approach");
+      if(profile.requirements.length&&result.matched.length)parts.push("matches "+result.matched.length+" of "+profile.requirements.length+" selected capabilities");
+      if(!parts.length)parts.push("a viable alternative worth validating in a bounded pilot");
+      return result.tool.name+" is ranked here for its "+parts.join(", ")+".";
+    }
+
+    function complexity(profile) {
+      var points=profile.requirements.length+(profile.dataApproach==="enterprise"?2:0)+(profile.dataApproach==="selfhost"?3:0)+(profile.team==="large"?2:0)+(profile.ecosystem==="neutral"?0:1);
+      if(points>=8)return {label:"High validation effort",note:"Plan security, integration, operating ownership, change management, and staged rollout."};
+      if(points>=4)return {label:"Moderate validation effort",note:"Run integration and control checks before a measured team pilot."};
+      return {label:"Focused validation effort",note:"Start with representative tasks and a short, measurable pilot."};
+    }
+
+    function buildStack(results,profile) {
+      var used=[];
+      function pick(test) { var found=results.find(function(result){return used.indexOf(result.tool.id)===-1&&test(result.tool);});if(found)used.push(found.tool.id);return found; }
+      var primary,workflow,specialist,workflowLabel="Workflow layer",specialistLabel="Specialist / alternative";
+      if(profile.goal==="automation") {
+        primary=pick(function(tool){return tool.kind==="automation";});
+        workflow=pick(function(tool){return tool.kind==="assistant";});
+        specialist=pick(function(tool){return tool.kind==="automation";});
+        workflowLabel="AI reasoning layer";
+        specialistLabel="Alternative platform";
+      } else if(profile.goal==="development") {
+        primary=pick(function(tool){return tool.kind==="coding";});
+        workflow=pick(function(tool){return tool.kind==="automation";});
+        specialist=pick(function(tool){return tool.kind==="assistant";});
+        specialistLabel="Reasoning companion";
+      } else {
+        primary=pick(function(tool){return tool.goals.indexOf(profile.goal)>-1&&tool.kind!=="automation";});
+        workflow=pick(function(tool){return tool.kind==="automation";});
+        specialist=pick(function(tool){return tool.goals.indexOf(profile.goal)>-1&&tool.kind!=="automation";});
+      }
+      if(!primary)primary=pick(function(){return true;});
+      if(!workflow)workflow=pick(function(){return true;});
+      if(!specialist)specialist=pick(function(){return true;});
+      return [
+        {label:"Primary workspace",result:primary,copy:"Use for the main "+labels.goals[profile.goal].toLowerCase()+" workload; define approved inputs and human review."},
+        {label:workflowLabel,result:workflow,copy:"Connect approved steps carefully; include monitoring, exception handling, ownership, and fallback."},
+        {label:specialistLabel,result:specialist,copy:"Validate as a focused companion or comparison benchmark instead of creating unnecessary overlap."}
+      ].filter(function(layer){return layer.result;});
+    }
+
+    function renderSummary(profile,results) {
+      var effort=complexity(profile);
+      resultSummary.innerHTML=[
+        ["Primary goal",labels.goals[profile.goal],labels.teams[profile.team]+" · "+labels.budgets[profile.budget]],
+        ["Context",labels.ecosystems[profile.ecosystem],labels.data[profile.dataApproach]],
+        ["Top match",results[0].tool.name,results[0].score+" / 100 planning fit"],
+        ["Pilot effort",effort.label,effort.note]
+      ].map(function(item){return '<div class="summary-card"><span>'+escapeHtml(item[0])+'</span><strong>'+escapeHtml(item[1])+'</strong><small>'+escapeHtml(item[2])+'</small></div>';}).join("");
+    }
+
+    function renderStack(results,profile) {
+      stackGrid.innerHTML=buildStack(results,profile).map(function(layer,index){return '<article class="stack-layer"><div class="layer-number">'+(index+1)+'</div><small>'+escapeHtml(layer.label)+'</small><h4>'+escapeHtml(layer.result.tool.name)+'</h4><p>'+escapeHtml(layer.copy)+'</p></article>';}).join("");
+    }
+
+    function renderResults(results,profile) {
+      toolResults.innerHTML=results.slice(0,6).map(function(result,index){
+        var tool=result.tool;
+        var tags=tool.strengths.concat(result.matched.map(function(feature){return labels.features[feature];})).filter(function(tag,tagIndex,array){return array.indexOf(tag)===tagIndex;}).slice(0,5);
+        return '<article class="match-card" style="--tool-color:'+tool.color+';--tool-accent:'+tool.accent+'">'+
+          '<div class="tool-head"><div class="tool-mark" aria-hidden="true">'+escapeHtml(tool.mark)+'</div><div class="tool-title"><h3>'+escapeHtml(tool.name)+'</h3><span>'+escapeHtml(tool.role)+(index===0?' · Best current fit':'')+'</span></div><div class="fit-score" aria-label="Fit score '+result.score+' out of 100">'+result.score+'</div></div>'+
+          '<p class="match-reason">'+escapeHtml(resultReason(result,profile))+'</p>'+
+          '<ul class="tag-list">'+tags.map(function(tag){return '<li>'+escapeHtml(tag)+'</li>';}).join("")+'</ul>'+
+          '<p class="tool-caution"><strong>Validate:</strong> '+escapeHtml(tool.caution)+'</p>'+
+          '<div class="card-actions"><label class="compare-choice"><input type="checkbox" data-compare="'+tool.id+'" '+(selectedIds.indexOf(tool.id)>-1?'checked':'')+'><span>Add to comparison</span></label><a class="official-link" href="'+tool.official+'" target="_blank" rel="noopener noreferrer nofollow">Official details ↗</a></div>'+
+        '</article>';
+      }).join("");
+      Array.prototype.forEach.call(document.querySelectorAll("[data-compare]"),function(input){input.addEventListener("change",handleCompareChange);});
+    }
+
+    function renderComparison() {
+      if(!latest||!selectedIds.length){comparisonContent.innerHTML='<div class="empty-compare">Select up to four products from the shortlist to compare them here.</div>';return;}
+      var selected=selectedIds.map(function(id){return latest.results.find(function(result){return result.tool.id===id;});}).filter(Boolean);
+      if(!selected.length){comparisonContent.innerHTML='<div class="empty-compare">Select products from the shortlist to compare them here.</div>';return;}
+      var rows=[
+        ["Planning fit",function(result){return '<span class="table-score">'+result.score+' / 100</span>';}],
+        ["Primary role",function(result){return escapeHtml(result.tool.role);}],
+        ["Broad price model",function(result){return escapeHtml(result.tool.priceModel);}],
+        ["Best suited to",function(result){return escapeHtml(result.tool.bestFor);}],
+        ["Profiled ecosystems",function(result){return escapeHtml(result.tool.ecosystems.map(function(value){return labels.ecosystems[value];}).join(", "));}],
+        ["Data approaches",function(result){return escapeHtml(result.tool.data.map(function(value){return labels.data[value];}).join(", "));}],
+        ["Selected requirements",function(result){return latest.profile.requirements.length?escapeHtml(result.matched.map(function(value){return labels.features[value];}).join(", ")||"None matched in this profile"):"No optional requirements selected";}],
+        ["Important validation",function(result){return escapeHtml(result.tool.caution);}]
+      ];
+      comparisonContent.innerHTML='<div class="table-wrap"><table class="compare-table"><thead><tr><th scope="col">Decision factor</th>'+selected.map(function(result){return '<th scope="col">'+escapeHtml(result.tool.name)+'</th>';}).join("")+'</tr></thead><tbody>'+rows.map(function(row){return '<tr><th scope="row">'+row[0]+'</th>'+selected.map(function(result){return '<td>'+row[1](result)+'</td>';}).join("")+'</tr>';}).join("")+'</tbody></table></div>';
+    }
+
+    function handleCompareChange(event) {
+      var id=event.target.getAttribute("data-compare");
+      if(event.target.checked){
+        if(selectedIds.length>=4){event.target.checked=false;actionStatus.textContent="You can compare up to four products.";return;}
+        if(selectedIds.indexOf(id)===-1)selectedIds.push(id);
+      } else selectedIds=selectedIds.filter(function(item){return item!==id;});
+      actionStatus.textContent=selectedIds.length?selectedIds.length+" product"+(selectedIds.length===1?"":"s")+" selected for comparison.":"Comparison cleared.";
+      renderComparison();
+    }
+
+    function saveProfile(profile) {
+      try { localStorage.setItem("zynovixStackBuilderV1",JSON.stringify(profile)); } catch(error) {}
+    }
+
+    function applyProfile(profile) {
+      if(!profile)return;
+      ["goal","team","ecosystem","dataApproach"].forEach(function(key){if(profile[key]!==undefined&&document.querySelector('#'+key+' option[value="'+profile[key]+'"]'))document.getElementById(key).value=profile[key];});
+      if(Number.isInteger(profile.budget)&&profile.budget>=0&&profile.budget<=3)document.getElementById("budget").value=String(profile.budget);
+      Array.prototype.forEach.call(document.querySelectorAll('input[name="requirement"]'),function(input){input.checked=Array.isArray(profile.requirements)&&profile.requirements.indexOf(input.value)>-1;});
+    }
+
+    function build(updateUrl,scroll) {
+      var profile=getProfile();
+      var results=tools.map(function(tool){return calculateFit(tool,profile);}).sort(function(a,b){return b.score-a.score||a.tool.name.localeCompare(b.tool.name);});
+      latest={profile:profile,results:results};
+      selectedIds=results.slice(0,3).map(function(result){return result.tool.id;});
+      renderSummary(profile,results);
+      renderStack(results,profile);
+      renderResults(results,profile);
+      renderComparison();
+      document.getElementById("resultsIntro").textContent="Top matches for "+labels.goals[profile.goal].toLowerCase()+" · "+labels.teams[profile.team]+" · "+labels.budgets[profile.budget].toLowerCase()+".";
+      saveProfile(profile);
+      if(updateUrl){var params=new URLSearchParams();params.set("goal",profile.goal);params.set("team",profile.team);params.set("budget",String(profile.budget));params.set("ecosystem",profile.ecosystem);params.set("data",profile.dataApproach);if(profile.requirements.length)params.set("needs",profile.requirements.join(","));history.replaceState(null,"",window.location.pathname+"?"+params.toString()+"#results");}
+      if(scroll)document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
+    function profileFromQuery() {
+      var params=new URLSearchParams(window.location.search);
+      if(!params.has("goal"))return null;
+      var profile={goal:params.get("goal"),team:params.get("team"),budget:Number(params.get("budget")),ecosystem:params.get("ecosystem"),dataApproach:params.get("data"),requirements:(params.get("needs")||"").split(",").filter(function(value){return labels.features[value];})};
+      if(!labels.goals[profile.goal]||!labels.teams[profile.team]||!labels.ecosystems[profile.ecosystem]||!labels.data[profile.dataApproach]||!Number.isInteger(profile.budget)||profile.budget<0||profile.budget>3)return null;
+      return profile;
+    }
+
+    function buildBrief() {
+      if(!latest)return "";
+      var profile=latest.profile,top=latest.results.slice(0,3),stack=buildStack(latest.results,profile);
+      return [
+        "AI TOOL DECISION BRIEF — ZYNOVIX AI",
+        "Primary goal: "+labels.goals[profile.goal],
+        "Team: "+labels.teams[profile.team],
+        "Budget comfort: "+labels.budgets[profile.budget],
+        "Ecosystem: "+labels.ecosystems[profile.ecosystem],
+        "Data approach: "+labels.data[profile.dataApproach],
+        "Requirements: "+(profile.requirements.length?profile.requirements.map(function(value){return labels.features[value];}).join(", "):"None selected"),
+        "",
+        "TOP MATCHES",
+        top.map(function(result,index){return (index+1)+". "+result.tool.name+" — "+result.score+"/100\n   "+resultReason(result,profile)+"\n   Validate: "+result.tool.caution;}).join("\n"),
+        "",
+        "SUGGESTED STACK",
+        stack.map(function(layer,index){return (index+1)+". "+layer.label+": "+layer.result.tool.name;}).join("\n"),
+        "",
+        "Planning aid only. Verify current official product, pricing, security, privacy, accessibility, and contract details and run a bounded pilot.",
+        window.location.href
+      ].join("\n");
+    }
+
+    function fallbackCopy(text) { var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied; }
+    function copyText(text,message) { if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){actionStatus.textContent=message;}).catch(function(){actionStatus.textContent=fallbackCopy(text)?message:"Copy failed. Please try again.";});}else actionStatus.textContent=fallbackCopy(text)?message:"Copy failed. Please try again."; }
+
+    function csvEscape(value) { return '"'+String(value===undefined||value===null?"":value).replace(/"/g,'""')+'"'; }
+    function downloadCsv() {
+      if(!latest||!selectedIds.length){actionStatus.textContent="Select at least one product before downloading.";return;}
+      var rows=[["Tool","Fit score","Role","Broad price model","Best for","Matched requirements","Validation note","Official details"]];
+      selectedIds.forEach(function(id){var result=latest.results.find(function(item){return item.tool.id===id;});if(result)rows.push([result.tool.name,result.score,result.tool.role,result.tool.priceModel,result.tool.bestFor,result.matched.map(function(value){return labels.features[value];}).join(" | "),result.tool.caution,result.tool.official]);});
+      var content="\uFEFF"+rows.map(function(row){return row.map(csvEscape).join(",");}).join("\r\n");
+      var blob=new Blob([content],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download="zynovix-ai-tool-comparison.csv";document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);actionStatus.textContent="Comparison CSV downloaded.";
+    }
+
+    builderForm.addEventListener("submit",function(event){event.preventDefault();build(true,true);});
+    document.getElementById("resetButton").addEventListener("click",function(){builderForm.reset();try{localStorage.removeItem("zynovixStackBuilderV1");}catch(error){}history.replaceState(null,"",window.location.pathname);build(false,false);document.getElementById("builder").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("shareButton").addEventListener("click",function(){var profile=getProfile(),params=new URLSearchParams();params.set("goal",profile.goal);params.set("team",profile.team);params.set("budget",String(profile.budget));params.set("ecosystem",profile.ecosystem);params.set("data",profile.dataApproach);if(profile.requirements.length)params.set("needs",profile.requirements.join(","));var url=window.location.origin+window.location.pathname+"?"+params.toString()+"#results";if(navigator.share){navigator.share({title:"My Zynovix AI tool shortlist",text:"AI tool shortlist built with Zynovix AI",url:url}).then(function(){actionStatus.textContent="Selection shared.";}).catch(function(error){if(error&&error.name!=="AbortError")copyText(url,"Share link copied.");});}else copyText(url,"Share link copied.");});
+    document.getElementById("copyButton").addEventListener("click",function(){copyText(buildBrief(),"Decision brief copied.");});
+    document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("csvButton").addEventListener("click",downloadCsv);
+    document.getElementById("clearCompareButton").addEventListener("click",function(){selectedIds=[];Array.prototype.forEach.call(document.querySelectorAll("[data-compare]"),function(input){input.checked=false;});renderComparison();actionStatus.textContent="Comparison cleared.";});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+
+    var incoming=profileFromQuery();
+    if(incoming)applyProfile(incoming);
+    else { try { var saved=JSON.parse(localStorage.getItem("zynovixStackBuilderV1"));if(saved)applyProfile(saved); } catch(error) {} }
+    build(false,false);
+  }());
+  </script>
+</body>
+</html>

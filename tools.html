@@ -325,7 +325,7 @@
 <header class="header">
   <nav class="nav shell">
     <a class="brand" href="index.html">
-      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo"  width="52" height="52"/>
       <span>Zynovix AI</span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
@@ -478,13 +478,13 @@
         <div class="result-card">
           <h3 style="margin-bottom: 16px;">🎉 Your Perfect AI Tool</h3>
           <div id="resultContent"></div>
-          <button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
+          <button class="btn btn-ghost" type="button" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
         </div>
       </div>
       
       <div class="quiz-nav" id="quizNav">
-        <button class="btn btn-ghost" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
-        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
+        <button class="btn btn-ghost" id="prevBtn" type="button" onclick="prevStep()" disabled>Previous</button>
+        <button class="btn btn-primary" id="nextBtn" type="button" onclick="nextStep()" disabled>Next</button>
       </div>
     </div>
   </section>
@@ -497,8 +497,8 @@
     </div>
     
     <div class="tools-filters">
-      <input type="text" id="searchBox" placeholder="🔍 Search tools...">
-      <select id="categoryFilter">
+      <input type="text" id="searchBox" aria-label="Search AI tools" placeholder="🔍 Search tools...">
+      <select id="categoryFilter" aria-label="Filter tools by category">
         <option value="">All Categories</option>
         <option value="chatbot">Chatbots & Research</option>
         <option value="writing">Writing</option>
@@ -509,7 +509,7 @@
         <option value="agent">AI Agents</option>
         <option value="productivity">Productivity</option>
       </select>
-      <select id="pricingFilter">
+      <select id="pricingFilter" aria-label="Filter tools by pricing">
         <option value="">All Prices</option>
         <option value="free">Free</option>
         <option value="freemium">Freemium</option>
@@ -536,7 +536,7 @@
   <div class="shell footer-inner">
     <div class="footer-brand-group">
       <a class="brand" href="index.html">
-        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo"  width="52" height="52"/>
         <span>Zynovix AI</span>
       </a>
 
@@ -1012,5 +1012,4 @@ renderTools(tools);
 </script>
 </body>
 </html>
-
 

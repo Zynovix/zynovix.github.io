@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Automation Pilot Scorecard | Zynovix AI</title>
+  <meta name="description" content="Score an AI automation pilot across value, quality, reliability, controls, and evidence. Get a transparent Scale, Improve, Pause, or Stop decision report.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-automation-pilot-scorecard.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Automation Pilot Scorecard">
+  <meta property="og:description" content="Turn observed pilot data into a transparent Scale, Improve, Pause, or Stop decision across five evidence dimensions.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-automation-pilot-scorecard.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Automation Pilot Scorecard">
+  <meta name="twitter:description" content="Evaluate a real AI automation pilot with transparent formulas, decision gates, and a downloadable report.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --ps-bg: #050816;
+      --ps-surface: rgba(11,18,41,.92);
+      --ps-surface-2: rgba(15,25,53,.88);
+      --ps-line: rgba(148,163,184,.2);
+      --ps-strong: #f8fbff;
+      --ps-text: #d6e0ef;
+      --ps-soft: #9eabc1;
+      --ps-cyan: #22d3ee;
+      --ps-blue: #3b82f6;
+      --ps-purple: #8b5cf6;
+      --ps-green: #34d399;
+      --ps-yellow: #fbbf24;
+      --ps-red: #fb7185;
+      --ps-shadow: 0 26px 80px rgba(0,0,0,.34);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.pilot-scorecard-page { color: var(--ps-text); overflow-x: hidden; }
+    .pilot-scorecard-page .brand img,
+    .pilot-scorecard-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    [hidden] { display: none !important; }
+
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-150%); padding: 11px 15px; border-radius: 10px; color: #04101a; background: var(--ps-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+    .scorecard-hero { padding: 54px 0 38px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; color: var(--ps-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--ps-cyan); }
+    .scorecard-hero h1 { max-width: 1050px; margin: 18px auto; color: var(--ps-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.5px; }
+    .scorecard-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--ps-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .scorecard-hero > p { max-width: 860px; margin: 0 auto; color: var(--ps-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.72; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--ps-line); border-radius: 999px; color: #c7d5e7; background: rgba(255,255,255,.035); font-size: 13px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 900px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
+
+    .scorecard-section { padding: 16px 0 78px; }
+    .scorecard-shell,
+    .results-card { border: 1px solid var(--ps-line); border-radius: 26px; background: var(--ps-surface); box-shadow: var(--ps-shadow); overflow: hidden; }
+    .scorecard-layout { display: block; }
+    .step-sidebar { padding: 21px; border-bottom: 1px solid var(--ps-line); background: rgba(4,9,24,.48); }
+    .step-sidebar > span { display: block; margin-bottom: 13px; color: var(--ps-cyan); font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+    .step-list { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .step-item { display: grid; justify-items: center; gap: 6px; color: #75839a; font-size: 11px; text-align: center; }
+    .step-number { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--ps-line); border-radius: 11px; background: rgba(255,255,255,.035); font-weight: 900; }
+    .step-item.active { color: var(--ps-strong); }
+    .step-item.active .step-number { border-color: rgba(34,211,238,.75); color: #04101a; background: linear-gradient(135deg,var(--ps-cyan),#60a5fa); box-shadow: 0 0 22px rgba(34,211,238,.2); }
+    .step-item.complete .step-number { color: #071a13; border-color: rgba(52,211,153,.55); background: var(--ps-green); }
+
+    .form-area { padding: 24px; }
+    .form-step { min-height: 600px; }
+    .step-kicker { display: block; margin-bottom: 8px; color: var(--ps-cyan); font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .form-step h2 { margin: 0 0 9px; color: var(--ps-strong); font-size: clamp(28px,5vw,40px); line-height: 1.12; }
+    .step-intro { max-width: 820px; margin: 0 0 25px; color: var(--ps-soft); line-height: 1.65; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1/-1; }
+    .field label,
+    fieldset legend { display: block; margin-bottom: 8px; color: var(--ps-strong); font-size: 14px; font-weight: 800; }
+    fieldset { min-width: 0; margin: 22px 0 0; padding: 0; border: 0; }
+    .field input,
+    .field select { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--ps-line); border-radius: 14px; outline: none; color: var(--ps-strong); background: #091127; font: inherit; color-scheme: dark; transition: border-color .2s ease,box-shadow .2s ease; }
+    .field input:focus,
+    .field select:focus { border-color: rgba(34,211,238,.75); box-shadow: 0 0 0 4px rgba(34,211,238,.09); }
+    .field-help { display: block; margin-top: 6px; color: #77879f; font-size: 12px; line-height: 1.45; }
+    .split-note { margin: 18px 0 0; padding: 14px 16px; border: 1px solid rgba(34,211,238,.2); border-radius: 15px; color: #bddce5; background: rgba(34,211,238,.05); line-height: 1.55; }
+    .choice-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .choice-label { position: relative; cursor: pointer; }
+    .choice-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice-content { display: flex; min-height: 70px; align-items: flex-start; gap: 11px; padding: 13px; border: 1px solid var(--ps-line); border-radius: 15px; color: #bdc9da; background: rgba(255,255,255,.025); line-height: 1.38; transition: border-color .2s ease,background .2s ease,transform .2s ease; }
+    .choice-mark { display: grid; width: 28px; height: 28px; flex: 0 0 28px; place-items: center; border: 1px solid var(--ps-line); border-radius: 9px; color: transparent; background: #091127; font-weight: 900; }
+    .choice-label input:checked + .choice-content { border-color: rgba(34,211,238,.65); color: var(--ps-strong); background: rgba(34,211,238,.075); }
+    .choice-label input:checked + .choice-content .choice-mark { border-color: var(--ps-green); color: #06160f; background: var(--ps-green); }
+    .choice-label input:focus-visible + .choice-content { outline: 3px solid var(--ps-cyan); outline-offset: 2px; }
+    .choice-label:hover .choice-content { transform: translateY(-1px); }
+    .form-error { min-height: 25px; margin-top: 17px; color: #ff9daf; font-size: 14px; font-weight: 700; }
+    .form-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .form-actions button { border: 0; cursor: pointer; font: inherit; }
+    .form-actions button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+
+    .results-header { padding: 30px; border-bottom: 1px solid var(--ps-line); text-align: center; }
+    .decision-icon { display: grid; width: 66px; height: 66px; place-items: center; margin: 0 auto 14px; border-radius: 20px; background: linear-gradient(135deg,var(--ps-blue),var(--ps-cyan)); font-size: 31px; box-shadow: 0 16px 38px rgba(59,130,246,.24); }
+    .decision-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 13px; padding: 8px 13px; border: 1px solid var(--ps-line); border-radius: 999px; font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .decision-badge.scale { color: #9df5d5; border-color: rgba(52,211,153,.38); background: rgba(52,211,153,.09); }
+    .decision-badge.improve { color: #c8dfff; border-color: rgba(59,130,246,.42); background: rgba(59,130,246,.1); }
+    .decision-badge.pause { color: #ffe19a; border-color: rgba(251,191,36,.42); background: rgba(251,191,36,.09); }
+    .decision-badge.stop { color: #ffc1cc; border-color: rgba(251,113,133,.45); background: rgba(251,113,133,.1); }
+    .results-header h2 { margin: 0 0 9px; color: var(--ps-strong); font-size: clamp(31px,5vw,48px); line-height: 1.08; }
+    .results-header p { max-width: 820px; margin: 0 auto; color: var(--ps-soft); line-height: 1.65; }
+    .overall-wrap { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 15px; max-width: 580px; margin: 22px auto 0; padding: 14px; border: 1px solid var(--ps-line); border-radius: 18px; background: rgba(255,255,255,.03); text-align: left; }
+    .overall-score { display: grid; width: 82px; height: 82px; place-items: center; border: 7px solid rgba(34,211,238,.28); border-radius: 50%; color: var(--ps-strong); font-size: 24px; font-weight: 900; }
+    .overall-copy strong { display: block; color: var(--ps-strong); font-size: 17px; }
+    .overall-copy span { color: var(--ps-soft); font-size: 13px; line-height: 1.45; }
+    .results-body { padding: 24px; }
+    .results-body > section,
+    .results-body > aside { margin-bottom: 34px; }
+    .results-body h3 { margin: 0 0 15px; color: var(--ps-strong); font-size: clamp(23px,4vw,31px); }
+    .results-body h4 { margin: 0 0 7px; color: var(--ps-strong); font-size: 17px; }
+    .dimension-grid,
+    .outcome-grid,
+    .action-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .dimension-card,
+    .outcome-card,
+    .action-card { padding: 18px; border: 1px solid var(--ps-line); border-radius: 17px; background: rgba(255,255,255,.027); }
+    .dimension-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .dimension-head strong { color: var(--ps-strong); font-size: 18px; }
+    .dimension-head span { color: var(--ps-cyan); font-size: 21px; font-weight: 900; }
+    .score-track { height: 8px; margin: 13px 0 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .score-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--ps-blue),var(--ps-cyan)); }
+    .dimension-card p,
+    .outcome-card p,
+    .action-card p { margin: 0; color: var(--ps-soft); font-size: 13px; line-height: 1.5; }
+    .outcome-card small { display: block; margin-bottom: 5px; color: var(--ps-cyan); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .outcome-card strong { display: block; margin-bottom: 5px; color: var(--ps-strong); font-size: 25px; line-height: 1.15; }
+    .gate-alert { display: flex; gap: 12px; padding: 18px; border: 1px solid rgba(251,191,36,.3); border-radius: 17px; color: #f6e4b1; background: rgba(251,191,36,.065); line-height: 1.6; }
+    .gate-alert.stop { border-color: rgba(251,113,133,.38); color: #ffd2da; background: rgba(251,113,133,.07); }
+    .gate-alert.scale { border-color: rgba(52,211,153,.3); color: #c5f5e4; background: rgba(52,211,153,.06); }
+    .gate-alert ul { margin: 8px 0 0; padding-left: 20px; }
+    .target-table-wrap { overflow-x: auto; border: 1px solid var(--ps-line); border-radius: 17px; }
+    .target-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+    .target-table th,
+    .target-table td { padding: 14px; border-bottom: 1px solid var(--ps-line); text-align: left; }
+    .target-table th { color: var(--ps-strong); background: rgba(255,255,255,.04); font-size: 13px; }
+    .target-table td { color: #c8d4e5; font-size: 14px; }
+    .target-table tr:last-child td { border-bottom: 0; }
+    .status-pass { color: #7ef0c4; font-weight: 900; }
+    .status-miss { color: #ffd37a; font-weight: 900; }
+    .action-card { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 11px; }
+    .action-number { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: #06131c; background: var(--ps-cyan); font-weight: 900; }
+    .action-card p { margin-top: 4px; }
+    .report-note { padding: 16px 18px; border-left: 4px solid var(--ps-cyan); border-radius: 0 14px 14px 0; color: #c7d5e7; background: rgba(34,211,238,.055); line-height: 1.6; }
+    .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 22px 27px; }
+    .result-actions button { border: 0; cursor: pointer; font: inherit; }
+    .action-status { width: 100%; min-height: 22px; color: #7ef0c4; text-align: center; font-size: 14px; }
+
+    .method-section { padding: 78px 0; }
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .method-card { min-height: 0; padding: 22px; }
+    .method-icon { display: grid; width: 50px; height: 50px; place-items: center; margin-bottom: 14px; border-radius: 15px; background: linear-gradient(135deg,rgba(59,130,246,.85),rgba(34,211,238,.8)); font-size: 24px; }
+    .method-card h3 { margin-bottom: 8px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 15px; }
+    .formula-box { margin-top: 22px; padding: 20px; border: 1px solid var(--ps-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .formula-box h3 { margin: 0 0 12px; color: var(--ps-strong); }
+    .formula-list { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--ps-soft); line-height: 1.55; }
+    .formula-list strong { color: #dce9f7; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .source-links a { padding: 8px 11px; border: 1px solid var(--ps-line); border-radius: 10px; color: #b9dff0; background: rgba(255,255,255,.025); font-size: 13px; }
+    .source-links a:hover { border-color: var(--ps-cyan); }
+    .faq-section { padding: 0 0 90px; }
+    .faq-list { display: grid; gap: 11px; max-width: 920px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--ps-line); border-radius: 17px; background: var(--ps-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--ps-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--ps-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--ps-soft); line-height: 1.65; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--ps-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid,
+      .choice-grid,
+      .dimension-grid,
+      .outcome-grid,
+      .action-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (min-width: 920px) {
+      .scorecard-hero { padding-top: 72px; }
+      .scorecard-layout { display: grid; grid-template-columns: 248px minmax(0,1fr); }
+      .step-sidebar { border-right: 1px solid var(--ps-line); border-bottom: 0; }
+      .step-list { grid-template-columns: 1fr; gap: 13px; }
+      .step-item { grid-template-columns: 36px minmax(0,1fr); justify-items: start; align-items: center; font-size: 14px; text-align: left; }
+      .form-area { padding: 34px; }
+      .dimension-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .outcome-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .pilot-scorecard-page .brand img,
+      .pilot-scorecard-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .scorecard-hero h1 { letter-spacing: -1.5px; }
+      .step-item span:last-child { display: none; }
+      .form-step { min-height: 0; }
+      .form-actions .btn { flex: 1; }
+      .result-actions .btn { width: 100%; }
+      .overall-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,
+      .scorecard-hero,
+      .scorecard-shell,
+      .result-actions,
+      .method-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb { display: none !important; }
+      body.pilot-scorecard-page { color: #111827; background: #fff !important; }
+      .scorecard-section { padding: 0; }
+      .results-card { border: 0; color: #111827; background: #fff !important; box-shadow: none; }
+      .results-header,
+      .results-body { padding: 16px 0; }
+      .results-header h2,
+      .dimension-head strong,
+      .outcome-card strong,
+      .results-body h3,
+      .results-body h4 { color: #111827 !important; }
+      .results-header p,
+      .dimension-card p,
+      .outcome-card p,
+      .action-card p { color: #334155 !important; }
+      .dimension-card,
+      .outcome-card,
+      .action-card,
+      .target-table-wrap { border-color: #cbd5e1; background: #fff !important; break-inside: avoid; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-scorecard.html#application",
+        "name": "AI Automation Pilot Scorecard",
+        "url": "https://zynovix.github.io/ai-automation-pilot-scorecard.html",
+        "description": "A free browser-based scorecard that evaluates an observed AI automation pilot across value, quality, reliability, controls, and evidence.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-scorecard.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Automation Pilot Scorecard", "item": "https://zynovix.github.io/ai-automation-pilot-scorecard.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-automation-pilot-scorecard.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What does the AI Automation Pilot Scorecard measure?", "acceptedAnswer": { "@type": "Answer", "text": "It combines observed value, quality, reliability, controls, and evidence. It also applies explicit safety and governance gates before recommending gradual expansion." } },
+          { "@type": "Question", "name": "Are the scorecard thresholds universal standards?", "acceptedAnswer": { "@type": "Answer", "text": "No. They are editable planning defaults. Organizations should set thresholds for the workflow, impact, risk, sector, jurisdiction, and decision context before reviewing results." } },
+          { "@type": "Question", "name": "What is the difference between Improve, Pause, and Stop?", "acceptedAnswer": { "@type": "Answer", "text": "Improve means the pilot can be redesigned and retested without a blocking gate. Pause indicates a control, evidence, performance, or governance gap. Stop and Investigate is triggered by an unresolved material incident." } },
+          { "@type": "Question", "name": "Does a high score automatically authorize deployment?", "acceptedAnswer": { "@type": "Answer", "text": "No. The scorecard is a planning aid. Accountable business, security, privacy, legal, compliance, technical, and other required reviewers must make the actual approval decision." } },
+          { "@type": "Question", "name": "Is pilot data uploaded or stored?", "acceptedAnswer": { "@type": "Answer", "text": "No data is submitted to a server by this page. Calculations and report generation run locally in the browser." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="pilot-scorecard-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html" aria-current="page">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="scorecard-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a><span aria-hidden="true">›</span>
+        <span aria-current="page">Pilot Scorecard</span>
+      </nav>
+      <span class="kicker">Free Evidence-Based Decision Tool</span>
+      <h1>AI Automation <span>Pilot Scorecard</span></h1>
+      <p>Compare your real pilot with its baseline, test five decision dimensions, expose blocking gaps, and generate a transparent Scale, Improve, Pause, or Stop report.</p>
+      <ul class="hero-facts">
+        <li>✓ Transparent 0–100 scoring</li>
+        <li>🛑 Explicit stop gates</li>
+        <li>📊 Baseline vs pilot</li>
+        <li>📥 Copy, CSV, and PDF</li>
+      </ul>
+      <aside class="privacy-note" aria-label="Privacy and limitation notice"><span aria-hidden="true">🔒</span><div><strong>Private planning aid:</strong> calculations run in your browser and are not submitted to a server. Do not enter confidential identifiers or secrets. This tool does not provide legal, financial, security, compliance, statistical, or deployment approval.</div></aside>
+    </section>
+
+    <section class="scorecard-section shell" id="scorecard" aria-label="AI automation pilot scorecard">
+      <div class="scorecard-shell" id="scorecardShell">
+        <div class="scorecard-layout">
+          <aside class="step-sidebar" aria-label="Scorecard progress">
+            <span>Scorecard progress</span>
+            <ol class="step-list">
+              <li class="step-item active" data-step-indicator="1"><span class="step-number">1</span><span>Setup</span></li>
+              <li class="step-item" data-step-indicator="2"><span class="step-number">2</span><span>Baseline</span></li>
+              <li class="step-item" data-step-indicator="3"><span class="step-number">3</span><span>Pilot data</span></li>
+              <li class="step-item" data-step-indicator="4"><span class="step-number">4</span><span>Cost &amp; risk</span></li>
+              <li class="step-item" data-step-indicator="5"><span class="step-number">5</span><span>Evidence</span></li>
+            </ol>
+          </aside>
+
+          <div class="form-area">
+            <form id="pilotForm" novalidate>
+              <section class="form-step" data-step="1">
+                <span class="step-kicker">Step 1 of 5</span>
+                <h2>Define the pilot decision</h2>
+                <p class="step-intro">Score one bounded workflow. Use the same scope, population, definitions, and cost boundary throughout the comparison.</p>
+                <div class="field-grid">
+                  <div class="field full"><label for="workflowName">Workflow name</label><input id="workflowName" name="workflowName" type="text" maxlength="100" placeholder="Example: Support ticket response drafting" required></div>
+                  <div class="field"><label for="department">Department or function</label><select id="department" name="department" required><option value="">Select a function</option><option value="operations">Operations</option><option value="marketing">Marketing</option><option value="sales">Sales</option><option value="support">Customer Support</option><option value="finance">Finance &amp; Administration</option><option value="hr">People &amp; HR</option><option value="technology">Technology &amp; IT</option><option value="risk">Risk &amp; Compliance</option><option value="general">Cross-functional</option></select></div>
+                  <div class="field"><label for="pilotOwner">Accountable pilot owner</label><input id="pilotOwner" name="pilotOwner" type="text" maxlength="80" placeholder="Role or team" required></div>
+                  <div class="field"><label for="pilotDuration">Observed pilot duration (days)</label><input id="pilotDuration" name="pilotDuration" type="number" min="1" max="365" value="30" required></div>
+                  <div class="field"><label for="primaryGoal">Primary goal</label><select id="primaryGoal" name="primaryGoal"><option value="time">Reduce handling time</option><option value="cycle">Reduce cycle time</option><option value="quality">Improve quality or consistency</option><option value="capacity">Increase capacity</option><option value="cost">Reduce operating cost</option><option value="experience">Improve user experience</option></select></div>
+                  <div class="field"><label for="dataSensitivity">Highest data sensitivity</label><select id="dataSensitivity" name="dataSensitivity"><option value="low">Public or low sensitivity</option><option value="internal" selected>Internal business data</option><option value="confidential">Confidential or personal data</option><option value="restricted">Highly restricted or regulated data</option></select></div>
+                  <div class="field"><label for="impactLevel">Impact if the output is wrong</label><select id="impactLevel" name="impactLevel"><option value="low">Low and easy to reverse</option><option value="medium" selected>Meaningful but reviewable</option><option value="high">High, consequential, or hard to reverse</option></select></div>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="2" hidden>
+                <span class="step-kicker">Step 2 of 5</span>
+                <h2>Record a comparable baseline</h2>
+                <p class="step-intro">Use verified pre-pilot measures for the same workflow. Handling time must include all human work that the pilot will be compared against.</p>
+                <div class="field-grid">
+                  <div class="field"><label for="eligibleCases">Eligible cases per month</label><input id="eligibleCases" name="eligibleCases" type="number" min="1" max="100000000" value="1000" required></div>
+                  <div class="field"><label for="baselineMinutes">Baseline human minutes per case</label><input id="baselineMinutes" name="baselineMinutes" type="number" min="0.01" max="100000" step="0.01" value="20" required></div>
+                  <div class="field"><label for="baselineCycle">Baseline cycle time (hours)</label><input id="baselineCycle" name="baselineCycle" type="number" min="0.01" max="100000" step="0.01" value="24" required></div>
+                  <div class="field"><label for="baselineError">Baseline verified error rate (%)</label><input id="baselineError" name="baselineError" type="number" min="0" max="100" step="0.01" value="8" required><small class="field-help">Use a consistently defined, outcome-relevant error measure.</small></div>
+                  <div class="field"><label for="hourlyCost">Loaded labor cost per hour (USD)</label><input id="hourlyCost" name="hourlyCost" type="number" min="0" max="1000000" step="0.01" value="35" required><small class="field-help">Include wages plus applicable employer and overhead costs.</small></div>
+                </div>
+                <p class="split-note"><strong>Baseline workload:</strong> <span id="baselinePreview">333.3 hours per month</span>. This preview is descriptive, not a benefit claim.</p>
+              </section>
+
+              <section class="form-step" data-step="3" hidden>
+                <span class="step-kicker">Step 3 of 5</span>
+                <h2>Enter observed pilot performance</h2>
+                <p class="step-intro">Use actual measured results. Pilot handling time must include review, correction, rework, escalation, and manual fallback—not only AI processing time.</p>
+                <div class="field-grid">
+                  <div class="field"><label for="pilotCases">Cases observed in the pilot</label><input id="pilotCases" name="pilotCases" type="number" min="1" max="100000000" value="200" required></div>
+                  <div class="field"><label for="coverage">Eligible cases routed to AI (%)</label><input id="coverage" name="coverage" type="number" min="0" max="100" step="0.01" value="80" required></div>
+                  <div class="field"><label for="adoption">Actual use of available AI workflow (%)</label><input id="adoption" name="adoption" type="number" min="0" max="100" step="0.01" value="85" required></div>
+                  <div class="field"><label for="pilotMinutes">Pilot human minutes per case</label><input id="pilotMinutes" name="pilotMinutes" type="number" min="0" max="100000" step="0.01" value="12" required></div>
+                  <div class="field"><label for="pilotCycle">Pilot cycle time (hours)</label><input id="pilotCycle" name="pilotCycle" type="number" min="0" max="100000" step="0.01" value="12" required></div>
+                  <div class="field"><label for="noChange">Accepted without change (%)</label><input id="noChange" name="noChange" type="number" min="0" max="100" step="0.01" value="65" required></div>
+                  <div class="field"><label for="minorEdit">Accepted after minor edit (%)</label><input id="minorEdit" name="minorEdit" type="number" min="0" max="100" step="0.01" value="25" required></div>
+                  <div class="field"><label for="majorCorrection">Major correction or rejection (%)</label><input id="majorCorrection" name="majorCorrection" type="number" min="0" max="100" step="0.01" value="10" required></div>
+                  <div class="field"><label for="pilotError">Verified post-review error rate (%)</label><input id="pilotError" name="pilotError" type="number" min="0" max="100" step="0.01" value="4" required></div>
+                  <div class="field"><label for="exceptionRate">Exception or manual fallback rate (%)</label><input id="exceptionRate" name="exceptionRate" type="number" min="0" max="100" step="0.01" value="12" required></div>
+                  <div class="field"><label for="technicalFailure">Technical failure rate (%)</label><input id="technicalFailure" name="technicalFailure" type="number" min="0" max="100" step="0.01" value="2" required></div>
+                </div>
+                <p class="split-note"><strong>Quality split check:</strong> no-change + minor edit + major correction/rejection must equal exactly 100%.</p>
+              </section>
+
+              <section class="form-step" data-step="4" hidden>
+                <span class="step-kicker">Step 4 of 5</span>
+                <h2>Include full cost and risk events</h2>
+                <p class="step-intro">Include implementation, subscription, integration, monitoring, maintenance, review, and other recurring costs not already captured in human minutes.</p>
+                <div class="field-grid">
+                  <div class="field"><label for="setupCost">One-time setup cost (USD)</label><input id="setupCost" name="setupCost" type="number" min="0" max="1000000000" step="0.01" value="3000" required></div>
+                  <div class="field"><label for="recurringCost">Recurring monthly cost (USD)</label><input id="recurringCost" name="recurringCost" type="number" min="0" max="1000000000" step="0.01" value="500" required></div>
+                  <div class="field"><label for="materialIncidents">Material incidents or harms observed</label><input id="materialIncidents" name="materialIncidents" type="number" min="0" max="100000" step="1" value="0" required><small class="field-help">Examples: material data exposure, unauthorized action, consequential external error, harmful or unfair outcome, or required stop event.</small></div>
+                  <div class="field"><label for="unresolvedIncident">Any material incident still unresolved?</label><select id="unresolvedIncident" name="unresolvedIncident"><option value="no" selected>No</option><option value="yes">Yes — stop gate applies</option></select></div>
+                </div>
+                <p class="split-note"><strong>Important:</strong> an unresolved material incident forces a Stop &amp; Investigate result regardless of the numerical score. A resolved material incident still requires a Pause and accountable review before continuation.</p>
+              </section>
+
+              <section class="form-step" data-step="5" hidden>
+                <span class="step-kicker">Step 5 of 5</span>
+                <h2>Confirm controls, evidence, and targets</h2>
+                <p class="step-intro">Check only what is implemented and evidenced for this exact workflow—not what is merely planned.</p>
+                <fieldset>
+                  <legend>Implemented controls</legend>
+                  <div class="choice-grid">
+                    <label class="choice-label"><input type="checkbox" name="control" value="approvedTool"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Approved tool, data, and use</strong><br>The exact service, account, connectors, data types, and use are authorized.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="qualifiedReviewer"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Named qualified reviewer</strong><br>A reviewer has knowledge, authority, independence, and time to correct or reject output.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="scopedAccess"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Scoped permissions</strong><br>Access and actions use least privilege and a defined operating boundary.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="fallback"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Fallback and rollback</strong><br>A safe manual path and tested recovery process are available.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="logging"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Appropriate records</strong><br>Inputs, outputs, approvals, corrections, exceptions, failures, and incidents are recorded as appropriate.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="incidentPath"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Incident and stop path</strong><br>People can pause the workflow, escalate, investigate, and notify accountable owners.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="representativeTests"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Representative testing</strong><br>Normal, edge, missing, conflicting, failure, and relevant adversarial cases were tested.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="control" value="changeControl"><span class="choice-content"><span class="choice-mark">✓</span><span><strong>Monitoring and change control</strong><br>Performance, drift, dependencies, model changes, and scope changes have owners and review triggers.</span></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Decision evidence</legend>
+                  <div class="choice-grid">
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="comparable"><span class="choice-content"><span class="choice-mark">✓</span><span>Baseline and pilot use comparable definitions and boundaries.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="representative"><span class="choice-content"><span class="choice-mark">✓</span><span>The observed sample represents expected users, cases, and conditions.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="edgeCases"><span class="choice-content"><span class="choice-mark">✓</span><span>Important edge, failure, and exception cases were included.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="reviewRecords"><span class="choice-content"><span class="choice-mark">✓</span><span>Reviewer decisions, edits, rejections, and escalations were recorded.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="fullCosts"><span class="choice-content"><span class="choice-mark">✓</span><span>Implementation and operating costs are complete enough for this decision.</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="evidence" value="sufficient"><span class="choice-content"><span class="choice-mark">✓</span><span>Sample size and duration are sufficient for this workflow and decision context.</span></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Editable planning thresholds</legend>
+                  <div class="field-grid">
+                    <div class="field"><label for="targetEfficiency">Target handling-time improvement (%)</label><input id="targetEfficiency" name="targetEfficiency" type="number" min="0.01" max="100" step="0.01" value="20" required></div>
+                    <div class="field"><label for="minAcceptance">Minimum no-change acceptance (%)</label><input id="minAcceptance" name="minAcceptance" type="number" min="0" max="100" step="0.01" value="60" required></div>
+                    <div class="field"><label for="maxMajor">Maximum major correction/rejection (%)</label><input id="maxMajor" name="maxMajor" type="number" min="0" max="100" step="0.01" value="10" required></div>
+                    <div class="field"><label for="maxTechnical">Maximum technical failure (%)</label><input id="maxTechnical" name="maxTechnical" type="number" min="0" max="100" step="0.01" value="5" required></div>
+                    <div class="field"><label for="maxException">Maximum exception/fallback (%)</label><input id="maxException" name="maxException" type="number" min="0" max="100" step="0.01" value="20" required></div>
+                  </div>
+                  <p class="split-note">These defaults are not universal standards. Set and approve appropriate thresholds before interpreting the result.</p>
+                </fieldset>
+              </section>
+
+              <div class="form-error" id="formError" role="alert" aria-live="polite"></div>
+              <div class="form-actions">
+                <button class="btn btn-ghost" id="backButton" type="button" disabled>← Back</button>
+                <button class="btn btn-primary" id="nextButton" type="submit">Next →</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-card" id="resultsCard" hidden>
+        <header class="results-header">
+          <div class="decision-icon" id="decisionIcon" aria-hidden="true">📊</div>
+          <div class="decision-badge" id="decisionBadge">Decision</div>
+          <h2 id="decisionTitle">Pilot decision</h2>
+          <p id="decisionIntro"></p>
+          <div class="overall-wrap"><div class="overall-score" id="overallScore">0</div><div class="overall-copy"><strong>Weighted readiness score</strong><span>Value 30% · Quality 25% · Reliability 20% · Controls 15% · Evidence 10%. Decision gates can override this score.</span></div></div>
+        </header>
+        <div class="results-body">
+          <aside class="gate-alert" id="gateAlert" aria-labelledby="gateTitle"><span aria-hidden="true">⚑</span><div><h3 id="gateTitle">Decision gate review</h3><div id="gateContent"></div></div></aside>
+          <section aria-labelledby="dimensionTitle"><h3 id="dimensionTitle">Five decision dimensions</h3><div class="dimension-grid" id="dimensionGrid"></div></section>
+          <section aria-labelledby="outcomeTitle"><h3 id="outcomeTitle">Observed operational outcomes</h3><div class="outcome-grid" id="outcomeGrid"></div></section>
+          <section aria-labelledby="targetTitle"><h3 id="targetTitle">Target and gate comparison</h3><div class="target-table-wrap"><table class="target-table"><thead><tr><th>Measure</th><th>Observed</th><th>Threshold or gate</th><th>Status</th></tr></thead><tbody id="targetBody"></tbody></table></div></section>
+          <section aria-labelledby="actionTitle"><h3 id="actionTitle">Recommended next actions</h3><div class="action-grid" id="actionGrid"></div></section>
+          <p class="report-note" id="reportNote"></p>
+        </div>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Report</button>
+          <button class="btn btn-primary" id="csvButton" type="button">⬇ Download CSV</button>
+          <button class="btn btn-ghost" id="printButton" type="button">🖨 Print / Save PDF</button>
+          <button class="btn btn-ghost" id="editButton" type="button">✏ Edit Inputs</button>
+          <button class="btn btn-ghost" id="resetButton" type="button">↺ Start Over</button>
+          <div class="action-status" id="actionStatus" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section shell" aria-labelledby="methodTitle">
+      <div class="section-head"><span class="kicker">Transparent Method</span><h2 id="methodTitle">A score cannot replace accountable judgment</h2><p>The scorecard makes its weights, formulas, thresholds, and override gates visible so a team can challenge assumptions and inspect the evidence behind the decision.</p></div>
+      <div class="method-grid">
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">💎</div><h3>Value · 30%</h3><p>Handling-time gain, cycle-time change, adoption, and net monthly value.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">✓</div><h3>Quality · 25%</h3><p>No-change acceptance, minor edits, major corrections, and verified final error.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">⚙</div><h3>Reliability · 20%</h3><p>Exceptions, technical failures, fallback use, and material incidents.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🛡</div><h3>Controls · 15%</h3><p>Authorization, human review, access, recovery, records, incidents, tests, and monitoring.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🔎</div><h3>Evidence · 10%</h3><p>Comparability, representativeness, edge cases, reviewer records, costs, and sufficiency.</p></article>
+      </div>
+      <div class="formula-box">
+        <h3>Core formulas and decision rules</h3>
+        <ul class="formula-list">
+          <li><strong>Effective assisted cases:</strong> eligible monthly cases × AI coverage × actual adoption.</li>
+          <li><strong>Gross monthly labor value:</strong> effective assisted cases × saved human minutes per case ÷ 60 × loaded hourly cost.</li>
+          <li><strong>Net monthly value:</strong> gross monthly labor value − recurring monthly cost. Payback is setup cost ÷ positive net monthly value.</li>
+          <li><strong>Draft usability:</strong> no-change acceptance + 50% of minor-edit acceptance. Verified final quality also compares pilot error with baseline error.</li>
+          <li><strong>Overall score:</strong> value × 30% + quality × 25% + reliability × 20% + controls × 15% + evidence × 10%.</li>
+          <li><strong>Scale Gradually:</strong> overall ≥ 80 plus minimum dimension scores, all five operational targets, no material incident, and no blocking control gate.</li>
+          <li><strong>Override gates:</strong> an unresolved material incident forces Stop &amp; Investigate. Any material incident, an unapproved exact use, controls below 50, or missing qualified review for medium/high impact forces Pause.</li>
+        </ul>
+        <nav class="source-links" aria-label="Official methodology sources">
+          <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI RMF</a>
+          <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook" target="_blank" rel="noopener noreferrer">NIST RMF Playbook</a>
+          <a href="https://airc.nist.gov/" target="_blank" rel="noopener noreferrer">NIST AIRC &amp; TEVV</a>
+          <a href="https://oecd.ai/en/dashboards/ai-principles/P8" target="_blank" rel="noopener noreferrer">OECD Robustness &amp; Safety</a>
+          <a href="https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/" target="_blank" rel="noopener noreferrer">ICO Human Review</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">Pilot scorecard questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>What does this scorecard measure?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-1" hidden>It combines observed value, quality, reliability, implemented controls, and decision evidence, then applies explicit safety and governance gates before recommending gradual expansion.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Are the default thresholds universal standards?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-2" hidden>No. They are editable planning defaults. Set thresholds appropriate to the workflow, impact, risk, users, sector, jurisdiction, and decision before interpreting the result.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>What is the difference between Improve, Pause, and Stop?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-3" hidden>Improve means the pilot can be redesigned and retested without a blocking gate. Pause indicates a control, evidence, performance, or governance gap. Stop and Investigate is triggered by an unresolved material incident.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Does a high score authorize deployment?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-4" hidden>No. Accountable business, security, privacy, legal, compliance, technical, and other required reviewers must make the actual approval decision. High-impact use may require stronger evidence and controls.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Is my pilot information uploaded or stored?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-5" hidden>No information is submitted to a server by this page. Calculations and report generation run locally in your browser. Avoid entering secrets or unnecessary personal information.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav>
+      <p>© 2026 Zynovix AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var form = document.getElementById("pilotForm");
+    var scorecardShell = document.getElementById("scorecardShell");
+    var resultsCard = document.getElementById("resultsCard");
+    var backButton = document.getElementById("backButton");
+    var nextButton = document.getElementById("nextButton");
+    var formError = document.getElementById("formError");
+    var actionStatus = document.getElementById("actionStatus");
+    var currentStep = 1;
+    var latest = null;
+
+    var departmentLabels = {
+      operations: "Operations", marketing: "Marketing", sales: "Sales", support: "Customer Support",
+      finance: "Finance & Administration", hr: "People & HR", technology: "Technology & IT",
+      risk: "Risk & Compliance", general: "Cross-functional"
+    };
+    var goalLabels = {
+      time: "Reduce handling time", cycle: "Reduce cycle time", quality: "Improve quality or consistency",
+      capacity: "Increase capacity", cost: "Reduce operating cost", experience: "Improve user experience"
+    };
+    var controlLabels = {
+      approvedTool: "Exact tool, data, and use are approved",
+      qualifiedReviewer: "A named qualified reviewer has authority",
+      scopedAccess: "Access and actions are appropriately scoped",
+      fallback: "Manual fallback and rollback are available",
+      logging: "Appropriate activity and decisions are recorded",
+      incidentPath: "An incident, stop, and escalation path exists",
+      representativeTests: "Representative and failure cases were tested",
+      changeControl: "Monitoring and change control are assigned"
+    };
+    var evidenceLabels = {
+      comparable: "Baseline and pilot definitions are comparable",
+      representative: "The observed sample is representative",
+      edgeCases: "Important edge and failure cases were included",
+      reviewRecords: "Reviewer decisions and corrections were recorded",
+      fullCosts: "Full costs are sufficiently captured",
+      sufficient: "Sample size and duration are sufficient for context"
+    };
+
+    function numberValue(id) { return Number(document.getElementById(id).value); }
+    function round(value, digits) { var power=Math.pow(10,digits||0); return Math.round((value+Number.EPSILON)*power)/power; }
+    function clamp(value,min,max) { return Math.min(max,Math.max(min,value)); }
+    function percent(value) { return round(value,1)+"%"; }
+    function money(value) { return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(value); }
+    function selectedValues(name) { return Array.prototype.map.call(form.querySelectorAll('input[name="'+name+'"]:checked'),function(input){return input.value;}); }
+    function has(list,value) { return list.indexOf(value)!==-1; }
+
+    function showStep(step) {
+      currentStep=step;
+      form.querySelectorAll(".form-step").forEach(function(section){section.hidden=Number(section.getAttribute("data-step"))!==step;});
+      document.querySelectorAll("[data-step-indicator]").forEach(function(item){var itemStep=Number(item.getAttribute("data-step-indicator"));item.classList.toggle("active",itemStep===step);item.classList.toggle("complete",itemStep<step);});
+      backButton.disabled=step===1;
+      nextButton.textContent=step===5?"Calculate Decision →":"Next →";
+      formError.textContent="";
+      var heading=form.querySelector('.form-step[data-step="'+step+'"] h2');
+      if(heading){heading.setAttribute("tabindex","-1");heading.focus();}
+    }
+
+    function firstInvalidInStep() {
+      var step=form.querySelector('.form-step[data-step="'+currentStep+'"]');
+      var fields=step.querySelectorAll("input[required],select[required]");
+      for(var i=0;i<fields.length;i+=1){if(!fields[i].checkValidity())return fields[i];}
+      return null;
+    }
+
+    function validateStep() {
+      var invalid=firstInvalidInStep();
+      if(invalid){formError.textContent="Complete the highlighted field with a valid value.";invalid.reportValidity();invalid.focus();return false;}
+      if(currentStep===3){
+        var total=numberValue("noChange")+numberValue("minorEdit")+numberValue("majorCorrection");
+        if(Math.abs(total-100)>0.01){formError.textContent="Quality outcomes currently total "+round(total,2)+"%. They must equal exactly 100%.";document.getElementById("noChange").focus();return false;}
+      }
+      if(currentStep===4&&document.getElementById("unresolvedIncident").value==="yes"&&numberValue("materialIncidents")<1){
+        formError.textContent="Enter at least one material incident when an unresolved incident is selected.";document.getElementById("materialIncidents").focus();return false;
+      }
+      return true;
+    }
+
+    function getProfile() {
+      return {
+        workflowName: document.getElementById("workflowName").value.trim(),
+        department: document.getElementById("department").value,
+        pilotOwner: document.getElementById("pilotOwner").value.trim(),
+        pilotDuration: numberValue("pilotDuration"),
+        primaryGoal: document.getElementById("primaryGoal").value,
+        dataSensitivity: document.getElementById("dataSensitivity").value,
+        impactLevel: document.getElementById("impactLevel").value,
+        eligibleCases: numberValue("eligibleCases"),
+        baselineMinutes: numberValue("baselineMinutes"),
+        baselineCycle: numberValue("baselineCycle"),
+        baselineError: numberValue("baselineError"),
+        hourlyCost: numberValue("hourlyCost"),
+        pilotCases: numberValue("pilotCases"),
+        coverage: numberValue("coverage"),
+        adoption: numberValue("adoption"),
+        pilotMinutes: numberValue("pilotMinutes"),
+        pilotCycle: numberValue("pilotCycle"),
+        noChange: numberValue("noChange"),
+        minorEdit: numberValue("minorEdit"),
+        majorCorrection: numberValue("majorCorrection"),
+        pilotError: numberValue("pilotError"),
+        exceptionRate: numberValue("exceptionRate"),
+        technicalFailure: numberValue("technicalFailure"),
+        setupCost: numberValue("setupCost"),
+        recurringCost: numberValue("recurringCost"),
+        materialIncidents: numberValue("materialIncidents"),
+        unresolvedIncident: document.getElementById("unresolvedIncident").value,
+        controls: selectedValues("control"),
+        evidence: selectedValues("evidence"),
+        targetEfficiency: numberValue("targetEfficiency"),
+        minAcceptance: numberValue("minAcceptance"),
+        maxMajor: numberValue("maxMajor"),
+        maxTechnical: numberValue("maxTechnical"),
+        maxException: numberValue("maxException")
+      };
+    }
+
+    function maximumMetricScore(observed,maximum) {
+      if(maximum===0)return observed===0?100:0;
+      return clamp(100-(observed/maximum)*50,0,100);
+    }
+
+    function calculate(profile) {
+      var baselineHours=profile.eligibleCases*profile.baselineMinutes/60;
+      var savedMinutes=Math.max(0,profile.baselineMinutes-profile.pilotMinutes);
+      var effectiveCases=profile.eligibleCases*(profile.coverage/100)*(profile.adoption/100);
+      var grossMonthly=savedMinutes/60*effectiveCases*profile.hourlyCost;
+      var netMonthly=grossMonthly-profile.recurringCost;
+      var payback=netMonthly>0?profile.setupCost/netMonthly:null;
+      var efficiency=(profile.baselineMinutes-profile.pilotMinutes)/profile.baselineMinutes*100;
+      var cycle=(profile.baselineCycle-profile.pilotCycle)/profile.baselineCycle*100;
+      var draftUsability=clamp(profile.noChange+.5*profile.minorEdit,0,100);
+      var finalQuality;
+      if(profile.baselineError>0)finalQuality=clamp(50+((profile.baselineError-profile.pilotError)/profile.baselineError)*50,0,100);
+      else finalQuality=profile.pilotError===0?100:clamp(100-profile.pilotError*20,0,100);
+
+      var efficiencyScore=clamp(efficiency/profile.targetEfficiency*100,0,100);
+      var cycleScore=clamp(50+cycle,0,100);
+      var netValueScore;
+      if(netMonthly>0){
+        if(profile.setupCost===0||payback<=12)netValueScore=100;
+        else if(payback<=24)netValueScore=75;
+        else netValueScore=60;
+      } else if(grossMonthly>0&&profile.recurringCost<=grossMonthly*1.1)netValueScore=40;
+      else netValueScore=0;
+      var valueScore=round(.45*efficiencyScore+.20*cycleScore+.20*netValueScore+.15*profile.adoption,1);
+      var qualityScore=round(.60*draftUsability+.40*finalQuality,1);
+      var incidentScore=profile.materialIncidents===0?100:clamp(100-35*profile.materialIncidents,0,100);
+      var exceptionScore=maximumMetricScore(profile.exceptionRate,profile.maxException);
+      var technicalScore=maximumMetricScore(profile.technicalFailure,profile.maxTechnical);
+      var reliabilityScore=round(.35*exceptionScore+.35*technicalScore+.30*incidentScore,1);
+      var controlsScore=round(profile.controls.length/8*100,1);
+      var evidenceScore=round(profile.evidence.length/6*100,1);
+      var overall=round(.30*valueScore+.25*qualityScore+.20*reliabilityScore+.15*controlsScore+.10*evidenceScore,1);
+
+      var tests={
+        efficiency: efficiency>=profile.targetEfficiency,
+        acceptance: profile.noChange>=profile.minAcceptance,
+        major: profile.majorCorrection<=profile.maxMajor,
+        technical: profile.technicalFailure<=profile.maxTechnical,
+        exception: profile.exceptionRate<=profile.maxException
+      };
+      var gates=[];
+      var decision;
+      if(profile.unresolvedIncident==="yes"){
+        decision="stop";
+        gates.push("An unresolved material incident requires immediate containment, investigation, remediation, and accountable review.");
+      } else {
+        if(profile.materialIncidents>0)gates.push("One or more material incidents were observed; continuation requires accountable review and documented remediation.");
+        if(!has(profile.controls,"approvedTool"))gates.push("The exact tool, data, connectors, account, and use are not confirmed as approved.");
+        if(controlsScore<50)gates.push("Implemented controls score below 50, creating a blocking governance gap.");
+        if((profile.impactLevel==="medium"||profile.impactLevel==="high")&&!has(profile.controls,"qualifiedReviewer"))gates.push("Medium/high-impact output lacks a named qualified reviewer with authority.");
+        if(gates.length)decision="pause";
+        else if(overall>=80&&valueScore>=70&&qualityScore>=75&&reliabilityScore>=80&&controlsScore>=80&&evidenceScore>=75&&tests.efficiency&&tests.acceptance&&tests.major&&tests.technical&&tests.exception)decision="scale";
+        else if(overall>=60)decision="improve";
+        else decision="pause";
+      }
+      return {
+        baselineHours:baselineHours,savedMinutes:savedMinutes,effectiveCases:effectiveCases,grossMonthly:grossMonthly,netMonthly:netMonthly,payback:payback,
+        efficiency:efficiency,cycle:cycle,draftUsability:draftUsability,finalQuality:finalQuality,
+        valueScore:valueScore,qualityScore:qualityScore,reliabilityScore:reliabilityScore,controlsScore:controlsScore,evidenceScore:evidenceScore,overall:overall,
+        incidentScore:incidentScore,exceptionScore:exceptionScore,technicalScore:technicalScore,tests:tests,gates:gates,decision:decision
+      };
+    }
+
+    function appendDimension(grid,name,score,description) {
+      var card=document.createElement("article");card.className="dimension-card";
+      card.innerHTML='<div class="dimension-head"><strong></strong><span></span></div><div class="score-track"><div class="score-fill"></div></div><p></p>';
+      card.querySelector("strong").textContent=name;card.querySelector(".dimension-head span").textContent=round(score,1);
+      card.querySelector(".score-fill").style.width=clamp(score,0,100)+"%";card.querySelector("p").textContent=description;grid.appendChild(card);
+    }
+
+    function appendOutcome(grid,label,value,description) {
+      var card=document.createElement("article");card.className="outcome-card";
+      var small=document.createElement("small"),strong=document.createElement("strong"),p=document.createElement("p");small.textContent=label;strong.textContent=value;p.textContent=description;
+      card.appendChild(small);card.appendChild(strong);card.appendChild(p);grid.appendChild(card);
+    }
+
+    function appendTarget(body,label,observed,target,passed) {
+      var row=document.createElement("tr");
+      [label,observed,target].forEach(function(text){var cell=document.createElement("td");cell.textContent=text;row.appendChild(cell);});
+      var status=document.createElement("td");status.className=passed?"status-pass":"status-miss";status.textContent=passed?"Pass":"Needs attention";row.appendChild(status);body.appendChild(row);
+    }
+
+    function appendAction(grid,index,title,description) {
+      var card=document.createElement("article");card.className="action-card";
+      var number=document.createElement("span");number.className="action-number";number.textContent=index;
+      var copy=document.createElement("div"),heading=document.createElement("h4"),p=document.createElement("p");heading.textContent=title;p.textContent=description;copy.appendChild(heading);copy.appendChild(p);card.appendChild(number);card.appendChild(copy);grid.appendChild(card);
+    }
+
+    function renderResults(profile,result) {
+      var decisionContent={
+        scale:{label:"Scale Gradually",title:"Evidence supports a controlled expansion",icon:"↗",intro:"The pilot cleared the score, dimension, control, evidence, and operational target gates. Expand in stages with monitoring and renewed approval for any material scope change."},
+        improve:{label:"Improve & Retest",title:"The pilot needs targeted improvement",icon:"🛠",intro:"No blocking safety or governance gate was found, but one or more performance, evidence, or readiness conditions are not strong enough for scaling."},
+        pause:{label:"Pause",title:"Do not expand this pilot yet",icon:"Ⅱ",intro:"A blocking control, incident, evidence, governance, or performance gap requires correction and accountable review before the pilot continues or expands."},
+        stop:{label:"Stop & Investigate",title:"Contain the workflow and investigate",icon:"■",intro:"An unresolved material incident overrides the numerical score. Stop affected processing, preserve evidence, follow the incident process, and obtain accountable authorization before any restart."}
+      }[result.decision];
+      document.getElementById("decisionIcon").textContent=decisionContent.icon;
+      var badge=document.getElementById("decisionBadge");badge.className="decision-badge "+result.decision;badge.textContent=decisionContent.label;
+      document.getElementById("decisionTitle").textContent=decisionContent.title;
+      document.getElementById("decisionIntro").textContent=profile.workflowName+" · "+departmentLabels[profile.department]+" · "+profile.pilotDuration+" observed days. "+decisionContent.intro;
+      document.getElementById("overallScore").textContent=result.overall;
+
+      var alert=document.getElementById("gateAlert"),gateContent=document.getElementById("gateContent");alert.className="gate-alert "+(result.decision==="stop"?"stop":result.decision==="scale"?"scale":"");gateContent.innerHTML="";
+      if(result.gates.length){var ul=document.createElement("ul");result.gates.forEach(function(gate){var li=document.createElement("li");li.textContent=gate;ul.appendChild(li);});gateContent.appendChild(ul);}
+      else {gateContent.textContent=result.decision==="scale"?"No blocking incident or control gate was reported. The result still requires accountable approval and staged monitoring.":"No override gate was reported. The recommendation is driven by the scores and target comparison below.";}
+
+      var dimensions=document.getElementById("dimensionGrid");dimensions.innerHTML="";
+      appendDimension(dimensions,"Value",result.valueScore,"Time, cycle, adoption, and net monthly value.");
+      appendDimension(dimensions,"Quality",result.qualityScore,"Draft usability and verified post-review quality.");
+      appendDimension(dimensions,"Reliability",result.reliabilityScore,"Exceptions, technical failures, and incidents.");
+      appendDimension(dimensions,"Controls",result.controlsScore,profile.controls.length+" of 8 controls confirmed.");
+      appendDimension(dimensions,"Evidence",result.evidenceScore,profile.evidence.length+" of 6 evidence checks confirmed.");
+
+      var outcomes=document.getElementById("outcomeGrid");outcomes.innerHTML="";
+      appendOutcome(outcomes,"Handling-time change",percent(result.efficiency),(profile.baselineMinutes+" to "+profile.pilotMinutes+" human minutes per case, including reported review and rework."));
+      appendOutcome(outcomes,"Cycle-time change",percent(result.cycle),(profile.baselineCycle+" to "+profile.pilotCycle+" hours."));
+      appendOutcome(outcomes,"Effective assisted cases",round(result.effectiveCases,0)+" / month","Eligible volume × coverage × actual adoption.");
+      appendOutcome(outcomes,"Gross monthly labor value",money(result.grossMonthly),"Capacity value implied by measured saved human time and loaded hourly cost.");
+      appendOutcome(outcomes,"Net monthly value",money(result.netMonthly),"Gross monthly labor value minus reported recurring monthly cost.");
+      appendOutcome(outcomes,"Simple payback",result.payback===null?"No positive payback":round(result.payback,1)+" months","Setup cost divided by positive net monthly value; not a complete financial model.");
+      appendOutcome(outcomes,"Draft usability",percent(result.draftUsability),"No-change acceptance plus half of minor-edit acceptance.");
+      appendOutcome(outcomes,"Verified error rate",percent(profile.pilotError),"Baseline was "+percent(profile.baselineError)+" using the reported definition.");
+      appendOutcome(outcomes,"Pilot observations",profile.pilotCases+" cases",profile.pilotDuration+" days; sufficiency must be judged for the actual context.");
+
+      var body=document.getElementById("targetBody");body.innerHTML="";
+      appendTarget(body,"Handling-time improvement",percent(result.efficiency),"≥ "+percent(profile.targetEfficiency),result.tests.efficiency);
+      appendTarget(body,"Accepted without change",percent(profile.noChange),"≥ "+percent(profile.minAcceptance),result.tests.acceptance);
+      appendTarget(body,"Major correction or rejection",percent(profile.majorCorrection),"≤ "+percent(profile.maxMajor),result.tests.major);
+      appendTarget(body,"Technical failure",percent(profile.technicalFailure),"≤ "+percent(profile.maxTechnical),result.tests.technical);
+      appendTarget(body,"Exception or manual fallback",percent(profile.exceptionRate),"≤ "+percent(profile.maxException),result.tests.exception);
+      appendTarget(body,"Implemented controls",percent(result.controlsScore),"≥ 80% for Scale",result.controlsScore>=80);
+      appendTarget(body,"Decision evidence",percent(result.evidenceScore),"≥ 75% for Scale",result.evidenceScore>=75);
+      appendTarget(body,"Material incidents",String(profile.materialIncidents),"0 for Scale",profile.materialIncidents===0);
+
+      var actions=document.getElementById("actionGrid");actions.innerHTML="";
+      var actionSets={
+        scale:[
+          ["Approve a bounded expansion","Name the approving owner, added volume or users, unchanged scope, rollout sequence, and rollback trigger."],
+          ["Monitor every stage","Continue quality, error, review load, exception, failure, incident, adoption, cost, and outcome monitoring."],
+          ["Preserve human authority","Keep qualified review and override where impact, sensitivity, reversibility, or error detectability requires it."],
+          ["Reassess material changes","Treat new data, models, integrations, actions, users, regions, or decision authority as a new review trigger."]
+        ],
+        improve:[
+          ["Fix the weakest dimension","Use the five scores and missed targets to select one or two specific design changes."],
+          ["Preserve the comparison","Retest the same bounded workflow and keep baseline, measurement definitions, and cost boundary stable."],
+          ["Increase evidence quality","Add representative cases, reviewer records, edge tests, full costs, or a longer observation period as needed."],
+          ["Re-score before expansion","Do not turn a promising average into a deployment decision until all scale gates are met."]
+        ],
+        pause:[
+          ["Resolve every blocking gate","Address approval, review authority, controls, incidents, evidence, or performance gaps listed in the gate review."],
+          ["Return to a safe process","Keep or restore the established fallback while owners investigate and redesign the pilot."],
+          ["Document remediation","Record root causes, corrective actions, tests, owners, due dates, residual risk, and restart conditions."],
+          ["Require accountable restart","Resume only after the appropriate business and specialist reviewers approve a bounded retest."]
+        ],
+        stop:[
+          ["Contain affected processing","Stop the workflow or affected actions, prevent further impact, and use the approved safe fallback."],
+          ["Preserve evidence and notify owners","Follow the incident plan, retain relevant records appropriately, and involve accountable reviewers."],
+          ["Investigate root cause and impact","Determine what happened, affected people or systems, exposure, recurrence risk, and required obligations."],
+          ["Do not restart on score alone","Complete remediation and verification, then obtain explicit accountable authorization for any bounded retest."]
+        ]
+      }[result.decision];
+      actionSets.forEach(function(action,index){appendAction(actions,index+1,action[0],action[1]);});
+
+      document.getElementById("reportNote").textContent="Planning interpretation only. The score reflects the data and checkboxes entered, not independent verification. It does not establish statistical significance, compliance, safety, fairness, security, financial return, or authorization to deploy.";
+    }
+
+    function decisionLabel(decision) { return {scale:"Scale Gradually",improve:"Improve & Retest",pause:"Pause",stop:"Stop & Investigate"}[decision]; }
+
+    function buildReportText() {
+      if(!latest)return "";
+      var p=latest.profile,r=latest.result;
+      var lines=[
+        "AI AUTOMATION PILOT SCORECARD — ZYNOVIX AI",
+        "Workflow: "+p.workflowName,
+        "Department: "+departmentLabels[p.department],
+        "Pilot owner: "+p.pilotOwner,
+        "Primary goal: "+goalLabels[p.primaryGoal],
+        "Observed duration: "+p.pilotDuration+" days",
+        "Pilot cases: "+p.pilotCases,
+        "Decision: "+decisionLabel(r.decision),
+        "Overall weighted score: "+r.overall+" / 100",
+        "",
+        "DIMENSION SCORES",
+        "Value: "+r.valueScore+" / 100",
+        "Quality: "+r.qualityScore+" / 100",
+        "Reliability: "+r.reliabilityScore+" / 100",
+        "Controls: "+r.controlsScore+" / 100 ("+p.controls.length+" of 8)",
+        "Evidence: "+r.evidenceScore+" / 100 ("+p.evidence.length+" of 6)",
+        "",
+        "OBSERVED OUTCOMES",
+        "Handling-time improvement: "+percent(r.efficiency),
+        "Cycle-time improvement: "+percent(r.cycle),
+        "Effective assisted cases/month: "+round(r.effectiveCases,0),
+        "Gross monthly labor value: "+money(r.grossMonthly),
+        "Net monthly value: "+money(r.netMonthly),
+        "Simple payback: "+(r.payback===null?"No positive payback":round(r.payback,1)+" months"),
+        "Draft usability: "+percent(r.draftUsability),
+        "Verified pilot error: "+percent(p.pilotError)+" (baseline "+percent(p.baselineError)+")",
+        "Exceptions/fallback: "+percent(p.exceptionRate),
+        "Technical failures: "+percent(p.technicalFailure),
+        "Material incidents: "+p.materialIncidents,
+        "",
+        "DECISION GATES",
+        r.gates.length?r.gates.map(function(gate){return "- "+gate;}).join("\n"):"- No override gate reported.",
+        "",
+        "IMPLEMENTED CONTROLS",
+        p.controls.length?p.controls.map(function(item){return "- "+controlLabels[item];}).join("\n"):"- None confirmed",
+        "",
+        "DECISION EVIDENCE",
+        p.evidence.length?p.evidence.map(function(item){return "- "+evidenceLabels[item];}).join("\n"):"- None confirmed",
+        "",
+        "Planning aid only. Results depend on entered data and do not authorize deployment.",
+        "https://zynovix.github.io/ai-automation-pilot-scorecard.html"
+      ];
+      return lines.join("\n");
+    }
+
+    function csvEscape(value) { var text=String(value===null||value===undefined?"":value);return '"'+text.replace(/"/g,'""')+'"'; }
+
+    function buildCsv() {
+      if(!latest)return "";
+      var p=latest.profile,r=latest.result;
+      var rows=[["Section","Metric","Value","Unit or note"],
+        ["Decision","Recommendation",decisionLabel(r.decision),"Decision gates can override score"],
+        ["Decision","Overall weighted score",r.overall,"0–100"],
+        ["Setup","Workflow",p.workflowName,""],["Setup","Department",departmentLabels[p.department],""],["Setup","Pilot owner",p.pilotOwner,""],["Setup","Pilot duration",p.pilotDuration,"days"],["Setup","Pilot cases",p.pilotCases,"cases"],
+        ["Baseline","Eligible cases per month",p.eligibleCases,"cases"],["Baseline","Human minutes per case",p.baselineMinutes,"minutes"],["Baseline","Cycle time",p.baselineCycle,"hours"],["Baseline","Verified error rate",p.baselineError,"%"],["Baseline","Loaded hourly cost",p.hourlyCost,"USD"],
+        ["Pilot","AI coverage",p.coverage,"%"],["Pilot","Actual adoption",p.adoption,"%"],["Pilot","Human minutes per case",p.pilotMinutes,"minutes"],["Pilot","Cycle time",p.pilotCycle,"hours"],["Pilot","Accepted without change",p.noChange,"%"],["Pilot","Minor edit",p.minorEdit,"%"],["Pilot","Major correction or rejection",p.majorCorrection,"%"],["Pilot","Verified post-review error",p.pilotError,"%"],["Pilot","Exception or fallback rate",p.exceptionRate,"%"],["Pilot","Technical failure rate",p.technicalFailure,"%"],
+        ["Cost","One-time setup cost",p.setupCost,"USD"],["Cost","Recurring monthly cost",p.recurringCost,"USD"],["Risk","Material incidents",p.materialIncidents,"count"],["Risk","Unresolved material incident",p.unresolvedIncident,"yes/no"],
+        ["Result","Handling-time improvement",round(r.efficiency,2),"%"],["Result","Cycle-time improvement",round(r.cycle,2),"%"],["Result","Effective assisted cases",round(r.effectiveCases,2),"per month"],["Result","Gross monthly labor value",round(r.grossMonthly,2),"USD"],["Result","Net monthly value",round(r.netMonthly,2),"USD"],["Result","Simple payback",r.payback===null?"":round(r.payback,2),"months"],["Result","Draft usability",round(r.draftUsability,2),"%"],
+        ["Score","Value",r.valueScore,"0–100"],["Score","Quality",r.qualityScore,"0–100"],["Score","Reliability",r.reliabilityScore,"0–100"],["Score","Controls",r.controlsScore,"0–100"],["Score","Evidence",r.evidenceScore,"0–100"],
+        ["Controls","Confirmed",p.controls.map(function(item){return controlLabels[item];}).join(" | "),p.controls.length+" of 8"],["Evidence","Confirmed",p.evidence.map(function(item){return evidenceLabels[item];}).join(" | "),p.evidence.length+" of 6"],["Gates","Blocking reasons",r.gates.join(" | "),""]];
+      return "\uFEFF"+rows.map(function(row){return row.map(csvEscape).join(",");}).join("\r\n");
+    }
+
+    function fallbackCopy(text) { var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied; }
+
+    function copyReport() {
+      var text=buildReportText();if(!text)return;
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){actionStatus.textContent="Scorecard report copied.";}).catch(function(){actionStatus.textContent=fallbackCopy(text)?"Scorecard report copied.":"Copy failed. Please try again.";});}
+      else actionStatus.textContent=fallbackCopy(text)?"Scorecard report copied.":"Copy failed. Please try again.";
+    }
+
+    function downloadCsv() {
+      var content=buildCsv();if(!content)return;
+      var blob=new Blob([content],{type:"text/csv;charset=utf-8"});var url=URL.createObjectURL(blob);var link=document.createElement("a");
+      var base=latest.profile.workflowName.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ai-pilot";
+      link.href=url;link.download=base+"-pilot-scorecard.csv";document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);actionStatus.textContent="CSV report downloaded.";
+    }
+
+    function showResults() {
+      var profile=getProfile(),result=calculate(profile);latest={profile:profile,result:result};renderResults(profile,result);
+      scorecardShell.hidden=true;resultsCard.hidden=false;actionStatus.textContent="";document.getElementById("scorecard").scrollIntoView({behavior:"smooth",block:"start"});document.getElementById("decisionTitle").setAttribute("tabindex","-1");document.getElementById("decisionTitle").focus();
+    }
+
+    function applyQueryParameters() {
+      var params=new URLSearchParams(window.location.search),workflow=params.get("workflow"),department=params.get("department"),goal=params.get("goal");
+      if(workflow)document.getElementById("workflowName").value=workflow.slice(0,100);
+      if(department&&departmentLabels[department])document.getElementById("department").value=department;
+      if(goal&&goalLabels[goal])document.getElementById("primaryGoal").value=goal;
+    }
+
+    function updateBaselinePreview() {
+      var cases=numberValue("eligibleCases"),minutes=numberValue("baselineMinutes");
+      document.getElementById("baselinePreview").textContent=(isFinite(cases)&&isFinite(minutes)?round(cases*minutes/60,1):0)+" hours per month";
+    }
+
+    form.addEventListener("submit",function(event){event.preventDefault();if(!validateStep())return;if(currentStep<5)showStep(currentStep+1);else showResults();});
+    backButton.addEventListener("click",function(){if(currentStep>1)showStep(currentStep-1);});
+    document.getElementById("eligibleCases").addEventListener("input",updateBaselinePreview);
+    document.getElementById("baselineMinutes").addEventListener("input",updateBaselinePreview);
+    document.getElementById("copyButton").addEventListener("click",copyReport);
+    document.getElementById("csvButton").addEventListener("click",downloadCsv);
+    document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("editButton").addEventListener("click",function(){resultsCard.hidden=true;scorecardShell.hidden=false;showStep(1);document.getElementById("scorecard").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("resetButton").addEventListener("click",function(){form.reset();resultsCard.hidden=true;scorecardShell.hidden=false;latest=null;updateBaselinePreview();showStep(1);document.getElementById("scorecard").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+
+    applyQueryParameters();
+    updateBaselinePreview();
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

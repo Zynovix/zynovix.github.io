@@ -59,6 +59,21 @@
       line-height: 1;
     }
 
+    .tools-page .tool-card.featured-tool {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      min-height: auto;
+      text-align: left;
+    }
+
+    .tools-page .featured-tool .tool-icon,
+    .tools-page .featured-tool .btn {
+      margin: 0;
+    }
+
     .tools-page #quiz,
     .tools-page #directory {
       scroll-margin-top: 96px;
@@ -248,6 +263,14 @@
         grid-template-columns: 1fr !important;
       }
 
+      .tools-page .tool-card.featured-tool {
+        grid-template-columns: 1fr;
+      }
+
+      .tools-page .featured-tool .btn {
+        width: 100%;
+      }
+
       .tools-page .tools-grid,
       .tools-page .quiz-options,
       .tools-page .tools-filters {
@@ -420,6 +443,12 @@
         <h3>Prompt Library</h3>
         <p>Free collection of tested AI prompts. Copy-ready prompts for writing, coding, marketing, and more.</p>
         <a href="prompts.html" class="btn btn-ghost">Browse Prompts</a>
+      </article>
+
+      <article class="card tool-card featured-tool">
+        <div class="tool-icon" aria-hidden="true">📊</div>
+        <div><h3>AI Automation Pilot Scorecard</h3><p>Compare baseline and pilot evidence across value, quality, reliability, controls, and evidence—then get a transparent Scale, Improve, Pause, or Stop decision report.</p></div>
+        <a href="ai-automation-pilot-scorecard.html" class="btn btn-primary">Score a Pilot</a>
       </article>
     </div>
   </section>

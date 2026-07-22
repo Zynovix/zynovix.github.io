@@ -143,6 +143,8 @@
     .compare-choice input:focus-visible + span { outline: 3px solid var(--sb-cyan); outline-offset: 2px; }
     .official-link { display: flex; min-height: 43px; align-items: center; justify-content: center; padding: 9px 12px; border: 1px solid var(--sb-line); border-radius: 12px; color: #c5d9ec; background: rgba(255,255,255,.025); font-size: 13px; font-weight: 800; }
     .official-link:hover { border-color: var(--sb-cyan); color: #fff; }
+    .risk-link { grid-column: 1 / -1; border-color: rgba(52,211,153,.35); color: #bff4df; background: rgba(52,211,153,.055); }
+    .risk-link:hover { border-color: var(--sb-green); color: #eafff5; }
 
     .comparison-panel { margin-top: 30px; scroll-margin-top: 96px; }
     .comparison-toolbar { display: grid; gap: 14px; align-items: end; margin-bottom: 14px; }
@@ -718,7 +720,7 @@
           '<p class="match-reason">'+escapeHtml(resultReason(result,profile))+'</p>'+
           '<ul class="tag-list">'+tags.map(function(tag){return '<li>'+escapeHtml(tag)+'</li>';}).join("")+'</ul>'+
           '<p class="tool-caution"><strong>Validate:</strong> '+escapeHtml(tool.caution)+'</p>'+
-          '<div class="card-actions"><label class="compare-choice"><input type="checkbox" data-compare="'+tool.id+'" '+(selectedIds.indexOf(tool.id)>-1?'checked':'')+'><span>Add to comparison</span></label><a class="official-link" href="'+tool.official+'" target="_blank" rel="noopener noreferrer nofollow">Official details ↗</a></div>'+
+          '<div class="card-actions"><label class="compare-choice"><input type="checkbox" data-compare="'+tool.id+'" '+(selectedIds.indexOf(tool.id)>-1?'checked':'')+'><span>Add to comparison</span></label><a class="official-link" href="'+tool.official+'" target="_blank" rel="noopener noreferrer nofollow">Official details ↗</a><a class="official-link risk-link" href="ai-vendor-risk-assessment.html?vendor='+encodeURIComponent(tool.name)+'">Assess Vendor Risk →</a></div>'+ 
         '</article>';
       }).join("");
       Array.prototype.forEach.call(document.querySelectorAll("[data-compare]"),function(input){input.addEventListener("change",handleCompareChange);});

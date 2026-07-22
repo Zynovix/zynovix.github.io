@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Vendor Risk Assessment (2026) | Zynovix AI</title>
+  <meta name="description" content="Assess an AI vendor across privacy, security, AI governance, contracts, and operational resilience. Get a transparent risk score, red flags, vendor questions, and decision brief.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-vendor-risk-assessment.html">
+  <link rel="icon" href="/logo.png?v=20260712" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:title" content="Free AI Vendor Risk Assessment">
+  <meta property="og:description" content="Turn vendor claims and evidence into a transparent AI risk brief with red flags, required controls, and due-diligence questions.">
+  <meta property="og:url" content="https://zynovix.github.io/ai-vendor-risk-assessment.html">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Vendor Risk Assessment">
+  <meta name="twitter:description" content="Evaluate privacy, security, governance, contract, and operational risk before piloting an AI vendor.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --vr-bg: #050816;
+      --vr-surface: rgba(10,17,39,.94);
+      --vr-surface-2: rgba(15,24,51,.9);
+      --vr-line: rgba(148,163,184,.2);
+      --vr-strong: #f8fbff;
+      --vr-text: #d6e0ef;
+      --vr-soft: #96a5bc;
+      --vr-cyan: #22d3ee;
+      --vr-blue: #3b82f6;
+      --vr-purple: #8b5cf6;
+      --vr-green: #34d399;
+      --vr-yellow: #fbbf24;
+      --vr-red: #fb7185;
+      --vr-shadow: 0 28px 85px rgba(0,0,0,.36);
+    }
+
+    html { scroll-behavior: smooth; }
+    body.vendor-risk-page { color: var(--vr-text); overflow-x: hidden; }
+    [hidden] { display: none !important; }
+    .vendor-risk-page .brand img,
+    .vendor-risk-page .logo img { width: 52px !important; height: 52px !important; display: block !important; object-fit: contain !important; background: #fff !important; border-radius: 8px !important; padding: 2px !important; flex: 0 0 52px !important; }
+    .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; transform: translateY(-160%); padding: 11px 15px; border-radius: 10px; color: #041018; background: var(--vr-cyan); font-weight: 900; transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .risk-hero { padding: 54px 0 40px; text-align: center; }
+    .breadcrumb { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; color: var(--vr-soft); font-size: 14px; }
+    .breadcrumb a:hover { color: var(--vr-cyan); }
+    .risk-hero h1 { max-width: 1080px; margin: 18px auto; color: var(--vr-strong); font-size: clamp(40px,8vw,76px); line-height: 1; letter-spacing: -2.6px; }
+    .risk-hero h1 span { color: transparent; background: linear-gradient(90deg,var(--vr-cyan),#60a5fa,#a78bfa); -webkit-background-clip: text; background-clip: text; }
+    .risk-hero > p { max-width: 900px; margin: 0 auto; color: var(--vr-soft); font-size: clamp(18px,3.7vw,22px); line-height: 1.7; }
+    .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 24px auto 0; padding: 0; list-style: none; }
+    .hero-facts li { padding: 8px 12px; border: 1px solid var(--vr-line); border-radius: 999px; color: #c8d6e8; background: rgba(255,255,255,.035); font-size: 13px; }
+    .hero-action { margin-top: 25px; }
+    .privacy-note { display: flex; align-items: flex-start; gap: 12px; max-width: 930px; margin: 24px auto 0; padding: 15px 17px; border: 1px solid rgba(52,211,153,.24); border-radius: 17px; color: #c8e7db; background: rgba(52,211,153,.06); text-align: left; line-height: 1.6; }
+    .privacy-note svg { width: 21px; height: 21px; flex: 0 0 21px; margin-top: 2px; color: var(--vr-green); }
+
+    .assessment-section { padding: 18px 0 88px; scroll-margin-top: 96px; }
+    .assessment-shell,
+    .results-card { border: 1px solid var(--vr-line); border-radius: 28px; background: var(--vr-surface); box-shadow: var(--vr-shadow); overflow: hidden; }
+    .assessment-layout { display: block; }
+    .step-sidebar { padding: 20px; border-bottom: 1px solid var(--vr-line); background: rgba(4,9,24,.48); }
+    .step-sidebar > span { display: block; margin-bottom: 13px; color: var(--vr-cyan); font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+    .step-list { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .step-item { display: grid; justify-items: center; gap: 6px; color: #75839a; font-size: 10px; text-align: center; }
+    .step-number { display: grid; width: 33px; height: 33px; place-items: center; border: 1px solid var(--vr-line); border-radius: 10px; background: rgba(255,255,255,.035); font-weight: 900; }
+    .step-item.active { color: var(--vr-strong); }
+    .step-item.active .step-number { border-color: rgba(34,211,238,.75); color: #04101a; background: linear-gradient(135deg,var(--vr-cyan),#60a5fa); box-shadow: 0 0 22px rgba(34,211,238,.2); }
+    .step-item.complete .step-number { color: #071a13; border-color: rgba(52,211,153,.55); background: var(--vr-green); }
+
+    .form-area { padding: 24px; }
+    .form-step { min-height: 650px; }
+    .step-kicker { display: block; margin-bottom: 8px; color: var(--vr-cyan); font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .form-step h2 { margin: 0 0 9px; color: var(--vr-strong); font-size: clamp(28px,5vw,40px); line-height: 1.12; }
+    .step-intro { max-width: 850px; margin: 0 0 25px; color: var(--vr-soft); line-height: 1.65; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1/-1; }
+    .field label { display: block; margin-bottom: 8px; color: var(--vr-strong); font-size: 14px; font-weight: 800; }
+    .field input,
+    .field select { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--vr-line); border-radius: 14px; outline: none; color: var(--vr-strong); background: #091127; font: inherit; color-scheme: dark; transition: border-color .2s ease,box-shadow .2s ease; }
+    .field input:focus,
+    .field select:focus { border-color: rgba(34,211,238,.75); box-shadow: 0 0 0 4px rgba(34,211,238,.09); }
+    .field-help { display: block; margin-top: 6px; color: #77879f; font-size: 12px; line-height: 1.45; }
+    .profile-note { margin: 19px 0 0; padding: 15px 17px; border: 1px solid rgba(34,211,238,.2); border-radius: 15px; color: #bddce5; background: rgba(34,211,238,.05); line-height: 1.55; }
+
+    .question-list { display: grid; gap: 14px; }
+    .risk-question { padding: 17px; border: 1px solid var(--vr-line); border-radius: 17px; background: rgba(255,255,255,.025); }
+    .question-head { display: flex; align-items: flex-start; gap: 11px; }
+    .question-index { display: grid; width: 31px; height: 31px; flex: 0 0 31px; place-items: center; border-radius: 10px; color: #06131c; background: var(--vr-cyan); font-size: 12px; font-weight: 900; }
+    .question-copy strong { display: block; color: var(--vr-strong); font-size: 16px; line-height: 1.38; }
+    .question-copy small { display: block; margin-top: 5px; color: var(--vr-soft); line-height: 1.45; }
+    .answer-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 14px; }
+    .answer-label { position: relative; cursor: pointer; }
+    .answer-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .answer-label span { display: flex; min-height: 43px; align-items: center; justify-content: center; padding: 8px; border: 1px solid var(--vr-line); border-radius: 11px; color: #b9c7d9; background: #091127; font-size: 12px; font-weight: 800; text-align: center; transition: border-color .2s ease,background .2s ease,transform .2s ease; }
+    .answer-label:hover span { transform: translateY(-1px); }
+    .answer-label input:checked + span { border-color: rgba(34,211,238,.7); color: #fff; background: rgba(34,211,238,.1); box-shadow: inset 0 0 0 1px rgba(34,211,238,.12); }
+    .answer-label input:focus-visible + span { outline: 3px solid var(--vr-cyan); outline-offset: 2px; }
+    .answer-label[data-answer="verified"] input:checked + span { border-color: rgba(52,211,153,.7); color: #bdf5df; background: rgba(52,211,153,.09); }
+    .answer-label[data-answer="no"] input:checked + span { border-color: rgba(251,113,133,.72); color: #ffc4cf; background: rgba(251,113,133,.09); }
+    .answer-label[data-answer="unknown"] input:checked + span { border-color: rgba(251,191,36,.65); color: #ffe5a2; background: rgba(251,191,36,.08); }
+
+    .evidence-fieldset { margin: 24px 0 0; padding: 19px; border: 1px solid var(--vr-line); border-radius: 18px; background: rgba(255,255,255,.02); }
+    .evidence-fieldset legend { padding: 0 8px; color: var(--vr-strong); font-weight: 900; }
+    .evidence-grid { display: grid; grid-template-columns: 1fr; gap: 9px; }
+    .evidence-label { position: relative; cursor: pointer; }
+    .evidence-label input { position: absolute; opacity: 0; pointer-events: none; }
+    .evidence-label span { display: grid; grid-template-columns: 28px minmax(0,1fr); align-items: center; gap: 10px; min-height: 56px; padding: 11px; border: 1px solid var(--vr-line); border-radius: 13px; color: #becadb; background: rgba(255,255,255,.025); font-size: 13px; }
+    .evidence-label span::before { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid var(--vr-line); border-radius: 9px; color: transparent; background: #091127; content: "✓"; font-weight: 900; }
+    .evidence-label input:checked + span { border-color: rgba(52,211,153,.58); color: var(--vr-strong); background: rgba(52,211,153,.065); }
+    .evidence-label input:checked + span::before { border-color: var(--vr-green); color: #06160f; background: var(--vr-green); }
+    .evidence-label input:focus-visible + span { outline: 3px solid var(--vr-cyan); outline-offset: 2px; }
+
+    .form-error { min-height: 25px; margin-top: 17px; color: #ff9daf; font-size: 14px; font-weight: 700; }
+    .form-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .form-actions button { border: 0; cursor: pointer; font: inherit; }
+    .form-actions button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+
+    .results-header { padding: 30px; border-bottom: 1px solid var(--vr-line); text-align: center; }
+    .decision-icon { display: grid; width: 66px; height: 66px; place-items: center; margin: 0 auto 14px; border-radius: 20px; color: #06131c; background: linear-gradient(135deg,var(--vr-blue),var(--vr-cyan)); font-size: 31px; font-weight: 900; box-shadow: 0 16px 38px rgba(59,130,246,.24); }
+    .decision-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 13px; padding: 8px 13px; border: 1px solid var(--vr-line); border-radius: 999px; font-size: 13px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .decision-badge.pilot { color: #9df5d5; border-color: rgba(52,211,153,.38); background: rgba(52,211,153,.09); }
+    .decision-badge.controls { color: #c8dfff; border-color: rgba(59,130,246,.42); background: rgba(59,130,246,.1); }
+    .decision-badge.pause { color: #ffe19a; border-color: rgba(251,191,36,.42); background: rgba(251,191,36,.09); }
+    .decision-badge.reject { color: #ffc1cc; border-color: rgba(251,113,133,.45); background: rgba(251,113,133,.1); }
+    .results-header h2 { margin: 0 0 9px; color: var(--vr-strong); font-size: clamp(31px,5vw,48px); line-height: 1.08; }
+    .results-header p { max-width: 850px; margin: 0 auto; color: var(--vr-soft); line-height: 1.65; }
+    .risk-score-wrap { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 15px; max-width: 600px; margin: 22px auto 0; padding: 14px; border: 1px solid var(--vr-line); border-radius: 18px; background: rgba(255,255,255,.03); text-align: left; }
+    .risk-score { display: grid; width: 86px; height: 86px; place-items: center; border: 7px solid rgba(34,211,238,.28); border-radius: 50%; color: var(--vr-strong); font-size: 24px; font-weight: 900; }
+    .risk-score-copy strong { display: block; color: var(--vr-strong); font-size: 17px; }
+    .risk-score-copy span { color: var(--vr-soft); font-size: 13px; line-height: 1.45; }
+    .results-body { padding: 24px; }
+    .results-body > section,
+    .results-body > aside { margin-bottom: 35px; }
+    .results-body h3 { margin: 0 0 15px; color: var(--vr-strong); font-size: clamp(23px,4vw,31px); }
+    .results-body h4 { margin: 0 0 7px; color: var(--vr-strong); font-size: 17px; }
+    .summary-grid,
+    .dimension-grid,
+    .action-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .summary-card,
+    .dimension-card,
+    .action-card { padding: 18px; border: 1px solid var(--vr-line); border-radius: 17px; background: rgba(255,255,255,.027); }
+    .summary-card small { display: block; margin-bottom: 5px; color: var(--vr-cyan); font-size: 11px; font-weight: 900; letter-spacing: .35px; text-transform: uppercase; }
+    .summary-card strong { display: block; color: var(--vr-strong); font-size: 21px; line-height: 1.2; }
+    .summary-card span { display: block; margin-top: 5px; color: var(--vr-soft); font-size: 12px; line-height: 1.45; }
+    .dimension-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .dimension-head strong { color: var(--vr-strong); font-size: 17px; }
+    .dimension-head span { color: var(--vr-cyan); font-size: 20px; font-weight: 900; }
+    .score-track { height: 8px; margin: 13px 0 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .score-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--vr-blue),var(--vr-cyan)); }
+    .dimension-card p { margin: 0; color: var(--vr-soft); font-size: 12px; line-height: 1.5; }
+    .alert-box { display: flex; gap: 12px; padding: 18px; border: 1px solid rgba(251,191,36,.3); border-radius: 17px; color: #f6e4b1; background: rgba(251,191,36,.065); line-height: 1.6; }
+    .alert-box.danger { border-color: rgba(251,113,133,.38); color: #ffd2da; background: rgba(251,113,133,.07); }
+    .alert-box.clear { border-color: rgba(52,211,153,.3); color: #c5f5e4; background: rgba(52,211,153,.06); }
+    .alert-box ul { margin: 8px 0 0; padding-left: 20px; }
+    .action-card { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 11px; }
+    .action-number { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: #06131c; background: var(--vr-cyan); font-weight: 900; }
+    .action-card p { margin: 4px 0 0; color: var(--vr-soft); font-size: 13px; line-height: 1.5; }
+    .vendor-question-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; counter-reset: vendorq; }
+    .vendor-question-list li { position: relative; padding: 14px 15px 14px 48px; border: 1px solid var(--vr-line); border-radius: 14px; color: #c8d4e4; background: rgba(255,255,255,.025); line-height: 1.5; counter-increment: vendorq; }
+    .vendor-question-list li::before { position: absolute; top: 12px; left: 13px; display: grid; width: 26px; height: 26px; place-items: center; border-radius: 8px; color: #06131c; background: var(--vr-cyan); content: counter(vendorq); font-size: 12px; font-weight: 900; }
+    .report-note { padding: 16px 18px; border-left: 4px solid var(--vr-cyan); border-radius: 0 14px 14px 0; color: #c7d5e7; background: rgba(34,211,238,.055); line-height: 1.6; }
+    .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0 22px 27px; }
+    .result-actions button { border: 0; cursor: pointer; font: inherit; }
+    .action-status { width: 100%; min-height: 22px; color: #7ef0c4; text-align: center; font-size: 14px; }
+
+    .method-section { padding: 82px 0; }
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .method-card { min-height: 0; padding: 21px; }
+    .method-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 14px; border-radius: 15px; color: #fff; background: linear-gradient(135deg,rgba(59,130,246,.88),rgba(34,211,238,.8)); font-size: 19px; font-weight: 900; }
+    .method-card h3 { margin-bottom: 7px; font-size: 20px; }
+    .method-card p { margin: 0; font-size: 14px; line-height: 1.55; }
+    .formula-box { margin-top: 22px; padding: 20px; border: 1px solid var(--vr-line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .formula-box h3 { margin: 0 0 12px; color: var(--vr-strong); }
+    .formula-list { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--vr-soft); line-height: 1.55; }
+    .formula-list strong { color: #dce9f7; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .source-links a { padding: 8px 11px; border: 1px solid var(--vr-line); border-radius: 10px; color: #b9dff0; background: rgba(255,255,255,.025); font-size: 13px; }
+    .source-links a:hover { border-color: var(--vr-cyan); }
+
+    .next-step-section { padding: 0 0 86px; }
+    .next-step-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .next-card { display: flex; min-height: 100%; flex-direction: column; padding: 22px; }
+    .next-card span { color: var(--vr-cyan); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .next-card h3 { margin: 7px 0; }
+    .next-card p { margin: 0 0 17px; }
+    .next-card .btn { margin-top: auto; align-self: flex-start; }
+
+    .faq-section { padding: 0 0 92px; }
+    .faq-list { display: grid; gap: 11px; max-width: 930px; margin: 28px auto 0; }
+    .faq-item { border: 1px solid var(--vr-line); border-radius: 17px; background: var(--vr-surface-2); overflow: hidden; }
+    .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 15px; padding: 18px; border: 0; color: var(--vr-strong); background: transparent; cursor: pointer; text-align: left; font: inherit; font-weight: 800; }
+    .faq-icon { color: var(--vr-cyan); font-size: 23px; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 18px 18px; color: var(--vr-soft); line-height: 1.65; }
+    button:focus-visible,
+    a:focus-visible { outline: 3px solid var(--vr-cyan); outline-offset: 3px; }
+
+    @media (min-width: 620px) {
+      .field-grid,
+      .evidence-grid,
+      .summary-grid,
+      .dimension-grid,
+      .action-grid,
+      .method-grid,
+      .next-step-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .answer-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    }
+    @media (min-width: 920px) {
+      .risk-hero { padding-top: 72px; }
+      .assessment-layout { display: grid; grid-template-columns: 248px minmax(0,1fr); }
+      .step-sidebar { border-right: 1px solid var(--vr-line); border-bottom: 0; }
+      .step-list { grid-template-columns: 1fr; gap: 13px; }
+      .step-item { grid-template-columns: 36px minmax(0,1fr); justify-items: start; align-items: center; font-size: 14px; text-align: left; }
+      .form-area { padding: 34px; }
+      .dimension-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .method-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .next-step-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .vendor-risk-page .brand img,
+      .vendor-risk-page .logo img { width: 46px !important; height: 46px !important; flex-basis: 46px !important; }
+      .risk-hero h1 { letter-spacing: -1.5px; }
+      .step-item span:last-child { display: none; }
+      .form-step { min-height: 0; }
+      .form-actions .btn,
+      .result-actions .btn { width: 100%; }
+      .risk-score-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .header,
+      .risk-hero,
+      .assessment-shell,
+      .result-actions,
+      .method-section,
+      .next-step-section,
+      .faq-section,
+      .footer,
+      .noise,
+      .orb { display: none !important; }
+      body.vendor-risk-page { color: #111827; background: #fff !important; }
+      .assessment-section { padding: 0; }
+      .results-card { border: 0; color: #111827; background: #fff !important; box-shadow: none; }
+      .results-header,
+      .results-body { padding: 16px 0; }
+      .results-header h2,
+      .summary-card strong,
+      .dimension-head strong,
+      .results-body h3,
+      .results-body h4 { color: #111827 !important; }
+      .results-header p,
+      .summary-card span,
+      .dimension-card p,
+      .action-card p { color: #334155 !important; }
+      .summary-card,
+      .dimension-card,
+      .action-card,
+      .alert-box,
+      .vendor-question-list li { break-inside: avoid; border-color: #cbd5e1; color: #334155; background: #fff !important; }
+    }
+  </style>
+
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://zynovix.github.io/ai-vendor-risk-assessment.html#application",
+        "name": "AI Vendor Risk Assessment",
+        "url": "https://zynovix.github.io/ai-vendor-risk-assessment.html",
+        "description": "A free browser-based planning tool that evaluates an AI vendor across privacy, security, AI governance, contracts, and operational resilience.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Zynovix AI", "url": "https://zynovix.github.io/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://zynovix.github.io/ai-vendor-risk-assessment.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zynovix.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://zynovix.github.io/tools.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI Vendor Risk Assessment", "item": "https://zynovix.github.io/ai-vendor-risk-assessment.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zynovix.github.io/ai-vendor-risk-assessment.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does this assessment certify an AI vendor as secure or compliant?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is a planning and due-diligence aid based on user-entered answers. It does not independently verify evidence, certify a vendor, replace testing, or provide legal, privacy, security, procurement, or compliance approval." } },
+          { "@type": "Question", "name": "How is the AI vendor risk score calculated?", "acceptedAnswer": { "@type": "Answer", "text": "The tool calculates weighted maturity across data and privacy, security and access, AI governance and reliability, contract and compliance, and operations and exit. It then adds contextual risk for impact, data sensitivity, deployment stage, AI authority, and weak evidence." } },
+          { "@type": "Question", "name": "What should count as verified?", "acceptedAnswer": { "@type": "Answer", "text": "Use Verified only when current, applicable evidence has been reviewed for the exact product, plan, deployment, region, and intended use. Marketing statements alone should normally be recorded as Partial or Unknown." } },
+          { "@type": "Question", "name": "Can a low score authorize production use?", "acceptedAnswer": { "@type": "Answer", "text": "No. Even a favorable result only supports the next review step. Production approval should require accountable business, security, privacy, legal, procurement, accessibility, and risk owners as applicable, plus a measured pilot." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="vendor-risk-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <div class="nav-menu" id="navMenu"><a href="tools.html" class="active" aria-current="page">AI Tools</a><a href="learn.html">Learn</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Contact</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="risk-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="tools.html">AI Tools</a><span aria-hidden="true">›</span><span>Vendor Risk Assessment</span></nav>
+      <div class="pill">Free due-diligence tool · 2026 edition</div>
+      <h1>Know the risk before you <span>trust an AI vendor</span></h1>
+      <p>Turn vendor claims and reviewed evidence into a transparent decision brief across privacy, security, AI governance, contracts, and operational resilience.</p>
+      <ul class="hero-facts" aria-label="Assessment features"><li>28 control questions</li><li>5 weighted dimensions</li><li>Context-aware red flags</li><li>Vendor question list</li><li>CSV and print report</li></ul>
+      <div class="hero-action"><a class="btn btn-primary" href="#assessment">Start Vendor Assessment</a></div>
+      <div class="privacy-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span>Your answers are processed and saved only in this browser by this static page. Do not enter confidential contracts, security findings, personal data, credentials, or vendor secrets.</span></div>
+    </section>
+
+    <section class="assessment-section shell" id="assessment" aria-labelledby="assessmentTitle">
+      <noscript><div class="alert-box danger">JavaScript is required to run this interactive assessment. The methodology and sources below remain available.</div></noscript>
+      <div class="assessment-shell" id="assessmentShell">
+        <div class="assessment-layout">
+          <aside class="step-sidebar" aria-label="Assessment progress">
+            <span>Assessment progress</span>
+            <ol class="step-list" id="stepList">
+              <li class="step-item active"><span class="step-number">1</span><span>Context</span></li>
+              <li class="step-item"><span class="step-number">2</span><span>Data</span></li>
+              <li class="step-item"><span class="step-number">3</span><span>Security</span></li>
+              <li class="step-item"><span class="step-number">4</span><span>AI governance</span></li>
+              <li class="step-item"><span class="step-number">5</span><span>Contract</span></li>
+              <li class="step-item"><span class="step-number">6</span><span>Operations</span></li>
+            </ol>
+          </aside>
+
+          <form class="form-area" id="riskForm">
+            <section class="form-step" data-step="1">
+              <span class="step-kicker">Step 1 of 6 · Decision context</span>
+              <h2 id="assessmentTitle">Define the exact vendor decision</h2>
+              <p class="step-intro">Assess the specific product, plan, deployment, region, and use case—not the vendor brand in general. Context changes the acceptable evidence and controls.</p>
+              <div class="field-grid">
+                <div class="field"><label for="vendorName">Vendor or product name *</label><input id="vendorName" name="vendorName" maxlength="100" required placeholder="Example: Vendor AI Enterprise"><small class="field-help">Required for the report.</small></div>
+                <div class="field"><label for="planName">Product / plan / version</label><input id="planName" name="planName" maxlength="100" placeholder="Example: Enterprise annual plan"><small class="field-help">Controls often differ by plan.</small></div>
+                <div class="field"><label for="assessmentOwner">Assessment owner</label><input id="assessmentOwner" name="assessmentOwner" maxlength="100" placeholder="Name or team"><small class="field-help">Accountable reviewer or workstream.</small></div>
+                <div class="field"><label for="department">Business function</label><select id="department" name="department"><option value="general">General / cross-functional</option><option value="marketing">Marketing</option><option value="support">Customer support</option><option value="finance">Finance</option><option value="hr">Human resources</option><option value="legal">Legal / compliance</option><option value="it">IT / security</option><option value="development">Software development</option><option value="operations">Operations</option></select></div>
+                <div class="field"><label for="stage">Decision stage</label><select id="stage" name="stage"><option value="shortlist">Initial shortlist</option><option value="pilot" selected>Pilot preparation</option><option value="limited">Limited deployment</option><option value="production">Production / renewal</option></select></div>
+                <div class="field"><label for="impact">Potential impact</label><select id="impact" name="impact"><option value="low">Low — reversible assistance</option><option value="moderate" selected>Moderate — reviewed work</option><option value="high">High — material decisions</option><option value="critical">Critical — rights, safety, or essential service</option></select></div>
+                <div class="field"><label for="dataSensitivity">Highest data sensitivity</label><select id="dataSensitivity" name="dataSensitivity"><option value="public">Public</option><option value="internal" selected>Internal</option><option value="confidential">Confidential / personal</option><option value="restricted">Restricted / highly sensitive</option></select></div>
+                <div class="field"><label for="authority">Highest AI authority</label><select id="authority" name="authority"><option value="assist">Draft or assist only</option><option value="recommend" selected>Recommend to a human</option><option value="act">Take bounded actions</option><option value="autonomous">Act autonomously</option></select></div>
+              </div>
+              <div class="profile-note"><strong>Scoring rule:</strong> Verified requires current evidence that applies to this exact context. Choose Partial when evidence is incomplete or plan-dependent, No when the capability is absent, and Unknown when it has not been established.</div>
+            </section>
+
+            <div id="questionSteps"></div>
+            <p class="form-error" id="formError" role="alert"></p>
+            <div class="form-actions"><button class="btn btn-ghost" type="button" id="backButton" disabled>Previous</button><button class="btn btn-primary" type="submit" id="nextButton">Next: Data &amp; Privacy</button></div>
+          </form>
+        </div>
+      </div>
+
+      <article class="results-card" id="resultsCard" hidden aria-labelledby="decisionTitle">
+        <header class="results-header">
+          <div class="decision-icon" id="decisionIcon" aria-hidden="true">?</div>
+          <div class="decision-badge" id="decisionBadge"></div>
+          <h2 id="decisionTitle"></h2>
+          <p id="decisionSummary"></p>
+          <div class="risk-score-wrap"><div class="risk-score" id="riskScore"></div><div class="risk-score-copy"><strong id="riskLevel"></strong><span id="riskExplanation"></span></div></div>
+        </header>
+        <div class="results-body">
+          <section><h3>Decision context</h3><div class="summary-grid" id="summaryGrid"></div></section>
+          <section><h3>Dimension maturity</h3><div class="dimension-grid" id="dimensionGrid"></div></section>
+          <section><h3>Blocking gates and red flags</h3><div class="alert-box" id="redFlagBox"></div></section>
+          <section><h3>Required next actions</h3><div class="action-grid" id="actionGrid"></div></section>
+          <section><h3>Questions to send the vendor</h3><ol class="vendor-question-list" id="vendorQuestions"></ol></section>
+          <aside class="report-note" id="reportNote"></aside>
+        </div>
+        <div class="result-actions"><button class="btn btn-primary" type="button" id="copyButton">Copy Decision Brief</button><button class="btn btn-ghost" type="button" id="csvButton">Download CSV</button><button class="btn btn-ghost" type="button" id="printButton">Print / Save PDF</button><button class="btn btn-ghost" type="button" id="editButton">Edit Answers</button><button class="btn btn-ghost" type="button" id="resetButton">New Assessment</button><p class="action-status" id="actionStatus" role="status" aria-live="polite"></p></div>
+      </article>
+    </section>
+
+    <section class="method-section shell reveal" aria-labelledby="methodTitle">
+      <div class="section-head"><span class="kicker">Transparent methodology</span><h2 id="methodTitle">Five dimensions, explicit evidence gaps</h2><p>The assessment adapts public risk-management and secure-AI guidance into a practical vendor-review aid. It is not affiliated with, endorsed by, or a certification from any source organization.</p></div>
+      <div class="cards method-grid">
+        <article class="card method-card"><div class="method-icon">25%</div><h3>Data &amp; privacy</h3><p>Use, retention, deletion, location, subprocessors, isolation, and encryption.</p></article>
+        <article class="card method-card"><div class="method-icon">25%</div><h3>Security &amp; access</h3><p>Identity, roles, logs, assurance, incident response, and API protections.</p></article>
+        <article class="card method-card"><div class="method-icon">20%</div><h3>AI governance</h3><p>Limitations, testing, human authority, AI threats, monitoring, and change control.</p></article>
+        <article class="card method-card"><div class="method-icon">15%</div><h3>Contract &amp; compliance</h3><p>DPA, ownership, accountable review, service terms, and breach commitments.</p></article>
+        <article class="card method-card"><div class="method-icon">15%</div><h3>Operations &amp; exit</h3><p>Portability, offboarding, cost controls, escalation, and accessibility.</p></article>
+      </div>
+      <div class="formula-box"><h3>How to interpret the result</h3><ul class="formula-list"><li><strong>Control maturity:</strong> Verified = 100, Partial = 55, Unknown = 15, and No = 0, weighted by the importance of each question.</li><li><strong>Context uplift:</strong> higher impact, sensitive data, production use, operational authority, and weak evidence increase the final risk score.</li><li><strong>Decision gates:</strong> a material red flag can pause the decision even when the average score looks acceptable.</li><li><strong>Scope:</strong> the output supports due diligence and pilot planning; it never authorizes procurement or production deployment.</li></ul><nav class="source-links" aria-label="Methodology sources"><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI RMF ↗</a><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer">NIST GenAI Profile ↗</a><a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development/" target="_blank" rel="noopener noreferrer">NCSC Secure AI Guidelines ↗</a><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer">OWASP GenAI Risks ↗</a></nav></div>
+    </section>
+
+    <section class="next-step-section shell reveal" aria-labelledby="nextTitle">
+      <div class="section-head"><span class="kicker">Continue the evidence chain</span><h2 id="nextTitle">Move from vendor claims to measured outcomes</h2><p>Risk review narrows the conditions for a safe pilot. It does not replace workflow design or observed evidence.</p></div>
+      <div class="cards next-step-grid"><article class="card next-card"><span>Step 1</span><h3>Design the workflow</h3><p>Define inputs, AI tasks, review, exception paths, controls, metrics, and rollback.</p><a class="btn btn-ghost" href="ai-workflow-blueprint-generator.html">Build a Blueprint</a></article><article class="card next-card"><span>Step 2</span><h3>Track pilot evidence</h3><p>Capture corrections, exceptions, fallback, failures, incidents, and review effort.</p><a class="btn btn-ghost" href="ai-automation-pilot-tracker.html">Track a Pilot</a></article><article class="card next-card"><span>Step 3</span><h3>Make the decision</h3><p>Combine observed value, quality, reliability, controls, and evidence.</p><a class="btn btn-ghost" href="ai-automation-pilot-scorecard.html">Score the Pilot</a></article></div>
+    </section>
+
+    <section class="faq-section shell reveal" aria-labelledby="faqTitle">
+      <div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">AI vendor due-diligence questions</h2></div>
+      <div class="faq-list">
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1">Does this assessment certify a vendor as secure or compliant?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq1" hidden>No. It does not independently verify evidence, certify a vendor, replace testing, or provide legal, privacy, security, procurement, accessibility, or compliance approval.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2">What should count as Verified?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq2" hidden>Use Verified only when current, applicable evidence has been reviewed for the exact product, plan, deployment, region, and intended use. A marketing page alone normally supports Partial or Unknown, not Verified.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3">Why does Unknown increase risk?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq3" hidden>A decision cannot rely on a control that has not been established. Unknown is different from No, but it is still an evidence gap that should be closed before higher-impact use.</div></article>
+        <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4">Can a favorable result authorize production use?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq4" hidden>No. A favorable result supports the next review step. Production approval should involve accountable business, security, privacy, legal, procurement, accessibility, and risk owners as applicable, plus representative pilot evidence.</div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner shell"><div class="footer-brand-row"><a class="brand footer-brand" href="index.html" aria-label="Zynovix AI home"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" loading="lazy" decoding="async"><span>Zynovix AI</span></a></div><nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav><span>© 2026 Zynovix AI. All rights reserved.</span></div></footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var dimensions = {
+      data:{label:"Data & privacy",weight:25,description:"Use, retention, deletion, location, parties, and protection"},
+      security:{label:"Security & access",weight:25,description:"Identity, authorization, logs, assurance, incidents, and APIs"},
+      ai:{label:"AI governance",weight:20,description:"Limitations, evaluation, oversight, AI threats, monitoring, and changes"},
+      contract:{label:"Contract & compliance",weight:15,description:"Data terms, ownership, review, service terms, and notification"},
+      operations:{label:"Operations & exit",weight:15,description:"Portability, offboarding, spend, support, and accessibility"}
+    };
+    var questions = [
+      {id:"data_use",dimension:"data",weight:3,title:"Input, output, feedback, and metadata use is contractually clear and controllable.",help:"Includes model training, human review, service improvement, analytics, and retention outside the active request.",ask:"Describe every purpose for which prompts, files, outputs, feedback, and metadata are used, and identify the contractual controls for disabling secondary use."},
+      {id:"retention",dimension:"data",weight:3,title:"Retention periods are documented and appropriate for this use case.",help:"Confirm default, configurable, backup, log, abuse-monitoring, and support retention.",ask:"Provide the exact retention schedule for content, logs, backups, support records, and deleted data for this plan and region."},
+      {id:"deletion",dimension:"data",weight:2,title:"Deletion, account closure, and legal-hold behavior are documented and testable.",help:"Deletion should cover primary systems, derived copies, indexes, and applicable backups.",ask:"Explain the deletion workflow, completion timeline, backup treatment, legal holds, and evidence available after deletion."},
+      {id:"location",dimension:"data",weight:2,title:"Data locations, transfers, residency choices, and jurisdictional exposure are understood.",help:"Include inference, storage, support, telemetry, failover, and subprocessors.",ask:"List processing and storage locations, transfer mechanisms, residency options, support access regions, and failover locations."},
+      {id:"subprocessors",dimension:"data",weight:2,title:"Subprocessors and material third parties are disclosed with change notice.",help:"Include model providers, cloud hosting, support, analytics, and safety services.",ask:"Provide the current subprocessor list, purposes, locations, model providers, and the process and notice period for changes."},
+      {id:"encryption",dimension:"data",weight:3,title:"Encryption and tenant-isolation controls match the sensitivity of the data.",help:"Review transport, storage, keys, backups, indexes, and cross-tenant access paths.",ask:"Describe encryption in transit and at rest, key management, tenant isolation, backup protection, and any customer-managed key options."},
+
+      {id:"identity",dimension:"security",weight:3,title:"Identity controls support the required SSO, MFA, lifecycle, and session protections.",help:"Check availability in the exact plan and coverage for admins, users, APIs, and support access.",ask:"Confirm SSO, MFA enforcement, SCIM or lifecycle controls, session controls, admin protection, and plan dependencies."},
+      {id:"rbac",dimension:"security",weight:3,title:"Least-privilege roles separate users, administrators, builders, reviewers, and integrations.",help:"Avoid shared accounts and broad default permissions.",ask:"Provide the role and permission model, custom-role support, least-privilege defaults, and separation of administrative duties."},
+      {id:"audit",dimension:"security",weight:3,title:"Security and administrative audit logs are complete, protected, and exportable.",help:"Include sign-in, configuration, data access, model/tool changes, sharing, and privileged support activity.",ask:"List logged events, retention, export or SIEM options, tamper protections, timestamps, actor identity, and support-access visibility."},
+      {id:"assurance",dimension:"security",weight:2,title:"Current independent assurance and security documentation cover the service in scope.",help:"Confirm scope, date, exceptions, shared responsibility, and availability under NDA where necessary.",ask:"Provide current assurance reports or certifications, scope statements, penetration-test summary, exceptions, and remediation status."},
+      {id:"incident",dimension:"security",weight:3,title:"Incident response, vulnerability handling, and customer communication are established.",help:"Cover AI-specific abuse and data exposure as well as conventional security incidents.",ask:"Describe incident severity, response ownership, vulnerability disclosure, customer notice triggers, timelines, and post-incident reporting."},
+      {id:"api_security",dimension:"security",weight:2,title:"API, integration, connector, and secret-management protections are adequate.",help:"Consider scoped tokens, rotation, rate limits, egress, actions, and connector permissions.",ask:"Document API authentication, token scope and rotation, rate limits, connector permissions, egress controls, and protection against secret exposure."},
+
+      {id:"limitations",dimension:"ai",weight:2,title:"Intended uses, prohibited uses, limitations, and known failure modes are documented.",help:"The documentation should be specific enough to shape workflow controls and user training.",ask:"Provide current documentation for intended and prohibited uses, limitations, failure modes, affected languages or groups, and user responsibilities."},
+      {id:"evaluation",dimension:"ai",weight:3,title:"Relevant quality, safety, security, and bias evaluations are available and reproducible enough to review.",help:"Generic benchmark scores are not a substitute for the intended workflow and population.",ask:"Share evaluation methods and results relevant to our use case, including datasets, metrics, limitations, red-team coverage, and change history."},
+      {id:"human_review",dimension:"ai",weight:3,title:"Qualified humans can review, override, stop, and correct AI outputs or actions.",help:"Authority, escalation, and fallback should match impact and reversibility.",ask:"Explain how humans review, override, stop, correct, and appeal outputs or actions, including logs and fallback when the AI is unavailable."},
+      {id:"ai_threats",dimension:"ai",weight:3,title:"AI-specific threats are addressed in design and testing.",help:"Consider prompt injection, sensitive disclosure, unsafe output handling, poisoned sources, excessive agency, and unbounded consumption.",ask:"Describe threat modelling and controls for prompt injection, data leakage, unsafe output handling, poisoned content, excessive agency, and resource abuse."},
+      {id:"monitoring",dimension:"ai",weight:3,title:"Behavior, quality, safety, drift, misuse, cost, and incidents can be monitored in operation.",help:"Monitoring should support investigation without creating uncontrolled sensitive logs.",ask:"List monitoring signals, alert thresholds, log protections, quality and drift checks, misuse detection, customer reporting, and remediation workflows."},
+      {id:"changes",dimension:"ai",weight:2,title:"Material model, feature, policy, and subprocessor changes are governed and communicated.",help:"Fast product updates can invalidate tests, controls, prompts, and contractual assumptions.",ask:"Explain versioning, release notes, customer notice, model pinning, deprecation, rollback, revalidation, and material-change commitments."},
+
+      {id:"dpa",dimension:"contract",weight:3,title:"A suitable data-processing agreement and security terms are available for the intended use.",help:"Confirm controller/processor roles, instructions, transfers, subprocessors, deletion, audits, and liability.",ask:"Provide the applicable DPA and security terms, including roles, instructions, transfers, subprocessors, deletion, audit rights, and liability."},
+      {id:"ownership",dimension:"contract",weight:2,title:"Input, output, feedback, configuration, and intellectual-property terms are acceptable.",help:"Review licenses, indemnities, training rights, similarity risks, and restrictions by plan.",ask:"Clarify ownership and licenses for inputs, outputs, feedback, fine-tunes, configurations, and generated assets, plus applicable indemnity and exclusions."},
+      {id:"accountable_review",dimension:"contract",weight:3,title:"Required privacy, security, legal, procurement, and business owners have a defined review path.",help:"This answer concerns your organization as well as vendor documentation.",ask:"Identify the vendor evidence and contractual commitments available to support our privacy, security, legal, procurement, and risk reviews."},
+      {id:"service_terms",dimension:"contract",weight:2,title:"SLA, support, availability, usage limits, suspension, and material remedies are understood.",help:"Marketing availability is not the same as a contractual service commitment.",ask:"Provide the applicable SLA, exclusions, support levels, usage limits, suspension rights, service credits, and remedies for this plan."},
+      {id:"breach_notice",dimension:"contract",weight:3,title:"Breach and material AI incident notification commitments meet organizational needs.",help:"Notice should cover timing, content, cooperation, evidence preservation, and corrective action.",ask:"State contractual notice triggers and timelines for personal-data breaches, security incidents, unsafe AI behavior, and material control failures."},
+
+      {id:"portability",dimension:"operations",weight:2,title:"Data, configurations, logs, and relevant work products can be exported in usable formats.",help:"Test completeness, permissions, timing, cost, and machine readability.",ask:"List exportable data and configurations, formats, APIs, permissions, timing, cost, and any content that cannot be exported."},
+      {id:"exit",dimension:"operations",weight:3,title:"Exit, replacement, deletion, continuity, and rollback have a feasible path.",help:"Avoid critical dependence without an alternate process and accountable offboarding plan.",ask:"Describe termination assistance, export and deletion timelines, continuity options, dependency removal, rollback, and proof of offboarding completion."},
+      {id:"cost",dimension:"operations",weight:2,title:"Pricing drivers, usage limits, overages, renewal changes, and cost controls are transparent.",help:"Include inference, seats, storage, connectors, support, implementation, and exit costs.",ask:"Provide all pricing drivers, quotas, overages, renewal terms, rate-change notice, spend controls, implementation costs, and exit charges."},
+      {id:"support",dimension:"operations",weight:2,title:"Support and escalation are adequate for the workflow impact and operating hours.",help:"Define severity, response, recovery, specialist access, and communication channels.",ask:"Provide severity definitions, support hours, response and restoration targets, escalation contacts, specialist access, and status communication."},
+      {id:"accessibility",dimension:"operations",weight:2,title:"Accessibility evidence and accommodation paths have been reviewed for affected users.",help:"Check product interfaces, generated outputs, documentation, support, and procurement requirements.",ask:"Provide current accessibility documentation, conformance reports, known gaps, roadmap, testing approach, and accommodation process."}
+    ];
+    var evidenceItems = [
+      {id:"privacy",label:"Privacy notice and applicable DPA"},{id:"security",label:"Security or trust-center documentation"},{id:"subprocessors",label:"Subprocessor list and data-flow locations"},{id:"ai_docs",label:"Model/system documentation and limitations"},{id:"assurance",label:"Current independent assurance evidence"},{id:"pilot",label:"Representative product or pilot testing"},{id:"review",label:"Internal privacy, security, legal, and procurement review"},{id:"contract",label:"Applicable order form, SLA, and negotiated terms"}
+    ];
+    var answerValues={verified:100,partial:55,unknown:15,no:0};
+    var answerLabels={verified:"Verified",partial:"Partial",unknown:"Unknown",no:"No"};
+    var currentStep=1,totalSteps=6,latest=null;
+    var form=document.getElementById("riskForm"),assessmentShell=document.getElementById("assessmentShell"),resultsCard=document.getElementById("resultsCard"),formError=document.getElementById("formError"),backButton=document.getElementById("backButton"),nextButton=document.getElementById("nextButton"),actionStatus=document.getElementById("actionStatus");
+
+    function escapeHtml(value){return String(value).replace(/[&<>'"]/g,function(character){return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[character];});}
+    function byDimension(key){return questions.filter(function(question){return question.dimension===key;});}
+    function renderQuestion(question,index){return '<article class="risk-question"><div class="question-head"><span class="question-index">'+(index+1)+'</span><div class="question-copy"><strong id="label-'+question.id+'">'+escapeHtml(question.title)+'</strong><small>'+escapeHtml(question.help)+'</small></div></div><div class="answer-grid" role="radiogroup" aria-labelledby="label-'+question.id+'">'+["verified","partial","unknown","no"].map(function(answer){return '<label class="answer-label" data-answer="'+answer+'"><input type="radio" name="q_'+question.id+'" value="'+answer+'" '+(answer==="unknown"?'checked':'')+'><span>'+answerLabels[answer]+'</span></label>';}).join("")+'</div></article>';}
+    function createSteps(){
+      var keys=["data","security","ai","contract","operations"],titles={data:"Data use, privacy, and protection",security:"Security, access, and assurance",ai:"AI governance and reliability",contract:"Contract and accountability",operations:"Operations, continuity, and exit"},intros={data:"Use the exact product plan and region. Public claims may not apply to business or API processing.",security:"Check both conventional security and the controls around connectors, actions, models, prompts, and logs.",ai:"Evaluate the system as deployed in your workflow—not only the base model or a generic benchmark.",contract:"A technical feature is not a durable control when the applicable agreement can remove or change it without acceptable notice.",operations:"Plan for cost, service failure, accessibility, vendor change, and exit before the workflow becomes dependent."};
+      document.getElementById("questionSteps").innerHTML=keys.map(function(key,stepIndex){var evidence=key==="operations"?'<fieldset class="evidence-fieldset"><legend>Evidence actually reviewed</legend><p class="step-intro">Select only artifacts or work that have been reviewed and apply to this decision.</p><div class="evidence-grid">'+evidenceItems.map(function(item){return '<label class="evidence-label"><input type="checkbox" name="evidence" value="'+item.id+'"><span>'+escapeHtml(item.label)+'</span></label>';}).join("")+'</div></fieldset>':'';return '<section class="form-step" data-step="'+(stepIndex+2)+'" hidden><span class="step-kicker">Step '+(stepIndex+2)+' of 6 · '+dimensions[key].label+'</span><h2>'+titles[key]+'</h2><p class="step-intro">'+intros[key]+'</p><div class="question-list">'+byDimension(key).map(renderQuestion).join("")+'</div>'+evidence+'</section>';}).join("");
+    }
+    function showStep(step){currentStep=step;document.querySelectorAll(".form-step").forEach(function(section){section.hidden=Number(section.getAttribute("data-step"))!==step;});document.querySelectorAll(".step-item").forEach(function(item,index){item.classList.toggle("active",index===step-1);item.classList.toggle("complete",index<step-1);});backButton.disabled=step===1;nextButton.textContent=step===totalSteps?"Generate Risk Brief":("Next: "+document.querySelectorAll(".step-item")[step].textContent.trim());formError.textContent="";}
+    function getAnswer(id){var input=form.querySelector('input[name="q_'+id+'"]:checked');return input?input.value:"unknown";}
+    function getProfile(){var answers={};questions.forEach(function(question){answers[question.id]=getAnswer(question.id);});return {vendorName:document.getElementById("vendorName").value.trim(),planName:document.getElementById("planName").value.trim(),assessmentOwner:document.getElementById("assessmentOwner").value.trim(),department:document.getElementById("department").value,stage:document.getElementById("stage").value,impact:document.getElementById("impact").value,dataSensitivity:document.getElementById("dataSensitivity").value,authority:document.getElementById("authority").value,answers:answers,evidence:Array.prototype.map.call(form.querySelectorAll('input[name="evidence"]:checked'),function(input){return input.value;})};}
+    function validateStep(){if(currentStep===1&&!document.getElementById("vendorName").value.trim()){formError.textContent="Enter the vendor or product name to continue.";document.getElementById("vendorName").focus();return false;}return true;}
+    function dimensionScore(key,profile){var set=byDimension(key),earned=0,possible=0;set.forEach(function(question){earned+=answerValues[profile.answers[question.id]]*question.weight;possible+=100*question.weight;});return Math.round(earned/possible*100);}
+    function labels(){return {department:{general:"General / cross-functional",marketing:"Marketing",support:"Customer support",finance:"Finance",hr:"Human resources",legal:"Legal / compliance",it:"IT / security",development:"Software development",operations:"Operations"},stage:{shortlist:"Initial shortlist",pilot:"Pilot preparation",limited:"Limited deployment",production:"Production / renewal"},impact:{low:"Low",moderate:"Moderate",high:"High",critical:"Critical"},data:{public:"Public",internal:"Internal",confidential:"Confidential / personal",restricted:"Restricted / highly sensitive"},authority:{assist:"Draft or assist only",recommend:"Recommend to a human",act:"Take bounded actions",autonomous:"Act autonomously"}};}
+    function calculate(profile){
+      var scores={},maturity=0;Object.keys(dimensions).forEach(function(key){scores[key]=dimensionScore(key,profile);maturity+=scores[key]*dimensions[key].weight/100;});
+      var context={impact:{low:0,moderate:2,high:6,critical:10}[profile.impact],data:{public:0,internal:2,confidential:6,restricted:10}[profile.dataSensitivity],stage:{shortlist:0,pilot:2,limited:4,production:6}[profile.stage],authority:{assist:0,recommend:2,act:5,autonomous:8}[profile.authority]};
+      var evidenceScore=Math.round(profile.evidence.length/evidenceItems.length*100),evidenceUplift=evidenceScore<25?10:evidenceScore<50?6:evidenceScore<75?3:0;
+      var risk=Math.min(100,Math.round(100-maturity+context.impact+context.data+context.stage+context.authority+evidenceUplift));
+      var flags=[];
+      function flag(condition,severity,text){if(condition)flags.push({severity:severity,text:text});}
+      var sensitive=profile.dataSensitivity==="confidential"||profile.dataSensitivity==="restricted",highImpact=profile.impact==="high"||profile.impact==="critical",actioning=profile.authority==="act"||profile.authority==="autonomous";
+      flag(sensitive&&(profile.answers.data_use==="no"||profile.answers.data_use==="unknown"),"critical","Sensitive data is in scope without verified controls for vendor data use and secondary processing.");
+      flag(profile.dataSensitivity==="restricted"&&(profile.answers.encryption==="no"||profile.answers.encryption==="unknown"),"critical","Restricted data is in scope without verified encryption and tenant-isolation evidence.");
+      flag(highImpact&&(profile.answers.human_review==="no"||profile.answers.human_review==="unknown"),"critical","High-impact use lacks verified human review, override, stop, and fallback authority.");
+      flag(actioning&&(profile.answers.ai_threats==="no"||profile.answers.ai_threats==="unknown"),"critical","The AI can take actions without verified controls for prompt injection, unsafe output handling, and excessive agency.");
+      flag((profile.stage==="limited"||profile.stage==="production")&&(profile.answers.incident==="no"||profile.answers.incident==="unknown"),"critical","Deployment is planned or active without verified incident response and customer communication.");
+      flag(profile.stage==="production"&&(profile.answers.accountable_review==="no"||profile.answers.accountable_review==="unknown"),"critical","Production use lacks an established accountable review path.");
+      flag(sensitive&&(profile.answers.dpa==="no"||profile.answers.dpa==="unknown"),"high","Sensitive data is planned without an established applicable DPA and security terms.");
+      flag((profile.stage==="limited"||profile.stage==="production")&&(profile.answers.audit==="no"||profile.answers.audit==="unknown"),"high","Operational use lacks verified administrative and security audit evidence.");
+      flag(evidenceScore<25,"high","Fewer than two applicable evidence categories have been reviewed.");
+      questions.filter(function(question){return question.weight===3&&(profile.answers[question.id]==="no"||profile.answers[question.id]==="unknown");}).forEach(function(question){if(!flags.some(function(item){return item.text.indexOf(question.title.slice(0,18))>-1;}))flags.push({severity:profile.answers[question.id]==="no"?"high":"gap",text:(profile.answers[question.id]==="no"?"Control reported absent: ":"Evidence not established: ")+question.title});});
+      var criticalCount=flags.filter(function(item){return item.severity==="critical";}).length,decision;
+      if(risk>=75||criticalCount>=3)decision="reject";else if(risk>=55||criticalCount>=1||evidenceScore<25)decision="pause";else if(risk>=30||evidenceScore<75)decision="controls";else decision="pilot";
+      return {scores:scores,maturity:Math.round(maturity),context:context,evidenceScore:evidenceScore,risk:risk,flags:flags,criticalCount:criticalCount,decision:decision};
+    }
+    function decisionMeta(decision){return {pilot:{label:"Proceed to Bounded Pilot",icon:"✓",summary:"The current evidence supports a controlled pilot, subject to accountable review, representative testing, monitoring, human authority, and rollback."},controls:{label:"Proceed with Controls",icon:"→",summary:"The vendor may remain in consideration, but named evidence gaps and controls should be resolved before or as explicit conditions of a bounded pilot."},pause:{label:"Pause & Investigate",icon:"!",summary:"One or more blocking gates, material unknowns, or weak evidence make the current decision too uncertain. Close the priority gaps before proceeding."},reject:{label:"Do Not Approve Yet",icon:"×",summary:"The current context and control gaps create an unacceptable planning profile. Redesign the use case or obtain materially stronger controls and evidence before reconsideration."}}[decision];}
+    function riskBand(risk){if(risk<25)return "Low residual planning risk";if(risk<50)return "Moderate residual planning risk";if(risk<75)return "High residual planning risk";return "Critical residual planning risk";}
+    function appendAction(container,index,title,copy){var card=document.createElement("article");card.className="action-card";card.innerHTML='<span class="action-number">'+index+'</span><div><h4>'+escapeHtml(title)+'</h4><p>'+escapeHtml(copy)+'</p></div>';container.appendChild(card);}
+    function buildActions(profile,result){var actions=[],lowest=Object.keys(result.scores).sort(function(a,b){return result.scores[a]-result.scores[b];})[0];actions.push(["Close the weakest dimension","Start with "+dimensions[lowest].label.toLowerCase()+" at "+result.scores[lowest]+"/100; assign an owner, evidence request, decision date, and acceptance condition."]);if(result.evidenceScore<75)actions.push(["Strengthen decision evidence","Review current, plan-specific privacy, security, AI, contract, and test evidence instead of relying on marketing summaries."]);if(result.criticalCount)actions.push(["Resolve every blocking gate","Do not average away the "+result.criticalCount+" critical gate"+(result.criticalCount===1?"":"s")+". Document mitigation, verification, residual risk, and accountable acceptance."]);if(profile.authority==="act"||profile.authority==="autonomous")actions.push(["Reduce and constrain AI authority","Use least privilege, allowlisted actions, human approval, output validation, rate and spend limits, monitoring, and a tested kill switch."]);if(profile.stage!=="shortlist")actions.push(["Run a representative bounded pilot","Define baseline, cases, review rules, success thresholds, exception handling, fallback, stop conditions, and measurement ownership before rollout."]);actions.push(["Record the accountable decision","Capture scope, evidence, assumptions, unresolved issues, conditions, owners, approval date, review date, and triggers for reassessment."]);return actions.slice(0,6);}
+    function buildVendorQuestions(profile){return questions.filter(function(question){return profile.answers[question.id]==="unknown"||profile.answers[question.id]==="no"||profile.answers[question.id]==="partial";}).sort(function(a,b){var statusOrder={no:0,unknown:1,partial:2};return (b.weight-a.weight)||(statusOrder[profile.answers[a.id]]-statusOrder[profile.answers[b.id]]);}).slice(0,12);}
+    function renderResults(profile,result){
+      var meta=decisionMeta(result.decision),l=labels();document.getElementById("decisionIcon").textContent=meta.icon;var badge=document.getElementById("decisionBadge");badge.className="decision-badge "+result.decision;badge.textContent=meta.label;document.getElementById("decisionTitle").textContent=profile.vendorName+": "+meta.label;document.getElementById("decisionSummary").textContent=meta.summary;document.getElementById("riskScore").textContent=result.risk;document.getElementById("riskLevel").textContent=riskBand(result.risk);document.getElementById("riskExplanation").textContent="Risk is 100 minus weighted control maturity, plus context and evidence uplifts. It is not a probability or certification.";
+      var summary=[["Product scope",profile.vendorName,profile.planName||"Plan/version not specified"],["Business context",l.department[profile.department],l.stage[profile.stage]],["Impact & data",l.impact[profile.impact]+" impact",l.data[profile.dataSensitivity]+" data"],["AI authority",l.authority[profile.authority],"Evidence reviewed: "+profile.evidence.length+" of "+evidenceItems.length+" categories"]];document.getElementById("summaryGrid").innerHTML=summary.map(function(item){return '<article class="summary-card"><small>'+escapeHtml(item[0])+'</small><strong>'+escapeHtml(item[1])+'</strong><span>'+escapeHtml(item[2])+'</span></article>';}).join("");
+      document.getElementById("dimensionGrid").innerHTML=Object.keys(dimensions).map(function(key){return '<article class="dimension-card"><div class="dimension-head"><strong>'+dimensions[key].label+'</strong><span>'+result.scores[key]+'</span></div><div class="score-track"><div class="score-fill" style="width:'+result.scores[key]+'%"></div></div><p>'+escapeHtml(dimensions[key].description)+' · '+dimensions[key].weight+'% weight</p></article>';}).join("");
+      var box=document.getElementById("redFlagBox");if(result.flags.length){box.className="alert-box danger";box.innerHTML='<div><strong>'+result.flags.length+' priority flag'+(result.flags.length===1?"":"s")+' identified</strong><ul>'+result.flags.slice(0,10).map(function(flag){return '<li><strong>'+escapeHtml(flag.severity.toUpperCase())+':</strong> '+escapeHtml(flag.text)+'</li>';}).join("")+'</ul></div>';}else{box.className="alert-box clear";box.innerHTML='<div><strong>No blocking gate was triggered by the answers.</strong><p>Continue normal specialist review and validate every material assumption through evidence and a bounded pilot.</p></div>';}
+      var actions=document.getElementById("actionGrid");actions.innerHTML="";buildActions(profile,result).forEach(function(action,index){appendAction(actions,index+1,action[0],action[1]);});
+      var vendorQs=buildVendorQuestions(profile);document.getElementById("vendorQuestions").innerHTML=vendorQs.length?vendorQs.map(function(question){return '<li>'+escapeHtml(question.ask)+'</li>';}).join(""):'<li>No priority question was generated. Reconfirm that every Verified answer has current, applicable evidence and ask about material changes before contracting.</li>';
+      document.getElementById("reportNote").textContent="Planning interpretation only. The result reflects the context, answers, and evidence selections entered; Zynovix did not independently verify the vendor. It does not establish compliance, security, privacy, fairness, accessibility, fitness, contractual protection, or authorization to purchase or deploy.";
+    }
+    function save(profile){try{localStorage.setItem("zynovixVendorRiskV1",JSON.stringify(profile));}catch(error){}}
+    function load(profile){if(!profile)return;["vendorName","planName","assessmentOwner"].forEach(function(id){if(typeof profile[id]==="string")document.getElementById(id).value=profile[id].slice(0,100);});["department","stage","impact","dataSensitivity","authority"].forEach(function(id){if(profile[id]&&document.querySelector('#'+id+' option[value="'+profile[id]+'"]'))document.getElementById(id).value=profile[id];});if(profile.answers)questions.forEach(function(question){var value=profile.answers[question.id],input=form.querySelector('input[name="q_'+question.id+'"][value="'+value+'"]');if(input)input.checked=true;});if(Array.isArray(profile.evidence))form.querySelectorAll('input[name="evidence"]').forEach(function(input){input.checked=profile.evidence.indexOf(input.value)>-1;});}
+    function showResults(){var profile=getProfile(),result=calculate(profile);latest={profile:profile,result:result};save(profile);renderResults(profile,result);assessmentShell.hidden=true;resultsCard.hidden=false;document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});document.getElementById("decisionTitle").setAttribute("tabindex","-1");document.getElementById("decisionTitle").focus();}
+    function buildReport(){if(!latest)return "";var p=latest.profile,r=latest.result,l=labels(),meta=decisionMeta(r.decision),lines=["AI VENDOR RISK ASSESSMENT — ZYNOVIX AI","Vendor / product: "+p.vendorName,"Plan / version: "+(p.planName||"Not specified"),"Assessment owner: "+(p.assessmentOwner||"Not specified"),"Business function: "+l.department[p.department],"Decision stage: "+l.stage[p.stage],"Impact: "+l.impact[p.impact],"Data sensitivity: "+l.data[p.dataSensitivity],"AI authority: "+l.authority[p.authority],"Decision: "+meta.label,"Residual planning risk: "+r.risk+" / 100 ("+riskBand(r.risk)+")","Weighted control maturity: "+r.maturity+" / 100","Evidence coverage: "+r.evidenceScore+"%","","DIMENSION MATURITY"];Object.keys(dimensions).forEach(function(key){lines.push(dimensions[key].label+": "+r.scores[key]+" / 100");});lines.push("","BLOCKING GATES AND FLAGS");lines.push(r.flags.length?r.flags.map(function(flag){return "- ["+flag.severity.toUpperCase()+"] "+flag.text;}).join("\n"):"- No blocking gate triggered by the entered answers.");lines.push("","REQUIRED NEXT ACTIONS");buildActions(p,r).forEach(function(action,index){lines.push((index+1)+". "+action[0]+" — "+action[1]);});lines.push("","QUESTIONS FOR THE VENDOR");var vendorQs=buildVendorQuestions(p);lines.push(vendorQs.length?vendorQs.map(function(question,index){return (index+1)+". "+question.ask;}).join("\n"):"1. Reconfirm current evidence and material-change commitments.");lines.push("","Planning aid only. Results depend on entered information and do not authorize purchase or deployment.","https://zynovix.github.io/ai-vendor-risk-assessment.html");return lines.join("\n");}
+    function csvEscape(value){return '"'+String(value===undefined||value===null?"":value).replace(/"/g,'""')+'"';}
+    function buildCsv(){if(!latest)return "";var p=latest.profile,r=latest.result,rows=[["Section","Item","Answer or score","Weight / note"]];rows.push(["Decision","Recommendation",decisionMeta(r.decision).label,"Planning aid only"],["Decision","Residual planning risk",r.risk,"0–100; higher is more risk"],["Decision","Weighted control maturity",r.maturity,"0–100; higher is stronger"],["Decision","Evidence coverage",r.evidenceScore,"Percent"]);Object.keys(dimensions).forEach(function(key){rows.push(["Dimension",dimensions[key].label,r.scores[key],dimensions[key].weight+"%"]);});questions.forEach(function(question){rows.push([dimensions[question.dimension].label,question.title,answerLabels[p.answers[question.id]],"Importance "+question.weight+" of 3"]);});r.flags.forEach(function(flag){rows.push(["Flag",flag.severity.toUpperCase(),flag.text,""]);});buildActions(p,r).forEach(function(action,index){rows.push(["Action",index+1+". "+action[0],action[1],""]);});buildVendorQuestions(p).forEach(function(question,index){rows.push(["Vendor question",index+1,question.ask,""]);});return "\uFEFF"+rows.map(function(row){return row.map(csvEscape).join(",");}).join("\r\n");}
+    function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=false;try{copied=document.execCommand("copy");}catch(error){copied=false;}document.body.removeChild(area);return copied;}
+    function copyReport(){var text=buildReport();if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){actionStatus.textContent="Decision brief copied.";}).catch(function(){actionStatus.textContent=fallbackCopy(text)?"Decision brief copied.":"Copy failed. Please try again.";});}else actionStatus.textContent=fallbackCopy(text)?"Decision brief copied.":"Copy failed. Please try again.";}
+    function downloadCsv(){var content=buildCsv(),blob=new Blob([content],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),link=document.createElement("a"),base=(latest.profile.vendorName||"ai-vendor").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ai-vendor";link.href=url;link.download=base+"-risk-assessment.csv";document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);actionStatus.textContent="Assessment CSV downloaded.";}
+    function applyQuery(){var value=new URLSearchParams(window.location.search).get("vendor");if(value)document.getElementById("vendorName").value=value.slice(0,100);}
+
+    createSteps();applyQuery();if(!document.getElementById("vendorName").value){try{load(JSON.parse(localStorage.getItem("zynovixVendorRiskV1")));}catch(error){}}
+    form.addEventListener("submit",function(event){event.preventDefault();if(!validateStep())return;if(currentStep<totalSteps)showStep(currentStep+1);else showResults();});
+    backButton.addEventListener("click",function(){if(currentStep>1)showStep(currentStep-1);});
+    form.addEventListener("change",function(){save(getProfile());});form.addEventListener("input",function(){save(getProfile());});
+    document.getElementById("copyButton").addEventListener("click",copyReport);document.getElementById("csvButton").addEventListener("click",downloadCsv);document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("editButton").addEventListener("click",function(){resultsCard.hidden=true;assessmentShell.hidden=false;showStep(1);document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("resetButton").addEventListener("click",function(){form.reset();try{localStorage.removeItem("zynovixVendorRiskV1");}catch(error){}latest=null;resultsCard.hidden=true;assessmentShell.hidden=false;applyQuery();showStep(1);document.getElementById("assessment").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.querySelectorAll(".faq-question").forEach(function(button){button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});});
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

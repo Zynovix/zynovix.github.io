@@ -35,6 +35,15 @@
   <meta name="twitter:description" content="Which AI assistant is better in 2026? Compare Claude and ChatGPT across the tasks that actually matter.">
   <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('zynovix-theme');
+        document.documentElement.dataset.theme = saved || 'dark';
+      } catch (e) {}
+    }());
+  </script>
+
   <style>
     :root {
       color-scheme: light;
@@ -284,6 +293,25 @@
       line-height: 1;
       cursor: pointer;
     }
+
+    .theme-toggle {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .theme-toggle:hover { border-color: var(--brand); transform: translateY(-1px); }
+    .theme-toggle svg { width: 19px; height: 19px; }
+    .theme-toggle .moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .moon { display: block; }
 
     .breadcrumb {
       padding-block: 18px 8px;
@@ -1015,7 +1043,7 @@
     }
 
     @media print {
-      .site-header, .progress-track, .toc-wrap, .back-to-top, .site-footer, .copy-button { display: none !important; }
+      .site-header, .progress-track, .toc-wrap, .theme-toggle, .back-to-top, .site-footer, .copy-button { display: none !important; }
       body { background: #fff; color: #111; }
       .container { width: 100%; max-width: none; }
       .hero { padding: 20px 0; }
@@ -1039,7 +1067,11 @@
     "image": "https://zynovix.github.io/logo.png?v=20260712",
     "datePublished": "2026-07-21T08:00:00+04:00",
     "dateModified": "2026-07-21T08:00:00+04:00",
-    "author": {"@type":"Organization","name":"Zynovix AI Editorial Team","url":"https://zynovix.github.io/editorial-policy.html"},
+    "author": {
+      "@type": "Organization",
+      "name": "Zynovix AI Editorial Team",
+      "url": "https://zynovix.github.io/"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Zynovix AI",
@@ -1968,7 +2000,6 @@ Then implement only the approved scope. Preserve existing conventions, do not re
         </a>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="editorial-policy.html">Editorial Policy</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>

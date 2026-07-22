@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Free AI Acceptable Use Policy Generator | Zynovix AI</title>
-  <meta name="description" content="Create a customized AI acceptable use policy covering approved tools, sensitive data, human oversight, disclosure, security, incident reporting, and training.">
+  <meta name="description" content="Create a customized AI acceptable use policy for your business. Define approved tools, data rules, human oversight, disclosure, training, and incident reporting in minutes.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#050816">
   <link rel="canonical" href="https://zynovix.github.io/ai-policy-generator.html">
 
   <meta property="og:title" content="Free AI Acceptable Use Policy Generator | Zynovix AI">
-  <meta property="og:description" content="Create a customized AI acceptable use policy covering approved tools, sensitive data, human oversight, disclosure, security, incident reporting, and training.">
+  <meta property="og:description" content="Answer a few practical questions and generate a copy-ready AI usage policy for your organization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zynovix.github.io/ai-policy-generator.html">
   <meta property="og:site_name" content="Zynovix AI">
@@ -20,7 +20,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Free AI Acceptable Use Policy Generator | Zynovix AI">
-  <meta name="twitter:description" content="Create a customized AI acceptable use policy covering approved tools, sensitive data, human oversight, disclosure, security, incident reporting, and training.">
+  <meta name="twitter:description" content="Generate a practical AI policy covering tools, data, oversight, disclosure, security, and training.">
   <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
   <link rel="icon" type="image/png" href="/logo.png?v=20260712">
@@ -86,7 +86,8 @@
       color: #0369a1;
     }
 
-    .policy-page[data-theme="light"] .menu-btn {
+    .policy-page[data-theme="light"] .menu-btn,
+    .policy-page[data-theme="light"] .theme-toggle {
       color: #0f172a;
       background: rgba(15, 23, 42, .05);
     }
@@ -105,6 +106,32 @@
       border-radius: 8px !important;
       padding: 2px !important;
       flex: 0 0 52px !important;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--policy-line);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 19px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, .7);
     }
 
     .policy-hero {
@@ -901,6 +928,10 @@
     }
 
     @media (max-width: 720px) {
+      .nav-actions .nav-cta {
+        display: none;
+      }
+
       .policy-page[data-theme="light"] .nav-menu {
         background: rgba(248, 250, 252, .98);
       }
@@ -1111,13 +1142,13 @@
   <div class="orb orb-b" aria-hidden="true"></div>
 
   <header class="header">
-    <nav class="nav shell" aria-label="Primary navigation">
+    <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="index.html" aria-label="Zynovix AI home">
         <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
         <span>Zynovix AI</span>
       </a>
 
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
 
       <div class="nav-menu" id="navMenu">
         <a href="tools.html">AI Tools</a>
@@ -1579,7 +1610,6 @@
       </div>
 
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="editorial-policy.html">Editorial Policy</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free AI Automation Opportunity Finder | Zynovix AI</title>
+  <meta name="description" content="Find the best business processes to automate with AI. Get prioritized opportunities, impact and feasibility scores, risk guidance, time-saving ranges, and a 30-day pilot plan.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050816">
+  <link rel="canonical" href="https://zynovix.github.io/ai-automation-opportunity-finder.html">
+
+  <meta property="og:title" content="Free AI Automation Opportunity Finder | Zynovix AI">
+  <meta property="og:description" content="Answer five quick steps and discover which workflows are best suited for AI automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zynovix.github.io/ai-automation-opportunity-finder.html">
+  <meta property="og:site_name" content="Zynovix AI">
+  <meta property="og:image" content="https://zynovix.github.io/logo.png?v=20260712">
+  <meta property="og:image:alt" content="Zynovix AI logo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Automation Opportunity Finder">
+  <meta name="twitter:description" content="Prioritize AI automation ideas by impact, feasibility, readiness, and risk.">
+  <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
+
+  <link rel="icon" type="image/png" href="/logo.png?v=20260712">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xkxn7wyps2");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECFTMP6ZQD"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ECFTMP6ZQD");
+  </script>
+
+  <style id="opportunity-finder-styles">
+    .finder-page {
+      --finder-surface: rgba(15,23,42,.87);
+      --finder-surface-2: rgba(255,255,255,.055);
+      --finder-strong: #f8fafc;
+      --finder-soft: #a8b5c7;
+      --finder-line: rgba(255,255,255,.13);
+      --finder-focus: #67e8f9;
+      --finder-good: #34d399;
+      --finder-warn: #fbbf24;
+      --finder-bad: #fb7185;
+      min-height: 100vh;
+    }
+
+    .finder-page[data-theme="light"] {
+      --finder-surface: rgba(255,255,255,.96);
+      --finder-surface-2: rgba(15,23,42,.045);
+      --finder-strong: #0f172a;
+      --finder-soft: #475569;
+      --finder-line: rgba(15,23,42,.14);
+      --finder-focus: #0369a1;
+      --finder-good: #047857;
+      --finder-warn: #92400e;
+      --finder-bad: #be123c;
+      color: var(--finder-strong);
+      background:
+        radial-gradient(circle at 12% 16%,rgba(37,99,235,.14),transparent 30%),
+        radial-gradient(circle at 88% 80%,rgba(124,58,237,.13),transparent 34%),
+        linear-gradient(180deg,#f8fafc,#eef2ff);
+    }
+
+    .finder-page[data-theme="light"] .header { background:rgba(248,250,252,.9); }
+    .finder-page[data-theme="light"] .nav-menu,
+    .finder-page[data-theme="light"] .brand,
+    .finder-page[data-theme="light"] .btn-ghost { color:#172033; }
+    .finder-page[data-theme="light"] .nav-menu a:hover { color:#0369a1; }
+    .finder-page[data-theme="light"] .menu-btn,
+    .finder-page[data-theme="light"] .theme-toggle { color:#0f172a;background:rgba(15,23,42,.05); }
+    .finder-page[data-theme="light"] .noise { opacity:.4; }
+
+    .brand img,.logo img {
+      width:52px!important;height:52px!important;display:block!important;object-fit:contain!important;
+      background:#fff!important;border-radius:8px!important;padding:2px!important;flex:0 0 52px!important;
+    }
+
+    .nav-actions { display:flex;align-items:center;gap:10px; }
+    .theme-toggle {
+      width:44px;height:44px;display:inline-grid;place-items:center;border:1px solid var(--finder-line);
+      border-radius:13px;background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font:inherit;font-size:19px;
+      transition:transform .2s ease,border-color .2s ease;
+    }
+    .theme-toggle:hover { transform:translateY(-2px);border-color:rgba(34,211,238,.7); }
+
+    .finder-hero { min-height:auto;display:block;padding:72px 0 42px;text-align:center; }
+    .breadcrumb {
+      display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:26px;
+      color:var(--finder-soft);font-size:14px;
+    }
+    .breadcrumb a:hover { color:var(--finder-focus); }
+    .finder-hero h1 {
+      max-width:980px;margin:20px auto 18px;color:var(--finder-strong);
+      font-size:clamp(40px,7.5vw,76px);line-height:1;letter-spacing:-2.6px;
+    }
+    .finder-hero h1 span {
+      background:linear-gradient(135deg,#60a5fa,#22d3ee,#a78bfa);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .finder-hero p { max-width:790px;margin:0 auto;color:var(--finder-soft);font-size:clamp(17px,2.4vw,20px); }
+    .hero-facts { display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:27px;padding:0;list-style:none; }
+    .hero-facts li {
+      padding:9px 13px;border:1px solid var(--finder-line);border-radius:999px;
+      background:var(--finder-surface-2);color:var(--finder-strong);font-size:14px;font-weight:700;
+    }
+
+    .finder-shell { width:min(1060px,92%);margin:0 auto 92px;scroll-margin-top:98px; }
+    .privacy-note {
+      display:grid;grid-template-columns:32px minmax(0,1fr);gap:11px;margin-bottom:16px;padding:15px;
+      border:1px solid rgba(34,211,238,.27);border-radius:17px;background:rgba(34,211,238,.065);
+      color:var(--finder-soft);font-size:14px;line-height:1.55;
+    }
+
+    .finder-card,.results-card {
+      overflow:hidden;border:1px solid var(--finder-line);border-radius:30px;
+      background:linear-gradient(180deg,var(--finder-surface),rgba(15,23,42,.64));
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+    .finder-page[data-theme="light"] .finder-card,
+    .finder-page[data-theme="light"] .results-card {
+      background:var(--finder-surface);box-shadow:0 24px 70px rgba(15,23,42,.12);
+    }
+    .finder-card[hidden],.results-card[hidden] { display:none!important; }
+
+    .finder-layout { display:grid;grid-template-columns:1fr; }
+    .step-sidebar {
+      padding:23px;border-bottom:1px solid var(--finder-line);background:rgba(37,99,235,.07);
+    }
+    .step-sidebar h2 { margin-bottom:7px;color:var(--finder-strong);font-size:21px; }
+    .step-sidebar>p { color:var(--finder-soft);font-size:14px; }
+    .step-list {
+      display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:19px;padding:0;list-style:none;
+    }
+    .step-item {
+      display:grid;justify-items:center;gap:7px;color:var(--finder-soft);
+      font-size:10px;font-weight:700;text-align:center;
+    }
+    .step-number {
+      width:31px;height:31px;display:grid;place-items:center;border:1px solid var(--finder-line);
+      border-radius:10px;background:var(--finder-surface-2);color:var(--finder-soft);font-size:12px;font-weight:900;
+    }
+    .step-item.active,.step-item.complete { color:var(--finder-strong); }
+    .step-item.active .step-number {
+      border-color:transparent;background:linear-gradient(135deg,#2563eb,#22d3ee);color:#fff;
+      box-shadow:0 8px 22px rgba(37,99,235,.3);
+    }
+    .step-item.complete .step-number { border-color:rgba(34,211,238,.45);color:var(--finder-focus); }
+
+    .form-area { min-width:0;padding:24px; }
+    .finder-progress {
+      width:100%;height:7px;display:block;appearance:none;overflow:hidden;margin-bottom:25px;border:0;
+      border-radius:999px;background:rgba(148,163,184,.18);
+    }
+    .finder-progress::-webkit-progress-bar { border-radius:999px;background:rgba(148,163,184,.18); }
+    .finder-progress::-webkit-progress-value { border-radius:999px;background:linear-gradient(90deg,#2563eb,#22d3ee,#7c3aed); }
+    .finder-progress::-moz-progress-bar { border-radius:999px;background:linear-gradient(90deg,#2563eb,#22d3ee,#7c3aed); }
+
+    .form-step[hidden] { display:none!important; }
+    .step-kicker {
+      display:block;margin-bottom:6px;color:var(--finder-focus);font-size:13px;font-weight:900;
+      letter-spacing:.55px;text-transform:uppercase;
+    }
+    .form-step h2 {
+      margin-bottom:7px;color:var(--finder-strong);font-size:clamp(27px,4vw,38px);line-height:1.15;
+    }
+    .step-intro { margin-bottom:24px;color:var(--finder-soft);font-size:15px; }
+    .readiness-fieldset { margin-top:22px; }
+
+    .choice-grid { display:grid;grid-template-columns:1fr;gap:10px; }
+    .choice-label { position:relative;display:block;cursor:pointer; }
+    .choice-label input { position:absolute;width:1px;height:1px;opacity:0;pointer-events:none; }
+    .choice-content {
+      min-height:58px;display:grid;grid-template-columns:38px minmax(0,1fr);align-items:center;gap:11px;
+      padding:12px 13px;border:1px solid var(--finder-line);border-radius:15px;background:var(--finder-surface-2);
+      color:var(--finder-strong);line-height:1.35;transition:border-color .2s ease,background .2s ease,transform .2s ease;
+    }
+    .choice-label:hover .choice-content { transform:translateY(-1px);border-color:rgba(34,211,238,.55); }
+    .choice-icon {
+      width:36px;height:36px;display:grid;place-items:center;border-radius:11px;
+      background:rgba(37,99,235,.12);font-size:20px;
+    }
+    .choice-label input:checked+.choice-content {
+      border-color:#22d3ee;background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(34,211,238,.1));
+      box-shadow:0 0 0 2px rgba(34,211,238,.08);
+    }
+    .choice-label input:focus-visible+.choice-content { outline:3px solid var(--finder-focus);outline-offset:3px; }
+    .choice-description { display:block;margin-top:2px;color:var(--finder-soft);font-size:12px;font-weight:500; }
+
+    .select-grid { display:grid;grid-template-columns:1fr;gap:17px; }
+    .form-field { display:grid;gap:8px; }
+    .form-label { color:var(--finder-strong);font-weight:800; }
+    .field-help { color:var(--finder-soft);font-size:12px;font-weight:500; }
+    .finder-form select {
+      width:100%;min-height:50px;padding:13px 14px;border:1px solid var(--finder-line);border-radius:14px;
+      background:var(--finder-surface-2);color:var(--finder-strong);font:inherit;outline:none;
+    }
+    .finder-form select:focus { border-color:var(--finder-focus);box-shadow:0 0 0 3px rgba(34,211,238,.12); }
+    .finder-form select option { background:#0f172a;color:#fff; }
+    .finder-page[data-theme="light"] .finder-form select option { background:#fff;color:#0f172a; }
+
+    .form-error { min-height:24px;margin-top:12px;color:#fca5a5;font-size:14px;text-align:right; }
+    .form-actions { display:flex;justify-content:space-between;gap:12px;margin-top:24px; }
+    .form-actions button,.result-actions button { border:0;cursor:pointer;font:inherit; }
+    .form-actions button:disabled { opacity:.42;cursor:not-allowed;transform:none; }
+
+    .results-header { padding:28px;border-bottom:1px solid var(--finder-line);text-align:center; }
+    .results-icon {
+      width:76px;height:76px;display:grid;place-items:center;margin:0 auto 16px;border-radius:22px;
+      background:linear-gradient(135deg,#2563eb,#22d3ee,#7c3aed);
+      box-shadow:0 16px 40px rgba(37,99,235,.34);font-size:36px;
+    }
+    .results-header h2 { margin-bottom:8px;color:var(--finder-strong);font-size:clamp(29px,5vw,43px);line-height:1.1; }
+    .results-header p { max-width:720px;margin:0 auto;color:var(--finder-soft); }
+
+    .profile-summary {
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:19px;border-bottom:1px solid var(--finder-line);
+    }
+    .profile-stat {
+      padding:13px;border:1px solid var(--finder-line);border-radius:14px;background:var(--finder-surface-2);text-align:center;
+    }
+    .profile-stat strong { display:block;color:var(--finder-strong);font-size:20px;line-height:1.2; }
+    .profile-stat span { color:var(--finder-soft);font-size:12px; }
+
+    .results-body { padding:20px; }
+    .results-body>h3,.plan-section h3 {
+      margin-bottom:14px;color:var(--finder-strong);font-size:23px;
+    }
+    .opportunity-list { display:grid;gap:15px; }
+    .opportunity-card {
+      padding:19px;border:1px solid var(--finder-line);border-radius:20px;background:var(--finder-surface-2);
+    }
+    .opportunity-card.top {
+      border-color:rgba(34,211,238,.48);
+      background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(34,211,238,.07));
+    }
+    .opportunity-top { display:flex;justify-content:space-between;align-items:flex-start;gap:14px; }
+    .opportunity-title-wrap { display:flex;gap:12px;min-width:0; }
+    .opportunity-icon {
+      width:45px;height:45px;flex:0 0 45px;display:grid;place-items:center;border-radius:14px;
+      background:linear-gradient(135deg,rgba(37,99,235,.8),rgba(34,211,238,.8));font-size:24px;
+    }
+    .opportunity-rank { display:block;margin-bottom:3px;color:var(--finder-focus);font-size:12px;font-weight:900;text-transform:uppercase; }
+    .opportunity-card h4 { color:var(--finder-strong);font-size:20px;line-height:1.25; }
+    .priority-score {
+      min-width:64px;padding:7px 9px;border-radius:13px;background:rgba(34,211,238,.09);
+      color:var(--finder-focus);font-size:13px;font-weight:900;text-align:center;
+    }
+    .opportunity-why { margin:13px 0;color:var(--finder-soft);font-size:14px;line-height:1.6; }
+
+    .score-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0; }
+    .score-item { padding:10px;border:1px solid var(--finder-line);border-radius:12px;background:rgba(2,6,23,.18); }
+    .score-label { display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;color:var(--finder-soft);font-size:12px; }
+    .score-label strong { color:var(--finder-strong); }
+    .score-bar { height:6px;overflow:hidden;border-radius:999px;background:rgba(148,163,184,.18); }
+    .score-bar span { display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2563eb,#22d3ee); }
+
+    .opportunity-meta { display:flex;flex-wrap:wrap;gap:8px;margin:12px 0; }
+    .meta-chip {
+      display:inline-flex;padding:5px 9px;border:1px solid var(--finder-line);border-radius:999px;
+      color:var(--finder-soft);font-size:12px;font-weight:700;
+    }
+    .risk-low { color:var(--finder-good); }
+    .risk-medium { color:var(--finder-warn); }
+    .risk-high { color:var(--finder-bad); }
+
+    .workflow-box { margin-top:13px;padding:14px;border-left:3px solid var(--finder-focus);border-radius:12px;background:rgba(34,211,238,.055); }
+    .workflow-box strong { display:block;margin-bottom:6px;color:var(--finder-strong);font-size:14px; }
+    .workflow-box ol { margin-left:19px;color:var(--finder-soft);font-size:13px;line-height:1.6; }
+    .workflow-box li+li { margin-top:4px; }
+    .first-step { margin-top:9px;color:var(--finder-soft);font-size:13px; }
+    .first-step strong { color:var(--finder-strong); }
+
+    .risk-alert {
+      display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;margin:18px 0;padding:15px;
+      border:1px solid rgba(251,191,36,.3);border-radius:16px;background:rgba(251,191,36,.07);
+      color:var(--finder-soft);font-size:14px;line-height:1.55;
+    }
+
+    .plan-section { margin-top:26px;padding-top:24px;border-top:1px solid var(--finder-line); }
+    .plan-grid { display:grid;grid-template-columns:1fr;gap:11px; }
+    .plan-card {
+      padding:16px;border:1px solid var(--finder-line);border-radius:16px;
+      background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(124,58,237,.07));
+    }
+    .plan-card small { display:block;margin-bottom:5px;color:var(--finder-focus);font-weight:900;text-transform:uppercase; }
+    .plan-card strong { display:block;margin-bottom:5px;color:var(--finder-strong); }
+    .plan-card p { color:var(--finder-soft);font-size:13px;line-height:1.55; }
+
+    .result-actions { display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 20px 25px; }
+    .action-status { width:100%;min-height:22px;color:var(--finder-focus);font-size:14px;text-align:center; }
+
+    .method-section { padding:84px 0; }
+    .method-grid { display:grid;grid-template-columns:1fr;gap:15px; }
+    .method-card { min-height:0;padding:23px; }
+    .method-icon {
+      width:52px;height:52px;display:grid;place-items:center;margin-bottom:15px;border-radius:15px;
+      background:linear-gradient(135deg,rgba(37,99,235,.88),rgba(34,211,238,.88));font-size:25px;
+    }
+    .method-card h3 { font-size:20px; }
+    .method-card p { margin-bottom:0;font-size:15px; }
+    .scoring-note {
+      margin-top:45px;padding:24px;border:1px solid var(--finder-line);border-radius:23px;background:var(--finder-surface-2);
+    }
+    .scoring-note h2 { margin-bottom:9px;color:var(--finder-strong);font-size:clamp(26px,4vw,36px); }
+    .scoring-note p { color:var(--finder-soft); }
+    .scoring-formula {
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:17px;
+    }
+    .formula-item { padding:13px;border:1px solid var(--finder-line);border-radius:14px;background:rgba(2,6,23,.16); }
+    .formula-item strong { display:block;color:var(--finder-strong);font-size:19px; }
+    .formula-item span { color:var(--finder-soft);font-size:12px; }
+
+    .faq-section { padding:0 0 94px; }
+    .faq-list { max-width:900px;margin:0 auto;display:grid;gap:12px; }
+    .faq-item { overflow:hidden;border:1px solid var(--finder-line);border-radius:18px;background:var(--finder-surface-2); }
+    .faq-question {
+      width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px;border:0;
+      background:transparent;color:var(--finder-strong);font:inherit;font-weight:800;text-align:left;cursor:pointer;
+    }
+    .faq-icon { flex:0 0 auto;color:var(--finder-focus);font-size:24px;transition:transform .2s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform:rotate(45deg); }
+    .faq-answer { padding:0 19px 19px;color:var(--finder-soft); }
+    .faq-answer[hidden] { display:none; }
+
+    .footer { color:var(--finder-strong); }
+    button:focus-visible,a:focus-visible { outline:3px solid var(--finder-focus);outline-offset:3px; }
+
+    @media(min-width:600px) {
+      .form-area { padding:34px; }
+      .choice-grid,.select-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .profile-summary { grid-template-columns:repeat(4,minmax(0,1fr)); }
+      .score-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+      .plan-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .method-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .scoring-formula { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    }
+
+    @media(min-width:900px) {
+      .finder-layout { grid-template-columns:250px minmax(0,1fr); }
+      .step-sidebar { border-right:1px solid var(--finder-line);border-bottom:0; }
+      .step-list { grid-template-columns:1fr;gap:13px; }
+      .step-item {
+        grid-template-columns:38px minmax(0,1fr);justify-items:start;align-items:center;font-size:14px;text-align:left;
+      }
+      .method-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    }
+
+    @media(max-width:720px) {
+      .nav-actions .nav-cta { display:none; }
+      .finder-page[data-theme="light"] .nav-menu { background:rgba(248,250,252,.98); }
+      .finder-hero { padding-top:48px; }
+      .finder-hero h1 { letter-spacing:-1.7px; }
+      .form-actions { flex-direction:column-reverse; }
+      .form-actions .btn,.result-actions .btn { width:100%; }
+      .opportunity-top { display:grid; }
+      .priority-score { justify-self:start; }
+      .brand img,.logo img { width:46px!important;height:46px!important;flex-basis:46px!important; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important; }
+    }
+
+    @media print {
+      .header,.finder-hero,.privacy-note,.finder-card,.result-actions,.method-section,.faq-section,.footer,.noise,.orb {
+        display:none!important;
+      }
+      body,.finder-page { background:#fff!important;color:#111827!important; }
+      .finder-shell { width:100%;margin:0; }
+      .results-card { display:block!important;border:0;background:#fff!important;box-shadow:none; }
+      .opportunity-card,.profile-stat,.plan-card,.score-item { background:#fff!important;border-color:#cbd5e1;break-inside:avoid; }
+      .results-header h2,.opportunity-card h4,.plan-card strong,.profile-stat strong { color:#111827!important; }
+      .results-header p,.opportunity-why,.first-step,.plan-card p { color:#334155!important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebApplication",
+        "@id":"https://zynovix.github.io/ai-automation-opportunity-finder.html#app",
+        "name":"AI Automation Opportunity Finder",
+        "url":"https://zynovix.github.io/ai-automation-opportunity-finder.html",
+        "description":"A free interactive assessment that prioritizes business processes for AI automation using impact, feasibility, readiness, and risk scores.",
+        "applicationCategory":"BusinessApplication",
+        "operatingSystem":"Any",
+        "browserRequirements":"Requires JavaScript",
+        "isAccessibleForFree":true,
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "provider":{"@type":"Organization","name":"Zynovix AI","url":"https://zynovix.github.io/"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://zynovix.github.io/ai-automation-opportunity-finder.html#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://zynovix.github.io/"},
+          {"@type":"ListItem","position":2,"name":"AI Tools","item":"https://zynovix.github.io/tools.html"},
+          {"@type":"ListItem","position":3,"name":"AI Automation Opportunity Finder","item":"https://zynovix.github.io/ai-automation-opportunity-finder.html"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://zynovix.github.io/ai-automation-opportunity-finder.html#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What makes a process suitable for AI automation?",
+            "acceptedAnswer":{"@type":"Answer","text":"Good candidates are frequent, time-consuming, digitally accessible, reasonably standardized, measurable, and tolerant of human review. Processes involving secrets, high-impact decisions, or many unpredictable exceptions need stronger controls or may be unsuitable."}
+          },
+          {
+            "@type":"Question",
+            "name":"How are automation opportunities scored?",
+            "acceptedAnswer":{"@type":"Answer","text":"The finder combines estimated impact, implementation feasibility, organizational readiness, and risk. The priority score favors high-impact, feasible, ready, lower-risk opportunities."}
+          },
+          {
+            "@type":"Question",
+            "name":"Does the estimated time saving guarantee results?",
+            "acceptedAnswer":{"@type":"Answer","text":"No. It is a planning range based on the answers and typical automation coverage. Validate it with a small pilot and real before-and-after measurements."}
+          },
+          {
+            "@type":"Question",
+            "name":"Does the tool store business information?",
+            "acceptedAnswer":{"@type":"Answer","text":"No assessment answers are submitted to a server. The finder runs locally in the browser."}
+          },
+          {
+            "@type":"Question",
+            "name":"What should I do after finding an opportunity?",
+            "acceptedAnswer":{"@type":"Answer","text":"Select one bounded workflow, document its baseline, collect representative examples and exceptions, define human review and data rules, run a small pilot, and measure quality, time, adoption, and failures before scaling."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="finder-page" data-theme="dark">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Zynovix AI home">
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
+        <span>Zynovix AI</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="tools.html">AI Tools</a>
+        <a href="learn.html">Learn</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="finder-hero shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">›</span>
+        <a href="tools.html">AI Tools</a><span aria-hidden="true">›</span>
+        <span aria-current="page">Automation Opportunity Finder</span>
+      </nav>
+      <span class="kicker">Free Business Assessment</span>
+      <h1>What should you <span>automate with AI?</span></h1>
+      <p>Answer five quick steps to find and prioritize the workflows with the best balance of business impact, implementation feasibility, readiness, and risk.</p>
+      <ul class="hero-facts">
+        <li>✓ 5 guided steps</li>
+        <li>🎯 Top 5 opportunities</li>
+        <li>⏱ Time-saving ranges</li>
+        <li>📋 30-day pilot plan</li>
+      </ul>
+    </section>
+
+    <section class="finder-shell" id="finder" aria-label="AI Automation Opportunity Finder">
+      <aside class="privacy-note" aria-label="Privacy notice">
+        <span aria-hidden="true">🔒</span>
+        <div>Your answers stay in this browser and are not submitted. Results are planning estimates—not a guarantee of savings or suitability.</div>
+      </aside>
+
+      <div class="finder-card" id="finderCard">
+        <div class="finder-layout">
+          <aside class="step-sidebar" aria-labelledby="finderStepsTitle">
+            <h2 id="finderStepsTitle">Find your best pilot</h2>
+            <p>Choose the answers that describe the current workflow—not the future ideal.</p>
+            <ol class="step-list">
+              <li class="step-item active" data-step-indicator="1"><span class="step-number">1</span><span>Function</span></li>
+              <li class="step-item" data-step-indicator="2"><span class="step-number">2</span><span>Work</span></li>
+              <li class="step-item" data-step-indicator="3"><span class="step-number">3</span><span>Volume</span></li>
+              <li class="step-item" data-step-indicator="4"><span class="step-number">4</span><span>Systems</span></li>
+              <li class="step-item" data-step-indicator="5"><span class="step-number">5</span><span>Goal</span></li>
+            </ol>
+          </aside>
+
+          <div class="form-area">
+            <progress class="finder-progress" id="finderProgress" max="5" value="1" aria-label="Opportunity finder progress">Step 1 of 5</progress>
+
+            <form class="finder-form" id="finderForm">
+              <section class="form-step" data-step="1">
+                <span class="step-kicker">Step 1 of 5</span>
+                <h2>Which business function needs improvement?</h2>
+                <p class="step-intro">Choose the area containing the workflow you want to improve first.</p>
+                <div class="choice-grid">
+                  <label class="choice-label"><input type="radio" name="department" value="operations" checked><span class="choice-content"><span class="choice-icon">⚙️</span><span>Operations<span class="choice-description">Processes, documents, coordination, recurring work</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="marketing"><span class="choice-content"><span class="choice-icon">📣</span><span>Marketing<span class="choice-description">Content, campaigns, research, creative production</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="sales"><span class="choice-content"><span class="choice-icon">🤝</span><span>Sales<span class="choice-description">Leads, calls, follow-up, proposals, CRM</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="support"><span class="choice-content"><span class="choice-icon">🎧</span><span>Customer Support<span class="choice-description">Tickets, replies, triage, knowledge, summaries</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="finance"><span class="choice-content"><span class="choice-icon">🧾</span><span>Finance &amp; Admin<span class="choice-description">Invoices, expenses, reporting, reminders</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="hr"><span class="choice-content"><span class="choice-icon">👥</span><span>HR &amp; People<span class="choice-description">Onboarding, policies, feedback, recruiting support</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="technology"><span class="choice-content"><span class="choice-icon">💻</span><span>Software &amp; IT<span class="choice-description">Code, incidents, documentation, internal support</span></span></span></label>
+                  <label class="choice-label"><input type="radio" name="department" value="general"><span class="choice-content"><span class="choice-icon">🧩</span><span>Other / Cross-functional<span class="choice-description">Shared work across teams or a general process</span></span></span></label>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="2" hidden>
+                <span class="step-kicker">Step 2 of 5</span>
+                <h2>What kind of work consumes the time?</h2>
+                <p class="step-intro">Select at least two patterns. The finder uses these to match relevant automation opportunities.</p>
+                <div class="choice-grid">
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="data-entry" checked><span class="choice-content"><span class="choice-icon">⌨️</span><span>Data entry &amp; transfer</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="documents" checked><span class="choice-content"><span class="choice-icon">📄</span><span>Documents, email &amp; summaries</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="research"><span class="choice-content"><span class="choice-icon">🔎</span><span>Research &amp; information gathering</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="classification"><span class="choice-content"><span class="choice-icon">🏷️</span><span>Classification, routing &amp; prioritization</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="reporting" checked><span class="choice-content"><span class="choice-icon">📊</span><span>Reporting &amp; analysis</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="follow-up"><span class="choice-content"><span class="choice-icon">📅</span><span>Scheduling, reminders &amp; follow-up</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="content"><span class="choice-content"><span class="choice-icon">✍️</span><span>Content &amp; first drafts</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="quality"><span class="choice-content"><span class="choice-icon">✅</span><span>Quality checks &amp; policy review</span></span></label>
+                  <label class="choice-label"><input type="checkbox" name="workTypes" value="responses"><span class="choice-content"><span class="choice-icon">💬</span><span>Questions &amp; customer responses</span></span></label>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="3" hidden>
+                <span class="step-kicker">Step 3 of 5</span>
+                <h2>Estimate workflow volume</h2>
+                <p class="step-intro">Rough ranges are enough. The result will show a range rather than a precise promise.</p>
+                <div class="select-grid">
+                  <label class="form-field"><span class="form-label">Task occurrences per week</span><select name="frequency"><option value="5">1–10</option><option value="30" selected>11–50</option><option value="100">51–200</option><option value="250">More than 200</option></select></label>
+                  <label class="form-field"><span class="form-label">Average minutes per occurrence</span><select name="minutes"><option value="5">About 5 minutes</option><option value="15" selected>About 15 minutes</option><option value="30">About 30 minutes</option><option value="60">60 minutes or more</option></select></label>
+                  <label class="form-field"><span class="form-label">People involved</span><select name="people"><option value="1">1 person</option><option value="3" selected>2–5 people</option><option value="10">6–20 people</option><option value="25">More than 20 people</option></select></label>
+                  <label class="form-field"><span class="form-label">How standardized is the work?</span><select name="standardization"><option value="20">Low—every case differs</option><option value="55" selected>Medium—common pattern with exceptions</option><option value="85">High—clear repeatable steps</option></select></label>
+                  <label class="form-field"><span class="form-label">How often do exceptions occur?</span><select name="exceptions"><option value="15">Rare—less than 10%</option><option value="45" selected>Sometimes—10% to 30%</option><option value="75">Often—more than 30%</option></select></label>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="4" hidden>
+                <span class="step-kicker">Step 4 of 5</span>
+                <h2>Describe systems and data</h2>
+                <p class="step-intro">Digital access improves feasibility. Sensitive information increases the need for controls and approval.</p>
+                <div class="select-grid">
+                  <label class="form-field"><span class="form-label">Current system</span><select name="system"><option value="30">Mostly paper or manual</option><option value="50" selected>Email and spreadsheets</option><option value="65">Project, document, CRM, or helpdesk platform</option><option value="85">Connected systems or APIs</option></select></label>
+                  <label class="form-field"><span class="form-label">Main information format</span><select name="format"><option value="structured">Structured fields and tables</option><option value="documents" selected>Documents, messages, or transcripts</option><option value="mixed">A mix of structured data and documents</option><option value="visual">Images, scans, or visual material</option></select></label>
+                  <label class="form-field"><span class="form-label">Highest data sensitivity</span><select name="sensitivity"><option value="10">Public information</option><option value="25" selected>Internal, non-confidential</option><option value="55">Confidential or proprietary</option><option value="75">Personal or regulated</option><option value="95">Credentials, payment data, or secrets</option></select><span class="field-help">Credentials, payment data, and secrets should not be entered into ordinary AI prompts.</span></label>
+                </div>
+              </section>
+
+              <section class="form-step" data-step="5" hidden>
+                <span class="step-kicker">Step 5 of 5</span>
+                <h2>Choose the goal and readiness signals</h2>
+                <p class="step-intro">A small, measurable pilot with an owner and representative examples is usually the best first move.</p>
+                <fieldset>
+                  <legend class="form-label">Primary goal</legend>
+                  <div class="choice-grid">
+                    <label class="choice-label"><input type="radio" name="goal" value="time" checked><span class="choice-content"><span class="choice-icon">⏱️</span><span>Save employee time</span></span></label>
+                    <label class="choice-label"><input type="radio" name="goal" value="speed"><span class="choice-content"><span class="choice-icon">⚡</span><span>Faster response or cycle time</span></span></label>
+                    <label class="choice-label"><input type="radio" name="goal" value="quality"><span class="choice-content"><span class="choice-icon">🎯</span><span>Improve consistency or quality</span></span></label>
+                    <label class="choice-label"><input type="radio" name="goal" value="capacity"><span class="choice-content"><span class="choice-icon">📈</span><span>Handle more work without adding staff</span></span></label>
+                    <label class="choice-label"><input type="radio" name="goal" value="cost"><span class="choice-content"><span class="choice-icon">💰</span><span>Reduce operational cost</span></span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="readiness-fieldset">
+                  <legend class="form-label">What is already available?</legend>
+                  <div class="choice-grid">
+                    <label class="choice-label"><input type="checkbox" name="readiness" value="owner" checked><span class="choice-content"><span class="choice-icon">👤</span><span>A workflow owner</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="readiness" value="examples"><span class="choice-content"><span class="choice-icon">🗃️</span><span>Representative examples and exceptions</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="readiness" value="baseline"><span class="choice-content"><span class="choice-icon">📏</span><span>A baseline for time, quality, or cost</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="readiness" value="reviewer" checked><span class="choice-content"><span class="choice-icon">🧑‍⚖️</span><span>A qualified human reviewer</span></span></label>
+                    <label class="choice-label"><input type="checkbox" name="readiness" value="approved-tool"><span class="choice-content"><span class="choice-icon">🔐</span><span>An approved AI or automation tool</span></span></label>
+                  </div>
+                </fieldset>
+              </section>
+
+              <div class="form-error" id="formError" aria-live="polite"></div>
+              <div class="form-actions">
+                <button class="btn btn-ghost" id="backButton" type="button" disabled>← Back</button>
+                <button class="btn btn-primary" id="nextButton" type="submit">Next →</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-card" id="resultsCard" hidden>
+        <header class="results-header">
+          <div class="results-icon" aria-hidden="true">🧭</div>
+          <h2>Your automation opportunity map</h2>
+          <p id="resultIntro"></p>
+        </header>
+        <div class="profile-summary" id="profileSummary"></div>
+        <div class="results-body">
+          <h3>Your top five opportunities</h3>
+          <div class="opportunity-list" id="opportunityList"></div>
+          <aside class="risk-alert" id="riskAlert" aria-label="Risk guidance"><span aria-hidden="true">⚠️</span><div></div></aside>
+          <section class="plan-section" aria-labelledby="planTitle">
+            <h3 id="planTitle">30-day pilot plan for your top opportunity</h3>
+            <div class="plan-grid" id="planGrid"></div>
+          </section>
+        </div>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="copyButton" type="button">📋 Copy Results</button>
+          <a class="btn btn-primary" href="automation-roi-calculator.html">Calculate ROI</a>
+          <button class="btn btn-ghost" id="printButton" type="button">🖨️ Print / Save PDF</button>
+          <button class="btn btn-ghost" id="editButton" type="button">✏️ Edit Answers</button>
+          <div class="action-status" id="actionStatus" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section shell" aria-labelledby="methodTitle">
+      <div class="section-head">
+        <span class="kicker">Prioritization Method</span>
+        <h2 id="methodTitle">What makes a strong AI automation candidate?</h2>
+        <p>The best first pilots combine meaningful value with repeatable work, accessible information, measurable outcomes, and manageable risk.</p>
+      </div>
+      <div class="method-grid">
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">📈</div><h3>Impact</h3><p>Frequency, duration, number of people, and alignment with the primary business goal.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🧩</div><h3>Feasibility</h3><p>Standardization, exception rate, digital access, information format, and workflow complexity.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🚦</div><h3>Readiness</h3><p>An owner, representative examples, a baseline, a human reviewer, and an approved tool.</p></article>
+        <article class="card method-card"><div class="method-icon" aria-hidden="true">🛡️</div><h3>Risk</h3><p>Data sensitivity, decision impact, security, error consequences, and required oversight.</p></article>
+      </div>
+      <div class="scoring-note">
+        <h2>How the priority score works</h2>
+        <p>The score is directional, not a technical or financial guarantee. It favors opportunities that are valuable, feasible, ready, and comparatively lower risk. Always validate the result with representative examples and a controlled pilot.</p>
+        <div class="scoring-formula">
+          <div class="formula-item"><strong>40%</strong><span>Impact</span></div>
+          <div class="formula-item"><strong>30%</strong><span>Feasibility</span></div>
+          <div class="formula-item"><strong>20%</strong><span>Readiness</span></div>
+          <div class="formula-item"><strong>10%</strong><span>Risk adjustment</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section shell" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head"><span class="kicker">FAQ</span><h2 id="faqTitle">Automation opportunity questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>What makes a process suitable for AI automation?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-1" hidden>Strong candidates are frequent, time-consuming, digitally accessible, reasonably standardized, measurable, and tolerant of human review. Processes involving secrets, high-impact decisions, or unpredictable exceptions require stronger controls or may be unsuitable.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>How are opportunities scored?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-2" hidden>The finder combines estimated impact, implementation feasibility, organizational readiness, and risk. The final priority score favors high-impact, feasible, ready, comparatively lower-risk opportunities.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>Does the time-saving range guarantee results?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-3" hidden>No. It is a planning range derived from your volume answers and typical automation coverage. Measure the current process and validate savings with a small pilot before making an investment decision.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Does the finder store my business information?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-4" hidden>No assessment answers are submitted to a server. The tool runs locally in your browser and requires no account.</div></div>
+        <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>What should I do after finding an opportunity?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-answer-5" hidden>Select one bounded workflow, record its baseline, collect representative examples and exceptions, define data and human-review rules, run a small pilot, and measure quality, time, adoption, and failures before scaling.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand-group">
+        <a class="brand" href="index.html"><img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52"><span>Zynovix AI</span></a>
+        <a class="aitd-badge-link" href="https://aitooldiscovery.com" target="_blank" rel="noopener noreferrer" aria-label="Featured on AI Tool Discovery (opens in a new tab)"><img src="https://aitooldiscovery.com/badges/featured-1.svg" alt="Featured on AI Tool Discovery" width="120" height="36" loading="lazy" decoding="async"></a>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="blog.html">Blog</a></nav>
+      <span>© 2026 Zynovix AI. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function(){
+    "use strict";
+
+    var departments={
+      operations:"Operations",marketing:"Marketing",sales:"Sales",support:"Customer Support",
+      finance:"Finance & Admin",hr:"HR & People",technology:"Software & IT",general:"Cross-functional"
+    };
+
+    var opportunities=[
+      {dept:"operations",icon:"📥",title:"Document intake, extraction, and routing",tags:["documents","data-entry","classification"],impact:83,feasibility:82,risk:28,coverage:[45,70],goal:["time","speed","capacity"],why:"Convert incoming forms, emails, PDFs, or requests into structured fields, summaries, and the correct queue.",metric:"processing time and correction rate",first:"Collect 30 representative documents, including exceptions and poor-quality examples.",workflow:["Receive the document or message","Extract required fields and classify the request","Validate required information and confidence","Route low-confidence cases to a person","Write approved data to the destination system"]},
+      {dept:"operations",icon:"📋",title:"Recurring report preparation",tags:["reporting","data-entry","documents"],impact:76,feasibility:80,risk:24,coverage:[40,65],goal:["time","speed","quality"],why:"Assemble recurring updates, summarize changes, and draft a consistent report for human approval.",metric:"report preparation time and revision count",first:"Choose one weekly report and document its sources, rules, owner, and current preparation time.",workflow:["Collect approved source data","Check completeness and anomalies","Create tables and narrative summary","Flag changes requiring explanation","Send the draft to the report owner"]},
+      {dept:"operations",icon:"📚",title:"SOP and internal knowledge assistant",tags:["research","documents","responses"],impact:72,feasibility:75,risk:30,coverage:[30,55],goal:["speed","quality","capacity"],why:"Help staff find approved procedures and answer routine operational questions with citations to internal sources.",metric:"time to answer and escalation rate",first:"Select one process area and curate the current approved procedures before building search or answers.",workflow:["Receive an employee question","Search only approved knowledge sources","Draft an answer with source links","Show uncertainty or missing guidance","Escalate exceptions to the process owner"]},
+
+      {dept:"marketing",icon:"♻️",title:"Content repurposing workflow",tags:["content","documents"],impact:78,feasibility:86,risk:22,coverage:[45,70],goal:["time","capacity","speed"],why:"Turn one approved long-form asset into channel-specific drafts while preserving brand rules and human approval.",metric:"production time and approved assets per source",first:"Choose one strong source article and define examples for three target channels.",workflow:["Load an approved source asset","Extract key claims and messages","Draft channel-specific variants","Check facts, brand, rights, and disclosure","Approve and schedule through normal controls"]},
+      {dept:"marketing",icon:"🧭",title:"Campaign research and brief assistant",tags:["research","documents","reporting"],impact:72,feasibility:78,risk:26,coverage:[35,60],goal:["time","quality","speed"],why:"Summarize approved research, customer themes, competitors, and campaign constraints into a consistent brief.",metric:"brief cycle time and stakeholder revisions",first:"Gather three successful briefs and define mandatory fields, evidence, and approval criteria.",workflow:["Collect authorized research sources","Extract themes, evidence, and constraints","Draft the campaign brief","Verify claims and source dates","Route to strategy and brand owners"]},
+      {dept:"marketing",icon:"🔍",title:"SEO topic and content-gap analysis",tags:["research","reporting","content"],impact:70,feasibility:72,risk:20,coverage:[30,55],goal:["quality","capacity","time"],why:"Organize keyword, search-result, and content inventory data into prioritized topic briefs for editorial review.",metric:"research time and briefs accepted",first:"Define one topic cluster and the exact sources, freshness rules, and quality criteria.",workflow:["Collect current approved search and site data","Group topics by intent and overlap","Identify gaps and supporting questions","Draft prioritized content briefs","Review for accuracy and editorial value"]},
+
+      {dept:"sales",icon:"📝",title:"Call notes and CRM update assistant",tags:["documents","data-entry","classification"],impact:84,feasibility:83,risk:38,coverage:[45,70],goal:["time","quality","speed"],why:"Summarize approved call transcripts, extract actions and fields, then prepare a CRM update for seller review.",metric:"admin time per call and CRM completeness",first:"Use 20 authorized call examples to define fields, summary rules, and items that always need confirmation.",workflow:["Receive an authorized transcript or notes","Extract needs, objections, decisions, and actions","Map information to CRM fields","Ask the seller to verify sensitive or uncertain details","Save only after approval"]},
+      {dept:"sales",icon:"✉️",title:"Personalized follow-up drafting",tags:["content","follow-up","documents"],impact:78,feasibility:88,risk:30,coverage:[40,65],goal:["time","speed","capacity"],why:"Draft timely follow-up using approved notes, offers, tone, and next steps while the seller controls sending.",metric:"follow-up time and response rate",first:"Create five approved follow-up examples and a checklist for claims, promises, pricing, and tone.",workflow:["Read approved interaction notes","Select the relevant offer and next step","Draft a concise personalized message","Check facts, commitments, privacy, and tone","Seller edits and sends"]},
+      {dept:"sales",icon:"📑",title:"Proposal and RFP first-draft assistant",tags:["documents","research","content"],impact:80,feasibility:68,risk:42,coverage:[30,55],goal:["time","quality","capacity"],why:"Reuse approved capability statements and evidence to prepare a structured first draft with source references.",metric:"first-draft time and compliance gaps",first:"Curate approved claims, case studies, pricing boundaries, and reusable answers with owners and expiry dates.",workflow:["Parse requirements and deadlines","Map questions to approved source content","Draft answers with evidence references","Flag missing, expired, or high-risk claims","Route sections to accountable reviewers"]},
+
+      {dept:"support",icon:"🏷️",title:"Ticket classification and routing",tags:["classification","data-entry","responses"],impact:86,feasibility:85,risk:34,coverage:[50,75],goal:["speed","time","capacity"],why:"Classify topic, urgency, language, and required team so requests reach the right queue faster.",metric:"time to assignment and reroute rate",first:"Export a labeled sample of resolved tickets and define low-confidence and urgent escalation rules.",workflow:["Receive a new ticket","Detect language, issue type, urgency, and account context","Apply routing and priority rules","Escalate low-confidence or safety-sensitive cases","Record the classification for review"]},
+      {dept:"support",icon:"💬",title:"Agent reply suggestion",tags:["responses","research","documents"],impact:84,feasibility:76,risk:44,coverage:[35,60],goal:["speed","quality","capacity"],why:"Draft grounded replies from approved knowledge while an agent verifies account details, policy, and tone.",metric:"handle time, acceptance rate, and corrections",first:"Choose one low-risk ticket category and curate the current approved knowledge sources.",workflow:["Read the customer request and authorized context","Retrieve relevant approved knowledge","Draft a reply with clear next steps","Flag uncertainty, exceptions, or account-specific actions","Agent verifies, edits, and sends"]},
+      {dept:"support",icon:"🧠",title:"Conversation summarization and handoff",tags:["documents","data-entry","classification"],impact:74,feasibility:88,risk:32,coverage:[45,70],goal:["time","quality","speed"],why:"Create concise summaries, unresolved items, customer sentiment, and next actions when a case changes owner.",metric:"handoff time and reopened questions",first:"Define a standard handoff format using 20 complex historical conversations.",workflow:["Collect the authorized conversation history","Extract issue, attempts, commitments, and open items","Draft a structured handoff summary","Verify sensitive and account-specific facts","Attach to the case for the next owner"]},
+
+      {dept:"finance",icon:"🧾",title:"Invoice and receipt data extraction",tags:["data-entry","documents","quality"],impact:88,feasibility:84,risk:48,coverage:[50,75],goal:["time","cost","capacity"],why:"Extract vendor, date, amount, tax, purchase-order, and line-item data for validation before posting.",metric:"entry time, exception rate, and correction rate",first:"Collect representative approved documents and define validation rules against vendors, orders, and totals.",workflow:["Receive invoice or receipt","Extract required fields and line items","Validate totals, duplicates, vendor, and purchase order","Route exceptions for review","Post only through approved authorization controls"]},
+      {dept:"finance",icon:"🔎",title:"Expense policy pre-check",tags:["quality","documents","classification"],impact:72,feasibility:72,risk:52,coverage:[30,55],goal:["quality","time","cost"],why:"Flag missing evidence and potential policy exceptions before an authorized reviewer makes the decision.",metric:"review time and late exception rate",first:"Translate one current expense policy into testable rules and collect examples of valid exceptions.",workflow:["Read expense claim and evidence","Check required fields and arithmetic","Compare with current policy rules","Explain possible issues without making the final decision","Send to the authorized reviewer"]},
+      {dept:"finance",icon:"📊",title:"Management report narrative",tags:["reporting","documents","research"],impact:70,feasibility:74,risk:45,coverage:[30,50],goal:["time","quality","speed"],why:"Draft a narrative explaining approved metrics, changes, and questions while finance verifies every claim.",metric:"drafting time and factual corrections",first:"Choose one recurring report and define authoritative data, comparison rules, and prohibited interpretations.",workflow:["Load approved report data","Calculate or import verified changes","Draft factual observations and questions","Flag anomalies and missing explanations","Finance owner verifies and finalizes"]},
+
+      {dept:"hr",icon:"🧑‍💼",title:"Onboarding knowledge assistant",tags:["responses","research","documents"],impact:76,feasibility:80,risk:45,coverage:[35,60],goal:["speed","quality","capacity"],why:"Answer routine onboarding questions from approved policies and route personal or exceptional cases to HR.",metric:"answer time and escalation accuracy",first:"Curate current onboarding documents and define which questions must always go to a person.",workflow:["Receive an onboarding question","Search approved HR sources","Draft an answer with source reference","Avoid personal advice or employee-specific decisions","Escalate exceptions to HR"]},
+      {dept:"hr",icon:"📄",title:"Job description and interview-kit drafting",tags:["content","documents","quality"],impact:68,feasibility:82,risk:52,coverage:[35,60],goal:["time","quality","speed"],why:"Create consistent first drafts from approved role criteria while HR reviews inclusivity, legality, and relevance.",metric:"draft time and review changes",first:"Select approved role templates and define skills, prohibited criteria, accessibility, and review requirements.",workflow:["Collect approved role requirements","Draft responsibilities and skills","Create structured interview questions and rubric","Check bias, accessibility, and policy","HR and hiring owner approve"]},
+      {dept:"hr",icon:"📚",title:"Employee feedback theme analysis",tags:["reporting","classification","documents"],impact:72,feasibility:65,risk:62,coverage:[25,45],goal:["quality","time"],why:"Group de-identified feedback into themes while protecting anonymity and preventing automated employment decisions.",metric:"analysis time and theme validation",first:"Obtain privacy approval and prepare a sufficiently large de-identified sample with clear reporting thresholds.",workflow:["Minimize and de-identify authorized feedback","Group comments into explainable themes","Check for small groups and re-identification risk","Validate themes with qualified reviewers","Report aggregate insights without employee decisions"]},
+
+      {dept:"technology",icon:"🚨",title:"Incident intake and technical summarization",tags:["classification","documents","data-entry"],impact:82,feasibility:74,risk:55,coverage:[35,60],goal:["speed","quality","time"],why:"Normalize incident reports, summarize evidence, suggest ownership, and prepare a timeline without exposing secrets.",metric:"triage time and routing accuracy",first:"Use sanitized incidents to define severity indicators, secret handling, and mandatory human escalation.",workflow:["Receive an authorized incident report","Remove or protect secrets and sensitive details","Extract affected service, symptoms, timeline, and severity signals","Suggest the correct owner and checklist","Responder verifies and takes action"]},
+      {dept:"technology",icon:"🧪",title:"Test and documentation generation",tags:["content","quality","documents"],impact:78,feasibility:86,risk:38,coverage:[40,65],goal:["time","quality","capacity"],why:"Draft unit tests, technical explanations, API examples, and documentation from approved code and requirements.",metric:"documentation time and defects found",first:"Choose a low-risk repository and define code, license, secret, review, and test-coverage rules.",workflow:["Read approved code or specifications","Draft tests and documentation","Run automated checks in an isolated workflow","Review security, correctness, licensing, and edge cases","Developer approves changes"]},
+      {dept:"technology",icon:"🛠️",title:"Internal IT support assistant",tags:["responses","research","classification"],impact:79,feasibility:78,risk:44,coverage:[35,60],goal:["speed","capacity","time"],why:"Answer common support questions and guide approved troubleshooting while escalating access and security issues.",metric:"resolution time and safe escalation rate",first:"Start with one low-risk topic such as approved software setup and curate current knowledge articles.",workflow:["Receive the employee request","Classify topic and risk","Retrieve approved troubleshooting steps","Avoid password, credential, or privileged actions","Escalate unresolved or sensitive cases"]},
+
+      {dept:"general",icon:"📨",title:"Email triage and draft workflow",tags:["classification","documents","responses","follow-up"],impact:72,feasibility:80,risk:34,coverage:[35,60],goal:["time","speed","capacity"],why:"Classify incoming messages, extract actions, and prepare drafts while a person controls commitments and sending.",metric:"inbox processing time and missed actions",first:"Define categories, urgent triggers, prohibited auto-actions, and 30 representative messages.",workflow:["Receive an authorized message","Classify topic, urgency, and owner","Extract tasks, dates, and missing information","Draft a response or next action","Person verifies and sends"]},
+      {dept:"general",icon:"🗓️",title:"Meeting notes and action tracking",tags:["documents","data-entry","follow-up"],impact:68,feasibility:88,risk:28,coverage:[45,70],goal:["time","quality","speed"],why:"Create an approved summary, decisions, actions, owners, and dates from authorized notes or transcripts.",metric:"note preparation time and action completion",first:"Define consent, recording, retention, and a standard action-item format for one meeting type.",workflow:["Collect authorized notes or transcript","Extract decisions, risks, and actions","Assign proposed owners and dates","Participants verify the summary","Publish to the approved workspace"]},
+      {dept:"general",icon:"📚",title:"Internal policy and knowledge Q&A",tags:["research","responses","documents"],impact:70,feasibility:76,risk:36,coverage:[30,55],goal:["speed","quality","capacity"],why:"Help employees find current approved information with source references and clear escalation.",metric:"search time, answer acceptance, and escalation",first:"Select one knowledge domain, remove outdated files, and name an owner for every approved source.",workflow:["Receive a user question","Search only approved current sources","Draft an answer with source references","Show uncertainty and policy date","Escalate personal or exceptional cases"]},
+      {dept:"general",icon:"🔍",title:"Quality checklist assistant",tags:["quality","documents","classification"],impact:66,feasibility:72,risk:38,coverage:[25,50],goal:["quality","time"],why:"Apply a documented checklist to drafts or records and flag possible issues for a qualified reviewer.",metric:"review time and issues caught",first:"Turn one stable quality checklist into clear testable criteria with accepted exceptions.",workflow:["Receive the item and relevant standard","Run deterministic and AI-assisted checks","Explain each possible issue with evidence","Avoid final approval or rejection","Qualified reviewer decides and records outcome"]}
+    ];
+
+    var form=document.getElementById("finderForm");
+    var finderCard=document.getElementById("finderCard");
+    var resultsCard=document.getElementById("resultsCard");
+    var progress=document.getElementById("finderProgress");
+    var backButton=document.getElementById("backButton");
+    var nextButton=document.getElementById("nextButton");
+    var formError=document.getElementById("formError");
+    var actionStatus=document.getElementById("actionStatus");
+    var currentStep=1;
+    var latest=null;
+
+    function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
+    function showStep(step){
+      currentStep=step;
+      document.querySelectorAll(".form-step").forEach(function(section){section.hidden=Number(section.dataset.step)!==step;});
+      document.querySelectorAll("[data-step-indicator]").forEach(function(item){
+        var number=Number(item.dataset.stepIndicator);
+        item.classList.toggle("active",number===step);
+        item.classList.toggle("complete",number<step);
+        item.querySelector(".step-number").textContent=number<step?"✓":String(number);
+      });
+      progress.value=step;
+      progress.textContent="Step "+step+" of 5";
+      backButton.disabled=step===1;
+      nextButton.textContent=step===5?"Find My Opportunities →":"Next →";
+      formError.textContent="";
+      var heading=document.querySelector('.form-step[data-step="'+step+'"] h2');
+      heading.setAttribute("tabindex","-1");
+      heading.focus();
+    }
+
+    function validateStep(){
+      if(currentStep===2&&form.querySelectorAll('input[name="workTypes"]:checked').length<2){
+        formError.textContent="Select at least two types of work.";
+        form.querySelector('input[name="workTypes"]').focus();
+        return false;
+      }
+      formError.textContent="";
+      return true;
+    }
+
+    function getProfile(){
+      var data=new FormData(form);
+      return {
+        department:String(data.get("department")),
+        workTypes:data.getAll("workTypes").map(String),
+        frequency:Number(data.get("frequency")),
+        minutes:Number(data.get("minutes")),
+        people:Number(data.get("people")),
+        standardization:Number(data.get("standardization")),
+        exceptions:Number(data.get("exceptions")),
+        system:Number(data.get("system")),
+        format:String(data.get("format")),
+        sensitivity:Number(data.get("sensitivity")),
+        goal:String(data.get("goal")),
+        readiness:data.getAll("readiness").map(String)
+      };
+    }
+
+    function calculateOpportunity(item,profile){
+      var matches=item.tags.filter(function(tag){return profile.workTypes.indexOf(tag)>=0;}).length;
+      var volumeBoost=clamp((profile.frequency>=100?12:profile.frequency>=30?8:3)+(profile.minutes>=30?9:profile.minutes>=15?6:2)+(profile.people>=10?8:profile.people>=3?5:2),0,25);
+      var goalBoost=item.goal.indexOf(profile.goal)>=0?8:0;
+      var impact=clamp(item.impact+volumeBoost+goalBoost-12,25,100);
+      var formatBoost=(profile.format==="documents"&&item.tags.indexOf("documents")>=0)||(profile.format==="structured"&&item.tags.indexOf("data-entry")>=0)||(profile.format==="mixed")?6:0;
+      var feasibility=clamp(item.feasibility+(profile.standardization-55)*.22-(profile.exceptions-45)*.18+(profile.system-50)*.16+formatBoost+(matches*5)-7,15,100);
+      var readiness=clamp(25+(profile.readiness.length*13)+(profile.system-50)*.18+(profile.standardization-55)*.1,15,100);
+      var sensitivityRisk=(profile.sensitivity-25)*.45;
+      var risk=clamp(item.risk+sensitivityRisk+(profile.exceptions-45)*.1-(profile.readiness.indexOf("reviewer")>=0?6:0),8,100);
+      var priority=Math.round(impact*.4+feasibility*.3+readiness*.2+(100-risk)*.1+(matches*2));
+      var monthlyBase=profile.frequency*profile.minutes*profile.people*4.33/60;
+      var low=Math.max(1,Math.round(monthlyBase*item.coverage[0]/100));
+      var high=Math.max(low+1,Math.round(monthlyBase*item.coverage[1]/100));
+      return Object.assign({},item,{impact:Math.round(impact),feasibility:Math.round(feasibility),readiness:Math.round(readiness),risk:Math.round(risk),priority:clamp(priority,1,100),hours:[low,high],matches:matches});
+    }
+
+    function getResults(profile){
+      var pool=opportunities.filter(function(item){return item.dept===profile.department||item.dept==="general";});
+      return pool.map(function(item){return calculateOpportunity(item,profile);}).sort(function(a,b){return b.priority-a.priority||b.matches-a.matches;}).slice(0,5);
+    }
+
+    function riskLabel(score){
+      if(score>=65)return {label:"High risk",className:"risk-high"};
+      if(score>=40)return {label:"Medium risk",className:"risk-medium"};
+      return {label:"Lower risk",className:"risk-low"};
+    }
+
+    function makeScore(label,value,invert){
+      var item=document.createElement("div"),top=document.createElement("div"),name=document.createElement("span"),score=document.createElement("strong"),bar=document.createElement("div"),fill=document.createElement("span");
+      item.className="score-item";top.className="score-label";bar.className="score-bar";
+      name.textContent=label;score.textContent=value+"/100";fill.style.width=(invert?100-value:value)+"%";
+      top.appendChild(name);top.appendChild(score);bar.appendChild(fill);item.appendChild(top);item.appendChild(bar);return item;
+    }
+
+    function renderOpportunity(item,index){
+      var article=document.createElement("article"),top=document.createElement("div"),titleWrap=document.createElement("div"),icon=document.createElement("div"),text=document.createElement("div"),rank=document.createElement("span"),title=document.createElement("h4"),priority=document.createElement("div"),why=document.createElement("p"),scores=document.createElement("div"),meta=document.createElement("div"),risk=riskLabel(item.risk),workflow=document.createElement("div"),flowTitle=document.createElement("strong"),list=document.createElement("ol"),first=document.createElement("p");
+      article.className="opportunity-card"+(index===0?" top":"");top.className="opportunity-top";titleWrap.className="opportunity-title-wrap";icon.className="opportunity-icon";rank.className="opportunity-rank";priority.className="priority-score";why.className="opportunity-why";scores.className="score-grid";meta.className="opportunity-meta";workflow.className="workflow-box";first.className="first-step";
+      icon.textContent=item.icon;rank.textContent=index===0?"Best first pilot":"Priority "+(index+1);title.textContent=item.title;priority.textContent=item.priority+"/100";why.textContent=item.why;
+      text.appendChild(rank);text.appendChild(title);titleWrap.appendChild(icon);titleWrap.appendChild(text);top.appendChild(titleWrap);top.appendChild(priority);
+      scores.appendChild(makeScore("Impact",item.impact,false));scores.appendChild(makeScore("Feasibility",item.feasibility,false));scores.appendChild(makeScore("Readiness",item.readiness,false));scores.appendChild(makeScore("Risk",item.risk,true));
+      [["Potential time",item.hours[0]+"–"+item.hours[1]+" hrs/month"],["Coverage",item.coverage[0]+"–"+item.coverage[1]+"%"],["Risk",risk.label],["Measure",item.metric]].forEach(function(pair){var chip=document.createElement("span");chip.className="meta-chip"+(pair[0]==="Risk"?" "+risk.className:"");chip.textContent=pair[0]+": "+pair[1];meta.appendChild(chip);});
+      flowTitle.textContent="Suggested human-in-the-loop workflow";
+      item.workflow.forEach(function(step){var li=document.createElement("li");li.textContent=step;list.appendChild(li);});
+      first.innerHTML="<strong>First step:</strong> ";first.appendChild(document.createTextNode(item.first));
+      workflow.appendChild(flowTitle);workflow.appendChild(list);workflow.appendChild(first);
+      article.appendChild(top);article.appendChild(why);article.appendChild(scores);article.appendChild(meta);article.appendChild(workflow);return article;
+    }
+
+    function renderSummary(profile,results){
+      var container=document.getElementById("profileSummary");
+      var readinessPercent=Math.round(profile.readiness.length/5*100);
+      var top=results[0];
+      var stats=[
+        [departments[profile.department],"Function"],
+        [top.priority+"/100","Top priority score"],
+        [readinessPercent+"%","Pilot readiness"],
+        [top.hours[0]+"–"+top.hours[1],"Potential hrs/month"]
+      ];
+      container.innerHTML="";
+      stats.forEach(function(pair){var box=document.createElement("div"),strong=document.createElement("strong"),span=document.createElement("span");box.className="profile-stat";strong.textContent=pair[0];span.textContent=pair[1];box.appendChild(strong);box.appendChild(span);container.appendChild(box);});
+      document.getElementById("resultIntro").textContent="For "+departments[profile.department]+", the strongest first pilot is “"+top.title+".” Validate the time-saving range with real baseline data before investing or scaling.";
+    }
+
+    function renderPlan(top){
+      var plans=[
+        ["Days 1–7","Define and measure","Map the exact start and end of “"+top.title+".” Record current "+top.metric+", name the owner, and collect representative normal and exception cases."],
+        ["Days 8–14","Prepare controls","Define allowed data, approved tools, human-review steps, acceptance criteria, failure handling, and a manual fallback."],
+        ["Days 15–21","Run a controlled pilot","Test with a small volume. Compare output with the existing process and record time, quality, corrections, exceptions, and user feedback."],
+        ["Days 22–30","Decide with evidence","Compare results with the baseline. Improve weak controls, then choose to expand, revise, or stop. Use the ROI Calculator before a larger investment."]
+      ];
+      var grid=document.getElementById("planGrid");grid.innerHTML="";
+      plans.forEach(function(plan){var card=document.createElement("article"),small=document.createElement("small"),strong=document.createElement("strong"),p=document.createElement("p");card.className="plan-card";small.textContent=plan[0];strong.textContent=plan[1];p.textContent=plan[2];card.appendChild(small);card.appendChild(strong);card.appendChild(p);grid.appendChild(card);});
+    }
+
+    function renderRisk(profile,results){
+      var alert=document.getElementById("riskAlert"),text=alert.querySelector("div");
+      if(profile.sensitivity>=90){
+        text.textContent="Your workflow may involve credentials, payment data, or secrets. Do not enter these into ordinary AI prompts. Redesign the workflow so secrets remain in approved secure systems and obtain security review.";
+      }else if(profile.sensitivity>=70||results[0].risk>=65){
+        text.textContent="This profile involves personal, regulated, or higher-risk information. Treat the result as a discovery shortlist only. Obtain privacy, security, legal, and accountable business review before a pilot.";
+      }else if(profile.exceptions>=75){
+        text.textContent="The process has frequent exceptions. Start with assistance, classification, or drafting rather than end-to-end automation, and keep a qualified person in control.";
+      }else{
+        text.textContent="Start with a bounded pilot and human review. The opportunity score does not replace data, security, legal, or process-owner approval.";
+      }
+    }
+
+    function buildCopyText(){
+      if(!latest)return"";
+      var lines=["AI Automation Opportunity Finder — Zynovix AI","Function: "+departments[latest.profile.department],""];
+      latest.results.forEach(function(item,index){
+        lines.push((index+1)+". "+item.title+" — Priority "+item.priority+"/100");
+        lines.push("Impact "+item.impact+" | Feasibility "+item.feasibility+" | Readiness "+item.readiness+" | Risk "+item.risk);
+        lines.push("Potential time range: "+item.hours[0]+"–"+item.hours[1]+" hours/month");
+        lines.push("First step: "+item.first,"");
+      });
+      lines.push("Planning estimate only. Validate with a controlled pilot.");
+      lines.push("https://zynovix.github.io/ai-automation-opportunity-finder.html");
+      return lines.join("\n");
+    }
+
+    function fallbackCopy(text){
+      var area=document.createElement("textarea");area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();var copied=document.execCommand("copy");document.body.removeChild(area);return copied;
+    }
+
+    function copyResults(){
+      var text=buildCopyText();if(!text)return;
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(text).then(function(){actionStatus.textContent="Results copied to your clipboard.";}).catch(function(){actionStatus.textContent=fallbackCopy(text)?"Results copied to your clipboard.":"Copy failed. Please try again.";});
+      }else{actionStatus.textContent=fallbackCopy(text)?"Results copied to your clipboard.":"Copy failed. Please try again.";}
+    }
+
+    function showResults(){
+      var profile=getProfile(),results=getResults(profile),list=document.getElementById("opportunityList");
+      latest={profile:profile,results:results};list.innerHTML="";
+      results.forEach(function(item,index){list.appendChild(renderOpportunity(item,index));});
+      renderSummary(profile,results);renderRisk(profile,results);renderPlan(results[0]);
+      finderCard.hidden=true;resultsCard.hidden=false;actionStatus.textContent="";
+      document.getElementById("finder").scrollIntoView({behavior:"smooth",block:"start"});
+      document.querySelector(".results-header h2").setAttribute("tabindex","-1");document.querySelector(".results-header h2").focus();
+    }
+
+    form.addEventListener("submit",function(event){
+      event.preventDefault();if(!validateStep())return;
+      if(currentStep<5)showStep(currentStep+1);else showResults();
+    });
+    backButton.addEventListener("click",function(){if(currentStep>1)showStep(currentStep-1);});
+    document.getElementById("copyButton").addEventListener("click",copyResults);
+    document.getElementById("printButton").addEventListener("click",function(){window.print();});
+    document.getElementById("editButton").addEventListener("click",function(){resultsCard.hidden=true;finderCard.hidden=false;showStep(1);document.getElementById("finder").scrollIntoView({behavior:"smooth",block:"start"});});
+
+    document.querySelectorAll(".faq-question").forEach(function(button){
+      button.addEventListener("click",function(){var expanded=button.getAttribute("aria-expanded")==="true",answer=document.getElementById(button.getAttribute("aria-controls"));button.setAttribute("aria-expanded",expanded?"false":"true");answer.hidden=expanded;});
+    });
+
+    showStep(1);
+  }());
+  </script>
+</body>
+</html>

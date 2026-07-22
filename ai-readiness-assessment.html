@@ -83,7 +83,8 @@
       color: #0369a1;
     }
 
-    .readiness-page[data-theme="light"] .menu-btn {
+    .readiness-page[data-theme="light"] .menu-btn,
+    .readiness-page[data-theme="light"] .theme-toggle {
       color: #0f172a;
       background: rgba(15, 23, 42, .05);
     }
@@ -102,6 +103,32 @@
       border-radius: 8px !important;
       padding: 2px !important;
       flex: 0 0 52px !important;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--assessment-line);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 19px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, .7);
     }
 
     .assessment-hero {
@@ -849,6 +876,10 @@
     }
 
     @media (max-width: 720px) {
+      .nav-actions .nav-cta {
+        display: none;
+      }
+
       .readiness-page[data-theme="light"] .nav-menu {
         background: rgba(248, 250, 252, .98);
       }
@@ -1057,13 +1088,13 @@
   <div class="orb orb-b" aria-hidden="true"></div>
 
   <header class="header">
-    <nav class="nav shell" aria-label="Primary navigation">
+    <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="index.html" aria-label="Zynovix AI home">
         <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52">
         <span>Zynovix AI</span>
       </a>
 
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
 
       <div class="nav-menu" id="navMenu">
         <a href="tools.html">AI Tools</a>
@@ -1300,7 +1331,6 @@
       </div>
 
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="editorial-policy.html">Editorial Policy</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>

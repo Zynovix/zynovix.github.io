@@ -1177,6 +1177,7 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/site-system.css?v=20260723">
 </head>
 
 <body>
@@ -2020,12 +2021,14 @@ Then implement only the approved scope. Preserve existing conventions, do not re
         navMenu.classList.remove('active');
         menuButton.setAttribute('aria-expanded', 'false');
         menuButton.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('nav-open');
       }
 
       menuButton.addEventListener('click', function () {
         var isOpen = navMenu.classList.toggle('active');
         menuButton.setAttribute('aria-expanded', String(isOpen));
         menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('nav-open', isOpen);
       });
 
       navMenu.querySelectorAll('a').forEach(function (link) {
@@ -2034,6 +2037,16 @@ Then implement only the approved scope. Preserve existing conventions, do not re
 
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') closeMenu();
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!navMenu.classList.contains('active')) return;
+        if (navMenu.contains(event.target) || menuButton.contains(event.target)) return;
+        closeMenu();
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 720) closeMenu();
       });
 
       function updateScrollUI() {

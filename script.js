@@ -7,13 +7,18 @@ function initNavigation() {
   const closeMenu = () => {
     navMenu.classList.remove("active");
     menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Open menu");
+    document.body.classList.remove("nav-open");
   };
 
   menuBtn.setAttribute("aria-expanded", "false");
+  menuBtn.setAttribute("aria-label", "Open menu");
 
   menuBtn.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("active");
     menuBtn.setAttribute("aria-expanded", String(isOpen));
+    menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    document.body.classList.toggle("nav-open", isOpen);
   });
 
   navMenu.querySelectorAll("a").forEach(link => {
@@ -22,6 +27,16 @@ function initNavigation() {
 
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", event => {
+    if (!navMenu.classList.contains("active")) return;
+    if (navMenu.contains(event.target) || menuBtn.contains(event.target)) return;
+    closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) closeMenu();
   });
 }
 

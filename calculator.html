@@ -66,20 +66,20 @@
     .calculator-section {
       padding: 80px 0;
     }
-    
+
     .calculator-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       margin-top: 40px;
     }
-    
+
     @media (max-width: 968px) {
       .calculator-grid {
         grid-template-columns: 1fr;
       }
     }
-    
+
     .calculator-card {
       background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(10px);
@@ -87,11 +87,11 @@
       border-radius: 16px;
       padding: 32px;
     }
-    
+
     .input-group {
       margin-bottom: 24px;
     }
-    
+
     .input-group label {
       display: block;
       font-weight: 600;
@@ -99,7 +99,7 @@
       color: rgba(255, 255, 255, 0.9);
       font-size: 0.95rem;
     }
-    
+
     .input-group input,
     .input-group select {
       width: 100%;
@@ -113,24 +113,24 @@
       outline: none;
       transition: all 0.2s ease;
     }
-    
+
     .input-group input:focus,
     .input-group select:focus {
       border-color: #8b5cf6;
       background: rgba(255, 255, 255, 0.08);
     }
-    
+
     .input-group select option {
       background: #050816;
       color: #fff;
     }
-    
+
     .input-hint {
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.5);
       margin-top: 6px;
     }
-    
+
     .result-card {
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
       border: 1px solid rgba(139, 92, 246, 0.3);
@@ -140,14 +140,14 @@
       position: sticky;
       top: 100px;
     }
-    
+
     .result-title {
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 20px;
       color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .cost-display {
       text-align: center;
       padding: 24px;
@@ -155,7 +155,7 @@
       border-radius: 12px;
       margin-bottom: 24px;
     }
-    
+
     .cost-amount {
       font-size: 3rem;
       font-weight: 800;
@@ -166,12 +166,12 @@
       line-height: 1;
       margin-bottom: 8px;
     }
-    
+
     .cost-label {
       color: rgba(255, 255, 255, 0.6);
       font-size: 0.9rem;
     }
-    
+
     .comparison-item {
       display: flex;
       justify-content: space-between;
@@ -179,21 +179,21 @@
       padding: 12px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    
+
     .comparison-item:last-child {
       border-bottom: none;
     }
-    
+
     .comparison-model {
       font-weight: 600;
       color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .comparison-cost {
       font-weight: 700;
       color: #4ade80;
     }
-    
+
     .btn-calculate {
       width: 100%;
       padding: 14px;
@@ -207,37 +207,43 @@
       transition: all 0.3s ease;
       font-family: 'Outfit', sans-serif;
     }
-    
+
     .btn-calculate:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
     }
-    
+
     .pricing-info {
       margin-top: 40px;
       padding: 24px;
       background: rgba(255, 255, 255, 0.03);
       border-radius: 12px;
     }
-    
+
     .pricing-table {
       width: 100%;
+      min-width: 460px;
       border-collapse: collapse;
       margin-top: 16px;
     }
-    
+
+    .pricing-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .pricing-table th,
     .pricing-table td {
       padding: 12px;
       text-align: left;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    
+
     .pricing-table th {
       font-weight: 600;
       color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .pricing-table td {
       color: rgba(255, 255, 255, 0.7);
       font-size: 0.9rem;
@@ -251,7 +257,7 @@
 <div class="orb orb-b"></div>
 
 <header class="header">
-  <nav class="nav shell">
+  <nav class="nav shell" aria-label="Primary navigation">
     <a class="brand" href="index.html" aria-label="Zynovix AI Home">
       <img src="/logo.png?v=20260712" alt="Zynovix AI logo"  width="52" height="52"/>
       <span>Zynovix AI</span>
@@ -290,7 +296,7 @@
       <h2>Calculate Your AI Costs</h2>
       <p>Enter your usage details to see how much different AI models will cost.</p>
     </div>
-    
+
     <div class="calculator-grid">
       <!-- Input Form -->
       <div class="calculator-card">
@@ -309,30 +315,31 @@
           </select>
           <div class="input-hint">Select the AI model you want to use</div>
         </div>
-        
+
         <div class="input-group">
           <label for="inputTokens">Input Tokens (Prompt)</label>
           <input type="number" id="inputTokens" placeholder="1000" min="0" value="1000">
           <div class="input-hint">Number of tokens in your prompt/messages</div>
         </div>
-        
+
         <div class="input-group">
           <label for="outputTokens">Output Tokens (Completion)</label>
           <input type="number" id="outputTokens" placeholder="500" min="0" value="500">
           <div class="input-hint">Expected number of tokens in the response</div>
         </div>
-        
+
         <div class="input-group">
           <label for="requests">Number of Requests (per month)</label>
           <input type="number" id="requests" placeholder="1000" min="1" value="1000">
           <div class="input-hint">How many API calls you'll make monthly</div>
         </div>
-        
+
         <button class="btn-calculate" type="button" onclick="calculateCost()">Calculate Cost</button>
-        
+
         <!-- Pricing Reference -->
         <div class="pricing-info">
           <h3 style="margin-bottom: 12px; color: rgba(255,255,255,0.9); font-size: 1.1rem;">Standard Text Pricing (per 1K tokens)</h3>
+          <div class="pricing-table-wrap" role="region" aria-label="Standard API pricing reference" tabindex="0">
           <table class="pricing-table">
             <thead>
               <tr>
@@ -389,6 +396,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <p style="margin-top: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
             Rates verified July 18, 2026. Standard text-token pricing only; caching, batch, tools, taxes, regional processing, and long-context surcharges are excluded. *Claude Sonnet 5 introductory pricing applies through August 31, 2026. **Gemini 3.1 Pro rate shown for prompts up to 200K tokens. Always confirm the
             <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener noreferrer" style="color:#7dd3fc;">OpenAI</a>,
@@ -397,16 +405,16 @@
           </p>
         </div>
       </div>
-      
+
       <!-- Results -->
       <div class="result-card">
         <div class="result-title">💰 Cost Estimate</div>
-        
+
         <div class="cost-display">
           <div class="cost-amount" id="totalCost">$0.00</div>
           <div class="cost-label">Total per month</div>
         </div>
-        
+
         <div style="margin-bottom: 24px;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <span style="color: rgba(255,255,255,0.7);">Input Cost</span>
@@ -421,7 +429,7 @@
             <span style="color: #fff; font-weight: 600;" id="perRequest">$0.00</span>
           </div>
         </div>
-        
+
         <h4 style="margin-bottom: 16px; color: rgba(255,255,255,0.9); font-size: 0.95rem;">Compare with Other Models:</h4>
         <div id="comparisonList">
           <!-- Dynamic comparison will be inserted here -->
@@ -487,21 +495,21 @@
     const inputTokens = parseFloat(document.getElementById('inputTokens').value) || 0;
     const outputTokens = parseFloat(document.getElementById('outputTokens').value) || 0;
     const requests = parseFloat(document.getElementById('requests').value) || 1;
-    
+
     const modelPricing = pricing[model];
-    
+
     // Calculate costs
     const inputCost = (inputTokens / 1000) * modelPricing.input * requests;
     const outputCost = (outputTokens / 1000) * modelPricing.output * requests;
     const totalCost = inputCost + outputCost;
     const perRequest = totalCost / requests;
-    
+
     // Update display
     document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
     document.getElementById('inputCost').textContent = '$' + inputCost.toFixed(2);
     document.getElementById('outputCost').textContent = '$' + outputCost.toFixed(2);
     document.getElementById('perRequest').textContent = '$' + perRequest.toFixed(4);
-    
+
     // Generate comparison
     generateComparison(inputTokens, outputTokens, requests, model);
   }
@@ -509,14 +517,14 @@
   function generateComparison(inputTokens, outputTokens, requests, currentModel) {
     const comparisonList = document.getElementById('comparisonList');
     let html = '';
-    
+
     Object.keys(pricing).forEach(modelKey => {
       if (modelKey !== currentModel) {
         const modelPricing = pricing[modelKey];
         const inputCost = (inputTokens / 1000) * modelPricing.input * requests;
         const outputCost = (outputTokens / 1000) * modelPricing.output * requests;
         const totalCost = inputCost + outputCost;
-        
+
         html += `
           <div class="comparison-item">
             <span class="comparison-model">${modelPricing.name}</span>
@@ -525,7 +533,7 @@
         `;
       }
     });
-    
+
     comparisonList.innerHTML = html;
   }
 

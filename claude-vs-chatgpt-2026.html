@@ -35,15 +35,6 @@
   <meta name="twitter:description" content="Which AI assistant is better in 2026? Compare Claude and ChatGPT across the tasks that actually matter.">
   <meta name="twitter:image" content="https://zynovix.github.io/logo.png?v=20260712">
 
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('zynovix-theme');
-        document.documentElement.dataset.theme = saved || 'dark';
-      } catch (e) {}
-    }());
-  </script>
-
   <style>
     :root {
       color-scheme: light;
@@ -1246,7 +1237,7 @@
           </p>
         </div>
 
-        <div class="versus-card" aria-label="Claude and ChatGPT comparison illustration">
+        <div class="versus-card" role="img" aria-label="Claude and ChatGPT comparison illustration">
           <div class="versus-stage">
             <div class="ai-orb claude">
               <div class="ai-logo" aria-hidden="true">C</div>
@@ -1295,7 +1286,7 @@
           <p><strong>ChatGPT is our overall winner for most people in 2026.</strong> The reason is not a clean sweep in raw model quality. It is the completeness of the product: strong general reasoning, web research, native image generation and editing, voice, data analysis, projects, custom GPTs, scheduled tasks, Codex, and a growing work-and-plugin ecosystem.</p>
           <p><strong>Claude is the better choice for a narrower but important group.</strong> If most of your day involves reading long documents, refining prose, maintaining a consistent tone, or collaborating on a complex codebase through Claude Code, Claude can feel more focused and less cluttered. Its Artifacts experience is also excellent for turning an idea into a shareable tool, document, visualization, or prototype.</p>
 
-          <div class="quick-grid" aria-label="Quick recommendations">
+          <div class="quick-grid" role="group" aria-label="Quick recommendations">
             <div class="quick-card">
               <span class="icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v15.5"></path><path d="M6 18h14v2H6a2 2 0 1 1 0-4h12"></path></svg>
@@ -1694,7 +1685,7 @@
           <div class="comparison-grid">
             <div class="comparison-card">
               <div class="comparison-card-head">
-                <div><h3>Writing & editing</h3><p>Prose quality, tone, and revision</p></div>
+                <div><h3>Writing &amp; editing</h3><p>Prose quality, tone, and revision</p></div>
                 <span class="tag claude">Claude wins</span>
               </div>
               <div class="comparison-card-body">
@@ -1718,7 +1709,7 @@
 
             <div class="comparison-card">
               <div class="comparison-card-head">
-                <div><h3>Research & analysis</h3><p>Sources, synthesis, and tools</p></div>
+                <div><h3>Research &amp; analysis</h3><p>Sources, synthesis, and tools</p></div>
                 <span class="tag chatgpt">ChatGPT wins</span>
               </div>
               <div class="comparison-card-body">
@@ -2130,7 +2121,8 @@ Then implement only the approved scope. Preserve existing conventions, do not re
       });
 
       if (article) {
-        var words = article.innerText.trim().split(/\s+/).filter(Boolean).length;
+        var articleText = (article.innerText || article.textContent || '').trim();
+        var words = articleText ? articleText.split(/\s+/).filter(Boolean).length : 0;
         var minutes = Math.max(1, Math.round(words / 220));
         document.getElementById('reading-time').textContent = minutes + ' min read';
       }

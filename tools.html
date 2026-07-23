@@ -346,9 +346,9 @@
 <div class="orb orb-b"></div>
 
 <header class="header">
-  <nav class="nav shell">
+  <nav class="nav shell" aria-label="Primary navigation">
     <a class="brand" href="index.html">
-      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+      <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" />
       <span>Zynovix AI</span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
@@ -381,7 +381,7 @@
       <h2>Explore by use case</h2>
       <p>Find the right AI solution for your specific needs.</p>
     </div>
-    
+
     <div class="cards three category-grid">
       <article class="card tool-card featured-tool">
         <div class="tool-icon" aria-hidden="true">🧰</div>
@@ -413,7 +413,7 @@
         <p>Create a customized workplace AI policy covering approved tools, data, human oversight, security, and training.</p>
         <a href="ai-policy-generator.html" class="btn btn-ghost">Generate Policy</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon" aria-hidden="true">🧭</div>
         <h3>Automation Opportunity Finder</h3>
@@ -427,14 +427,14 @@
         <p>Turn one automation idea into a practical workflow with inputs, AI tasks, human review, controls, KPIs, and a 30-day pilot.</p>
         <a href="ai-workflow-blueprint-generator.html" class="btn btn-ghost">Build Blueprint</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon" aria-hidden="true">🎨</div>
         <h3>AI Image Prompt Builder</h3>
         <p>Turn simple ideas into detailed prompts for ChatGPT, Midjourney, FLUX, Ideogram, Firefly, and Stable Diffusion.</p>
         <a href="ai-image-prompt-builder.html" class="btn btn-ghost">Build a Prompt</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon" aria-hidden="true">⚡</div>
         <h3>Automation ROI Calculator</h3>
@@ -447,21 +447,21 @@
         <p>AI Learning Hub to learn AI, machine learning, deep learning, and prompting step by step.</p>
         <a href="learn.html" class="btn btn-ghost">Start Learning</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon" aria-hidden="true">🧭</div>
         <h3>AI Readiness Assessment</h3>
         <p>Benchmark strategy, people, data, technology, and governance, then get a personalized 30-day action plan.</p>
         <a href="ai-readiness-assessment.html" class="btn btn-ghost">Check Readiness</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon">💰</div>
         <h3>Cost Calculator</h3>
         <p>Calculate and compare AI API costs. Free tool to estimate GPT-4, Claude, and Gemini expenses.</p>
         <a href="calculator.html" class="btn btn-ghost">Try Calculator</a>
       </article>
-      
+
       <article class="card tool-card">
         <div class="tool-icon">📝</div>
         <h3>Prompt Library</h3>
@@ -489,7 +489,7 @@
       <h2>Find Your Perfect AI Tool</h2>
       <p>Answer 4 quick questions and get a personalized recommendation.</p>
     </div>
-    
+
     <div class="quiz-container">
       <div class="quiz-progress">
         <div class="progress-dot active"></div>
@@ -497,17 +497,17 @@
         <div class="progress-dot"></div>
         <div class="progress-dot"></div>
       </div>
-      
+
       <div class="quiz-step active" data-step="1">
         <h3 style="text-align: center; margin-bottom: 10px;">What do you want to do?</h3>
         <div class="quiz-options">
-          <div class="quiz-option" data-value="writing">✍️ Writing & Content</div>
+          <div class="quiz-option" data-value="writing">✍️ Writing &amp; Content</div>
           <div class="quiz-option" data-value="coding">💻 Coding</div>
-          <div class="quiz-option" data-value="design">🎨 Design & Images</div>
+          <div class="quiz-option" data-value="design">🎨 Design &amp; Images</div>
           <div class="quiz-option" data-value="automation">⚡ Automation</div>
         </div>
       </div>
-      
+
       <div class="quiz-step" data-step="2">
         <h3 style="text-align: center; margin-bottom: 10px;">What's your budget?</h3>
         <div class="quiz-options">
@@ -517,7 +517,7 @@
           <div class="quiz-option" data-value="premium">💜 $20+/month</div>
         </div>
       </div>
-      
+
       <div class="quiz-step" data-step="3">
         <h3 style="text-align: center; margin-bottom: 10px;">Your skill level?</h3>
         <div class="quiz-options">
@@ -526,7 +526,7 @@
           <div class="quiz-option" data-value="advanced">🚀 Advanced</div>
         </div>
       </div>
-      
+
       <div class="quiz-step" data-step="4">
         <h3 style="text-align: center; margin-bottom: 10px;">What's most important to you?</h3>
         <div class="quiz-options">
@@ -536,18 +536,18 @@
           <div class="quiz-option" data-value="ease">🎯 Ease of Use</div>
         </div>
       </div>
-      
+
       <div class="quiz-step" data-step="result">
         <div class="result-card">
           <h3 style="margin-bottom: 16px;">🎉 Your Perfect AI Tool</h3>
           <div id="resultContent"></div>
-          <button class="btn btn-ghost" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
+          <button class="btn btn-ghost" type="button" onclick="restartQuiz()" style="margin-top: 20px;">Take Quiz Again</button>
         </div>
       </div>
-      
+
       <div class="quiz-nav" id="quizNav">
-        <button class="btn btn-ghost" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
-        <button class="btn btn-primary" id="nextBtn" onclick="nextStep()" disabled>Next</button>
+        <button class="btn btn-ghost" type="button" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+        <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextStep()" disabled>Next</button>
       </div>
     </div>
   </section>
@@ -558,15 +558,15 @@
       <h2>AI Tools Directory</h2>
       <p>Browse 34 curated AI tools across coding, writing, images, video, automation, agents, research, and productivity.</p>
     </div>
-    
+
     <div class="tools-filters">
       <input type="text" id="searchBox" placeholder="🔍 Search tools...">
       <select id="categoryFilter">
         <option value="">All Categories</option>
-        <option value="chatbot">Chatbots & Research</option>
+        <option value="chatbot">Chatbots &amp; Research</option>
         <option value="writing">Writing</option>
         <option value="coding">Coding</option>
-        <option value="design">Image & Design</option>
+        <option value="design">Image &amp; Design</option>
         <option value="video">Video</option>
         <option value="automation">Automation</option>
         <option value="agent">AI Agents</option>
@@ -579,7 +579,7 @@
         <option value="paid">Paid</option>
       </select>
     </div>
-    
+
     <div class="tools-grid" id="toolsGrid"></div>
     <div class="no-results" id="noResults" style="display: none;">
       <h3>No tools found</h3>
@@ -599,7 +599,7 @@
   <div class="shell footer-inner">
     <div class="footer-brand-group">
       <a class="brand" href="index.html">
-        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" />
+        <img src="/logo.png?v=20260712" alt="Zynovix AI logo" width="52" height="52" />
         <span>Zynovix AI</span>
       </a>
 

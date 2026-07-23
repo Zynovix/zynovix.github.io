@@ -345,7 +345,7 @@
       <div class="pill">Free decision tool · 2026 edition</div>
       <h1>Build an AI stack that <span>fits your work</span></h1>
       <p>Compare 18 leading AI products using your goal, budget, team size, existing ecosystem, data approach, and must-have capabilities—then create a defensible shortlist.</p>
-      <ul class="hero-facts" aria-label="Tool features">
+      <ul class="hero-facts">
         <li>Transparent fit score</li>
         <li>Up to 4 tools side by side</li>
         <li>Shareable selection</li>
@@ -720,7 +720,7 @@
           '<p class="match-reason">'+escapeHtml(resultReason(result,profile))+'</p>'+
           '<ul class="tag-list">'+tags.map(function(tag){return '<li>'+escapeHtml(tag)+'</li>';}).join("")+'</ul>'+
           '<p class="tool-caution"><strong>Validate:</strong> '+escapeHtml(tool.caution)+'</p>'+
-          '<div class="card-actions"><label class="compare-choice"><input type="checkbox" data-compare="'+tool.id+'" '+(selectedIds.indexOf(tool.id)>-1?'checked':'')+'><span>Add to comparison</span></label><a class="official-link" href="'+tool.official+'" target="_blank" rel="noopener noreferrer nofollow">Official details ↗</a><a class="official-link risk-link" href="ai-vendor-risk-assessment.html?vendor='+encodeURIComponent(tool.name)+'">Assess Vendor Risk →</a></div>'+ 
+          '<div class="card-actions"><label class="compare-choice"><input type="checkbox" data-compare="'+tool.id+'" '+(selectedIds.indexOf(tool.id)>-1?'checked':'')+'><span>Add to comparison</span></label><a class="official-link" href="'+tool.official+'" target="_blank" rel="noopener noreferrer nofollow">Official details ↗</a><a class="official-link risk-link" href="ai-vendor-risk-assessment.html?vendor='+encodeURIComponent(tool.name)+'">Assess Vendor Risk →</a></div>'+
         '</article>';
       }).join("");
       Array.prototype.forEach.call(document.querySelectorAll("[data-compare]"),function(input){input.addEventListener("change",handleCompareChange);});

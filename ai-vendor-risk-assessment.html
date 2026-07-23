@@ -338,7 +338,7 @@
       <div class="pill">Free due-diligence tool · 2026 edition</div>
       <h1>Know the risk before you <span>trust an AI vendor</span></h1>
       <p>Turn vendor claims and reviewed evidence into a transparent decision brief across privacy, security, AI governance, contracts, and operational resilience.</p>
-      <ul class="hero-facts" aria-label="Assessment features"><li>28 control questions</li><li>5 weighted dimensions</li><li>Context-aware red flags</li><li>Vendor question list</li><li>CSV and print report</li></ul>
+      <ul class="hero-facts"><li>28 control questions</li><li>5 weighted dimensions</li><li>Context-aware red flags</li><li>Vendor question list</li><li>CSV and print report</li></ul>
       <div class="hero-action"><a class="btn btn-primary" href="#assessment">Start Vendor Assessment</a></div>
       <div class="privacy-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span>Your answers are processed and saved only in this browser by this static page. Do not enter confidential contracts, security findings, personal data, credentials, or vendor secrets.</span></div>
     </section>
@@ -365,9 +365,9 @@
               <h2 id="assessmentTitle">Define the exact vendor decision</h2>
               <p class="step-intro">Assess the specific product, plan, deployment, region, and use case—not the vendor brand in general. Context changes the acceptable evidence and controls.</p>
               <div class="field-grid">
-                <div class="field"><label for="vendorName">Vendor or product name *</label><input id="vendorName" name="vendorName" maxlength="100" required placeholder="Example: Vendor AI Enterprise"><small class="field-help">Required for the report.</small></div>
-                <div class="field"><label for="planName">Product / plan / version</label><input id="planName" name="planName" maxlength="100" placeholder="Example: Enterprise annual plan"><small class="field-help">Controls often differ by plan.</small></div>
-                <div class="field"><label for="assessmentOwner">Assessment owner</label><input id="assessmentOwner" name="assessmentOwner" maxlength="100" placeholder="Name or team"><small class="field-help">Accountable reviewer or workstream.</small></div>
+                <div class="field"><label for="vendorName">Vendor or product name *</label><input type="text" id="vendorName" name="vendorName" maxlength="100" required placeholder="Example: Vendor AI Enterprise"><small class="field-help">Required for the report.</small></div>
+                <div class="field"><label for="planName">Product / plan / version</label><input type="text" id="planName" name="planName" maxlength="100" placeholder="Example: Enterprise annual plan"><small class="field-help">Controls often differ by plan.</small></div>
+                <div class="field"><label for="assessmentOwner">Assessment owner</label><input type="text" id="assessmentOwner" name="assessmentOwner" maxlength="100" placeholder="Name or team"><small class="field-help">Accountable reviewer or workstream.</small></div>
                 <div class="field"><label for="department">Business function</label><select id="department" name="department"><option value="general">General / cross-functional</option><option value="marketing">Marketing</option><option value="support">Customer support</option><option value="finance">Finance</option><option value="hr">Human resources</option><option value="legal">Legal / compliance</option><option value="it">IT / security</option><option value="development">Software development</option><option value="operations">Operations</option></select></div>
                 <div class="field"><label for="stage">Decision stage</label><select id="stage" name="stage"><option value="shortlist">Initial shortlist</option><option value="pilot" selected>Pilot preparation</option><option value="limited">Limited deployment</option><option value="production">Production / renewal</option></select></div>
                 <div class="field"><label for="impact">Potential impact</label><select id="impact" name="impact"><option value="low">Low — reversible assistance</option><option value="moderate" selected>Moderate — reviewed work</option><option value="high">High — material decisions</option><option value="critical">Critical — rights, safety, or essential service</option></select></div>
@@ -388,7 +388,7 @@
         <header class="results-header">
           <div class="decision-icon" id="decisionIcon" aria-hidden="true">?</div>
           <div class="decision-badge" id="decisionBadge"></div>
-          <h2 id="decisionTitle"></h2>
+          <h2 id="decisionTitle">Vendor risk decision</h2>
           <p id="decisionSummary"></p>
           <div class="risk-score-wrap"><div class="risk-score" id="riskScore"></div><div class="risk-score-copy"><strong id="riskLevel"></strong><span id="riskExplanation"></span></div></div>
         </header>
@@ -398,7 +398,7 @@
           <section><h3>Blocking gates and red flags</h3><div class="alert-box" id="redFlagBox"></div></section>
           <section><h3>Required next actions</h3><div class="action-grid" id="actionGrid"></div></section>
           <section><h3>Questions to send the vendor</h3><ol class="vendor-question-list" id="vendorQuestions"></ol></section>
-          <aside class="report-note" id="reportNote"></aside>
+          <aside class="report-note" id="reportNote" aria-label="Generated assessment note"></aside>
         </div>
         <div class="result-actions"><button class="btn btn-primary" type="button" id="copyButton">Copy Decision Brief</button><button class="btn btn-ghost" type="button" id="csvButton">Download CSV</button><button class="btn btn-ghost" type="button" id="printButton">Print / Save PDF</button><button class="btn btn-ghost" type="button" id="editButton">Edit Answers</button><button class="btn btn-ghost" type="button" id="resetButton">New Assessment</button><p class="action-status" id="actionStatus" role="status" aria-live="polite"></p></div>
       </article>

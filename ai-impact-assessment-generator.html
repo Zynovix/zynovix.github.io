@@ -315,9 +315,9 @@
       <div class="pill">Free governance tool · 2026 edition</div>
       <h1>Understand who an AI system could affect <span>before you deploy it</span></h1>
       <p>Map plausible impacts, test 29 lifecycle controls, expose blocking gaps, and generate an accountable mitigation and monitoring brief.</p>
-      <ul class="hero-facts" aria-label="Assessment features"><li>8 impact domains</li><li>29 control questions</li><li>Severity × likelihood matrix</li><li>Decision gates</li><li>JSON, CSV, and print report</li></ul>
+      <ul class="hero-facts"><li>8 impact domains</li><li>29 control questions</li><li>Severity × likelihood matrix</li><li>Decision gates</li><li>JSON, CSV, and print report</li></ul>
       <div class="hero-action"><a class="btn btn-primary" href="#assessment">Start Impact Assessment</a></div>
-      <aside class="privacy-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.8 2.9 8.5 7 10 4.1-1.5 7-5.2 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.8"/><path d="m9.3 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Private by design:</strong> your entries and calculations stay in this browser. Nothing is transmitted to Zynovix. Avoid entering confidential personal details; describe groups and risks at the level needed for assessment.</div></aside>
+      <aside class="privacy-note" aria-label="Privacy notice"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.8 2.9 8.5 7 10 4.1-1.5 7-5.2 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.8"/><path d="m9.3 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Private by design:</strong> your entries and calculations stay in this browser. Nothing is transmitted to Zynovix. Avoid entering confidential personal details; describe groups and risks at the level needed for assessment.</div></aside>
     </section>
 
     <section class="assessment-section shell" id="assessment">
@@ -337,8 +337,8 @@
             <span class="step-kicker">Step 1 of 7 · System context</span><h2>Define the system and decision</h2>
             <p class="step-intro">Assess one specific system, purpose, deployment, user group, and level of authority. A broad label such as “customer-service AI” is not a sufficient boundary.</p>
             <div class="field-grid">
-              <div class="field full"><label for="systemName">AI system or project name *</label><input id="systemName" name="systemName" maxlength="100" required placeholder="Example: Customer refund recommendation assistant"><small class="field-help">Use a recognizable internal name; do not enter personal data.</small></div>
-              <div class="field"><label for="owner">Accountable business owner</label><input id="owner" name="owner" maxlength="100" placeholder="Role or team"></div>
+              <div class="field full"><label for="systemName">AI system or project name *</label><input type="text" id="systemName" name="systemName" maxlength="100" required placeholder="Example: Customer refund recommendation assistant"><small class="field-help">Use a recognizable internal name; do not enter personal data.</small></div>
+              <div class="field"><label for="owner">Accountable business owner</label><input type="text" id="owner" name="owner" maxlength="100" placeholder="Role or team"></div>
               <div class="field"><label for="department">Business function</label><select id="department"><option value="general">General / cross-functional</option><option value="support">Customer support</option><option value="hr">Human resources</option><option value="finance">Finance</option><option value="health">Health / care</option><option value="education">Education</option><option value="legal">Legal / compliance</option><option value="it">IT / security</option><option value="operations">Operations</option><option value="product">Product / engineering</option><option value="marketing">Marketing / sales</option></select></div>
               <div class="field"><label for="stage">Decision stage</label><select id="stage"><option value="concept">Concept / discovery</option><option value="pilot">Pilot preparation</option><option value="limited">Limited deployment</option><option value="production">Production / material expansion</option></select></div>
               <div class="field"><label for="authority">AI role and authority</label><select id="authority"><option value="assist">Draft or assist only</option><option value="recommend">Recommend to a human</option><option value="decide">Make or materially determine a decision</option><option value="act">Take actions in systems or the world</option></select></div>
@@ -365,8 +365,8 @@
             <span class="step-kicker">Step 7 of 7 · Evidence and decision record</span><h2>Record what has actually been reviewed</h2><p class="step-intro">Select only current artifacts, tests, or engagement that apply to this system and use case. Planned work is not reviewed evidence.</p>
             <fieldset class="evidence-fieldset"><legend>Evidence coverage</legend><div class="evidence-grid" id="evidenceGrid"></div></fieldset>
             <div class="field-grid">
-              <div class="field"><label for="assessmentOwner">Assessment owner</label><input id="assessmentOwner" maxlength="100" placeholder="Role or team"></div>
-              <div class="field"><label for="reviewDate">Next review date or cadence</label><input id="reviewDate" maxlength="100" placeholder="Example: Before pilot, then quarterly"></div>
+              <div class="field"><label for="assessmentOwner">Assessment owner</label><input type="text" id="assessmentOwner" maxlength="100" placeholder="Role or team"></div>
+              <div class="field"><label for="reviewDate">Next review date or cadence</label><input type="text" id="reviewDate" maxlength="100" placeholder="Example: Before pilot, then quarterly"></div>
               <div class="field full"><label for="notes">Important assumptions, conditions, or unresolved questions</label><textarea id="notes" maxlength="1200" placeholder="Record assumptions, known limitations, conditions, owners, deadlines, and topics requiring specialist review."></textarea></div>
             </div>
             <p class="profile-note"><strong>Important:</strong> this generator is a general planning aid. It does not determine legal applicability or replace a required AIA, DPIA, FRIA, safety assessment, accessibility review, consultation, audit, or approval.</p>
@@ -386,7 +386,7 @@
           <section><h3>Decision gates and priority gaps</h3><div class="alert-box" id="gateBox"></div></section>
           <section><h3>Required mitigation plan</h3><div class="action-grid" id="actionGrid"></div></section>
           <section><h3>Monitoring and review plan</h3><div class="monitor-grid" id="monitorGrid"></div></section>
-          <aside class="report-note" id="reportNote"></aside>
+          <aside class="report-note" id="reportNote" aria-label="Generated assessment note"></aside>
         </div>
         <div class="result-actions"><button class="btn btn-primary" type="button" id="copyButton">Copy Impact Brief</button><button class="btn btn-ghost" type="button" id="jsonButton">Download JSON</button><button class="btn btn-ghost" type="button" id="csvButton">Download CSV</button><button class="btn btn-ghost" type="button" id="printButton">Print / Save PDF</button><button class="btn btn-ghost" type="button" id="editButton">Edit Assessment</button><button class="btn btn-ghost" type="button" id="resetButton">New Assessment</button><p class="action-status" id="actionStatus" role="status" aria-live="polite"></p></div>
       </article>

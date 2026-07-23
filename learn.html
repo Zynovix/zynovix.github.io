@@ -45,7 +45,7 @@
     "mainEntity": {
       "@type": "ItemList",
       "name": "AI Learning Paths",
-      "numberOfItems": 4,
+      "numberOfItems": 5,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -70,6 +70,12 @@
           "position": 4,
           "name": "AI Prompt Challenge",
           "url": "https://zynovix.github.io/ai-prompt-challenge.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "AI Coding Tools Hub 2026",
+          "url": "https://zynovix.github.io/ai-coding-tools-hub-2026.html"
         }
       ]
     }
@@ -157,6 +163,54 @@
       }
     }
   </style>
+  <style id="learn-coding-hub-styles">
+    .learn-coding-hub {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      margin-top: 18px;
+      padding: 28px;
+      border: 1px solid rgba(124, 58, 237, .34);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(34, 211, 238, .13), transparent 38%),
+        linear-gradient(135deg, rgba(124, 58, 237, .14), rgba(37, 99, 235, .1));
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .18);
+    }
+
+    .learn-coding-hub h3 {
+      margin: 5px 0 8px;
+      color: #fff;
+      font-size: clamp(24px, 4vw, 34px);
+    }
+
+    .learn-coding-hub p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255, 255, 255, .68);
+      line-height: 1.7;
+    }
+
+    .learn-coding-hub .coding-label {
+      color: #75e3ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      .learn-coding-hub {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .learn-coding-hub .btn {
+        width: 100%;
+      }
+    }
+  </style>
 
   <link rel="stylesheet" href="/site-system.css?v=20260723">
 </head>
@@ -211,6 +265,15 @@
         <p>Choose the strongest prompt, learn from instant explanations, track your best score, and practice safer, clearer AI instructions.</p>
       </div>
       <a href="ai-prompt-challenge.html" class="btn btn-primary">Play Free</a>
+    </div>
+
+    <div class="learn-coding-hub" id="coding-hub">
+      <div>
+        <span class="coding-label">Professional Learning Hub</span>
+        <h3>AI Coding Tools Hub 2026</h3>
+        <p>Explore our complete guide, independent reviews, direct comparisons, and a practical selection framework for AI coding editors, assistants, and agents.</p>
+      </div>
+      <a href="ai-coding-tools-hub-2026.html" class="btn btn-primary">Explore the Hub</a>
     </div>
   </section>
 

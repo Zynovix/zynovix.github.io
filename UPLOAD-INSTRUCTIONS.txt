@@ -1,13 +1,24 @@
-Zynovix logo update package
+Zynovix AI — GitHub Pages deployment package
+Updated: 2026-07-23
 
-1. Upload logo.png to the root of the GitHub repository, beside index.html.
-2. Replace the HTML files in the repository with the matching files from this folder.
-3. Keep the filename exactly logo.png (lowercase).
-4. Commit changes, wait for GitHub Pages deployment, then refresh with Ctrl+F5.
+1. Extract the ZIP file on your computer.
+2. Open the zynovix.github.io-main folder.
+3. Upload all 84 files and folders inside it to the ROOT of your GitHub repository.
+4. Preserve the assets/og folder and all six PNG files inside it.
+5. Replace existing files when GitHub asks, then commit the changes.
+6. Wait for GitHub Pages deployment and refresh the website with Ctrl+F5.
 
-All included HTML pages now use the same white-background Zynovix logo for:
-- Header
-- Footer
-- Favicon
-- Open Graph
-- Structured data where applicable
+Important:
+- Do not upload the outer zynovix.github.io-main folder as a nested repository folder.
+- Do not rename files or change uppercase/lowercase letters.
+- The old nested backup zynovix_all_pages_logo_fixed.zip is intentionally excluded.
+- The homepage still contains exactly 10 cards.
+- Dark mode is preserved; no theme switch or sun icon was added.
+
+Dedicated 1200x630 Open Graph images are configured for:
+- Homepage
+- AI Tools Directory
+- Free AI Prompt Library
+- AI Image Prompt Builder
+- Claude vs ChatGPT (2026)
+- 25 Best Free AI Tools (2026)
